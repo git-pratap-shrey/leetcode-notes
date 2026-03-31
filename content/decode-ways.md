@@ -3,18 +3,19 @@
 **Pattern:** Dynamic Programming (1D)
 
 **Brute Force:** 
-Generate all possible recursive splits of the string and verify if each substring maps to a valid character (1-26). This results in an exponential $O(2^n)$ time complexity due to redundant calculations of overlapping subproblems.
+Generate all possible recursive partitions of the string by branching on 1-digit and 2-digit substrings, validating each against the mapping (1-26).
+*   **Complexity:** $O(2^n)$ due to redundant subproblems in the recursion tree.
 
 **Optimal Approach:**
-Define `dp[i]` as the number of ways to decode the substring `s[0...i-1]`.
-*   **Transition:**
-    1.  If the single digit `s[i-1]` is valid ('1'-'9'), add `dp[i-1]`.
-    2.  If the two-digit combination `s[i-2...i-1]` is valid ('10'-'26'), add `dp[i-2]`.
-*   **Base Case:** `dp[0] = 1` (empty string) and `dp[1] = 1` (if first char valid).
-*   **Complexity:** Time $O(n)$, Space $O(n)$ (can be optimized to $O(1)$ by keeping only the last two variables).
+Define `dp[i]` as the number of ways to decode the prefix of length `i`. 
+*   **Transitions:**
+    1. If `s[i-1]` is '1'-'9', add `dp[i-1]`.
+    2. If `s[i-2:i]` is '10'-'26', add `dp[i-2]`.
+*   **Space Optimization:** Since `dp[i]` only depends on the previous two states, reduce space from $O(n)$ to $O(1)$ by using two variables.
+*   **Complexity:** Time $O(n)$, Space $O(1)$.
 
 **The 'Aha' Moment:**
-When you realize that the number of ways to decode a string depends entirely on the outcomes of the two preceding positions, it reveals that you are solving a classic tiling or path-counting problem masked by character mappings.
+When a problem asks for the *number of ways* to interpret a sequence where each choice depends on one or two preceding elements, it is a classic indicator that the problem can be broken down into overlapping sub-problems solvable via DP.
 
-**Summary:**
-Decode Ways is just the Fibonacci sequence with constraints; treat it as a step-counting problem where each "step" is either 1 or 2 characters wide.
+**Summary:** 
+Think of this as "Climbing Stairs" with a constraint: each step can be a single digit (1–9) or a valid pair (10–26), where invalid moves (like '0' or >26) act as zero-probability branches.
