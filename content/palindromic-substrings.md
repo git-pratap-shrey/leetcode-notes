@@ -3,14 +3,14 @@
 **Pattern:** Expand Around Center (Two Pointers)
 
 **Brute Force:**
-Generate all possible substrings ($O(n^2)$) and check if each is a palindrome ($O(n)$), resulting in a total complexity of **$O(n^3)$**.
+Generate all possible substrings ($O(n^2)$) and verify if each is a palindrome ($O(n)$), resulting in a total complexity of **$O(n^3)$**.
 
 **Optimal Approach:**
-A palindrome mirrors around its center. Since a palindrome of length $n$ has $2n-1$ possible centers (each character and the space between characters), iterate through every center and expand outwards as long as the characters match.
+Treat every index (and the gap between indices) as a potential center of a palindrome. Expand outward as long as characters match.
 *   **Complexity:** **$O(n^2)$** time; **$O(1)$** space.
 
 **The 'Aha' Moment:**
-When a problem asks for all substrings with a specific property, don't build the substrings; instead, treat every index as a potential anchor point to "grow" your solution.
+A palindrome's symmetry allows you to grow outwards from its core, meaning you don't need to re-scan substrings—you only need to check the boundaries of the previous expansion.
 
 **Summary:** 
-To count palindromes efficiently, treat every character and every gap between characters as a center and expand outward until the symmetry breaks.
+Whenever you need to count palindromes, "expand from the middle" to turn a $O(n^3)$ validation problem into a $O(n^2)$ search.
