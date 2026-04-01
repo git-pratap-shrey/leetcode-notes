@@ -63,25 +63,25 @@ int** merge(int** intervals, int intervalsSize, int* intervalsColSize, int* retu
 
 # Submission Review
 ## Approach
-*   **Technique:** Sorting followed by a single linear pass (Greedy).
-*   **Optimality:** Optimal. The problem requires $O(n \log n)$ time due to the sorting requirement, and the linear pass handles merging in $O(n)$.
+- **Technique:** Sorting followed by a greedy linear scan.
+- **Optimality:** Optimal. The problem requires $O(N \log N)$ time due to the necessity of sorting, and the linear scan processes each interval exactly once.
 
 ## Complexity
-*   **Time Complexity:** $O(n \log n)$, where $n$ is the number of intervals, dominated by `qsort`.
-*   **Space Complexity:** $O(n)$ to store the output array. Note: The code allocates $O(n)$ space for the output even if all intervals merge into one, which is safe but occasionally slightly inefficient regarding peak memory usage.
+- **Time Complexity:** $O(N \log N)$, where $N$ is `intervalsSize`. The `qsort` dominates the runtime.
+- **Space Complexity:** $O(N)$ for the output array `arr` and column size tracking.
 
 ## Efficiency Feedback
-*   **Memory Allocation:** The code performs $n+1$ calls to `malloc` for the rows and the column-size array. While functional, this can lead to heap fragmentation. In competitive programming, it is often more efficient to allocate one contiguous block of memory for all interval data if possible.
-*   **Efficiency:** The logic is efficient. The use of an auxiliary pointer array to sort the input is the correct way to handle intervals in C.
+- **Runtime:** Very efficient. Memory allocation is proportional to the input size, which is unavoidable. 
+- **Optimization:** You could technically reuse the input array memory to perform the merge in-place if the problem constraints allowed modifying the input. However, since the caller expects a new structure for the return value, the current approach is standard.
 
 ## Code Quality
-*   **Readability:** Good. The logic flow is standard and easy to follow.
-*   **Structure:** Good. Handles edge cases (empty input) correctly.
-*   **Naming:** Good. The variable names `arr` and `k` are clear in the context of the algorithm.
-*   **Concrete Improvements:**
-    *   **Safety:** While `x[0] - y[0]` is common in `cmp` functions, it can overflow if interval coordinates are very large (near `INT_MIN` or `INT_MAX`). Using `(x[0] > y[0]) - (x[0] < y[0])` is a safer, overflow-proof idiom.
-    *   **Resource Management:** In a professional or long-running context, you should consider adding a cleanup path to `free` already allocated memory if a subsequent `malloc` fails, though this is usually ignored in competitive programming.
-    *   **Consistency:** The `returnColumnSizes` allocation is standard, but you could initialize it using `calloc` or a single loop logic to keep it compact.
+- **Readability:** Good. The logic is clean and easy to follow.
+- **Structure:** Good. Standard C implementation for competitive programming memory requirements.
+- **Naming:** Good. The variable names `arr` and `k` are standard for this algorithm.
+- **Concrete Improvements:**
+    - **Robustness:** The comparator function `x[0] - y[0]` can cause integer overflow if interval values are near `INT_MIN` or `INT_MAX`. Use `(x[0] > y[0]) - (x[0] < y[0])` to safely handle all integer ranges.
+    - **Memory Allocation:** If `intervalsSize` is large, repeated `malloc` calls for `arr[i]` can be slow. A single `malloc` for the entire 2D structure (or a block for the inner arrays) would be slightly more cache-friendly.
+    - **Minor:** The `if(intervalsSize == 0)` check is correct, but consider initializing `*returnColumnSizes` to `NULL` to prevent dangling pointers if it were ever accessed incorrectly.
 
 ---
 ---
@@ -90,23 +90,25 @@ int** merge(int** intervals, int intervalsSize, int* intervalsColSize, int* retu
 # Question Revision
 ### Revision Report: Merge Intervals
 
-**Pattern:** Sorting + Greedy (Linear Scan)
+**Pattern:** Sorting + Greedy (Sweep Line)
 
-**Brute Force:**
-Compare every interval with every other interval to check for overlaps, repeatedly merging and updating the list until no further merges are possible.
-*   **Time Complexity:** $O(n^2)$
-*   **Space Complexity:** $O(n)$ (or $O(1)$ if modifying in-place)
+**Brute Force:** 
+Compare every interval with every other interval to check for overlaps, repeatedly merging until no overlaps remain. 
+*   **Time:** $O(n^2)$
+*   **Space:** $O(n)$ (to store the result)
 
 **Optimal Approach:**
-1.  **Sort:** Sort the list of intervals primarily by their start times.
-2.  **Linear Scan:** Initialize an empty list for merged intervals. Iterate through the sorted intervals; if the current interval's start is less than or equal to the previous interval's end, merge them by updating the end time. Otherwise, push the current interval as a new entry.
-*   **Time Complexity:** $O(n \log n)$ due to the sorting step.
-*   **Space Complexity:** $O(n)$ to store the result.
+1.  **Sort** the intervals by their start times ($O(n \log n)$).
+2.  Iterate through the sorted list, maintaining a `current_interval`.
+3.  If the next interval's start is $\le$ the `current_interval`'s end, merge them by updating the `current_interval`'s end to the maximum of both ends.
+4.  Otherwise, push the `current_interval` to the results and start a new one.
+*   **Time:** $O(n \log n)$ due to sorting.
+*   **Space:** $O(n)$ or $O(\log n)$ depending on the sorting implementation.
 
 **The 'Aha' Moment:**
-When a problem asks to process ranges, sorting by the start coordinate collapses the complexity because it guarantees that any overlapping intervals will be adjacent in the sequence.
+When a problem involves overlapping ranges, sorting by the start time transforms a chaotic search space into a linear sequence where you only ever need to compare the "current" interval with the "next" one.
 
-**Summary:**
-Always sort by start time first to transform a global comparison problem into a local, linear merge operation.
+**Summary:** 
+Always sort intervals by start time first, then greedily track the "end" boundary to determine if the next interval extends your current range or starts a new one.
 
 ---

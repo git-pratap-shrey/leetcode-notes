@@ -31,60 +31,69 @@ int pivotIndex(int* nums, int numsSize) {
 # Submission Review
 ## Approach
 *   **Technique:** Prefix Sum / Linear Scan.
-*   **Optimal:** Yes. The approach calculates the total sum once and maintains a running prefix sum to check the pivot condition in $O(1)$ per index.
+*   **Optimality:** Optimal. The algorithm computes the total sum once and performs a single pass to check the pivot condition.
 
 ## Complexity
-*   **Time Complexity:** $O(n)$, where $n$ is `numsSize`. It iterates through the array twice.
-*   **Space Complexity:** $O(1)$, as it uses a fixed number of integer variables regardless of input size.
+*   **Time Complexity:** $O(N)$, where $N$ is `numsSize`. It iterates through the array twice (once for total sum, once for the pivot check).
+*   **Space Complexity:** $O(1)$. No auxiliary data structures are used.
 
 ## Efficiency Feedback
-*   The logic is efficient. The only minor overhead is the redundant check for `i=0` outside the loop, followed by a loop starting from `i=1`.
-*   **Optimization:** You can merge the `i=0` case into the loop by initializing `prefix = 0` and iterating from `0` to `n-1`. This would simplify the code while maintaining identical performance.
+*   The logic is highly efficient.
+*   **Optimization:** The initial `if` block for `i=0` can be merged into the main loop by setting `prefix = 0` and iterating from `i = 0`. Inside the loop, the condition `prefix == (sum - prefix - nums[i])` naturally covers the index 0 case.
 
 ## Code Quality
-*   **Readability:** Good. The logic is straightforward and easy to follow.
-*   **Structure:** Moderate. The code handles the first element as an edge case, which is unnecessary and slightly complicates the flow.
-*   **Naming:** Good. `sum` and `prefix` clearly represent their roles.
-*   **Improvements:**
-    *   Merge the loops to make the code more concise:
-    ```c
-    int pivotIndex(int* nums, int numsSize) {
-        long long totalSum = 0; // Use long long to prevent potential overflow
-        for(int i = 0; i < numsSize; i++) totalSum += nums[i];
-        
-        long long leftSum = 0;
-        for(int i = 0; i < numsSize; i++) {
-            if(leftSum == (totalSum - leftSum - nums[i])) return i;
-            leftSum += nums[i];
-        }
-        return -1;
+*   **Readability:** Good. The logic is clear and follows standard prefix sum patterns.
+*   **Structure:** Moderate. The code duplication (the special `if` block before the loop) makes it slightly more verbose than necessary.
+*   **Naming:** Good. Variables `sum` and `prefix` clearly represent their purposes.
+
+### Concrete Improvements
+Simplify the structure by removing the initial `if` check and starting the loop at 0:
+
+```c
+int pivotIndex(int* nums, int numsSize) {
+    int sum = 0;
+    for (int i = 0; i < numsSize; i++) {
+        sum += nums[i];
     }
-    ```
-    *   Consider using `long long` for `sum` and `prefix` if the input constraints allow the total sum to exceed the range of a 32-bit signed integer.
+
+    int prefix = 0;
+    for (int i = 0; i < numsSize; i++) {
+        // sum - prefix - nums[i] is the right sum
+        if (prefix == (sum - prefix - nums[i])) {
+            return i;
+        }
+        prefix += nums[i];
+    }
+    return -1;
+}
+```
+*   **Benefit:** This removes the redundancy and ensures the code is more maintainable and cleaner.
 
 ---
 ---
 
 
 # Question Revision
-### Revision Report: Find Pivot Index
+### Problem: Find Pivot Index
 
-**Pattern:** Prefix Sum / Running Total
+**Pattern:** Prefix Sum
 
-**Brute Force:** 
-For each element, calculate the sum of all elements to the left and all elements to the right by iterating through the array again ($O(n^2)$ time, $O(1)$ space).
+**Brute Force:**
+For every index $i$, iterate through all elements to the left to calculate the left sum and all elements to the right to calculate the right sum.
+*   **Time Complexity:** $O(n^2)$
+*   **Space Complexity:** $O(1)$
 
 **Optimal Approach:**
-1. Calculate the `totalSum` of the array once.
-2. Iterate through the array maintaining a `leftSum`. 
-3. At any index $i$, the `rightSum` is implicitly `totalSum - leftSum - nums[i]`.
-4. If `leftSum == rightSum`, return index $i$.
-5. **Complexity:** $O(n)$ time, $O(1)$ space.
+1. Calculate the `totalSum` of the array.
+2. Initialize `leftSum = 0`. Iterate through the array; for each element `nums[i]`, the `rightSum` is `totalSum - leftSum - nums[i]`.
+3. If `leftSum == rightSum`, return `i`. Otherwise, add `nums[i]` to `leftSum` and continue.
+*   **Time Complexity:** $O(n)$
+*   **Space Complexity:** $O(1)$
 
 **The 'Aha' Moment:**
-When the problem asks for a point where the balance of two sides must be equal, recognize that the total sum is a constant, allowing you to derive the "right side" simply by subtracting the "left side" and current element from the total.
+Whenever a problem asks you to compare a running total against a remaining balance, treat the "total" as a constant and derive the parts using subtraction to avoid nested loops.
 
 **Summary:** 
-Whenever a pivot point divides an array into two dynamic segments, pre-calculating the total sum allows you to derive the right-side balance in $O(1)$ time during a single pass.
+Use a total sum variable to transform a "sum of sides" comparison into an $O(1)$ arithmetic check at each index.
 
 ---
