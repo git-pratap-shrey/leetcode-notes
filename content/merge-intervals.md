@@ -63,51 +63,50 @@ int** merge(int** intervals, int intervalsSize, int* intervalsColSize, int* retu
 
 # Submission Review
 ## Approach
-*   **Technique:** Sorting followed by a single-pass linear scan (Greedy approach).
-*   **Optimality:** Optimal. Sorting is necessary to process intervals in linear time.
+*   **Technique:** Sorting followed by a single linear pass (Greedy).
+*   **Optimality:** Optimal. The problem requires $O(n \log n)$ time due to the sorting requirement, and the linear pass handles merging in $O(n)$.
 
 ## Complexity
-*   **Time Complexity:** $O(N \log N)$ due to `qsort`, where $N$ is the number of intervals. The subsequent scan is $O(N)$.
-*   **Space Complexity:** $O(N)$ to store the result set. Note that the memory allocation for `arr` is worst-case $O(N)$.
+*   **Time Complexity:** $O(n \log n)$, where $n$ is the number of intervals, dominated by `qsort`.
+*   **Space Complexity:** $O(n)$ to store the output array. Note: The code allocates $O(n)$ space for the output even if all intervals merge into one, which is safe but occasionally slightly inefficient regarding peak memory usage.
 
 ## Efficiency Feedback
-*   **Memory Overhead:** The solution performs $O(N)$ individual `malloc` calls for the inner arrays. This can lead to heap fragmentation and overhead. Consider allocating one contiguous block of memory for all interval pairs if performance is critical.
-*   **Redundancy:** The `returnColumnSizes` allocation is correct, but since every output interval is guaranteed to be size 2, this is effectively overhead.
+*   **Memory Allocation:** The code performs $n+1$ calls to `malloc` for the rows and the column-size array. While functional, this can lead to heap fragmentation. In competitive programming, it is often more efficient to allocate one contiguous block of memory for all interval data if possible.
+*   **Efficiency:** The logic is efficient. The use of an auxiliary pointer array to sort the input is the correct way to handle intervals in C.
 
 ## Code Quality
 *   **Readability:** Good. The logic flow is standard and easy to follow.
-*   **Structure:** Good. Input edge cases (empty array) are handled correctly.
-*   **Naming:** Good. Variable names like `arr` and `k` are standard for this type of algorithm, though `result` or `merged` would be more descriptive than `arr`.
+*   **Structure:** Good. Handles edge cases (empty input) correctly.
+*   **Naming:** Good. The variable names `arr` and `k` are clear in the context of the algorithm.
 *   **Concrete Improvements:**
-    1.  **Integer Overflow:** The `cmp` function uses `x[0] - y[0]`. While standard for small values, if the interval boundaries can be large (near `INT_MIN` or `INT_MAX`), this will overflow. Use `(x[0] > y[0]) - (x[0] < y[0])` for safety.
-    2.  **Memory Management:** The current implementation does not explicitly handle the case where `intervals` contains individual pointer arrays. It assumes the caller passed a well-formed 2D array structure.
-    3.  **Unused `intervalsColSize`:** The parameter `intervalsColSize` is ignored, which is acceptable since the problem defines the width as 2, but it should be noted.
+    *   **Safety:** While `x[0] - y[0]` is common in `cmp` functions, it can overflow if interval coordinates are very large (near `INT_MIN` or `INT_MAX`). Using `(x[0] > y[0]) - (x[0] < y[0])` is a safer, overflow-proof idiom.
+    *   **Resource Management:** In a professional or long-running context, you should consider adding a cleanup path to `free` already allocated memory if a subsequent `malloc` fails, though this is usually ignored in competitive programming.
+    *   **Consistency:** The `returnColumnSizes` allocation is standard, but you could initialize it using `calloc` or a single loop logic to keep it compact.
 
 ---
 ---
 
 
 # Question Revision
-### Merge Intervals Revision Report
+### Revision Report: Merge Intervals
 
-**Pattern:** Sorting + Linear Scan
+**Pattern:** Sorting + Greedy (Linear Scan)
 
-**Brute Force:** 
-For every interval, compare it against all other intervals to check for overlaps and merge, then repeat until no more merges are possible.
+**Brute Force:**
+Compare every interval with every other interval to check for overlaps, repeatedly merging and updating the list until no further merges are possible.
 *   **Time Complexity:** $O(n^2)$
-*   **Space Complexity:** $O(n)$ (for the output array)
+*   **Space Complexity:** $O(n)$ (or $O(1)$ if modifying in-place)
 
-**Optimal Approach:** 
-1. Sort the intervals by their start times.
-2. Initialize an empty list and add the first interval.
-3. Iterate through the remaining intervals: if the current interval's start is $\le$ the last added interval's end, merge them by updating the end of the last added interval. Otherwise, append the current interval.
-*   **Time Complexity:** $O(n \log n)$ due to sorting.
-*   **Space Complexity:** $O(n)$ to store the merged intervals.
+**Optimal Approach:**
+1.  **Sort:** Sort the list of intervals primarily by their start times.
+2.  **Linear Scan:** Initialize an empty list for merged intervals. Iterate through the sorted intervals; if the current interval's start is less than or equal to the previous interval's end, merge them by updating the end time. Otherwise, push the current interval as a new entry.
+*   **Time Complexity:** $O(n \log n)$ due to the sorting step.
+*   **Space Complexity:** $O(n)$ to store the result.
 
-**The 'Aha' Moment:** 
-The problem requires checking relationships between multiple ranges, and sorting by the start time guarantees that any potential overlaps will be adjacent in the sorted list.
+**The 'Aha' Moment:**
+When a problem asks to process ranges, sorting by the start coordinate collapses the complexity because it guarantees that any overlapping intervals will be adjacent in the sequence.
 
-**Summary:** 
-Sort by start time to turn a global search problem into a local, sequential neighbor-comparison problem.
+**Summary:**
+Always sort by start time first to transform a global comparison problem into a local, linear merge operation.
 
 ---
