@@ -1,6 +1,50 @@
+---
+title: "Pascal's Triangle"
+slug: pascals-triangle
+
+---
+---
+
+# My Solution
+~~~c
+/**
+ * Return an array of arrays of size *returnSize.
+ * The sizes of the arrays are returned as *returnColumnSizes array.
+ * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
+ */
+int** generate(int numRows, int* returnSize, int** returnColumnSizes) {
+
+    int** arr = (int**)malloc(numRows * sizeof(int*));
+    *returnSize=numRows;
+    *returnColumnSizes = (int*)malloc(numRows * sizeof(int));
+    for(int i = 0; i < numRows; i++) {
+        arr[i] = (int*)malloc((i + 1) * sizeof(int));
+        (*returnColumnSizes)[i]=i+1;
+    }
+    arr[0][0]=1;
+    if(numRows==1){
+        return arr;
+    }
+    arr[1][0]=arr[1][1]=1;
+    if(numRows==2){
+        return arr;
+    }
+
+    for(int i=2;i<numRows;i++){
+        arr[i][0]=arr[i][i]=1;
+        for(int j=1;j<i;j++){
+            arr[i][j]=arr[i-1][j-1]+arr[i-1][j];
+        }
+
+
+    }
+    return arr;
+
+    
+}
+~~~
 
 # Submission Review
-
 ## Approach
 *   **Technique:** Dynamic Programming / Iterative construction.
 *   **Optimality:** Optimal. The solution builds the triangle row-by-row using the property $C(n, k) = C(n-1, k-1) + C(n-1, k)$, which is the standard $O(N^2)$ approach for generating Pascal's Triangle.
@@ -36,9 +80,10 @@ for (int i = 0; i < numRows; i++) {
 *This block removes the need for special case handling entirely.*
 
 ---
+---
+
 
 # Question Revision
-
 ### Revision Report: Pascal's Triangle
 
 **Pattern:** Dynamic Programming / Iterative Construction
@@ -57,3 +102,4 @@ The visual structure of the triangle reveals that every interior element is phys
 **Summary:** 
 Always derive the current state from the immediate previous state to turn a combinatorial math problem into a simple additive sequence.
 
+---

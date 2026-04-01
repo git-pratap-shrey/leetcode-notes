@@ -1,6 +1,67 @@
+---
+title: "Merge Intervals"
+slug: merge-intervals
+
+---
+---
+
+# My Solution
+~~~c
+/**
+ * Return an array of arrays of size *returnSize.
+ * The sizes of the arrays are returned as *returnColumnSizes array.
+ * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
+ */
+int cmp(const void* a, const void* b) {
+    int* x = *(int**)a;
+    int* y = *(int**)b;
+    return x[0] - y[0];
+}
+
+int** merge(int** intervals, int intervalsSize, int* intervalsColSize, int* returnSize, int** returnColumnSizes) {
+
+    if(intervalsSize == 0){
+        *returnSize = 0;
+        return NULL;
+    }
+
+    qsort(intervals, intervalsSize, sizeof(int*), cmp);
+
+    int** arr = (int**)malloc(sizeof(int*) * intervalsSize);
+    for(int i = 0; i < intervalsSize; i++){
+        arr[i] = (int*)malloc(sizeof(int) * 2);
+    }
+
+    int k = 0;
+    arr[0][0] = intervals[0][0];
+    arr[0][1] = intervals[0][1];
+
+    for(int i = 1; i < intervalsSize; i++){
+        if(intervals[i][0] <= arr[k][1]) {
+            
+            if(intervals[i][1] > arr[k][1]){
+                arr[k][1] = intervals[i][1];
+            }
+        } else {
+           
+            k++;
+            arr[k][0] = intervals[i][0];
+            arr[k][1] = intervals[i][1];
+        }
+    }
+
+    *returnSize = k + 1;
+
+    *returnColumnSizes = (int*)malloc(sizeof(int) * (*returnSize));
+    for(int i = 0; i < *returnSize; i++){
+        (*returnColumnSizes)[i] = 2;
+    }
+
+    return arr;
+}
+~~~
 
 # Submission Review
-
 ## Approach
 *   **Technique:** Sorting followed by a single-pass linear scan (Greedy approach).
 *   **Optimality:** Optimal. Sorting is necessary to process intervals in linear time.
@@ -23,9 +84,10 @@
     3.  **Unused `intervalsColSize`:** The parameter `intervalsColSize` is ignored, which is acceptable since the problem defines the width as 2, but it should be noted.
 
 ---
+---
+
 
 # Question Revision
-
 ### Merge Intervals Revision Report
 
 **Pattern:** Sorting + Linear Scan
@@ -48,3 +110,4 @@ The problem requires checking relationships between multiple ranges, and sorting
 **Summary:** 
 Sort by start time to turn a global search problem into a local, sequential neighbor-comparison problem.
 
+---

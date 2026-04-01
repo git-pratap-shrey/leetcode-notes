@@ -1,6 +1,38 @@
+---
+title: "Rotate Image"
+slug: rotate-image
+
+---
+---
+
+# My Solution
+~~~c
+void rotate(int** matrix, int matrixSize, int* matrixColSize) {
+    int temp;
+    int col=matrixColSize[0];
+    for(int i=0;i<matrixSize;i++){
+        for(int j=i;j<col;j++){
+            temp=matrix[j][i];
+            matrix[j][i]=matrix[i][j];
+            matrix[i][j]=temp;
+        }
+    }
+    int a,b;
+    for(int i=0;i<matrixSize;i++){
+        a=0,b=col-1;
+        while(a<b){
+            temp=matrix[i][a];
+            matrix[i][a]=matrix[i][b];
+            matrix[i][b]=temp;
+            a++;
+            b--;
+        }
+    }  
+    
+}
+~~~
 
 # Submission Review
-
 ## Approach
 *   **Technique:** In-place matrix manipulation using two steps: transposition (swapping `matrix[i][j]` with `matrix[j][i]`) followed by a horizontal flip (reversing each row).
 *   **Optimality:** Optimal. This is the standard in-place algorithm for rotating an $N \times N$ matrix by 90 degrees clockwise.
@@ -37,9 +69,10 @@ for (int i = 0; i < matrixSize; i++) {
 ```
 
 ---
+---
+
 
 # Question Revision
-
 ### Revision Report: Rotate Image
 
 **Pattern:** Matrix Manipulation / In-place Transformation
@@ -62,3 +95,4 @@ Recognizing that a 90-degree clockwise rotation is mathematically equivalent to 
 **Summary:** 
 To rotate a matrix in-place, transpose it first, then flip it horizontally.
 
+---
