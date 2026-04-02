@@ -62,36 +62,37 @@ async function submitUser() {
   btn.disabled = true;
   status.textContent = 'Registering...';
 
+  let res, rawText, data;
+
   try {
-    const res = await fetch('https://suite-avon-sheriff-slideshow.trycloudflare.com/webhook/register-user', {
-      // const res = await fetch('http://localhost:5678/webhook-test/register-user', {
+    res = await fetch('https://suite-avon-sheriff-slideshow.trycloudflare.com/webhook/register-user', {
       method: 'POST',
       mode: 'cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username })
     });
-
-    const data = await res.json();
-
-    if (!res.ok) {
-      status.textContent = '❌ ' + (data.error || 'Something went wrong.');
-      btn.disabled = false;
-      return;
-    }
-
-    // Swap form out entirely
-    document.getElementById('lc-submit').innerHTML = `
-      <div style="padding: 1rem; border-left: 3px solid var(--secondary);">
-        <strong>✅ You're registered, ${username}!</strong>
-        <p style="margin-top: 0.5rem; opacity: 0.8;">
-          Notes get generated on the next sync (runs daily at 5:30 AM).<br/>
-          Your page will be at <a href="/content/${username}">/content/${username}</a> after the first run.
-        </p>
-      </div>
-    `;
+    rawText = await res.text();
   } catch (e) {
     status.textContent = '❌ Could not reach the server. Is the tunnel running?';
     btn.disabled = false;
+    return;
   }
+
+  try {
+    data = JSON.parse(rawText);
+  } catch (e) {
+    status.textContent = '❌ Unexpected response from server: ' + rawText.slice(0, 100);
+    btn.disabled = false;
+    return;
+  }
+
+  if (!res.ok) {
+    status.textContent = '❌ ' + (data.error || 'Something went wrong.');
+    btn.disabled = false;
+    return;
+  }
+
+  // Redirect to the user's page
+  window.location.href = '/leetcode-notes/' + username;
 }
 </script>
