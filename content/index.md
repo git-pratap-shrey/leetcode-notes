@@ -79,7 +79,7 @@ async function submitUser() {
   }
 
   try {
-    data = JSON.parse(rawText);
+    data = JSON.parse(rawText.replace(/^=+/, ''));
   } catch (e) {
     status.textContent = '❌ Unexpected response from server: ' + rawText.slice(0, 100);
     btn.disabled = false;
