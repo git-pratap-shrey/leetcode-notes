@@ -1,5 +1,5 @@
 ---
-title: About this project
+About this project
 ---
 
 This is a personal knowledge base that automatically converts LeetCode submissions into structured revision notes.

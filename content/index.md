@@ -13,12 +13,12 @@ Welcome.
 </div>
 
 ---
-title: About this project
+About this project
 ---
 
-This is a personal knowledge base that automatically converts LeetCode submissions into structured revision notes.
+This is a personal knowledge base that automatically converts LeetCode submissions into structured revision notes, also giving you, personalized code reviews.
 
-It is not a public tool. Access is limited to a small group of people.
+It is not available for mass public use yet, but you can try things out.
 
 ---
 
