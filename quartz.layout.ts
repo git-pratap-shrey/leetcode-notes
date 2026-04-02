@@ -39,6 +39,7 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer(),
+    Component.ExampleLink(),
   ],
   right: [
     Component.Graph(),
@@ -63,6 +64,7 @@ export const defaultListPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer(),
+    Component.ExampleLink(),
   ],
   right: [],
 }
