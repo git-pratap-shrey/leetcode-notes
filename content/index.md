@@ -63,8 +63,10 @@ async function submitUser() {
   status.textContent = 'Registering...';
 
   try {
-    const res = await fetch('/https://suite-avon-sheriff-slideshow.trycloudflare.com/register-user', {
+    const res = await fetch('https://suite-avon-sheriff-slideshow.trycloudflare.com/webhook/register-user', {
+      // const res = await fetch('http://localhost:5678/webhook-test/register-user', {
       method: 'POST',
+      mode: 'cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username })
     });
