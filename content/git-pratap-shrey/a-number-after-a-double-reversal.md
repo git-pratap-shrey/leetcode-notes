@@ -20,27 +20,21 @@ public:
 
 # Submission Review
 ## Approach
-- **Technique**: Mathematical observation (digit analysis).
-- **Optimality**: Optimal. The problem asks if `reverse(reverse(num)) == num`. Reversing a number that ends in a non-zero digit preserves its value after two reversals. If a number ends in zero (and is not zero itself), the leading zero is lost during the first reversal, making the second reversal unequal to the original.
+*   **Technique:** Mathematical observation (Property of trailing zeros).
+*   **Optimality:** Optimal. The problem asks if reversing a number twice results in the original number. Since reversing removes trailing zeros (e.g., $120 \rightarrow 21 \rightarrow 12$), a number maintains its value if and only if it does not have trailing zeros, or if it is exactly $0$.
 
 ## Complexity
-- **Time Complexity**: $O(1)$. Constant time arithmetic and modulo operations.
-- **Space Complexity**: $O(1)$. No auxiliary space used.
+*   **Time Complexity:** $O(1)$. The logic performs a single constant-time arithmetic operation and comparison.
+*   **Space Complexity:** $O(1)$. No auxiliary space is used.
 
 ## Efficiency Feedback
-- The solution is highly efficient as it avoids the $O(\log_{10} n)$ overhead of actually performing integer reversals. It reduces the transformation to a simple conditional check.
+*   **Performance:** Highly efficient. It avoids the overhead of integer-to-string conversion or the two-pass digit reversal process ($O(\log n)$), which are unnecessary given the mathematical property.
 
 ## Code Quality
-- **Readability**: Good. The logic is concise and easy to follow.
-- **Structure**: Good. The method fits the required interface perfectly.
-- **Naming**: Good. The variable name `num` is standard for integer inputs.
-
-### Concrete Improvements
-- The logic could be simplified to a single line:
-  ```cpp
-  return num == 0 || num % 10 != 0;
-  ```
-- This reduces branching and improves conciseness without sacrificing clarity.
+*   **Readability:** Good. The logic is concise and immediately clear to anyone familiar with the properties of base-10 numbers.
+*   **Structure:** Good. The class-based structure matches standard competitive programming environment requirements.
+*   **Naming:** Good. `isSameAfterReversals` accurately describes the function's purpose.
+*   **Improvements:** The code is already minimal and efficient. No substantive improvements are necessary.
 
 ---
 ---
@@ -49,19 +43,22 @@ public:
 # Question Revision
 ### Revision Report: A Number After a Double Reversal
 
-**Pattern:** Mathematical Property / Simulation
+**Pattern:** Math / Digit Manipulation
 
-**Brute Force:** Convert the integer to a string, reverse it, convert back to integer, repeat the process, and compare the result with the original.  
-*   **Time:** $O(\log n)$ (number of digits)
-*   **Space:** $O(\log n)$ (to store the string/digits)
+**Brute Force:**
+Convert the integer to a string, reverse it, convert back to an integer, and repeat the process twice to check for equality with the original input.
+*   **Time Complexity:** $O(\log_{10} n)$ (number of digits)
+*   **Space Complexity:** $O(\log_{10} n)$ (to store string representation)
 
-**Optimal Approach:** Observe that a number reversed twice returns to itself *unless* it ends in a zero. If the original number has a trailing zero, reversing it loses that digit, making it impossible to recover the original value upon the second reversal.
-*   **Logic:** Simply return `num == 0 || num % 10 != 0`.
-*   **Time:** $O(1)$
-*   **Space:** $O(1)$
+**Optimal Approach:**
+Observe the mathematical property of the reversal: trailing zeros in the original number are lost during the first reversal (e.g., $180 \rightarrow 81 \rightarrow 18$). Therefore, a number returns to its original form if and only if it does not end in zero, or if the number is exactly `0`.
+*   **Time Complexity:** $O(1)$
+*   **Space Complexity:** $O(1)$
 
-**The 'Aha' Moment:** The realization that trailing zeros act as "information loss" during reversal is the mathematical shortcut that avoids the simulation entirely.
+**The 'Aha' Moment:**
+Trailing zeros act as "data loss" points during a reversal because they become leading zeros, which vanish when converted back into a standard integer type.
 
-**Summary:** Reversing a number twice is an identity function unless the number ends in zero, in which case the trailing zero is permanently stripped.
+**Summary:**
+Reversing a number twice returns the original value unless it contains trailing zeros, as those digits are permanently discarded during the first reversal.
 
 ---

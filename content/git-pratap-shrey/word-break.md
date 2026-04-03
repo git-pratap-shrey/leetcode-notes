@@ -35,44 +35,48 @@ public:
 
 # Submission Review
 ## Approach
-*   **Technique:** Memoized Recursion (Top-Down Dynamic Programming).
-*   **Optimality:** Optimal. It effectively prunes the search space by memoizing the result of each suffix starting at index `left`.
+*   **Technique:** Top-down Dynamic Programming (Memoization) with recursion.
+*   **Optimality:** Optimal. This is a standard approach to solving the Word Break problem by breaking the string into prefixes and recursively checking the suffix.
 
 ## Complexity
-*   **Time Complexity:** $O(n^2 \cdot m)$, where $n$ is the length of the string and $m$ is the average length of words in the dictionary. The nested loop runs $O(n^2)$ times, and the `substr` operation and hash lookup take $O(n)$ time.
-*   **Space Complexity:** $O(n + k)$, where $n$ is the recursion depth/DP table size and $k$ is the space required for the `unordered_set`.
+*   **Time Complexity:** $O(n^3)$, where $n$ is the length of the string $s$. There are $n$ states, and for each state, the loop runs $O(n)$ times with a substring operation taking $O(n)$.
+*   **Space Complexity:** $O(n + m)$, where $n$ is the length of the string (for the `dp` array and recursion stack) and $m$ is the total number of characters in `wordDict` (for the hash set).
 
 ## Efficiency Feedback
-*   **Bottleneck:** The `s.substr(left, right - left)` call creates a new string object in every iteration, incurring unnecessary heap allocation overhead.
-*   **Optimization:** You can optimize this by checking prefix matches using `string_view` (C++17) to avoid string copies, or by reversing the iteration to only check dictionary words that could possibly fit the remaining length.
+*   **Substring Overhead:** The expression `s.substr(left, right - left)` creates a new string object in every iteration. In performance-critical scenarios, using `std::string_view` (C++17) would avoid these allocations and improve runtime.
+*   **Set Lookup:** Using `unordered_set` is efficient, providing average $O(L)$ lookups (where $L$ is word length).
 
 ## Code Quality
-*   **Readability:** Good. The logic is concise and easy to follow.
-*   **Structure:** Good. Separation of the helper function from the main interface is standard and clean.
-*   **Naming:** Moderate. `fn`, `hash`, `left`, and `right` are generic. `canBreak` or `memo` would be more descriptive.
-*   **Improvements:**
-    *   **Data Types:** Use `std::string_view` for the `substr` logic to prevent memory allocation during the loop.
-    *   **Boundary:** The `dp` vector size should be `s.size() + 1` to safely handle the base case index if you ever needed to store it (though the current logic returns before accessing `dp[s.size()]`, it is safer practice).
-    *   **Encapsulation:** The helper function could be marked `private` or implemented as a lambda inside `wordBreak` to keep the class interface clean.
+*   **Readability:** Good. The logic is concise and follows standard DP patterns.
+*   **Structure:** Good. Separation between the memoization helper and the driver function is clear.
+*   **Naming:** Moderate. Function name `fn` is non-descriptive; `solve` or `canBreak` would be more professional.
+*   **Concrete Improvements:**
+    *   **String View:** Use `std::string_view` for substring operations to reduce heap allocations.
+    *   **Parameter Passing:** The `dp` vector size is initialized to `s.size()`, but access index `left` reaches `s.size()` (base case). While the code works because the base case returns before checking `dp[left]`, changing the `dp` size to `s.size() + 1` makes the intent clearer and avoids off-by-one confusion.
+    *   **Const correctness:** Pass `wordDict` or the `unordered_set` by `const` reference where applicable.
 
 ---
 ---
 
 
 # Question Revision
-### Word Break (LeetCode 139)
+### Revision Report: Word Break
 
-**Pattern:** Dynamic Programming
+**Pattern:** Dynamic Programming (Memoization or Tabulation)
 
-**Brute Force:** Generate every possible substring combination using recursion. This leads to redundant calculations of the same suffixes, resulting in exponential time complexity, $O(2^n)$.
+**Brute Force:**
+Use recursion to check every possible prefix of the string against the dictionary. If a prefix matches, recursively check the remainder. This results in $O(2^n)$ complexity due to redundant re-computation of overlapping subproblems.
 
-**Optimal Approach:** Use a boolean DP array `dp[i]` where `dp[i]` represents if the substring `s[0...i-1]` can be segmented into dictionary words.
-*   **Logic:** Initialize `dp[0] = true`. For each index `i` from 1 to `n`, check every previous index `j < i`. If `dp[j]` is true and `s[j...i-1]` exists in the dictionary, set `dp[i] = true`.
-*   **Time Complexity:** $O(n^2 \cdot k)$ where $n$ is string length and $k$ is the max word length (due to substring slicing/hashing).
-*   **Space Complexity:** $O(n)$ to store the DP array.
+**Optimal Approach:**
+Use a boolean DP array `dp[i]` where `dp[i]` is true if the substring `s[0...i-1]` can be segmented.
+*   **Logic:** For each index `i` from 1 to `n`, iterate through all split points `j < i`. `dp[i]` is true if `dp[j]` is true AND the substring `s[j...i-1]` exists in the dictionary.
+*   **Time Complexity:** $O(n^2 \cdot m)$, where $n$ is string length and $m$ is the average length of words (due to substring slicing and hashing).
+*   **Space Complexity:** $O(n)$ for the DP table.
 
-**The 'Aha' Moment:** The problem asks for a binary outcome (can it be segmented?) based on overlapping subproblems that build upon previous valid segmentations.
+**The 'Aha' Moment:**
+When you realize that determining if a string can be broken depends entirely on the results of previously solved sub-segments, the overlapping subproblem structure mandates DP.
 
-**Summary:** Whenever a problem asks if a complex structure can be built from smaller, reusable parts, stop searching and start filling a DP table.
+**Summary:** 
+Whenever a problem asks if a sequence can be formed by combining elements from a set, define `dp[i]` as the state of the first `i` characters and look backward for valid transition points.
 
 ---

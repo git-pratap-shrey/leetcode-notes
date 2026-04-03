@@ -44,25 +44,25 @@ int singleNonDuplicate(int* nums, int numsSize) {
 
 # Submission Review
 ## Approach
-*   **Technique:** Binary Search on the index space.
-*   **Optimality:** Optimal. It achieves $O(\log N)$ time complexity by leveraging the property that the single element shifts the parity of duplicate pairs.
+*   **Technique:** Binary Search on the index space to find the single element.
+*   **Optimality:** Optimal. It leverages the sorted property and pair-wise structure to achieve $O(\log n)$ time complexity.
 
 ## Complexity
-*   **Time Complexity:** $O(\log N)$, where $N$ is `numsSize`.
-*   **Space Complexity:** $O(1)$, as it uses a constant amount of extra space.
+*   **Time Complexity:** $O(\log n)$, where $n$ is the size of the array. The search space is halved in each iteration.
+*   **Space Complexity:** $O(1)$, as only a constant amount of extra space is used.
 
 ## Efficiency Feedback
-*   **Performance:** Excellent. The logic avoids unnecessary comparisons and discards half the search space each iteration.
-*   **Safety:** The initial boundary checks (`nums[0]` and `nums[numsSize-1]`) are efficient, allowing the main `while` loop to operate without complex index bounds handling for `mid-1` and `mid+1`.
+*   **Runtime:** The implementation is highly efficient. The early exit conditions for boundaries handle edge cases cleanly without entering the loop, minimizing overhead.
+*   **Optimization:** The parity check logic is correct. No further algorithmic improvements are necessary.
 
 ## Code Quality
-*   **Readability:** Good. The logic flow is straightforward and easy to follow.
-*   **Structure:** Good. The separation of base cases and the main binary search loop is clean.
-*   **Naming:** Moderate. `left`, `right`, and `mid` are standard; `nums` is standard.
-*   **Concrete Improvements:**
-    *   **Integer Overflow:** `mid = (left + right) / 2` can technically overflow for very large arrays. Use `mid = left + (right - left) / 2` instead.
-    *   **Style:** The empty lines inside the `while` loop are unnecessary and disrupt readability.
-    *   **Logic Refinement:** The condition `(nums[mid]==nums[mid+1] && mid%2!=0) || (nums[mid]==nums[mid-1] && mid%2==0)` can be simplified. In a properly paired sorted array, the first element of a pair always appears at an even index. If `nums[mid] == nums[mid+1]`, then `mid` must be even for the single element to be to the right; otherwise, it is to the left.
+*   **Readability:** Good. The logic is straightforward and easy to follow.
+*   **Structure:** Good. The separation between boundary checks and the binary search loop is clear.
+*   **Naming:** Moderate. `nums`, `left`, `right`, and `mid` are standard for competitive programming, though `mid` could be declared inside the loop scope to limit variable lifetime.
+*   **Improvements:**
+    *   **Overflow:** `mid = (left + right) / 2` can technically overflow for very large arrays. Use `mid = left + (right - left) / 2` to ensure safety.
+    *   **Variable Scope:** Move the `int mid` declaration inside the `while` loop for better encapsulation.
+    *   **Redundant code:** The condition `mid%2!=0` and `mid%2==0` can be simplified by checking the parity of the index where the pair starts; however, the current implementation is correct as written.
 
 ---
 ---
@@ -73,20 +73,15 @@ int singleNonDuplicate(int* nums, int numsSize) {
 
 **Pattern:** Binary Search (Index Manipulation)
 
-**Brute Force:** 
-Iterate through the array checking adjacent elements or use XOR to find the unique value.
-*   **Time:** $O(n)$
-*   **Space:** $O(1)$
+**Brute Force:** Traverse the array and check if `arr[i] != arr[i-1]` and `arr[i] != arr[i+1]` using an $O(n)$ linear scan, or use XOR to find the unique element in $O(n)$.
 
-**Optimal Approach:** 
-Exploit the sorted property and the parity of indices. In a pair-aligned array, the first occurrence of a pair is at an even index and the second is at an odd index. By performing a binary search, compare `mid` with its neighbor; if they are equal, the "single element" must be in the side where the parity breaks (the side where the pattern of even/odd indexing is disrupted).
-*   **Time:** $O(\log n)$
-*   **Space:** $O(1)$
+**Optimal Approach:**
+*   **Logic:** Leverage the property that before the single element, the first occurrence of every pair is at an even index; after it, the first occurrence shifts to an odd index. By checking the parity of the index and comparing `arr[mid]` with its neighbor, we can decide whether to move left or right.
+*   **Time Complexity:** $O(\log n)$
+*   **Space Complexity:** $O(1)$
 
-**The 'Aha' Moment:** 
-The problem provides a sorted array and asks for logarithmic time, which acts as a neon sign that a binary search—specifically one comparing parity instead of direct values—is required.
+**The 'Aha' Moment:** The combination of a sorted array and the requirement for $O(\log n)$ time is a definitive signal to use Binary Search, even when the data isn't a direct search for a specific value.
 
-**Summary:** 
-When searching for a disruption in a pattern within a sorted array, use binary search to compare elements against their neighbors to determine which half is logically inconsistent.
+**Summary:** In a sorted array where pairs are "offset" by a single element, use Binary Search on index parity to identify the point where the pairing pattern breaks.
 
 ---
