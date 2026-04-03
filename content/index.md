@@ -13,7 +13,7 @@ Welcome.
   </div>
   <p id="lc-status" style="margin: 4px 0;"></p>
   <div style="font-size: 0.75rem; color: var(--gray); line-height: 1.4; max-width: 500px; font-style: italic;">
-    Note: This is being run on the developer's personal system, which may get turned off; new users or new submissions might have to wait a few hours.
+    Note: This is being run on the developer's personal system, which may be unavailable; new users or new submissions might have to wait a few hours. The system will update automatically, sit tight.
   </div>
 </div>
 
