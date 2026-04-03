@@ -1,16 +1,27 @@
 (function () {
     function init() {
         const btn = document.getElementById('lc-btn');
+        const input = document.getElementById('lc-user');
         if (!btn || btn.dataset.bound) return;
         btn.dataset.bound = 'true';
+
         btn.addEventListener('click', submitUser);
-        console.log('[LC] Button bound successfully');
+        if (input) {
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    submitUser();
+                }
+            });
+        }
+        console.log('[LC] UI elements bound successfully');
     }
 
     async function submitUser() {
         const username = document.getElementById('lc-user').value.trim();
         const btn = document.getElementById('lc-btn');
         const status = document.getElementById('lc-status');
+
+        if (btn.disabled) return;
 
         console.log('[LC] Track clicked, username:', username);
 

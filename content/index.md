@@ -7,9 +7,14 @@ title: Home
 Welcome.
 
 <div id="lc-submit">
-  <input id="lc-user" type="text" placeholder="LeetCode username" />
-  <button id="lc-btn">Track</button>
-  <p id="lc-status"></p>
+  <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 8px;">
+    <input id="lc-user" type="text" placeholder="LeetCode username" style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--lightgray); background: var(--light); color: var(--dark); flex: 1; min-width: 200px;" />
+    <button id="lc-btn" style="padding: 0.5rem 1rem; border-radius: 4px; border: none; background: var(--tertiary); color: var(--light); cursor: pointer; font-weight: 600;">Track</button>
+  </div>
+  <p id="lc-status" style="margin: 4px 0;"></p>
+  <div style="font-size: 0.75rem; color: var(--gray); line-height: 1.4; max-width: 500px; font-style: italic;">
+    Note: This is being run on the developer's personal system, which may get turned off; new users or new submissions might have to wait a few hours.
+  </div>
 </div>
 
 ---
