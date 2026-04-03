@@ -102,7 +102,14 @@ async function submitUser() {
     return;
   }
 
-  // Redirect to the user's page
-  window.location.href = '/leetcode-notes/' + username + '/';
+  if (data.status === 'new') {
+    status.textContent = '✅ Registration successful! Please wait 2 minutes while we generate your profile and deploy the site. Redirecting shortly...';
+    setTimeout(() => {
+      window.location.href = '/leetcode-notes/' + username + '/';
+    }, 120000); // 2 minutes delay
+  } else {
+    // Existing user, redirect instantly
+    window.location.href = '/leetcode-notes/' + username + '/';
+  }
 }
 </script>
