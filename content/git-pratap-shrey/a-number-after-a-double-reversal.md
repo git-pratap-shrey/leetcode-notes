@@ -20,21 +20,27 @@ public:
 
 # Submission Review
 ## Approach
-*   **Technique:** Mathematical observation/Pattern matching.
-*   **Optimality:** Optimal. The problem states `reversed1` is `num` with trailing zeros removed, and `reversed2` is `reversed1` reversed. If `num` has trailing zeros (and is not zero), the leading zeros of `reversed1` are lost, meaning `reversed2 != num`. If `num` has no trailing zeros, `reversed1` preserves all digits, and `reversed2` will equal `num`.
+- **Technique**: Mathematical observation (digit analysis).
+- **Optimality**: Optimal. The problem asks if `reverse(reverse(num)) == num`. Reversing a number that ends in a non-zero digit preserves its value after two reversals. If a number ends in zero (and is not zero itself), the leading zero is lost during the first reversal, making the second reversal unequal to the original.
 
 ## Complexity
-*   **Time Complexity:** $O(1)$ — Only a constant number of arithmetic operations are performed.
-*   **Space Complexity:** $O(1)$ — No extra space utilized.
+- **Time Complexity**: $O(1)$. Constant time arithmetic and modulo operations.
+- **Space Complexity**: $O(1)$. No auxiliary space used.
 
 ## Efficiency Feedback
-*   The approach is highly efficient as it avoids the overhead of integer-to-string conversion or actual reversal simulation. It utilizes a direct property of base-10 number reversal.
+- The solution is highly efficient as it avoids the $O(\log_{10} n)$ overhead of actually performing integer reversals. It reduces the transformation to a simple conditional check.
 
 ## Code Quality
-*   **Readability:** Good. The logic is self-explanatory.
-*   **Structure:** Good. The logic is appropriately encapsulated within the function.
-*   **Naming:** Good. The function name matches the problem requirement.
-*   **Improvements:** The logic could be written more concisely as a one-liner: `return num == 0 || num % 10 != 0;`. This eliminates the `if` block, though the current implementation is perfectly acceptable.
+- **Readability**: Good. The logic is concise and easy to follow.
+- **Structure**: Good. The method fits the required interface perfectly.
+- **Naming**: Good. The variable name `num` is standard for integer inputs.
+
+### Concrete Improvements
+- The logic could be simplified to a single line:
+  ```cpp
+  return num == 0 || num % 10 != 0;
+  ```
+- This reduces branching and improves conciseness without sacrificing clarity.
 
 ---
 ---
@@ -43,20 +49,19 @@ public:
 # Question Revision
 ### Revision Report: A Number After a Double Reversal
 
-**Pattern:** Mathematical Property / Digit Manipulation
+**Pattern:** Mathematical Property / Simulation
 
-**Brute Force:** 
-Convert the integer to a string, reverse it, convert back to integer, repeat the process a second time, and compare the result with the original input.
+**Brute Force:** Convert the integer to a string, reverse it, convert back to integer, repeat the process, and compare the result with the original.  
+*   **Time:** $O(\log n)$ (number of digits)
+*   **Space:** $O(\log n)$ (to store the string/digits)
 
-**Optimal Approach:** 
-Observe the behavior of trailing zeros. Reversing an integer once removes trailing zeros; reversing it again does not restore them if the original number ended in zero (e.g., `120` -> `21` -> `12`). Therefore, the condition `reversed2 == num` is equivalent to checking if the original number does not end in zero, unless the number is `0` itself.
-*   **Time Complexity:** $O(\log n)$ (to extract digits) or $O(1)$ if using the property check.
-*   **Space Complexity:** $O(1)$.
+**Optimal Approach:** Observe that a number reversed twice returns to itself *unless* it ends in a zero. If the original number has a trailing zero, reversing it loses that digit, making it impossible to recover the original value upon the second reversal.
+*   **Logic:** Simply return `num == 0 || num % 10 != 0`.
+*   **Time:** $O(1)$
+*   **Space:** $O(1)$
 
-**The 'Aha' Moment:** 
-Recognizing that trailing zeros act as a "lossy" transformation during reversal is faster than performing two full reversal operations.
+**The 'Aha' Moment:** The realization that trailing zeros act as "information loss" during reversal is the mathematical shortcut that avoids the simulation entirely.
 
-**Summary:** 
-If an integer ends in zero, its double reversal will never equal the original unless the number is zero.
+**Summary:** Reversing a number twice is an identity function unless the number ends in zero, in which case the trailing zero is permanently stripped.
 
 ---

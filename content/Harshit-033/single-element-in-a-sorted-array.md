@@ -44,27 +44,25 @@ int singleNonDuplicate(int* nums, int numsSize) {
 
 # Submission Review
 ## Approach
-- **Technique**: Binary Search.
-- **Optimality**: Optimal. The solution leverages the property that the unique element divides the array into segments where the pattern of identical pairs is shifted, allowing $O(\log N)$ search.
+*   **Technique:** Binary Search on the index space.
+*   **Optimality:** Optimal. It achieves $O(\log N)$ time complexity by leveraging the property that the single element shifts the parity of duplicate pairs.
 
 ## Complexity
-- **Time Complexity**: $O(\log N)$ where $N$ is the number of elements.
-- **Space Complexity**: $O(1)$, as it uses a constant amount of extra space.
+*   **Time Complexity:** $O(\log N)$, where $N$ is `numsSize`.
+*   **Space Complexity:** $O(1)$, as it uses a constant amount of extra space.
 
 ## Efficiency Feedback
-- **Runtime**: Highly efficient. The algorithm terminates as soon as the element is found, avoiding unnecessary passes.
-- **Memory**: Minimal; the code uses iterative binary search rather than recursion, which is ideal for performance.
+*   **Performance:** Excellent. The logic avoids unnecessary comparisons and discards half the search space each iteration.
+*   **Safety:** The initial boundary checks (`nums[0]` and `nums[numsSize-1]`) are efficient, allowing the main `while` loop to operate without complex index bounds handling for `mid-1` and `mid+1`.
 
 ## Code Quality
-- **Readability**: Good. The logic flow is straightforward and easy to follow.
-- **Structure**: Good. Edge cases (single element, boundaries) are handled explicitly before entering the loop.
-- **Naming**: Good. Variable names `left`, `right`, and `mid` are standard and appropriate.
-
-### Concrete Improvements
-1. **Integer Overflow**: In `mid = (left + right) / 2`, if `left + right` exceeds the range of a signed 32-bit integer, it will overflow. Use `mid = left + (right - left) / 2` to ensure safety.
-2. **Redundant Logic**: The initial boundary checks (`nums[0] != nums[1]`, etc.) are correct but could be simplified or incorporated into the binary search range to reduce the number of `if` statements.
-3. **Mid Calculation**: Since this is C, explicitly check for integer division behavior, although `(left + right) / 2` is safe for typical competitive programming constraints.
-4. **Style**: The `if(numsSize == 1)` check is technically redundant if the binary search boundaries are initialized to `0` and `numsSize - 1`, as the loop would handle it naturally.
+*   **Readability:** Good. The logic flow is straightforward and easy to follow.
+*   **Structure:** Good. The separation of base cases and the main binary search loop is clean.
+*   **Naming:** Moderate. `left`, `right`, and `mid` are standard; `nums` is standard.
+*   **Concrete Improvements:**
+    *   **Integer Overflow:** `mid = (left + right) / 2` can technically overflow for very large arrays. Use `mid = left + (right - left) / 2` instead.
+    *   **Style:** The empty lines inside the `while` loop are unnecessary and disrupt readability.
+    *   **Logic Refinement:** The condition `(nums[mid]==nums[mid+1] && mid%2!=0) || (nums[mid]==nums[mid-1] && mid%2==0)` can be simplified. In a properly paired sorted array, the first element of a pair always appears at an even index. If `nums[mid] == nums[mid+1]`, then `mid` must be even for the single element to be to the right; otherwise, it is to the left.
 
 ---
 ---
@@ -80,15 +78,15 @@ Iterate through the array checking adjacent elements or use XOR to find the uniq
 *   **Time:** $O(n)$
 *   **Space:** $O(1)$
 
-**Optimal Approach:**
-Since the array is sorted and pairs occur consecutively, every pair starts at an even index and ends at an odd index. By performing Binary Search on indices, we check if `arr[mid] == arr[mid ^ 1]`. If true, the single element lies to the right (move `low = mid + 1`); otherwise, it lies to the left (move `high = mid`).
+**Optimal Approach:** 
+Exploit the sorted property and the parity of indices. In a pair-aligned array, the first occurrence of a pair is at an even index and the second is at an odd index. By performing a binary search, compare `mid` with its neighbor; if they are equal, the "single element" must be in the side where the parity breaks (the side where the pattern of even/odd indexing is disrupted).
 *   **Time:** $O(\log n)$
 *   **Space:** $O(1)$
 
-**The 'Aha' Moment:**
-The constraint of a sorted array combined with the requirement for $O(\log n)$ time is a definitive signal to use Binary Search to prune half the search space based on parity properties.
+**The 'Aha' Moment:** 
+The problem provides a sorted array and asks for logarithmic time, which acts as a neon sign that a binary search—specifically one comparing parity instead of direct values—is required.
 
-**Summary:**
-In a sorted array where all elements appear twice except one, use Binary Search with XOR-based parity checks to identify the first index where the "pair property" breaks.
+**Summary:** 
+When searching for a disruption in a pattern within a sorted array, use binary search to compare elements against their neighbors to determine which half is logically inconsistent.
 
 ---
