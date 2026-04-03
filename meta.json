@@ -9,7 +9,9 @@
       "find-first-and-last-position-of-element-in-sorted-array",
       "find-minimum-in-rotated-sorted-array",
       "single-element-in-a-sorted-array",
-      "search-a-2d-matrix"
+      "search-a-2d-matrix",
+      "median-of-two-sorted-arrays",
+      "find-minimum-in-rotated-sorted-array-ii"
     ]
   },
   "Tushar_Dhakrey": {
@@ -30,6 +32,9 @@
     ]
   },
   "git-pratap-shrey": {
-    "questions": []
+    "questions": [
+      "a-number-after-a-double-reversal",
+      "word-break"
+    ]
   }
 }
