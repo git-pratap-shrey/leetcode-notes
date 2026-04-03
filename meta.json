@@ -14,7 +14,8 @@
       "find-minimum-in-rotated-sorted-array-ii",
       "find-peak-element",
       "koko-eating-bananas",
-      "minimum-number-of-days-to-make-m-bouquets"
+      "minimum-number-of-days-to-make-m-bouquets",
+      "find-the-smallest-divisor-given-a-threshold"
     ]
   },
   "Tushar_Dhakrey": {
@@ -23,7 +24,17 @@
       "linked-list-cycle-ii",
       "linked-list-cycle",
       "remove-duplicates-from-sorted-list",
-      "middle-of-the-linked-list"
+      "middle-of-the-linked-list",
+      "sort-list",
+      "reverse-linked-list",
+      "add-two-numbers",
+      "find-words-containing-character",
+      "merge-strings-alternately",
+      "count-the-number-of-vowel-strings-in-range",
+      "candy",
+      "palindrome-partitioning",
+      "container-with-most-water",
+      "sudoku-solver"
     ]
   },
   "prince_3087": {
@@ -32,13 +43,35 @@
       "is-subsequence",
       "merge-strings-alternately",
       "remove-all-occurrences-of-a-substring",
-      "valid-palindrome"
+      "valid-palindrome",
+      "reverse-string",
+      "insert-interval",
+      "merge-intervals",
+      "binary-subarrays-with-sum",
+      "continuous-subarray-sum",
+      "contiguous-array",
+      "subarray-sums-divisible-by-k",
+      "minimum-absolute-difference-between-two-values",
+      "subarray-sum-equals-k",
+      "find-pivot-index"
     ]
   },
   "git-pratap-shrey": {
     "questions": [
       "a-number-after-a-double-reversal",
-      "word-break"
+      "word-break",
+      "maximum-product-subarray",
+      "decode-ways",
+      "palindromic-substrings",
+      "longest-palindromic-substring",
+      "house-robber-ii",
+      "house-robber",
+      "min-cost-climbing-stairs",
+      "palindrome-partitioning",
+      "letter-combinations-of-a-phone-number",
+      "word-search",
+      "first-matching-character-from-both-ends",
+      "minimum-absolute-difference-between-two-values"
     ]
   }
 }

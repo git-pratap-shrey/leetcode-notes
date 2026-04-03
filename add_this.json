@@ -1,0 +1,362 @@
+{
+    "nodes": [
+        {
+            "parameters": {
+                "mode": "combine",
+                "combineBy": "combineByPosition",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.merge",
+            "typeVersion": 3.2,
+            "position": [
+                400,
+                240
+            ],
+            "id": "de4e6503-79cb-4e11-ae97-5be6b9423063",
+            "name": "Merge"
+        },
+        {
+            "parameters": {
+                "batchSize": 1,
+                "options": {}
+            },
+            "type": "n8n-nodes-base.splitInBatches",
+            "typeVersion": 3,
+            "position": [
+                672,
+                80
+            ],
+            "id": "460b101f-0800-4662-a27b-fd59f65ef126",
+            "name": "Loop Over Items1"
+        },
+        {
+            "parameters": {
+                "batchSize": 1,
+                "options": {}
+            },
+            "type": "n8n-nodes-base.splitInBatches",
+            "typeVersion": 3,
+            "position": [
+                672,
+                400
+            ],
+            "id": "a7556cb1-f996-471d-8f1e-6c46244a8daa",
+            "name": "Loop Over Items"
+        },
+        {
+            "parameters": {
+                "modelName": "models/gemini-3.1-flash-lite-preview",
+                "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+            "typeVersion": 1,
+            "position": [
+                688,
+                256
+            ],
+            "id": "4cc93806-751b-442b-be60-66aa92e1339a",
+            "name": "Google Gemini Chat Model",
+            "credentials": {
+                "googlePalmApi": {
+                    "id": "FVgltjvVCYmfHmHo",
+                    "name": "Google Gemini(PaLM) Api account 2"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "modelName": "models/gemini-3.1-flash-lite-preview",
+                "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+            "typeVersion": 1,
+            "position": [
+                688,
+                256
+            ],
+            "id": "f4e90580-f2eb-48ed-b495-785d08f35e6a",
+            "name": "Google Gemini Chat Model1",
+            "credentials": {
+                "googlePalmApi": {
+                    "id": "FVgltjvVCYmfHmHo",
+                    "name": "Google Gemini(PaLM) Api account 2"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "promptType": "define",
+                "text": "=\"I solved the LeetCode problem: {{ $json.title }}.Generate a revision report in Markdown for my study notes:Pattern: (e.g., Two Pointers, DP)Brute Force: Brief logic.Optimal Approach: Logic + Complexity ($O(n)$ etc.)The 'Aha' Moment: What specific hint in the problem tells me to use this pattern?Summary: 1 sentence to remember this in 6 months.\"",
+                "messages": {
+                    "messageValues": [
+                        {
+                            "message": "You are a senior software engineer mentoring a developer. Create concise, high-signal Markdown summaries. Use standard Big-O notation (e.g., $O(n)$, $O(1)$) for time and space complexity. Keep the 'Aha' moment strictly to one sentence. Provide the output directly without introductory pleasantries."
+                        }
+                    ]
+                },
+                "batching": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.chainLlm",
+            "typeVersion": 1.9,
+            "position": [
+                848,
+                -48
+            ],
+            "id": "9a966160-33cf-486d-92b7-6a47b3be2456",
+            "name": "Basic LLM Chain"
+        },
+        {
+            "parameters": {
+                "promptType": "define",
+                "text": "=Analyze this solution based on the criteria provided in the system instructions.\n\nProblem: {{ $json.title }}\nLanguage: {{ $json.data.submissionDetails.lang.name }}\n\nCode:\n{{ $json.data.submissionDetails.code }}",
+                "messages": {
+                    "messageValues": [
+                        {
+                            "message": "You are a senior software engineer reviewing competitive programming solutions.  Your job is to analyze a given solution for correctness, efficiency, and code quality.  Follow these rules strictly: - Be concise and structured. - Do NOT explain the problem statement. - Focus on the given code, not generic theory. - Do NOT hallucinate details not visible in the code. - If something cannot be inferred, say so explicitly. - Prefer concrete observations over vague advice. - Keep output in clean Markdown.  Output format:  ## Approach - Identify the technique used (e.g., DP, recursion, greedy, etc.) - State whether it is optimal or not (with brief reasoning)  ## Complexity - Time Complexity: ... - Space Complexity: ... - If suboptimal, explain the bottleneck clearly  ## Efficiency Feedback - Why runtime/memory might be high or low - Specific optimizations (only if meaningful)  ## Code Quality - Readability: (Good / Moderate / Poor + reason) - Structure: (Good / Moderate / Poor + reason) - Naming: (Good / Moderate / Poor + reason) - Any concrete improvements  Keep the response tight and non-repetitive."
+                        }
+                    ]
+                },
+                "batching": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.chainLlm",
+            "typeVersion": 1.9,
+            "position": [
+                848,
+                448
+            ],
+            "id": "451f7f28-668d-40f2-ab1e-b7ea1fb27af1",
+            "name": "Basic LLM Chain1"
+        },
+        {
+            "parameters": {
+                "assignments": {
+                    "assignments": [
+                        {
+                            "id": "7683bf95-64dd-4152-b79b-61f40ea28895",
+                            "name": "revision_text",
+                            "value": "={{ $json.text }}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+                1184,
+                -48
+            ],
+            "id": "924991c4-537d-4e5a-b43b-df673b970aaf",
+            "name": "Edit Fields"
+        },
+        {
+            "parameters": {
+                "assignments": {
+                    "assignments": [
+                        {
+                            "id": "71268eb5-a010-45b2-a2e9-b9fb9368867f",
+                            "name": "review_text",
+                            "value": "={{ $json.text }}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+                1168,
+                448
+            ],
+            "id": "6988d605-b2a2-4579-ae69-b666df0c5b42",
+            "name": "Edit Fields1"
+        },
+        {
+            "parameters": {
+                "amount": 60
+            },
+            "type": "n8n-nodes-base.wait",
+            "typeVersion": 1.1,
+            "position": [
+                1360,
+                0
+            ],
+            "id": "9be49167-f0de-4a39-941b-8f4b2b9c0401",
+            "name": "Wait",
+            "webhookId": "22b01f2c-47dc-4cdd-882a-4d74595cfb54"
+        },
+        {
+            "parameters": {
+                "amount": 60
+            },
+            "type": "n8n-nodes-base.wait",
+            "typeVersion": 1.1,
+            "position": [
+                1360,
+                512
+            ],
+            "id": "90674f24-dcbe-445c-b28b-8131e42521e2",
+            "name": "Wait1",
+            "webhookId": "22b01f2c-47dc-4cdd-882a-4d74595cfb54"
+        },
+        {
+            "parameters": {
+                "mode": "combine",
+                "combineBy": "combineByPosition",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.merge",
+            "typeVersion": 3.2,
+            "position": [
+                1216,
+                192
+            ],
+            "id": "951092fe-6bf6-44a2-b784-6931a98b8409",
+            "name": "Merge1"
+        }
+    ],
+    "connections": {
+        "Merge": {
+            "main": [
+                [
+                    {
+                        "node": "Loop Over Items",
+                        "type": "main",
+                        "index": 0
+                    },
+                    {
+                        "node": "Loop Over Items1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Loop Over Items1": {
+            "main": [
+                [
+                    {
+                        "node": "Merge1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ],
+                [
+                    {
+                        "node": "Basic LLM Chain",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Loop Over Items": {
+            "main": [
+                [
+                    {
+                        "node": "Merge1",
+                        "type": "main",
+                        "index": 1
+                    }
+                ],
+                [
+                    {
+                        "node": "Basic LLM Chain1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Google Gemini Chat Model": {
+            "ai_languageModel": [
+                [
+                    {
+                        "node": "Basic LLM Chain",
+                        "type": "ai_languageModel",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Google Gemini Chat Model1": {
+            "ai_languageModel": [
+                [
+                    {
+                        "node": "Basic LLM Chain1",
+                        "type": "ai_languageModel",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Basic LLM Chain": {
+            "main": [
+                [
+                    {
+                        "node": "Edit Fields",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Basic LLM Chain1": {
+            "main": [
+                [
+                    {
+                        "node": "Edit Fields1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Edit Fields": {
+            "main": [
+                [
+                    {
+                        "node": "Wait",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Edit Fields1": {
+            "main": [
+                [
+                    {
+                        "node": "Wait1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Wait": {
+            "main": [
+                [
+                    {
+                        "node": "Loop Over Items1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Wait1": {
+            "main": [
+                [
+                    {
+                        "node": "Loop Over Items",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    }
+}
