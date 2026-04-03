@@ -7,6 +7,9 @@ title: Home
 Welcome.
 
 <div id="lc-submit">
+  <div style="font-size: 0.8rem; color: var(--gray); margin-bottom: 8px; font-style: italic;">
+    Only submissions from the last 24/48 hours will be fetched.
+  </div>
   <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 8px;">
     <input id="lc-user" type="text" placeholder="LeetCode username" style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--lightgray); background: var(--light); color: var(--dark); flex: 1; min-width: 200px;" />
     <button id="lc-btn" style="padding: 0.5rem 1rem; border-radius: 4px; border: none; background: var(--tertiary); color: var(--light); cursor: pointer; font-weight: 600;">Track</button>
