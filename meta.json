@@ -13,7 +13,8 @@
       "median-of-two-sorted-arrays",
       "find-minimum-in-rotated-sorted-array-ii",
       "find-peak-element",
-      "koko-eating-bananas"
+      "koko-eating-bananas",
+      "minimum-number-of-days-to-make-m-bouquets"
     ]
   },
   "Tushar_Dhakrey": {
@@ -21,7 +22,8 @@
       "happy-number",
       "linked-list-cycle-ii",
       "linked-list-cycle",
-      "remove-duplicates-from-sorted-list"
+      "remove-duplicates-from-sorted-list",
+      "middle-of-the-linked-list"
     ]
   },
   "prince_3087": {
@@ -38,8 +40,5 @@
       "a-number-after-a-double-reversal",
       "word-break"
     ]
-  },
-  "Harshit_04": {
-    "questions": []
   }
 }
