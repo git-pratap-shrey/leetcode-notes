@@ -24,5 +24,8 @@
       "a-number-after-a-double-reversal",
       "word-break"
     ]
+  },
+  "test-user1": {
+    "questions": []
   }
 }
