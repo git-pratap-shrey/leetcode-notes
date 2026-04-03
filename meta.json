@@ -20,6 +20,9 @@
     ]
   },
   "git-pratap-shrey": {
-    "questions": []
+    "questions": [
+      "a-number-after-a-double-reversal",
+      "word-break"
+    ]
   }
 }

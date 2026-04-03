@@ -103,6 +103,6 @@ async function submitUser() {
   }
 
   // Redirect to the user's page
-  window.location.href = '/leetcode-notes/' + username;
+  window.location.href = '/leetcode-notes/' + username + '/';
 }
 </script>
