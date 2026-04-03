@@ -22,42 +22,52 @@
         const status = document.getElementById('lc-status');
 
         if (btn.disabled) return;
-
-        console.log('[LC] Track clicked, username:', username);
-
         if (!username) {
             status.textContent = '⚠️ Please enter a username.';
             return;
         }
 
         btn.disabled = true;
-        status.textContent = 'Registering...';
+        status.textContent = 'Checking...';
 
         let tunnelUrl = 'https://sustainability-collaboration-execute-kai.trycloudflare.com';
-
         try {
             const tunnelRes = await fetch('./tunnel.txt');
             if (tunnelRes.ok) {
                 const text = (await tunnelRes.text()).trim();
-                if (text.startsWith('http')) {
-                    tunnelUrl = text;
-                }
+                if (text.startsWith('http')) tunnelUrl = text;
             }
-            console.log('[LC] Tunnel URL:', tunnelUrl);
         } catch (e) {
             console.log('[LC] tunnel.txt fetch failed, using default:', tunnelUrl);
         }
 
-        let res, rawText, data;
-
+        // Check if user already exists on the static site
+        let userExists = false;
         try {
-            console.log('[LC] Sending POST to', tunnelUrl + '/webhook/register-user');
-            res = await fetch(`${tunnelUrl}/webhook/register-user`, {
-                method: 'POST',
-                mode: 'cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username })
-            });
+            const probe = await fetch(`/leetcode-notes/${username}/index.html`, { method: 'GET' });
+            userExists = probe.ok;
+        } catch (e) { }
+
+        // Always fire the webhook (triggers submission fetch), but don't await it for existing users
+        const webhookPromise = fetch(`${tunnelUrl}/webhook/register-user`, {
+            method: 'POST',
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username })
+        });
+
+        if (userExists) {
+            status.textContent = '✅ Welcome back! Redirecting...';
+            webhookPromise.catch(() => { }); // fire-and-forget
+            window.location.href = `/leetcode-notes/${username}/`;
+            return;
+        }
+
+        // New user — wait for the webhook response as before
+        let res, rawText, data;
+        try {
+            status.textContent = 'Registering...';
+            res = await webhookPromise;
             rawText = await res.text();
             console.log('[LC] Raw response:', rawText);
             status.textContent = '📡 Got response: ' + rawText.slice(0, 200);
