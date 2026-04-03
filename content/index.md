@@ -63,9 +63,19 @@ async function submitUser() {
   status.textContent = 'Registering...';
 
   let res, rawText, data;
+  let tunnelUrl = 'https://suite-avon-sheriff-slideshow.trycloudflare.com';
 
   try {
-    res = await fetch('https://suite-avon-sheriff-slideshow.trycloudflare.com/webhook/register-user', {
+    const tunnelRes = await fetch('./tunnel.txt');
+    if (tunnelRes.ok) {
+      tunnelUrl = (await tunnelRes.text()).trim();
+    }
+  } catch (e) {
+    console.log('Failed to fetch tunnel.txt, using default/fallback URL.');
+  }
+
+  try {
+    res = await fetch(`${tunnelUrl}/webhook/register-user`, {
       method: 'POST',
       mode: 'cors',
       headers: { 'Content-Type': 'application/json' },
