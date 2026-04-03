@@ -1,0 +1,7 @@
+@use "./base.scss";
+
+// put your custom CSS here!
+// Hide user folders from sidebar explorer
+.explorer-content ul li {
+  display: none;
+}
