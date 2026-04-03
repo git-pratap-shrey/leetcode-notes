@@ -2,9 +2,13 @@
 title: About this project
 ---
 
-This is a personal knowledge base that automatically converts LeetCode submissions into structured revision notes.
+---
+About this project
+---
 
-It is not a public tool. Access is limited to a small group of people.
+This is a personal knowledge base that automatically converts LeetCode submissions into structured revision notes, also giving you, personalized code reviews.
+
+It is not available for mass public use yet, but you can try things out.
 
 ---
 
@@ -35,4 +39,4 @@ LeetCode tracks that a problem was solved. It does not help retain how it was so
 
 ## TL;DR
 
-Register username → automatic daily fetch → deduplicate via meta.json → LLM generates notes → pushed to this page.
+Register username → automatic daily fetch → LLM generates notes → pushed to this page.
