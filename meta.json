@@ -75,7 +75,23 @@
     ]
   },
   "Testing3": {
-    "questions": []
+    "questions": [
+      "longest-palindromic-substring",
+      "complement-of-base-10-integer",
+      "check-if-binary-string-has-at-most-one-segment-of-ones",
+      "minimum-changes-to-make-alternating-binary-string",
+      "majority-element",
+      "longest-common-prefix",
+      "special-positions-in-a-binary-matrix",
+      "find-kth-bit-in-nth-binary-string",
+      "reverse-bits",
+      "binary-number-with-alternating-bits",
+      "binary-watch",
+      "balanced-binary-tree",
+      "trionic-array-ii",
+      "trionic-array-i",
+      "divide-an-array-into-subarrays-with-minimum-cost-ii"
+    ]
   },
   "Vasu_22": {
     "questions": []
