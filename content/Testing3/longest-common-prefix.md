@@ -86,27 +86,39 @@ class Solution {
 
 # Submission Review
 ## Approach
-*   **Technique:** Iterative refinement (Horizontal Scanning). The algorithm maintains a current prefix and iteratively compares it with each subsequent string in the array, shortening the prefix as needed.
-*   **Optimality:** Optimal for this type of linear scan. It effectively reduces the search space by shrinking the prefix length monotonically.
+*   **Technique**: Iterative Horizontal Scanning.
+*   **Optimal**: Yes, it is the standard linear approach ($O(S)$, where $S$ is the sum of all characters in all strings).
 
 ## Complexity
-*   **Time Complexity:** $O(S)$, where $S$ is the sum of all characters in all strings. In the worst case, every character is compared.
-*   **Space Complexity:** $O(M)$, where $M$ is the length of the longest string (for `StringBuilder` storage and char array conversion).
+*   **Time Complexity**: $O(S)$, where $S$ is the total number of characters in the array. Each character is compared a constant number of times.
+*   **Space Complexity**: $O(M)$, where $M$ is the length of the longest common prefix (the size of the `StringBuilder` buffer).
 
 ## Efficiency Feedback
-*   **String conversions:** The code frequently converts `StringBuilder` to `String` and back (`sb.toString()`, `new StringBuilder(temp)`). This creates unnecessary object allocations.
-*   **Memory usage:** Creating `char[]` arrays inside the `srn` helper function for every iteration is costly. It would be more efficient to compare characters directly from the strings using `charAt()` without copying them into arrays.
-*   **Redundancy:** The `StringBuilder` operations (`sb.replace`) are more complex than simply storing the prefix as a `String` reference, as `String` objects are immutable and the result is frequently re-assigned.
+*   **Redundant Object Allocation**: In `srn`, you create a new `StringBuilder` and convert `s1`/`s2` to character arrays on every call. This triggers excessive Garbage Collection.
+*   **Optimization**: Compare strings in place without creating `char[]` copies. Instead of `s1.toCharArray()`, use `s1.charAt(i)`.
+*   **Exit Early**: If `sb` becomes empty, return immediately (already handled).
 
 ## Code Quality
-*   **Readability:** Good. The logic is straightforward and easy to follow.
-*   **Structure:** Good. Using a helper function `srn` (though poorly named) separates concerns appropriately.
-*   **Naming:** Poor. `srn` is cryptic and provides no insight into the function's purpose (e.g., `getCommonPrefix`).
-*   **Concrete Improvements:**
+*   **Readability**: Moderate. The helper method name `srn` is non-descriptive.
+*   **Structure**: Good. The logic is clean and handles the edge case of an array with a single element correctly.
+*   **Naming**: Poor. `srn` should be renamed to something like `getCommonPrefix`.
+*   **Concrete Improvements**:
     *   Rename `srn` to `commonPrefix`.
-    *   Avoid `toCharArray()`: Use `s1.charAt(i)` inside the loop to save memory allocation.
-    *   Simplify the loop: You don't need a `StringBuilder` for `sb`. Just store the prefix as a `String` variable and update it: `String prefix = strs[0]; ... prefix = getCommonPrefix(prefix, strs[i]);`.
-    *   Add a check for empty input (`if (strs == null || strs.length == 0) return "";`) to handle edge cases.
+    *   Avoid `toCharArray()` inside the helper; iterate using `charAt(i)` to save memory allocations.
+    *   Avoid re-initializing `sb` inside the loop. You can simply assign `prefix = commonPrefix(prefix, strs[i])` using simple `String` objects, as `StringBuilder` is not strictly necessary here and adds overhead.
+
+```java
+// Suggested improvement for the helper method
+private String getCommonPrefix(String s1, String s2) {
+    int length = Math.min(s1.length(), s2.length());
+    for (int i = 0; i < length; i++) {
+        if (s1.charAt(i) != s2.charAt(i)) {
+            return s1.substring(0, i);
+        }
+    }
+    return s1.substring(0, length);
+}
+```
 
 ---
 ---
@@ -118,19 +130,19 @@ class Solution {
 **Pattern:** Horizontal Scanning / Vertical Scanning
 
 **Brute Force:** 
-Compare every possible prefix of the first string against all other strings, checking for existence.  
-**Complexity:** $O(S)$, where $S$ is the sum of all characters in all strings, but with excessive redundant comparisons.
+Compare the first string with every other string character-by-character, updating the current prefix as you go.  
+**Complexity:** $O(S)$ where $S$ is the sum of all characters in all strings.
 
-**Optimal Approach (Horizontal Scanning):**
-Take the first string as the `prefix`. Iteratively compare it with the next string, shortening the `prefix` from the end until the next string starts with it. If `prefix` becomes empty, return `""`.  
+**Optimal Approach (Vertical Scanning):**
+Compare characters index by index across all strings simultaneously. Stop when a character mismatch occurs or when you reach the end of the shortest string.  
 **Complexity:**  
-*   **Time:** $O(S)$ where $S$ is the sum of all characters in all strings.  
-*   **Space:** $O(1)$ (ignoring the result string).
+*   **Time:** $O(S)$, where $S$ is the sum of all characters.
+*   **Space:** $O(1)$ (excluding the result string).
 
 **The 'Aha' Moment:**
-The constraint that the prefix must be a prefix of *all* strings means the length of the common prefix can only decrease or stay the same as you iterate through the list.
+When the prefix must exist in *every* element, you can discard candidate characters immediately upon the first mismatch found across the vertical column.
 
-**Summary:** 
-Whenever you need to find a common property across a set of items, greedily update your candidate by comparing it against each item sequentially.
+**Summary:**
+Think of vertical scanning as a "race to the first mismatch"—the moment one string fails the column, the entire prefix search ends.
 
 ---

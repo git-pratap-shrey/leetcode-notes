@@ -39,25 +39,26 @@ class Solution {
 
 # Submission Review
 ## Approach
-*   **Technique:** Brute-force scanning.
-*   **Optimality:** Suboptimal. The solution performs nested scans to verify row and column sums for every '1' found, resulting in redundant calculations.
+*   **Technique:** Brute force simulation. It iterates through every cell; if a `1` is found, it performs a linear scan of the entire row and column to verify the "special" condition.
+*   **Optimal:** No. The current approach performs redundant scans of the same rows and columns multiple times.
 
 ## Complexity
-*   **Time Complexity:** $O(R \cdot C \cdot (R + C))$, where $R$ is rows and $C$ is columns. For every cell (R*C), it iterates through the row (C) and column (R).
-*   **Space Complexity:** $O(1)$ (excluding input storage).
+*   **Time Complexity:** $O(R \cdot C \cdot (R + C))$, where $R$ is rows and $C$ is columns.
+*   **Space Complexity:** $O(1)$ (excluding input).
+*   **Bottleneck:** The redundant $O(R+C)$ scans inside the nested loops result in cubic complexity, which is unnecessary for this problem.
 
 ## Efficiency Feedback
-*   **Bottleneck:** The redundant scanning of rows and columns inside the nested loop causes unnecessary work.
-*   **Optimization:** You can achieve $O(R \cdot C)$ by pre-calculating the sum of each row and each column into two arrays (`int[] rowSums`, `int[] colSums`) in one pass. Then, check the condition `rowSums[i] == 1 && colSums[j] == 1 && mat[i][j] == 1` in a second pass.
+*   **Redundancy:** The code re-scans the same row and column every time it hits a `1`. If a row contains three `1`s, the row is scanned three times.
+*   **Optimization:** Pre-compute the sum of each row and each column into two arrays (`rowCount[]`, `colCount[]`) in $O(R \cdot C)$. Then, iterate through the matrix once ($O(R \cdot C)$) and check if `mat[i][j] == 1 && rowCount[i] == 1 && colCount[j] == 1`. This reduces the total time to $O(R \cdot C)$.
 
 ## Code Quality
-*   **Readability:** Moderate. The intent is clear, but the nested loops make it slightly cluttered.
-*   **Structure:** Moderate. While logically functional, the algorithm design lacks efficiency.
-*   **Naming:** Good. Variable names (`r`, `c`, `res`, `mat`) are standard and clear for this context.
+*   **Readability:** Good. The logic is straightforward and easy to follow.
+*   **Structure:** Moderate. The logic is nested deeply; extracting the row/column sum logic would improve clarity.
+*   **Naming:** Moderate. `k`, `i`, `j` are standard but generic; `r` and `c` are acceptable shorthand for dimensions.
 *   **Improvements:**
-    *   Avoid the repeated counting logic.
-    *   Use the pre-calculation approach mentioned above to reduce time complexity from cubic to linear.
-    *   Initialize `count` outside the check logic to avoid confusion; currently, `count` tracks both row and column matches, which is clever but potentially confusing to readers.
+    *   Use more descriptive variable names (e.g., `rows`, `cols`).
+    *   Implement the pre-computation strategy described above to bring performance down to linear time relative to the number of elements.
+    *   Avoid the `count == 2` logic; it is fragile and only works because you know `mat[k][i]` is `1` (counting itself once in both row and column checks). It is conceptually clearer to count total `1`s per row/column separately.
 
 ---
 ---
@@ -68,20 +69,18 @@ class Solution {
 
 **Pattern:** Preprocessing / Counting
 
-**Brute Force:**
-For every '1' in the matrix, iterate through its entire row and column to verify if it is the only '1'. 
-*   **Complexity:** $O((m \times n) \times (m + n))$
+**Brute Force:** For every '1' in the matrix, iterate through its entire row and column to verify if it is the only '1' present. 
+*   **Complexity:** $O((m \times n) \times (m + n))$ where $m$ is rows and $n$ is columns.
 
 **Optimal Approach:**
-1.  Precompute the sum of each row and each column into two separate arrays: `rowCount[]` and `colCount[]`.
-2.  Traverse the matrix a second time; a position `(i, j)` is "special" if `matrix[i][j] == 1`, `rowCount[i] == 1`, and `colCount[j] == 1`.
-*   **Time Complexity:** $O(m \times n)$
-*   **Space Complexity:** $O(m + n)$
+1.  Use two arrays: `row_counts[m]` and `col_counts[n]`.
+2.  Perform a single pass to populate these arrays with the sum of 1s in each respective row and column.
+3.  Perform a second pass: if `matrix[i][j] == 1` and both `row_counts[i] == 1` and `col_counts[j] == 1`, increment the result.
+*   **Time Complexity:** $O(m \times n)$ to traverse the matrix twice.
+*   **Space Complexity:** $O(m + n)$ to store the counts.
 
-**The 'Aha' Moment:**
-When the validity of an element depends on global properties of its row and column, decoupling those properties into auxiliary arrays transforms an expensive search into a constant-time lookup.
+**The 'Aha' Moment:** When a problem requires global constraints (sum of entire rows/columns) for every local element, preprocessing these aggregates into auxiliary arrays allows for $O(1)$ lookups during the main validation pass.
 
-**Summary:**
-Trade linear space for time by pre-calculating row and column constraints to eliminate redundant matrix scans.
+**Summary:** Whenever you need to validate specific elements against row and column aggregate constraints, precompute the row and column sums first to turn $O(N)$ validation into $O(1)$ lookups.
 
 ---

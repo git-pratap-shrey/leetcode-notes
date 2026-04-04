@@ -27,34 +27,25 @@ class Solution {
 
 # Submission Review
 ## Approach
-* **Technique:** Hash Map frequency counting.
-* **Optimality:** Suboptimal. While correct, it uses $O(n)$ space. The optimal approach is the **Boyer-Moore Voting Algorithm**, which solves the problem in $O(1)$ space.
+*   **Technique:** Frequency counting using a `HashMap`.
+*   **Optimality:** Suboptimal. While correct, it uses $O(n)$ space. The optimal approach is the **Boyer-Moore Voting Algorithm**, which solves the problem in $O(1)$ space.
 
 ## Complexity
-* **Time Complexity:** $O(n)$, where $n$ is the length of the array. One pass to build the map, one pass through the map entries.
-* **Space Complexity:** $O(n)$ in the worst case (when all elements are distinct).
+*   **Time Complexity:** $O(n)$, as it iterates through the array once and the map entries once.
+*   **Space Complexity:** $O(n)$ in the worst case (when all elements are distinct).
 
 ## Efficiency Feedback
-* **Memory Overhead:** The use of a `HashMap` incurs significant overhead due to object allocation and boxing of integers (`int` to `Integer`). 
-* **Optimization:** Use the Boyer-Moore Voting Algorithm:
-    ```java
-    int count = 0, candidate = 0;
-    for (int num : nums) {
-        if (count == 0) candidate = num;
-        count += (num == candidate) ? 1 : -1;
-    }
-    return candidate;
-    ```
-    This reduces space complexity to $O(1)$ and is generally faster due to cache locality and no memory allocation.
+*   **Bottleneck:** The `HashMap` overhead (hashing, bucket management, and object allocation for `Integer` wrappers) makes this slower and more memory-intensive than the constant-space solution.
+*   **Optimization:** Use the Boyer-Moore Voting Algorithm: maintain a `candidate` and a `count`. Increment `count` if the current element matches the candidate, decrement otherwise (resetting candidate when `count == 0`).
 
 ## Code Quality
-* **Readability:** Moderate. The variable names `fr` and `mc` are non-descriptive.
-* **Structure:** Good. The logic is clear and follows standard iteration patterns.
-* **Naming:** Poor. `fr` (frequency map) and `mc` (max count/majority threshold) should be named descriptively (e.g., `counts`, `majorityCount`).
-* **Improvements:**
-    * Use `int` primitives where possible to avoid boxing.
-    * If choosing to keep the map approach, you can perform the check inside the first loop to avoid iterating over the map entries separately.
-    * The variable `mc` is initialized as `n/2` but then updated to track the count of the potential majority; this dual use is confusing.
+*   **Readability:** Moderate. The variable names (`fr`, `mc`) are non-descriptive and hinder immediate understanding.
+*   **Structure:** Good. The logic is cleanly separated into population and extraction phases.
+*   **Naming:** Poor. Abbreviations like `fr` (frequency map) and `mc` (majority count/threshold) should be full descriptive names (e.g., `counts`, `threshold`).
+*   **Improvements:**
+    *   Rename variables for clarity.
+    *   Consider returning the result directly inside the map iteration or using the optimal voting algorithm to eliminate the map entirely.
+    *   The initialization `int mc=n/2;` is slightly misleading because it is updated to track the *current max frequency* during iteration, rather than staying as the threshold. If you keep the map approach, use a separate variable for `maxCount`.
 
 ---
 ---
@@ -65,16 +56,20 @@ class Solution {
 
 **Pattern:** Boyer-Moore Voting Algorithm
 
-**Brute Force:** Use nested loops to count the occurrences of every element, comparing each against $n/2$.
-*   **Time Complexity:** $O(n^2)$
-*   **Space Complexity:** $O(1)$
+**Brute Force:**
+Use nested loops to count the occurrences of every element.
+*   **Time:** $O(n^2)$
+*   **Space:** $O(1)$
 
-**Optimal Approach:** Maintain a `candidate` and a `count`. Iterate through the array: if `count` is 0, pick the current element as the candidate; increment `count` if the element matches the candidate, otherwise decrement it.
-*   **Time Complexity:** $O(n)$
-*   **Space Complexity:** $O(1)$
+**Optimal Approach:**
+Maintain a `candidate` and a `count`. Iterate through the array: if `count` is 0, set current element as `candidate`. Increment `count` if the element matches the `candidate`, otherwise decrement it. Because the majority element appears more than $\lfloor n/2 \rfloor$ times, it will remain the surviving `candidate`.
+*   **Time:** $O(n)$
+*   **Space:** $O(1)$
 
-**The 'Aha' Moment:** The guarantee that the majority element appears more than $\lfloor n/2 \rfloor$ times acts as a mathematical "anchor," ensuring that the majority element will always survive the cancellation process against all other elements combined.
+**The 'Aha' Moment:**
+The constraint that the majority element appears more than half the time ($> n/2$) guarantees that it will mathematically cancel out all other elements combined.
 
-**Summary:** Whenever you need to identify a dominant element appearing more than half the time, use the Boyer-Moore Voting Algorithm to cancel out non-majority elements in a single pass.
+**Summary:**
+When an element is guaranteed to appear more than half the time, use a counter to "vote" for a candidate, knowing the true majority will inevitably survive the process of elimination.
 
 ---

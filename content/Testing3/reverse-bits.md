@@ -22,35 +22,36 @@ class Solution {
 
 # Submission Review
 ## Approach
-*   **Technique:** Bit manipulation simulation using arithmetic operators (division/modulo).
-*   **Optimal:** No. The approach uses floating-point exponentiation (`Math.pow`) inside a loop, which is computationally expensive and logically fragile for bitwise operations.
+* **Technique**: Iterative bit manipulation using mathematical operations (division and power).
+* **Optimality**: Suboptimal. The use of `Math.pow` inside a loop introduces unnecessary overhead and potential floating-point precision issues. Additionally, the logic fails for negative integers because `n % 2` and `n / 2` in Java behave differently for negative numbers (maintaining the sign bit), which will lead to incorrect results for inputs where the 31st bit is set.
 
 ## Complexity
-*   **Time Complexity:** $O(k)$, where $k=32$. While the loop runs 32 times, the use of `Math.pow` inside the loop adds unnecessary overhead per iteration.
-*   **Space Complexity:** $O(1)$.
+* **Time Complexity**: $O(1)$ effectively, though $O(\log N)$ due to the loop. The use of `Math.pow` makes each iteration significantly slower than bitwise operations.
+* **Space Complexity**: $O(1)$.
 
 ## Efficiency Feedback
-*   **Bottleneck:** The `Math.pow(2, 31-i)` function is designed for floating-point arithmetic. Converting this result to an `int` 32 times is significantly slower than bitwise shifts. 
-*   **Overflow/Correctness:** The current logic fails for `n < 0` because `n % 2` and `n / 2` with negative integers in Java do not behave like logical bitwise operations. For example, `-1 % 2` is `-1`. This code only functions correctly for positive integers.
+* **Bottleneck**: `Math.pow(2, 31-i)` is computationally expensive and redundant. Bitwise shifts (`<<` or `>>>`) are the standard, hardware-accelerated way to handle bit positioning.
+* **Logic Error**: The approach treats `n` as a signed integer. If `n` is negative, `n % 2` will return a negative remainder, corrupting the bit reconstruction. You should use unsigned right shift (`>>>`) and bitwise AND (`& 1`) to extract bits correctly regardless of the integer's sign.
 
 ## Code Quality
-*   **Readability:** Moderate. The logic is easy to follow but non-idiomatic.
-*   **Structure:** Poor. The use of `Math.pow` for bit manipulation is discouraged.
-*   **Naming:** Poor. Variables `temp` and `rm` are non-descriptive; `reversed` and `remainder` would be better.
+* **Readability**: Moderate. The code is concise but logically fragile.
+* **Structure**: Moderate. The loop-based approach is standard, but the implementation relies on arithmetic rather than bitwise logic.
+* **Naming**: Poor. `temp` and `rm` are non-descriptive; `reversed` and `bit` would be better.
 
 ### Concrete Improvements
-1.  **Use Bitwise Operators:** Replace arithmetic with `(n >> i) & 1` and `result | (bit << (31 - i))`.
-2.  **Handle Signedness:** Use the `>>>` (unsigned right shift) operator to handle the 32nd bit correctly regardless of whether the input is interpreted as signed or unsigned.
-3.  **Refactored Code:**
+1. Use bitwise operators (`&`, `<<`, `>>>`) instead of arithmetic (`%`, `/`, `Math.pow`).
+2. Use `(n >>> i) & 1` to extract the $i$-th bit.
+3. Use `result = (result << 1) | bit` to build the reversed number.
+
+**Refactored Example:**
 ```java
 public int reverseBits(int n) {
-    int result = 0;
+    int reversed = 0;
     for (int i = 0; i < 32; i++) {
-        result <<= 1;          // Shift result to make room
-        result |= (n & 1);     // Add the LSB of n
-        n >>>= 1;              // Logical shift to process next bit
+        reversed = (reversed << 1) | (n & 1);
+        n >>>= 1;
     }
-    return result;
+    return reversed;
 }
 ```
 
@@ -64,17 +65,21 @@ public int reverseBits(int n) {
 **Pattern:** Bit Manipulation
 
 **Brute Force:** 
-Convert the 32-bit integer to a string or array of bits, reverse the sequence, and convert it back to an integer. This requires $O(n)$ space and multiple passes to handle leading zeros and base conversion.
+Iterate through all 32 bits of the input integer. Extract each bit using a mask (`n & 1`) and append it to a result variable by shifting the result left and the input right.
 
-**Optimal Approach:** 
-Iterate through all 32 bits of the input. For each bit, extract it using the bitwise AND operator (`n & 1`), shift the result left (`result << 1`), and add the extracted bit to the result using bitwise OR (`|`). Then, shift the input right (`n >> 1`) to process the next bit.
-*   **Time Complexity:** $O(1)$ (since the input size is fixed at 32 bits).
-*   **Space Complexity:** $O(1)$.
+**Optimal Approach:**
+1. Initialize `result = 0`.
+2. Loop 32 times:
+   - Shift `result` to the left by 1 (`result << 1`).
+   - Extract the last bit of `n` (`n & 1`) and add it to `result` (`result | (n & 1)`).
+   - Shift `n` to the right by 1 (`n >> 1`) to process the next bit.
+3. **Complexity:** 
+   - Time: $O(1)$ (fixed at 32 iterations).
+   - Space: $O(1)$.
 
-**The 'Aha' Moment:** 
-When the problem specifies a fixed-length data type (32-bit integer), treat the number as a stream of bits and use a loop to "peel off" bits from the source and "push" them into a accumulator.
+**The 'Aha' Moment:**
+When the problem constraints specify a fixed bit-width (e.g., 32-bit unsigned integer), treat the number as an array of bits and use bitwise shifting to "collect" bits from one end and "deposit" them into the other.
 
-**Summary:** 
-Reverse bits by consuming the input bit-by-bit from the least significant position and shifting them into a new integer, effectively mirroring the bit sequence.
+**Summary:** To reverse bits, treat the integer as a stream and "peel" bits off the end of the source to "stack" them into the result using left-shifts.
 
 ---

@@ -33,25 +33,26 @@ class Solution {
 
 # Submission Review
 ## Approach
-* **Technique:** Linear scan (state machine/three-pass validation).
-* **Correctness:** The code validates a "trionic" structure (implicitly defined as an increasing sequence, followed by a decreasing sequence, followed by an increasing sequence). It correctly checks for monotonic segments and ensures each transition is valid. It is optimal for a single-pass verification.
+- **Technique:** State machine / Linear scan.
+- **Optimality:** Optimal. It performs a single pass over the array with constant extra space, which is the theoretical lower bound for this problem.
 
 ## Complexity
-* **Time Complexity:** $O(n)$, where $n$ is the length of the array, as the index $i$ traverses the array exactly once.
-* **Space Complexity:** $O(1)$, as it uses a constant amount of extra space.
+- **Time Complexity:** $O(n)$, where $n$ is the length of the array, as the index `i` only increments and traverses the array once.
+- **Space Complexity:** $O(1)$, as only a few integer variables are used regardless of input size.
 
 ## Efficiency Feedback
-* **Efficiency:** High. The algorithm is minimal, using single-pointer traversal without auxiliary data structures. 
-* **Optimizations:** No meaningful optimizations are required; the approach is already at the theoretical lower bound for time and space.
+- The efficiency is excellent. The code avoids unnecessary collections or multiple passes. 
+- The use of short-circuiting logic with `i+1 < n` is correct and prevents `ArrayIndexOutOfBoundsException`.
 
 ## Code Quality
-* **Readability:** Moderate. The logic is compact, but the lack of comments explaining the three required phases (rise, fall, rise) makes the intent slightly opaque.
-* **Structure:** Good. The logical grouping of `while` loops clearly separates the three segments.
-* **Naming:** Poor. Variable names like `i`, `n`, `dc` (decreasing checkpoint?), and `st` (starting point?) are non-descriptive and rely on the reader to infer their purpose. 
-* **Improvements:** 
-    * Rename variables for clarity: `n` $\rightarrow$ `length`, `dc` $\rightarrow$ `peakIndex`, `st` $\rightarrow$ `valleyIndex`.
-    * Add a brief comment describing the expected pattern (i.e., "Valley-Peak-Valley" or "Up-Down-Up" sequence).
-    * Consider using descriptive method names if this is part of a larger codebase.
+- **Readability:** Moderate. The logic is compact, but the lack of comments explaining the three distinct phases (increasing, decreasing, increasing) makes it slightly harder to verify at a glance.
+- **Structure:** Good. The structure clearly separates the three phases of the sequence.
+- **Naming:** Poor. Variable names like `i`, `dc`, and `st` are non-descriptive. While common in competitive programming, they hinder maintainability.
+
+### Concrete Improvements
+1. **Meaningful Naming:** Rename `dc` to `peakIndex` and `st` to `troughIndex` to improve code self-documentation.
+2. **Readability:** Add brief comments labeling the phases (e.g., `// Ascending Phase`, `// Descending Phase`, `// Final Ascending Phase`).
+3. **Logic Safety:** The code assumes a specific structure (Up-Down-Up). Ensure this logic aligns with the problem's strict definition of a "Trionic Array" (e.g., whether segments must be strictly monotonic or just non-decreasing/non-increasing). The current implementation assumes strictly monotonic segments.
 
 ---
 ---
@@ -60,20 +61,22 @@ class Solution {
 # Question Revision
 ### Revision Report: Trionic Array I
 
-**Pattern:** Prefix Sums / Sliding Window
+**Pattern:** Prefix Sums / Sliding Window (Fixed Size)
 
-**Brute Force:** 
-Calculate the sum of every possible subarray of length $k$ by iterating through each starting index $i$ and summing the next $k$ elements, resulting in **$O(n \cdot k)$** time complexity.
+**Brute Force:**
+Iterate through the array for every possible sub-array of length $k$, calculating the sum each time.
+*   **Time Complexity:** $O(n \cdot k)$
+*   **Space Complexity:** $O(1)$
 
-**Optimal Approach:** 
-Use a sliding window to maintain the sum of the current subarray. Add the new element entering the window and subtract the one leaving it.
-*   **Time Complexity:** $O(n)$ (Single pass).
-*   **Space Complexity:** $O(1)$ (Only tracking the running sum).
+**Optimal Approach:**
+Precompute the total sum of the first $k$ elements, then use a sliding window to subtract the element leaving the window and add the element entering it. Alternatively, construct a prefix sum array to calculate any sub-array sum in $O(1)$.
+*   **Time Complexity:** $O(n)$
+*   **Space Complexity:** $O(1)$ (Sliding Window) or $O(n)$ (Prefix Array)
 
 **The 'Aha' Moment:**
-When the problem asks for calculations over contiguous sub-segments of a fixed size, you should never re-sum the entire segment; instead, perform constant-time updates by sliding the window.
+Whenever a problem asks for aggregate calculations over a contiguous range of elements, transforming the array into a running total eliminates redundant re-calculations.
 
-**Summary:** 
-If you need to calculate overlapping subarrays, move the window boundaries instead of re-scanning the internal elements.
+**Summary:**
+When you see repeated range-sum queries, use a sliding window for $O(1)$ updates or a prefix sum array for $O(1)$ lookups to drop the redundant iterations.
 
 ---

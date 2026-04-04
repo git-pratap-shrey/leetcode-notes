@@ -48,21 +48,23 @@ slug: balanced-binary-tree
 # Submission Review
 ## Approach
 *   **Technique:** Post-order Depth-First Search (DFS).
-*   **Optimality:** Optimal. The solution uses a bottom-up approach to compute heights, allowing for early termination as soon as an imbalance is detected.
+*   **Optimality:** Optimal. It performs a single bottom-up traversal, pruning the recursion as soon as an imbalance is detected. This avoids the redundant $O(n^2)$ re-computation of heights found in naive implementations.
 
 ## Complexity
-*   **Time Complexity:** $O(N)$, where $N$ is the number of nodes. Each node is visited exactly once.
-*   **Space Complexity:** $O(H)$, where $H$ is the height of the tree, representing the recursion stack depth (worst case $O(N)$ for a skewed tree).
+*   **Time Complexity:** $O(n)$, where $n$ is the number of nodes in the tree, as each node is visited exactly once.
+*   **Space Complexity:** $O(h)$, where $h$ is the height of the tree, representing the recursion stack depth. In the worst case (skewed tree), this is $O(n)$.
 
 ## Efficiency Feedback
-*   **Performance:** Excellent. By propagating `-1` as an error signal, the algorithm avoids redundant height calculations once a subtree is already known to be unbalanced. This is significantly more efficient than a naive $O(N^2)$ top-down approach that recalculates height for every node.
-*   **Memory:** No unnecessary data structures are allocated, making this memory-efficient.
+*   **High Efficiency:** The strategy of returning `-1` as an error sentinel is highly effective for early termination. It avoids unnecessary recursive calls once a subtree is already identified as unbalanced.
+*   **Memory:** The space complexity is minimal and dictated by the tree structure, which is standard for recursive tree algorithms.
 
 ## Code Quality
-*   **Readability:** Good. The logic is concise and easy to follow.
-*   **Structure:** Good. The helper method pattern effectively separates the state (height vs. balanced boolean) from the main API.
-*   **Naming:** Good. `dfsHeight` clearly describes the function's purpose.
-*   **Improvements:** The code is idiomatic and standard for this problem. No functional improvements are needed.
+*   **Readability:** Good. The logic is straightforward and follows standard recursive patterns.
+*   **Structure:** Good. The helper method `dfsHeight` cleanly separates the recursive state from the public interface.
+*   **Naming:** Good. `dfsHeight` accurately describes the utility function.
+*   **Improvements:** 
+    *   The implementation is already idiomatic and clean. No functional changes are required. 
+    *   One minor improvement could be adding a documentation comment explaining the sentinel value `-1` for future maintainers.
 
 ---
 ---
@@ -74,19 +76,17 @@ slug: balanced-binary-tree
 **Pattern:** Depth-First Search (DFS) / Post-Order Traversal
 
 **Brute Force:**
-For every node, calculate the height of the left and right subtrees by traversing them entirely. If the difference between heights is > 1 at any node, return false. This leads to redundant recalculations for each node.
-*   **Time Complexity:** $O(n^2)$
-*   **Space Complexity:** $O(n)$ (recursion stack)
+For every node, calculate the height of the left and right subtrees and check if the difference is $\le 1$. Since `height()` is called for every node, this results in $O(n^2)$ time complexity.
 
 **Optimal Approach:**
-Use a bottom-up DFS approach. Each recursive call returns the height of the subtree if it is balanced, or a specific sentinel value (e.g., -1) if it is unbalanced. This allows the parent to immediately know if its children are unbalanced without re-scanning.
-*   **Time Complexity:** $O(n)$ (each node visited once)
-*   **Space Complexity:** $O(h)$ where $h$ is the tree height (worst case $O(n)$)
+Use a bottom-up DFS that returns the height of the tree if balanced, or a sentinel value (e.g., -1) if unbalanced. By returning early when an imbalance is detected, we avoid redundant height calculations.
+*   **Time Complexity:** $O(n)$
+*   **Space Complexity:** $O(h)$ (where $h$ is the height of the tree for recursion stack)
 
 **The 'Aha' Moment:**
-When a problem requires verifying a property that depends on child nodes, returning the state (or error) during the post-order traversal avoids re-calculating the same subtree heights repeatedly.
+When a problem asks for a condition to hold true for *every* subtree, calculate the metric bottom-up so each parent can reuse the result of its children.
 
 **Summary:**
-Transform the tree property into a recursive return value to prune the calculation early and achieve linear time.
+If a property must hold for all subtrees, perform a bottom-up DFS that propagates both the required metric and the validity status simultaneously.
 
 ---

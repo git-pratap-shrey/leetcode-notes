@@ -41,29 +41,29 @@ class Solution {
 
 # Submission Review
 ## Approach
-*   **Technique:** Simulation via string concatenation and transformation.
-*   **Optimal:** No. The string length grows exponentially ($2^n - 1$), causing both time and memory to explode for large $N$.
+*   **Technique:** Simulation/Brute force string construction.
+*   **Optimal:** No. The string length doubles at each step ($2^n - 1$). For $n=20$, the string length exceeds $10^6$, and for $n \ge 30$, it will cause an `OutOfMemoryError`. The problem can be solved in $O(n)$ time and $O(1)$ space using a recursive approach or bit manipulation.
 
 ## Complexity
-*   **Time Complexity:** $O(2^n)$. Generating the full string for each $N$ is redundant given the problem only asks for the $K$-th character.
-*   **Space Complexity:** $O(2^n)$. Storing the complete string for $N$ levels requires exponential memory.
+*   **Time Complexity:** $O(2^n)$, as the string length grows exponentially and the `inv` function iterates over the entire string each iteration.
+*   **Space Complexity:** $O(2^n)$ to store the accumulated `StringBuilder` strings.
 
 ## Efficiency Feedback
-*   **Bottleneck:** Storing the entire string is unnecessary. This problem can be solved in $O(N)$ time and $O(1)$ space by using the recursive structure:
-    *   The length of $S_n$ is $L = 2^n - 1$.
-    *   The middle bit is always '1' at position $L/2 + 1$.
-    *   If $k$ is in the first half, recurse to $S_{n-1}$.
-    *   If $k$ is in the second half, find the corresponding bit in $S_{n-1}$, invert it, and map its index.
-*   The current approach will throw an `OutOfMemoryError` or time out for even moderate $N$ (e.g., $N > 20$).
+*   **Bottleneck:** The explicit construction of the entire sequence is unnecessary. The bit at index $k$ in iteration $n$ is deterministic based on the properties of the sequence (mirroring and inversion). 
+*   **Optimization:** Use a recursive function `find(n, k)`:
+    *   Midpoint is `len = 2^(n-1)`.
+    *   If $k < mid$, return `find(n-1, k)`.
+    *   If $k == mid$, return `'1'`.
+    *   If $k > mid$, return inverted `find(n-1, 2*mid - k)`.
 
 ## Code Quality
-*   **Readability:** Moderate. The logic is straightforward simulation, but the repeated string object creation (`inv(prev.toString())`) is inefficient.
-*   **Structure:** Poor. The `inv` method performs a full string traversal, reverse, and creation in every iteration of the loop, which is highly inefficient.
-*   **Naming:** Good. Variable names (`prev`, `cur`, `inv`) are descriptive enough for the logic used.
-*   **Improvements:**
-    *   Eliminate the `StringBuilder` accumulation entirely. Use a recursive function `char findKthBit(int n, int k)` that works backward from $N$ to 1.
-    *   Replace `if(str.charAt(i)=='0') ... else if(str.charAt(i)=='1')` with a simpler ternary or `^ '1'` bit manipulation.
-    *   Use `long` for index calculations if $N$ exceeds 31, though the problem constraints typically keep $N \le 20$.
+*   **Readability:** Moderate. The logic is easy to follow but inefficient.
+*   **Structure:** Poor. The `inv` method performs a string copy, a reversal, and character flipping, which is highly redundant.
+*   **Naming:** Good. Variable names (`prev`, `cur`, `inv`) are intuitive.
+*   **Concrete Improvements:**
+    *   Remove `StringBuilder` and string manipulation entirely.
+    *   Implement the recursive approach to avoid memory exhaustion.
+    *   In the `inv` method, the `if(str.charAt(i)=='1')` check is redundant; a simple `else` is sufficient.
 
 ---
 ---
@@ -74,20 +74,14 @@ class Solution {
 
 **Pattern:** Recursion / Divide and Conquer
 
-**Brute Force:** 
-Generate strings iteratively up to $n$ using the rule $S_n = S_{n-1} + "1" + \text{reverse}(\text{invert}(S_{n-1}))$.
-*   **Time:** $O(2^n)$
-*   **Space:** $O(2^n)$
+**Brute Force:** Generate the sequence $S_n$ iteratively by applying the rules ($S_i = S_{i-1} + "1" + \text{reverse}(\text{invert}(S_{i-1}))$). 
+*   **Complexity:** $O(2^n)$ time and $O(2^n)$ space, which fails for large $n$.
 
-**Optimal Approach:** 
-Use the recursive definition to determine the bit's position relative to the middle index ($2^{n-1}$). If $k$ is exactly the middle, return '1'. If $k$ is in the left half, recurse to $S_{n-1}$. If $k$ is in the right half, find the corresponding bit in the left half and invert it.
-*   **Time:** $O(n)$
-*   **Space:** $O(n)$ (recursion stack)
+**Optimal Approach:** Identify the recursive structure of the sequence. For a string $S_n$ of length $L = 2^n - 1$, the middle bit is always '1' at index $L/2$. If $k$ is in the left half, recurse on $S_{n-1}$. If $k$ is in the right half, find the corresponding bit in $S_{n-1}$, invert it, and map the index symmetrically.
+*   **Complexity:** $O(n)$ time (depth of recursion), $O(n)$ space (call stack).
 
-**The 'Aha' Moment:**
-The construction rule for $S_n$ creates a symmetrical structure around the center bit, allowing us to determine the value of any index without ever materializing the actual string.
+**The 'Aha' Moment:** The problem defines $S_n$ using $S_{n-1}$ as a prefix, implying that any bit at index $k$ can be mapped back to a specific position in a smaller, previously generated string.
 
-**Summary:** 
-Whenever a sequence is defined by mirroring and inverting a previous state, treat the string as a tree and navigate to the target bit by checking which half the index falls into.
+**Summary:** Whenever a string is defined by concatenating its previous version with a transformed reverse, treat the middle element as a pivot to recursively reduce the problem space.
 
 ---
