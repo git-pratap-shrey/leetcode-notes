@@ -27,25 +27,25 @@ public:
 
 # Submission Review
 ## Approach
-- **Technique:** Frequency counting using a hash map (`unordered_map`).
-- **Optimality:** Optimal in terms of algorithmic complexity class, but can be improved in constant-time overhead for this specific problem domain (characters).
+- **Technique:** Frequency counting using a hash map (`unordered_map`). 
+- **Optimality:** It is optimal in terms of asymptotic time complexity, but the constant factor can be improved significantly given the limited character set.
 
 ## Complexity
-- **Time Complexity:** $O(N)$, where $N$ is the length of the string. We perform two passes over the string.
-- **Space Complexity:** $O(K)$, where $K$ is the size of the alphabet (constant space, $K \le 26$ for lowercase English letters).
+- **Time Complexity:** $O(N)$, where $N$ is the length of the string. The solution performs two linear passes.
+- **Space Complexity:** $O(1)$ (or $O(K)$ where $K$ is the alphabet size). Since the alphabet size is constant (e.g., 26 for lowercase English letters), the space usage is bounded.
 
 ## Efficiency Feedback
-- **Bottleneck:** `unordered_map` involves hashing overhead and potential collisions. 
-- **Optimization:** Since the input is constrained (likely lowercase English letters), a fixed-size array `int count[26] = {0};` or `std::vector<int>(26, 0)` is significantly faster than an `unordered_map` due to better cache locality and the elimination of hash calculations.
+- **Bottleneck:** `std::unordered_map` has higher overhead due to hashing operations and potential collisions compared to a fixed-size array.
+- **Optimization:** Since the input consists of standard characters, replacing `unordered_map<char, int>` with a fixed-size array `int count[26]` (or `int count[128]` for ASCII) will significantly reduce constant time overhead and memory allocation costs.
 
 ## Code Quality
 - **Readability:** Good. The logic is straightforward and easy to follow.
-- **Structure:** Good. The two-pass approach is standard and correctly implemented.
-- **Naming:** Moderate. `mp` is acceptable but `charCounts` or `freq` would be more descriptive.
+- **Structure:** Good. The two-pass approach is the standard, efficient way to solve this problem.
+- **Naming:** Moderate. `mp` is acceptable but `freq` or `charCounts` would be more descriptive.
 - **Concrete Improvements:** 
-    - Replace `unordered_map<char, int>` with `int freq[26] = {0}` to improve execution speed and memory footprint.
-    - Add `ios_base::sync_with_stdio(false); cin.tie(NULL);` if this were part of a competitive programming solution requiring high-throughput I/O (though not strictly necessary for this specific method).
-    - Use `const string& s` as a parameter to avoid unnecessary string copying.
+    - Use `std::vector<int> mp(26, 0)` or a raw array `int mp[26] = {0};` instead of `unordered_map`. 
+    - You can map characters to indices using `s[i] - 'a'`.
+    - If the input supports full ASCII, use `int mp[256] = {0};` to cover all potential characters.
 
 ---
 ---
@@ -54,23 +54,23 @@ public:
 # Question Revision
 ### Revision Report: First Unique Character in a String
 
-**Pattern:** Frequency Map (Hashing)
+**Pattern:** Frequency Counting (Hash Map / Array)
 
 **Brute Force:**
-For each character at index $i$, iterate through the entire string again to check if it appears anywhere else.
-*   **Time Complexity:** $O(n^2)$
-*   **Space Complexity:** $O(1)$
+For each character at index `i`, iterate through the rest of the string to check if it appears elsewhere. 
+*   **Time:** $O(n^2)$
+*   **Space:** $O(1)$
 
 **Optimal Approach:**
-1. Perform a single pass to store the frequency of each character in a hash map (or a fixed-size array of 26 integers).
-2. Perform a second pass over the string, returning the index of the first character with a frequency count of 1.
-*   **Time Complexity:** $O(n)$
-*   **Space Complexity:** $O(1)$ (since the alphabet size is constant at 26).
+1.  Perform a first pass to populate a frequency map (or size-26 integer array) with the count of each character.
+2.  Perform a second pass through the string, returning the index of the first character with a count of `1`.
+*   **Time:** $O(n)$
+*   **Space:** $O(1)$ (since the alphabet size is constant at 26).
 
 **The 'Aha' Moment:**
-When a problem asks for the *first* occurrence of an element satisfying a condition based on the *global count* of elements, a two-pass frequency map is more efficient than nested iteration.
+When the problem requires identifying a unique element based on global constraints rather than local adjacency, a two-pass frequency count is the standard approach to trade space for linear time.
 
-**Summary:**
-Use a frequency map to decouple the count of occurrences from the original order of the input, allowing you to identify unique elements in linear time.
+**Summary:** 
+Use a frequency map for "first unique" problems to decouple position tracking from existence verification.
 
 ---
