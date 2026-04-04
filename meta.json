@@ -15,7 +15,8 @@
       "find-peak-element",
       "koko-eating-bananas",
       "minimum-number-of-days-to-make-m-bouquets",
-      "find-the-smallest-divisor-given-a-threshold"
+      "find-the-smallest-divisor-given-a-threshold",
+      "capacity-to-ship-packages-within-d-days"
     ]
   },
   "Tushar_Dhakrey": {
@@ -76,27 +77,5 @@
       "first-matching-character-from-both-ends",
       "minimum-absolute-difference-between-two-values"
     ]
-  },
-  "Testing3": {
-    "questions": [
-      "longest-palindromic-substring",
-      "complement-of-base-10-integer",
-      "check-if-binary-string-has-at-most-one-segment-of-ones",
-      "minimum-changes-to-make-alternating-binary-string",
-      "majority-element",
-      "longest-common-prefix",
-      "special-positions-in-a-binary-matrix",
-      "find-kth-bit-in-nth-binary-string",
-      "reverse-bits",
-      "binary-number-with-alternating-bits",
-      "binary-watch",
-      "balanced-binary-tree",
-      "trionic-array-ii",
-      "trionic-array-i",
-      "divide-an-array-into-subarrays-with-minimum-cost-ii"
-    ]
-  },
-  "Vasu_22": {
-    "questions": []
   }
 }
