@@ -36,22 +36,23 @@ class Solution {
 # Submission Review
 ## Approach
 *   **Technique:** Single-pass greedy counting.
-*   **Optimality:** Optimal. The code calculates the operations required for the two possible alternating patterns ("0101..." and "1010...") simultaneously in one traversal.
+*   **Optimality:** Optimal. The problem requires checking two specific patterns ("0101..." and "1010..."). Since any character at index `i` must be either the pattern character or the complement, counting the mismatches for both patterns in one pass is the most efficient approach ($O(N)$).
 
 ## Complexity
-*   **Time Complexity:** $O(n)$, where $n$ is the length of the string, as it performs a single iteration.
-*   **Space Complexity:** $O(1)$, using only two integer counters regardless of input size.
+*   **Time Complexity:** $O(N)$, where $N$ is the length of the string, as it traverses the string exactly once.
+*   **Space Complexity:** $O(1)$, as it only uses two integer counters regardless of input size.
 
 ## Efficiency Feedback
-*   **High Efficiency:** The logic is minimal and avoids extra memory allocation (e.g., no string building or auxiliary arrays). 
-*   **Optimization:** The solution is already at the theoretical lower bound for time and space. No further algorithmic improvements are possible.
+*   **Performance:** The runtime is as low as possible for this problem. No memory allocations occur inside the loop, making it highly efficient.
+*   **Optimization:** The logic is already optimal. No further algorithmic improvements are possible.
 
 ## Code Quality
 *   **Readability:** Good. The logic is straightforward and easy to follow.
-*   **Structure:** Good. The single-loop structure is clean and efficient.
-*   **Naming:** Moderate. `start0` and `start1` are descriptive enough, but `opsForStart0` and `opsForStart1` would be slightly more explicit regarding their purpose.
+*   **Structure:** Good. The use of a single loop to maintain two counters simultaneously is clean.
+*   **Naming:** Good. `start0` and `start1` clearly denote the target starting characters for the two alternating patterns.
 *   **Concrete Improvements:**
-    *   The `if-else` blocks could be simplified by observing that for a pattern starting with '0', the expected character at index `i` is `(i % 2 == 0) ? '0' : '1'`. You could compare `s.charAt(i)` against this expected value to condense the logic. However, the current approach is arguably more readable for beginners.
+    *   **Minor refinement:** You can simplify the conditional logic. For instance, `if (i % 2 == (s.charAt(i) - '0'))` indicates a mismatch for the `0101...` pattern, which could reduce nested `if-else` blocks, though this is purely stylistic.
+    *   **Final return:** Since `start0 + start1` will always equal the length of the string ($N$), one could technically compute `start0` and return `Math.min(start0, s.length() - start0)`, though your current implementation is equally performant and arguably clearer.
 
 ---
 ---
@@ -60,23 +61,20 @@ class Solution {
 # Question Revision
 ### Revision Report: Minimum Changes to Make Alternating Binary String
 
-**Pattern:** Greedy / Iteration
+**Pattern:** Greedy / Mathematical Observation
 
 **Brute Force:** 
-Generate all possible alternating strings of length $n$ (starting with '0' or '1') and compare each character position with the input string $s$ to count differences. $O(n^2)$ if generating strings, or $O(n)$ if counting differences via iteration.
+Generate every possible alternating string of length $n$ starting with '0' or '1' and compare them against the input string, counting mismatches. This results in $O(n^2)$ complexity due to string construction or redundant iterations.
 
 **Optimal Approach:**
-Observe that there are only two possible alternating patterns: 
-1. Starting with '0': `010101...`
-2. Starting with '1': `10101...`
-Since a character at index `i` in an alternating string is determined by `i % 2`, we iterate through $s$ once, counting how many characters deviate from pattern #1. The cost for pattern #2 is simply $n - (\text{count of pattern #1})$.
+Since there are only two valid alternating patterns (starting with '0' or '1'), you only need to count the mismatches for both patterns in a single pass. If the number of mismatches for the '0'-start pattern is $k$, the mismatches for the '1'-start pattern is $n - k$. Return $\min(k, n - k)$.
 *   **Time Complexity:** $O(n)$
 *   **Space Complexity:** $O(1)$
 
 **The 'Aha' Moment:**
-The problem constraints imply the target state is strictly rigid, meaning every bit at an even index must match the starting bit, and every bit at an odd index must be its flip.
+Realizing that the two possible target strings are perfect inverses of each other means the cost of transforming into one is the complement of the cost of transforming into the other.
 
-**Summary:** 
-Whenever a problem requires transforming a sequence into one of two fixed target states, calculate the cost for one and derive the other as $n - \text{cost}$.
+**Summary:**
+When an alternating pattern is restricted to two possible states, calculate the cost for one and subtract it from the total length to find the other instantly.
 
 ---

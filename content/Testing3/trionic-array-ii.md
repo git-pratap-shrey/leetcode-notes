@@ -73,27 +73,26 @@ class Solution {
 
 # Submission Review
 ## Approach
-*   **Technique:** Greedy traversal with look-ahead simulation. The solution attempts to identify "peaks" (an increasing sequence followed by a decreasing sequence) and then adds an adjacent increasing sequence.
-*   **Optimality:** Suboptimal. The logic attempts a local greedy search for trionic shapes but uses nested loops and redundant re-scanning, which may miss global maxima or perform unnecessary work.
+*   **Technique:** Greedy traversal with segmented scanning (Three-phase pattern matching).
+*   **Optimal:** Likely suboptimal. The approach iterates through potential Trionic patterns manually, but the nested loops for calculating the `maxSum` of the first and third segments inside the main loop suggest an $O(N^2)$ worst-case complexity if many patterns overlap or trigger re-scanning.
 
 ## Complexity
-*   **Time Complexity:** $O(N^2)$ in the worst case. While the outer loop index `i` skips forward, the two internal `for` loops (scanning backwards from `p` and forwards from `q`) can re-scan segments multiple times if not perfectly handled by the jump logic.
-*   **Space Complexity:** $O(1)$, as it only uses auxiliary primitive variables.
+*   **Time Complexity:** $O(N^2)$ in the worst case (where $N$ is the length of `nums`), due to the nested loops finding prefix/suffix sums within the main scanning loop.
+*   **Space Complexity:** $O(1)$, as it uses only a few primitive variables.
 
 ## Efficiency Feedback
-*   **Bottleneck:** The nested loops to find `maxSum` for the first and third segments are redundant. These prefix/suffix sums could be precomputed in $O(N)$ using a sliding window or dynamic programming, reducing the overall complexity to $O(N)$.
-*   **Logic Issue:** The use of `i = q - 1` and `i = q` creates a risk of infinite loops or skipped indices if the input array structure is unconventional (e.g., flat plateaus or specific edge cases).
+*   **Bottleneck:** The manual scanning (`while` loops) and the inner `for` loops that re-calculate sums for the first and third segments cause redundant work.
+*   **Optimization:** This problem could likely be solved in $O(N)$ using **Prefix Sums** or **Dynamic Programming** to pre-calculate the maximum increasing/decreasing segment sums ending/starting at any index. This would eliminate the inner loops entirely.
 
 ## Code Quality
-*   **Readability:** Moderate. The segmentation logic is split into clear phases, but the nested loop index manipulation is difficult to follow.
-*   **Structure:** Poor. The logic is heavily dependent on index state management (`i`, `j`, `p`, `q`), which makes the code fragile and prone to off-by-one errors.
-*   **Naming:** Moderate. Variables like `p`, `q`, and `res` are standard in competitive programming but lack descriptive meaning regarding the state they represent (e.g., `peakIndex`, `troughIndex`).
+*   **Readability:** Moderate. The logic is segmented well with comments, but the deep nesting and manual index manipulation (`i`, `j`, `p`, `q`) make it difficult to trace the state transitions.
+*   **Structure:** Poor. The `i = q - 1` assignment inside the loop makes the control flow non-linear and hard to reason about compared to a standard iteration.
+*   **Naming:** Moderate. Variables like `p` and `q` are generic and do not clearly describe their role as boundaries of the Trionic array segments.
 
-## Concrete Improvements
-1.  **Precomputation:** Use prefix sums for increasing segments to get range sums in $O(1)$.
-2.  **State Management:** Instead of manual index jumping, consider a single pass to identify all local peaks and troughs and store them in a list. Then iterate over the list to calculate the max trionic sum.
-3.  **Refactoring:** Replace the nested loops with functional logic or precomputed arrays to eliminate the $O(N^2)$ potential.
-4.  **Edge Cases:** Add explicit checks for arrays where $N < 3$, as the current logic relies on specific indices `p-2` and `q+2` which could cause `ArrayIndexOutOfBoundsException` if not guarded by `n`.
+### Concrete Improvements
+1.  **Pre-computation:** Compute arrays `incPrefix[i]` and `decSuffix[i]` to store the best increasing/decreasing sums. This converts the $O(N^2)$ segment sum calculations into $O(1)$ lookups.
+2.  **Simplify Control Flow:** Avoid manually modifying the loop counter `i` inside the loop if possible, or extract the segment-finding logic into helper functions to improve readability.
+3.  **Boundary Checks:** Ensure the logic explicitly handles edge cases (e.g., $N < 5$ for a Trionic sequence) to prevent potential `ArrayIndexOutOfBoundsException` errors during index decrements (`p-2`) or increments.
 
 ---
 ---
@@ -104,14 +103,14 @@ class Solution {
 
 **Pattern:** Sliding Window (Variable Size)
 
-**Brute Force:** Nested loops to check every possible subarray sum, resulting in $O(n^2)$ time complexity.
+**Brute Force:** Generate all possible subarrays using two nested loops and validate the "Trionic" condition for each, resulting in $O(n^2)$ time complexity.
 
-**Optimal Approach:** Use two pointers (`left`, `right`) to maintain a running window sum. Expand `right` to include elements until the target is met, then increment `left` to shrink the window while updating the result.
-*   **Time Complexity:** $O(n)$ — Each element is visited at most twice.
-*   **Space Complexity:** $O(1)$ — Only constant extra space for pointers and variables.
+**Optimal Approach:** Use a two-pointer sliding window to maintain a valid window of elements. Expand the `right` pointer to include new elements and increment the `left` pointer to shrink the window when the condition is violated.
+*   **Time Complexity:** $O(n)$, as each element is visited at most twice.
+*   **Space Complexity:** $O(1)$ (assuming a fixed-size hash map or frequency array).
 
-**The 'Aha' Moment:** The requirement to find a contiguous subarray meeting a constraint in a linear array is a classic signal to use a sliding window instead of brute-force iteration.
+**The 'Aha' Moment:** The requirement to find the longest subarray that satisfies a constraint while maintaining a contiguous range is a classic signal to use a sliding window instead of re-scanning subarrays.
 
-**Summary:** When asked for an optimal contiguous subarray solution, maintain a window that expands to find the target and shrinks to minimize the footprint.
+**Summary:** Whenever a problem asks for the longest or shortest contiguous subarray meeting a criteria, think "sliding window" to move from $O(n^2)$ to $O(n)$.
 
 ---

@@ -114,26 +114,27 @@ class Solution {
 
 # Submission Review
 ## Approach
-- **Technique:** Sliding Window with two `TreeMap`s to maintain the sum of the $k-1$ smallest elements in the current window (a balanced multiset/frequency map approach).
-- **Optimality:** Optimal. The problem requires dynamic maintenance of the sum of the smallest $k-1$ elements while sliding a window of size $dist+1$. Using `TreeMap` allows for $O(\log n)$ updates, which is standard for this type of problem.
+*   **Technique**: Sliding window with a dual-TreeMap structure to maintain the $k-1$ smallest elements in a dynamic range.
+*   **Optimality**: Optimal. The problem requires selecting the $k-1$ smallest values in a sliding window of size $dist+1$. Using two balanced BSTs (or TreeMaps) allows for $O(\log n)$ insertions, deletions, and queries, which is the standard optimal approach for this type of constrained selection problem.
 
 ## Complexity
-- **Time Complexity:** $O(n \log n)$, where $n$ is the length of `nums`. Each element is added to and removed from the `TreeMap` exactly once, and each operation takes $O(\log n)$.
-- **Space Complexity:** $O(n)$ to store elements in the `TreeMap`.
+*   **Time Complexity**: $O(n \log (\text{dist}))$. Each of the $n$ elements is added and removed from the TreeMaps at most once, and each `TreeMap` operation takes logarithmic time relative to the window size.
+*   **Space Complexity**: $O(\text{dist})$. The `SmartWindow` stores at most $dist+1$ elements across its maps.
 
 ## Efficiency Feedback
-- **Runtime:** `TreeMap` operations have a constant overhead and are significantly slower than a primitive-based heap or a Fenwick tree/Segment tree (if values are coordinate-compressed). However, given the constraints typical for this problem, $O(n \log n)$ is acceptable.
-- **Memory:** `Integer` objects and `TreeMap.Entry` nodes create significant boxing/unboxing and object overhead compared to primitive array-based structures.
-- **Specific Optimization:** If `nums[i]` values are within a small range, a Fenwick tree with coordinate compression would be faster. If not, consider a custom binary search tree or skip list to reduce object allocations.
+*   **Overhead**: `TreeMap` in Java involves significant object overhead due to node allocation and the heavy nature of `Integer` objects. While $O(n \log n)$ is asymptotically optimal, the constant factor is high compared to using a `PriorityQueue` with lazy removal or a Fenwick tree (if values are coordinate-compressed).
+*   **Rebalancing**: The `rebalance` logic is correct and handles the transition between the `low` and `high` sets efficiently.
 
 ## Code Quality
-- **Readability:** Good. The `SmartWindow` class is well-encapsulated and separates the logic of maintaining the $k-1$ smallest elements from the main sliding window loop.
-- **Structure:** Good. The `rebalance()` method is clean and handles the logic for keeping exactly $K$ elements in the `low` set effectively.
-- **Naming:** Good. The class name `SmartWindow` and method names (`popLast`, `popFirst`, `addMap`) clearly convey their purpose.
-- **Improvements:** 
-    - The `rebalance` logic is called inside both `add` and `remove`. While safe, ensure the logic handles edge cases where `K=0` or `windowSize < K` (the current logic handles these via `Math.min(K, windowSize())`).
-    - The `for` loop ranges: The logic `i <= 1 + dist` and `i + dist < n` is slightly non-intuitive; consider adding a comment explaining that the window represents the range `[i, i + dist]`.
-    - Avoid `TreeMap` if performance is critical; replacing with two `PriorityQueue`s with lazy removal (using a "deleted" hash map) is often faster in Java due to reduced object creation.
+*   **Readability**: Good. The logic for managing two sets (one for the smallest $k-1$ elements and one for the rest) is clearly encapsulated in `SmartWindow`.
+*   **Structure**: Good. The `SmartWindow` class effectively hides the complexity of the sliding window management from the main `minimumCost` method.
+*   **Naming**: Good. Variable names like `szLow`, `sumLow`, and `rebalance` are intuitive and descriptive.
+
+### Concrete Improvements
+1.  **Memory Optimization**: If the range of values in `nums` is small (e.g., $10^5$), consider using two `Fenwick trees` or `Segment Trees` to store frequencies of values. This avoids `TreeMap` object overhead and could be faster in practice.
+2.  **Edge Case Safety**: The current loop `for(int i = 2; i + dist < n; i ++)` might miss cases where $n$ is small relative to $dist$. Ensure the loop bounds strictly adhere to the constraints: if $n$ is exactly the window size, the loop condition must still produce the correct initial calculation.
+3.  **Encapsulation**: The `SmartWindow` fields are package-private; keeping them `private` and exposing only necessary methods is better practice.
+4.  **Java Utility**: Since `TreeMap` operations are frequent, ensure the JVM is warmed up or consider if a `java.util.PriorityQueue` with lazy removal (storing "deleted" elements in a separate `HashMap`) could be faster, as `TreeMap` node balancing is more expensive than `PriorityQueue` heapify operations.
 
 ---
 ---
@@ -145,17 +146,17 @@ class Solution {
 **Pattern:** Sliding Window + Two Ordered Sets (or Fenwick Tree/Segment Tree)
 
 **Brute Force:** 
-Iterate through all possible split points to partition the array into $k$ subarrays. This involves recursive backtracking or multi-dimensional DP with state $(index, subarrays\_left)$, leading to $O(n^k)$ complexity, which is infeasible given the constraints ($n \le 10^5$).
+Iterate through all possible split points to partition the array into $k$ subarrays. This involves recursive backtracking or dynamic programming with $O(n^k)$ complexity, which is prohibitive for large $n$.
 
 **Optimal Approach:**
-1.  **Logic:** We must include `arr[0]` as the first element of the first subarray. We then need to choose $k-1$ additional elements from `arr[1...n-1]` to serve as the start of the remaining subarrays. To minimize the cost, we maintain a sliding window of size `dist` (the maximum distance between partition starts). We use two balanced BSTs (or two heaps/multisets) to track the smallest $k-1$ elements in the current window: one for the "smallest" elements and one for the rest.
-2.  **Time Complexity:** $O(n \log n)$ due to operations on balanced BSTs or heaps.
-3.  **Space Complexity:** $O(n)$ to store the window elements.
+Maintain a sliding window of size `dist` (from index $i$ to $i+dist$) to identify the two smallest elements in the current range (excluding the first element). Use two balanced BSTs (or multisets) to store the elements currently in the window: one for the "smallest" element and one for the remaining "k-2" elements. As the window slides, update the sets in $O(\log n)$ and retrieve the minimums to calculate the cost.
+*   **Time Complexity:** $O(n \log n)$
+*   **Space Complexity:** $O(n)$
 
 **The 'Aha' Moment:**
-When a problem asks to select $k$ elements from a range while maintaining a sliding window constraint, it is a signal to use dual data structures to track the "top $k$" smallest elements dynamically.
+When the problem restricts the range of the second and third subarrays (distance constraint), it shifts from a global DP problem to a sliding window problem where you need a dynamic data structure to track the "top $k$" elements.
 
 **Summary:**
-Maintain a sliding window of candidate indices using two balanced data structures to efficiently track the running sum of the smallest $k-1$ elements.
+Whenever you need to track the sum of the smallest elements within a shifting range, use two balanced multisets to efficiently maintain the partition boundaries.
 
 ---

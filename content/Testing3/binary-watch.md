@@ -25,42 +25,45 @@ class Solution {
 
 # Submission Review
 ## Approach
-*   **Technique:** Brute-force simulation. The code iterates through all possible combinations of valid hours (0–11) and minutes (0–59) and checks if the total number of set bits matches the input.
-*   **Optimality:** Optimal. Given the small, fixed search space ($12 \times 60 = 720$ iterations), this approach is highly efficient and clearer than backtracking or bit manipulation techniques.
+*   **Technique:** Brute-force simulation. The code iterates through all possible combinations of valid hours (0-11) and minutes (0-59).
+*   **Optimality:** Optimal. Since the search space is fixed and extremely small ($12 \times 60 = 720$ iterations), this approach is highly efficient and essentially constant time.
 
 ## Complexity
-*   **Time Complexity:** $O(1)$. While there is a nested loop, the number of iterations is constant (720).
-*   **Space Complexity:** $O(1)$. The output list size is bounded by a small constant (max possible valid times), independent of any variable input size.
+*   **Time Complexity:** $O(1)$ (specifically $12 \times 60$ iterations).
+*   **Space Complexity:** $O(1)$ (the output list size is bounded by the constant number of valid time combinations).
 
 ## Efficiency Feedback
-*   **Runtime:** The performance is excellent. `Integer.bitCount()` is a highly optimized intrinsic (typically mapping to a single CPU instruction like `POPCNT`), making this approach nearly instantaneous.
-*   **Memory:** Negligible. 
+*   The use of `Integer.bitCount()` is highly efficient as it typically compiles to a single hardware instruction (POPCNT) or a very fast bit-manipulation sequence.
+*   No further optimizations are necessary given the fixed, small constraint space.
 
 ## Code Quality
-*   **Readability:** Good. The logic is straightforward and avoids unnecessary complexity.
-*   **Structure:** Good. The double-loop structure clearly maps to the domain (hours and minutes).
-*   **Naming:** Good. Variable names `h`, `m`, and `ans` are standard for competitive programming within this scope.
-*   **Improvements:** 
-    *   The code is already idiomatic. If you wanted to avoid manual string concatenation for performance, you could use a `StringBuilder`, but for only 720 iterations, it is unnecessary. 
-    *   The solution is clean and production-ready for its intended purpose.
+*   **Readability:** Good. The logic is straightforward and easy to follow.
+*   **Structure:** Good. Clean separation of iteration and formatting logic.
+*   **Naming:** Good. Variables `h`, `m`, and `ans` are standard and appropriate for this context.
+*   **Improvements:** The solution is concise and idiomatic for Java. No significant improvements are required.
 
 ---
 ---
 
 
 # Question Revision
-### Problem: Binary Watch
+### Revision Report: Binary Watch (LeetCode #401)
 
-**Pattern:** Backtracking / Bit Manipulation / Brute Force
+**Pattern:** Backtracking / Bit Manipulation / Exhaustive Search
 
-**Brute Force:** Iterate through all possible hours (0–11) and minutes (0–59). Convert each to their binary representation (popcount) and check if the total count of set bits equals the input $n$.
+**Brute Force:**
+Iterate through all possible hours ($0–11$) and minutes ($0–59$). Count the set bits (population count) for both; if the sum matches the input `turnedOn`, add the time string to the result.
 
-**Optimal Approach:** Since the total search space is extremely small (12 hours × 60 minutes = 720 states), brute force is the intended $O(1)$ solution.
-*   **Time Complexity:** $O(1)$ (Fixed upper bound of 720 iterations).
-*   **Space Complexity:** $O(1)$ (Fixed output buffer).
+**Optimal Approach:**
+Since the state space is extremely small ($12 \times 60 = 720$ total combinations), iterating through all valid times is effectively $O(1)$. 
+*   **Logic:** Use `Integer.bitCount()` to check if the total bits in `(hour << 6) | minute` equal `turnedOn`.
+*   **Time Complexity:** $O(1)$ (constant search space).
+*   **Space Complexity:** $O(1)$ (limited to the fixed result set size).
 
-**The 'Aha' Moment:** The extremely small, fixed constraints (max 10 LEDs total) signal that iterating through all possible valid time states is more efficient than designing a complex combinatorial algorithm.
+**The 'Aha' Moment:**
+When the total search space is trivially small and fixed, a brute-force iteration over all possible outputs is not just acceptable—it is the most efficient and readable solution.
 
-**Summary:** When the total state space is tiny and fixed, brute force is the most readable and optimal solution.
+**Summary:** 
+Don't over-engineer complex backtracking or recursion when the entire problem domain is small enough to fit inside a single loop.
 
 ---

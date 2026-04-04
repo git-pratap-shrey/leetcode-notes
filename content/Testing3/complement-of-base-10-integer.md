@@ -34,35 +34,35 @@ class Solution {
 
 # Submission Review
 ## Approach
-*   **Technique:** Conversion to binary representation via string building, bit flipping, and re-parsing to decimal.
-*   **Optimal:** No. This approach is inefficient because it uses string manipulation and `Math.pow()` to perform bitwise logic that can be handled natively by CPU instructions.
+- **Technique:** String manipulation and binary conversion.
+- **Optimality:** Suboptimal. The approach converts the integer to a binary string representation, manually flips bits, and converts back to an integer using `Math.pow`. This involves unnecessary memory allocation and multiple traversals.
 
 ## Complexity
-*   **Time Complexity:** $O(\log n)$, as it processes bits. However, the use of `Math.pow()` inside the loop adds unnecessary overhead per bit.
-*   **Space Complexity:** $O(\log n)$ due to the `StringBuilder` storage.
+- **Time Complexity:** $O(\log n)$, as it processes the number of bits in $n$. However, the use of `Math.pow` inside a loop adds an extra $O(\log n)$ overhead per iteration if not optimized by the JVM, effectively making it $O((\log n)^2)$.
+- **Space Complexity:** $O(\log n)$ to store the binary string representation in a `StringBuilder`.
 
 ## Efficiency Feedback
-*   **Bottleneck:** The manual conversion between string/integer types and the use of `Math.pow()` are significantly slower than bitwise operators.
-*   **Optimization:** You can find the complement by calculating the mask (a number consisting of all 1s of the same bit-length as `n`) and using the XOR operator: `n ^ mask`. This reduces the operation to $O(1)$ arithmetic steps.
+- **Bottleneck:** The use of `Math.pow` is expensive. Bitwise operations are significantly faster and more idiomatic.
+- **Optimization:** Use a bitmask to flip bits. For example, find the number of bits $b$ in $n$, then calculate `n ^ ((1 << b) - 1)`. This avoids string conversion and heap allocation entirely.
 
 ## Code Quality
-*   **Readability:** Moderate. The logic is clear but overly verbose for a simple bit manipulation task.
-*   **Structure:** Moderate. The base cases for 0 and 1 are handled, but the loop logic for general integers is unnecessarily complex.
-*   **Naming:** Good. Variable names are clear enough, though `str` is generic.
-
-### Concrete Improvements
-Replace the entire method body with a bitwise approach. For example:
-
-```java
-public int bitwiseComplement(int n) {
-    if (n == 0) return 1;
-    // Calculate the mask of 1s equal to the bit length of n
-    int mask = Integer.highestOneBit(n);
-    mask = (mask << 1) - 1; 
-    return n ^ mask;
-}
-```
-*   This avoids string allocation and repeated power calculations, making the code more idiomatic and performant.
+- **Readability:** Moderate. The logic is clear, but the implementation is verbose for such a simple problem.
+- **Structure:** Moderate. The manual handling of edge cases (`0` and `1`) is fine but can be consolidated.
+- **Naming:** Good. Variable names like `str` and `r` are standard enough for this scope.
+- **Concrete Improvements:** 
+    - Replace the `StringBuilder` loop with a single integer manipulation loop or a bitwise mask.
+    - If sticking to a loop, calculate the result using `sum = (sum << 1) | bit` to avoid `Math.pow` and the need to reverse the string.
+    - Example of a cleaner approach:
+      ```java
+      if (n == 0) return 1;
+      int mask = 0;
+      int temp = n;
+      while (temp > 0) {
+          mask = (mask << 1) | 1;
+          temp >>= 1;
+      }
+      return n ^ mask;
+      ```
 
 ---
 ---
@@ -71,16 +71,21 @@ public int bitwiseComplement(int n) {
 # Question Revision
 ### Revision Report: Complement of Base 10 Integer
 
-**Pattern:** Bit Manipulation
+**Pattern:** Bitwise Manipulation
 
-**Brute Force:** Convert the integer to a binary string, iterate through each character to flip '0' to '1' and '1' to '0', then convert the resulting string back into a decimal integer.
+**Brute Force:**
+Convert the integer to a binary string, iterate through each character, flip '0's to '1's and '1's to '0's, then convert the resulting string back to an integer. 
+*Complexity: $O(\log n)$*
 
-**Optimal Approach:** XOR the number with a "mask" consisting of all 1s of the same bit length (e.g., for `5` (101), the mask is `7` (111); $5 \oplus 7 = 2$ (010)).
-*   **Time Complexity:** $O(\log n)$ (number of bits).
-*   **Space Complexity:** $O(1)$.
+**Optimal Approach:**
+Generate a bitmask of the same length as the number (consisting of all '1's) by finding the smallest power of 2 greater than the number, then XOR the number with this mask. 
+*Example:* For $N=5$ (binary `101`), mask is `111` (7). `101 ^ 111 = 010` (2).
+*Complexity: Time $O(1)$, Space $O(1)$*
 
-**The 'Aha' Moment:** Realizing that flipping bits is equivalent to performing an XOR operation against a mask of identical bit-width ($n \oplus \text{mask} = \text{complement}$).
+**The 'Aha' Moment:**
+Realizing that the complement of a number $N$ relative to a bitmask of all ones is equivalent to $N \oplus \text{mask}$ because XORing a bit with 1 always flips it.
 
-**Summary:** To flip all bits of a number, XOR it with a bitmask of 1s equal to its bit-length.
+**Summary:** 
+To flip bits within a number's specific range, create a mask of identical length filled with ones and XOR it with the original value.
 
 ---

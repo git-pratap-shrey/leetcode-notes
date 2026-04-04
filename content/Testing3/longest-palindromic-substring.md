@@ -34,27 +34,25 @@ class Solution {
 
 # Submission Review
 ## Approach
-- **Technique:** Brute-force. It iterates through all possible substrings ($O(n^2)$) and performs a linear palindrome check ($O(n)$) for each.
-- **Optimality:** Not optimal. It performs redundant work by re-checking substrings and generating new string objects inside the loop.
+*   **Technique:** Brute force. It generates all possible substrings ($O(N^2)$) and verifies each for the palindromic property ($O(N)$).
+*   **Optimality:** Suboptimal. The optimal approach (e.g., Manacher's Algorithm or Expand Around Center) solves this in $O(N^2)$ or $O(N)$ time, whereas this solution is $O(N^3)$.
 
 ## Complexity
-- **Time Complexity:** $O(n^3)$, where $n$ is the length of the string. The nested loops provide $O(n^2)$ iterations, and the `pal` function takes $O(n)$.
-- **Space Complexity:** $O(n)$ to store the `sub` string during iteration.
+*   **Time Complexity:** $O(N^3)$. There are $O(N^2)$ substrings, and the palindrome check `pal()` takes $O(N)$.
+*   **Space Complexity:** $O(N)$ due to the creation of substring objects in the heap.
 
 ## Efficiency Feedback
-- **Bottleneck:** The $O(n^3)$ approach will time out on strings with lengths $n > 1000$.
-- **Optimizations:** 
-    - Use the "Expand Around Center" approach, which reduces complexity to $O(n^2)$ and eliminates $O(n)$ space overhead per iteration.
-    - Manacher’s Algorithm can achieve $O(n)$ time complexity.
-    - Avoid `s.substring()` inside the loop to prevent excessive memory allocation and GC pressure.
+*   **Bottleneck:** The nested loops combined with the $O(N)$ string creation and $O(N)$ verification are highly inefficient for large strings (e.g., $N > 1000$ will likely result in a Time Limit Exceeded).
+*   **Optimizations:** 
+    *   Use the "Expand Around Center" technique: iterate through each character (and the gaps between them) as a potential center and expand outwards. This reduces the time complexity to $O(N^2)$ and eliminates $O(N)$ string allocation.
 
 ## Code Quality
-- **Readability:** Good. The logic is simple and easy to follow.
-- **Structure:** Moderate. The helper method `pal` is well-separated, but the overall approach is inefficient for competitive programming standards.
-- **Naming:** Moderate. `ans`, `pal`, and `sub` are somewhat generic; `isPalindrome` or `longestPalindromeSubstring` would be more descriptive.
-- **Concrete Improvements:** 
-    - Remove `String sub = s.substring(j, i + 1)` and pass indices to the `pal` method to avoid creating new string objects.
-    - Implement a center-based expansion: iterate through each character (and gaps between characters) as a potential center and expand outward as long as characters match.
+*   **Readability:** Good. The logic is straightforward and easy to follow.
+*   **Structure:** Moderate. The helper method `pal` is well-separated, but the overall logic is inefficient.
+*   **Naming:** Moderate. `ans` and `pal` are slightly ambiguous; `longestPalindrome` and `isPalindrome` would be more descriptive.
+*   **Improvements:** 
+    *   Avoid creating substring objects inside the loop (`s.substring(j, i+1)`); it puts significant pressure on the Garbage Collector.
+    *   If using the brute force approach for very small constraints, use indices to check for palindromes rather than extracting substrings.
 
 ---
 ---
@@ -66,18 +64,17 @@ class Solution {
 **Pattern:** Expand Around Center / Dynamic Programming
 
 **Brute Force:**
-Generate all possible substrings ($O(n^2)$), check if each is a palindrome ($O(n)$), resulting in **$O(n^3)$** time and **$O(1)$** space.
+Iterate through all possible substrings ($O(n^2)$) and check if each is a palindrome ($O(n)$), resulting in a time complexity of **$O(n^3)$**.
 
 **Optimal Approach:**
-Treat every index (and the gap between indices) as a potential center and expand outwards as long as the characters match.
-*   **Logic:** A palindrome mirrors around its center. There are $2n-1$ possible centers (single characters for odd lengths, gaps between characters for even lengths).
-*   **Time Complexity:** $O(n^2)$ 
-*   **Space Complexity:** $O(1)$ (ignoring the space required for the output string).
+Treat each character (and the gap between characters) as a potential center and expand outwards while the characters match.
+*   **Time Complexity:** $O(n^2)$
+*   **Space Complexity:** $O(1)$ (if expanding in-place) or $O(n^2)$ for DP table.
 
 **The 'Aha' Moment:**
-When you realize that expanding outward from a center is computationally cheaper than validating every single substring from scratch because it reuses the palindromic property of the inner core.
+Palindromes grow symmetrically from their middle, so recognizing that every palindrome has either one or two central characters turns a search problem into an expansion problem.
 
-**Summary:**
-Whenever a problem involves finding a symmetric structure, don't check every possibility—start from the middle and push outward to leverage existing symmetry.
+**Summary:** 
+Whenever you need to find a symmetric structure, don't build it from the ends; pin the center and expand until the symmetry breaks.
 
 ---

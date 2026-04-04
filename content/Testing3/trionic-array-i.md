@@ -33,31 +33,25 @@ class Solution {
 
 # Submission Review
 ## Approach
-*   **Technique:** Iterative state machine / Two-pointer scan.
-*   **Optimal:** Yes. The solution scans the array exactly once (linear time) to verify the sequence pattern (increasing, then decreasing, then increasing) without additional auxiliary structures.
+* **Technique:** Linear scan (state machine/three-pass validation).
+* **Correctness:** The code validates a "trionic" structure (implicitly defined as an increasing sequence, followed by a decreasing sequence, followed by an increasing sequence). It correctly checks for monotonic segments and ensures each transition is valid. It is optimal for a single-pass verification.
 
 ## Complexity
-*   **Time Complexity:** $O(n)$, where $n$ is the length of the array, as the pointer `i` traverses the array exactly once.
-*   **Space Complexity:** $O(1)$, as it only uses a few integer variables.
+* **Time Complexity:** $O(n)$, where $n$ is the length of the array, as the index $i$ traverses the array exactly once.
+* **Space Complexity:** $O(1)$, as it uses a constant amount of extra space.
 
 ## Efficiency Feedback
-*   The logic is highly efficient. It avoids extra memory allocation and minimizes unnecessary comparisons.
-*   The checks for `i == dc` and `i == st` correctly handle edge cases where a segment (increasing or decreasing) might be empty.
+* **Efficiency:** High. The algorithm is minimal, using single-pointer traversal without auxiliary data structures. 
+* **Optimizations:** No meaningful optimizations are required; the approach is already at the theoretical lower bound for time and space.
 
 ## Code Quality
-*   **Readability:** Moderate. The variable names `dc` (decline start) and `st` (second rise start) are not immediately descriptive, making the code harder to scan for a maintainer.
-*   **Structure:** Good. The logic is cleanly partitioned into three consecutive phases representing the trionic shape.
-*   **Naming:** Poor. Use more expressive names to improve maintainability (e.g., `peakIndex`, `valleyIndex`).
-*   **Concrete Improvements:**
-    *   Rename `i` to `index` or `ptr`.
-    *   Rename `dc` to `peakIndex` and `st` to `valleyIndex`.
-    *   Add brief comments explaining the three required segments for a "Trionic" sequence to clarify the intent of the logic. 
-    *   Example:
-        ```java
-        // Phase 1: Climb to first peak
-        // Phase 2: Descend to valley
-        // Phase 3: Climb to end
-        ```
+* **Readability:** Moderate. The logic is compact, but the lack of comments explaining the three required phases (rise, fall, rise) makes the intent slightly opaque.
+* **Structure:** Good. The logical grouping of `while` loops clearly separates the three segments.
+* **Naming:** Poor. Variable names like `i`, `n`, `dc` (decreasing checkpoint?), and `st` (starting point?) are non-descriptive and rely on the reader to infer their purpose. 
+* **Improvements:** 
+    * Rename variables for clarity: `n` $\rightarrow$ `length`, `dc` $\rightarrow$ `peakIndex`, `st` $\rightarrow$ `valleyIndex`.
+    * Add a brief comment describing the expected pattern (i.e., "Valley-Peak-Valley" or "Up-Down-Up" sequence).
+    * Consider using descriptive method names if this is part of a larger codebase.
 
 ---
 ---
@@ -69,17 +63,17 @@ class Solution {
 **Pattern:** Prefix Sums / Sliding Window
 
 **Brute Force:** 
-Calculate the sum for every possible subarray by iterating through all pairs $(i, j)$ and summing the elements between them, resulting in $O(n^2)$ time complexity.
+Calculate the sum of every possible subarray of length $k$ by iterating through each starting index $i$ and summing the next $k$ elements, resulting in **$O(n \cdot k)$** time complexity.
 
 **Optimal Approach:** 
-Use a **Prefix Sum array** (or running sum variable) to precompute cumulative totals. By storing prefix sums in a hash map, you can determine if a target subarray exists in $O(1)$ time per lookup by checking `current_sum - target == previous_prefix_sum`.
-*   **Time Complexity:** $O(n)$
-*   **Space Complexity:** $O(n)$ to store prefix sum frequencies.
+Use a sliding window to maintain the sum of the current subarray. Add the new element entering the window and subtract the one leaving it.
+*   **Time Complexity:** $O(n)$ (Single pass).
+*   **Space Complexity:** $O(1)$ (Only tracking the running sum).
 
-**The 'Aha' Moment:** 
-When a problem asks for the existence of a subarray summing to a specific value $k$, the constraint of $O(n)$ usually mandates transforming the range-sum query into a point-lookup using the property $Sum(i, j) = Prefix(j) - Prefix(i-1)$.
+**The 'Aha' Moment:**
+When the problem asks for calculations over contiguous sub-segments of a fixed size, you should never re-sum the entire segment; instead, perform constant-time updates by sliding the window.
 
 **Summary:** 
-Whenever you need to find a subarray with a specific sum, map the prefix sums to their occurrences to turn a range calculation into a constant-time difference check.
+If you need to calculate overlapping subarrays, move the window boundaries instead of re-scanning the internal elements.
 
 ---
