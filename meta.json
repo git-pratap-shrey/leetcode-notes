@@ -34,7 +34,9 @@
       "candy",
       "palindrome-partitioning",
       "container-with-most-water",
-      "sudoku-solver"
+      "sudoku-solver",
+      "palindrome-linked-list",
+      "reverse-linked-list-ii"
     ]
   },
   "prince_3087": {
@@ -53,7 +55,8 @@
       "subarray-sums-divisible-by-k",
       "minimum-absolute-difference-between-two-values",
       "subarray-sum-equals-k",
-      "find-pivot-index"
+      "find-pivot-index",
+      "first-unique-character-in-a-string"
     ]
   },
   "git-pratap-shrey": {
