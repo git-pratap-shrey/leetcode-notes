@@ -19,7 +19,8 @@
       "capacity-to-ship-packages-within-d-days",
       "kth-missing-positive-number",
       "integers-with-multiple-sum-of-two-cubes",
-      "mirror-frequency-distance"
+      "mirror-frequency-distance",
+      "split-array-largest-sum"
     ]
   },
   "Tushar_Dhakrey": {
@@ -61,7 +62,8 @@
       "minimum-absolute-difference-between-two-values",
       "subarray-sum-equals-k",
       "find-pivot-index",
-      "first-unique-character-in-a-string"
+      "first-unique-character-in-a-string",
+      "interval-list-intersections"
     ]
   },
   "git-pratap-shrey": {
