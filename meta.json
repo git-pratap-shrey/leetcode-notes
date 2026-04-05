@@ -16,7 +16,10 @@
       "koko-eating-bananas",
       "minimum-number-of-days-to-make-m-bouquets",
       "find-the-smallest-divisor-given-a-threshold",
-      "capacity-to-ship-packages-within-d-days"
+      "capacity-to-ship-packages-within-d-days",
+      "kth-missing-positive-number",
+      "integers-with-multiple-sum-of-two-cubes",
+      "mirror-frequency-distance"
     ]
   },
   "Tushar_Dhakrey": {
@@ -37,7 +40,8 @@
       "container-with-most-water",
       "sudoku-solver",
       "palindrome-linked-list",
-      "reverse-linked-list-ii"
+      "reverse-linked-list-ii",
+      "reorder-list"
     ]
   },
   "prince_3087": {
@@ -75,7 +79,9 @@
       "letter-combinations-of-a-phone-number",
       "word-search",
       "first-matching-character-from-both-ends",
-      "minimum-absolute-difference-between-two-values"
+      "minimum-absolute-difference-between-two-values",
+      "integers-with-multiple-sum-of-two-cubes",
+      "mirror-frequency-distance"
     ]
   }
 }
