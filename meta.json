@@ -1,89 +1,302 @@
 {
   "Harshit-033": {
-    "questions": [
-      "subarray-sum-equals-k",
-      "find-pivot-index",
-      "merge-intervals",
-      "search-in-rotated-sorted-array-ii",
-      "search-in-rotated-sorted-array",
-      "find-first-and-last-position-of-element-in-sorted-array",
-      "find-minimum-in-rotated-sorted-array",
-      "single-element-in-a-sorted-array",
-      "search-a-2d-matrix",
-      "median-of-two-sorted-arrays",
-      "find-minimum-in-rotated-sorted-array-ii",
-      "find-peak-element",
-      "koko-eating-bananas",
-      "minimum-number-of-days-to-make-m-bouquets",
-      "find-the-smallest-divisor-given-a-threshold",
-      "capacity-to-ship-packages-within-d-days",
-      "kth-missing-positive-number",
-      "integers-with-multiple-sum-of-two-cubes",
-      "mirror-frequency-distance",
-      "split-array-largest-sum"
-    ]
+    "questions": {
+      "subarray-sum-equals-k": {
+        "date": null,
+        "language": null
+      },
+      "find-pivot-index": {
+        "date": null,
+        "language": null
+      },
+      "merge-intervals": {
+        "date": null,
+        "language": null
+      },
+      "search-in-rotated-sorted-array-ii": {
+        "date": null,
+        "language": null
+      },
+      "search-in-rotated-sorted-array": {
+        "date": null,
+        "language": null
+      },
+      "find-first-and-last-position-of-element-in-sorted-array": {
+        "date": null,
+        "language": null
+      },
+      "find-minimum-in-rotated-sorted-array": {
+        "date": null,
+        "language": null
+      },
+      "single-element-in-a-sorted-array": {
+        "date": null,
+        "language": null
+      },
+      "search-a-2d-matrix": {
+        "date": null,
+        "language": null
+      },
+      "median-of-two-sorted-arrays": {
+        "date": null,
+        "language": null
+      },
+      "find-minimum-in-rotated-sorted-array-ii": {
+        "date": null,
+        "language": null
+      },
+      "find-peak-element": {
+        "date": null,
+        "language": null
+      },
+      "koko-eating-bananas": {
+        "date": null,
+        "language": null
+      },
+      "minimum-number-of-days-to-make-m-bouquets": {
+        "date": null,
+        "language": null
+      },
+      "find-the-smallest-divisor-given-a-threshold": {
+        "date": null,
+        "language": null
+      },
+      "capacity-to-ship-packages-within-d-days": {
+        "date": null,
+        "language": null
+      },
+      "kth-missing-positive-number": {
+        "date": null,
+        "language": null
+      },
+      "integers-with-multiple-sum-of-two-cubes": {
+        "date": null,
+        "language": null
+      },
+      "mirror-frequency-distance": {
+        "date": null,
+        "language": null
+      },
+      "split-array-largest-sum": {
+        "date": null,
+        "language": null
+      }
+    }
   },
   "Tushar_Dhakrey": {
-    "questions": [
-      "happy-number",
-      "linked-list-cycle-ii",
-      "linked-list-cycle",
-      "remove-duplicates-from-sorted-list",
-      "middle-of-the-linked-list",
-      "sort-list",
-      "reverse-linked-list",
-      "add-two-numbers",
-      "find-words-containing-character",
-      "merge-strings-alternately",
-      "count-the-number-of-vowel-strings-in-range",
-      "candy",
-      "palindrome-partitioning",
-      "container-with-most-water",
-      "sudoku-solver",
-      "palindrome-linked-list",
-      "reverse-linked-list-ii",
-      "reorder-list"
-    ]
+    "questions": {
+      "happy-number": {
+        "date": null,
+        "language": null
+      },
+      "linked-list-cycle-ii": {
+        "date": null,
+        "language": null
+      },
+      "linked-list-cycle": {
+        "date": null,
+        "language": null
+      },
+      "remove-duplicates-from-sorted-list": {
+        "date": null,
+        "language": null
+      },
+      "middle-of-the-linked-list": {
+        "date": null,
+        "language": null
+      },
+      "sort-list": {
+        "date": null,
+        "language": null
+      },
+      "reverse-linked-list": {
+        "date": null,
+        "language": null
+      },
+      "add-two-numbers": {
+        "date": null,
+        "language": null
+      },
+      "find-words-containing-character": {
+        "date": null,
+        "language": null
+      },
+      "merge-strings-alternately": {
+        "date": null,
+        "language": null
+      },
+      "count-the-number-of-vowel-strings-in-range": {
+        "date": null,
+        "language": null
+      },
+      "candy": {
+        "date": null,
+        "language": null
+      },
+      "palindrome-partitioning": {
+        "date": null,
+        "language": null
+      },
+      "container-with-most-water": {
+        "date": null,
+        "language": null
+      },
+      "sudoku-solver": {
+        "date": null,
+        "language": null
+      },
+      "palindrome-linked-list": {
+        "date": null,
+        "language": null
+      },
+      "reverse-linked-list-ii": {
+        "date": null,
+        "language": null
+      },
+      "reorder-list": {
+        "date": null,
+        "language": null
+      }
+    }
   },
   "prince_3087": {
-    "questions": [
-      "first-matching-character-from-both-ends",
-      "is-subsequence",
-      "merge-strings-alternately",
-      "remove-all-occurrences-of-a-substring",
-      "valid-palindrome",
-      "reverse-string",
-      "insert-interval",
-      "merge-intervals",
-      "binary-subarrays-with-sum",
-      "continuous-subarray-sum",
-      "contiguous-array",
-      "subarray-sums-divisible-by-k",
-      "minimum-absolute-difference-between-two-values",
-      "subarray-sum-equals-k",
-      "find-pivot-index",
-      "first-unique-character-in-a-string",
-      "interval-list-intersections"
-    ]
+    "questions": {
+      "first-matching-character-from-both-ends": {
+        "date": null,
+        "language": null
+      },
+      "is-subsequence": {
+        "date": null,
+        "language": null
+      },
+      "merge-strings-alternately": {
+        "date": null,
+        "language": null
+      },
+      "remove-all-occurrences-of-a-substring": {
+        "date": null,
+        "language": null
+      },
+      "valid-palindrome": {
+        "date": null,
+        "language": null
+      },
+      "reverse-string": {
+        "date": null,
+        "language": null
+      },
+      "insert-interval": {
+        "date": null,
+        "language": null
+      },
+      "merge-intervals": {
+        "date": null,
+        "language": null
+      },
+      "binary-subarrays-with-sum": {
+        "date": null,
+        "language": null
+      },
+      "continuous-subarray-sum": {
+        "date": null,
+        "language": null
+      },
+      "contiguous-array": {
+        "date": null,
+        "language": null
+      },
+      "subarray-sums-divisible-by-k": {
+        "date": null,
+        "language": null
+      },
+      "minimum-absolute-difference-between-two-values": {
+        "date": null,
+        "language": null
+      },
+      "subarray-sum-equals-k": {
+        "date": null,
+        "language": null
+      },
+      "find-pivot-index": {
+        "date": null,
+        "language": null
+      },
+      "first-unique-character-in-a-string": {
+        "date": null,
+        "language": null
+      },
+      "interval-list-intersections": {
+        "date": null,
+        "language": null
+      }
+    }
   },
   "git-pratap-shrey": {
-    "questions": [
-      "a-number-after-a-double-reversal",
-      "word-break",
-      "maximum-product-subarray",
-      "decode-ways",
-      "palindromic-substrings",
-      "longest-palindromic-substring",
-      "house-robber-ii",
-      "house-robber",
-      "min-cost-climbing-stairs",
-      "palindrome-partitioning",
-      "letter-combinations-of-a-phone-number",
-      "word-search",
-      "first-matching-character-from-both-ends",
-      "minimum-absolute-difference-between-two-values",
-      "integers-with-multiple-sum-of-two-cubes",
-      "mirror-frequency-distance"
-    ]
+    "questions": {
+      "a-number-after-a-double-reversal": {
+        "date": null,
+        "language": null
+      },
+      "word-break": {
+        "date": null,
+        "language": null
+      },
+      "maximum-product-subarray": {
+        "date": null,
+        "language": null
+      },
+      "decode-ways": {
+        "date": null,
+        "language": null
+      },
+      "palindromic-substrings": {
+        "date": null,
+        "language": null
+      },
+      "longest-palindromic-substring": {
+        "date": null,
+        "language": null
+      },
+      "house-robber-ii": {
+        "date": null,
+        "language": null
+      },
+      "house-robber": {
+        "date": null,
+        "language": null
+      },
+      "min-cost-climbing-stairs": {
+        "date": null,
+        "language": null
+      },
+      "palindrome-partitioning": {
+        "date": null,
+        "language": null
+      },
+      "letter-combinations-of-a-phone-number": {
+        "date": null,
+        "language": null
+      },
+      "word-search": {
+        "date": null,
+        "language": null
+      },
+      "first-matching-character-from-both-ends": {
+        "date": null,
+        "language": null
+      },
+      "minimum-absolute-difference-between-two-values": {
+        "date": null,
+        "language": null
+      },
+      "integers-with-multiple-sum-of-two-cubes": {
+        "date": null,
+        "language": null
+      },
+      "mirror-frequency-distance": {
+        "date": null,
+        "language": null
+      }
+    }
   }
 }
