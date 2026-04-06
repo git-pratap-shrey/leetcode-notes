@@ -9,6 +9,7 @@ import { QuartzPluginData } from "../../plugins/vfile"
 import { ComponentChildren } from "preact"
 import { concatenateResources } from "../../util/resources"
 import { trieFromAllFiles } from "../../util/ctx"
+import ProfileSummary from "../folder/ProfileSummary"
 
 interface FolderContentOptions {
   /**
@@ -102,9 +103,13 @@ export default ((opts?: Partial<FolderContentOptions>) => {
         : htmlToJsx(fileData.filePath!, tree)
     ) as ComponentChildren
 
+    const isTopLevelFolder =
+      fileData.slug && fileData.slug.split("/").length === 2 && fileData.slug.split("/")[1] === "index"
+
     return (
       <div class="popover-hint">
         <article class={classes}>{content}</article>
+        {isTopLevelFolder && <ProfileSummary {...props} />}
         <div class="page-listing">
           {options.showFolderCount && (
             <p>

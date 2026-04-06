@@ -24,6 +24,7 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import ExampleLink from "./ExampleLink"
+import ProfileSummary from "./folder/ProfileSummary"
 
 export {
   ArticleTitle,
@@ -52,4 +53,5 @@ export {
   Flex,
   ConditionalRender,
   ExampleLink,
+  ProfileSummary,
 }
