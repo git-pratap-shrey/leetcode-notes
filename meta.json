@@ -80,6 +80,10 @@
       "split-array-largest-sum": {
         "date": null,
         "language": null
+      },
+      "bulls-and-cows": {
+        "date": "2026-04-05",
+        "language": "unknown"
       }
     }
   },
