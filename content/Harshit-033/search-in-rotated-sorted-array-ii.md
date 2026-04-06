@@ -1,6 +1,7 @@
 ---
 title: "Search in Rotated Sorted Array II"
 slug: search-in-rotated-sorted-array-ii
+date: "2026-04-01"
 
 ---
 ---

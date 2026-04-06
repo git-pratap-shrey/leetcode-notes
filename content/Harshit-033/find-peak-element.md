@@ -1,6 +1,7 @@
 ---
 title: "Find Peak Element"
 slug: find-peak-element
+date: "2026-04-03"
 
 ---
 ---

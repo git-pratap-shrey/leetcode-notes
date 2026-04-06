@@ -1,6 +1,7 @@
 ---
 title: "First Unique Character in a String"
 slug: first-unique-character-in-a-string
+date: "2026-04-04"
 
 ---
 ---

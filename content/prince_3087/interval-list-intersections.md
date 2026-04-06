@@ -1,6 +1,7 @@
 ---
 title: "Interval List Intersections"
 slug: interval-list-intersections
+date: "2026-04-05"
 
 ---
 ---

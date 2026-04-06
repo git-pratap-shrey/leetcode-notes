@@ -1,6 +1,7 @@
 ---
 title: "Sudoku Solver"
 slug: sudoku-solver
+date: "2026-03-26"
 
 ---
 ---

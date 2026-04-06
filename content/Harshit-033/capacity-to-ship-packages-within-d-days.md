@@ -1,6 +1,7 @@
 ---
 title: "Capacity To Ship Packages Within D Days"
 slug: capacity-to-ship-packages-within-d-days
+date: "2026-04-04"
 
 ---
 ---

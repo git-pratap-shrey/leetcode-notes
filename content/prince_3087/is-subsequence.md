@@ -1,6 +1,7 @@
 ---
 title: "Is Subsequence"
 slug: is-subsequence
+date: "2026-04-02"
 
 ---
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Merge Intervals"
 slug: merge-intervals
+date: "2026-03-30"
 
 ---
 ---

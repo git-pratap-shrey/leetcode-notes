@@ -1,6 +1,7 @@
 ---
 title: "Contiguous Array"
 slug: contiguous-array
+date: "2026-03-29"
 
 ---
 ---

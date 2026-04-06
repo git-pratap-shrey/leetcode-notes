@@ -1,6 +1,7 @@
 ---
 title: "Palindrome Partitioning"
 slug: palindrome-partitioning
+date: "2026-03-29"
 
 ---
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Continuous Subarray Sum"
 slug: continuous-subarray-sum
+date: "2026-03-29"
 
 ---
 ---

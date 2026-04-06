@@ -1,6 +1,7 @@
 ---
 title: "Remove All Occurrences of a Substring"
 slug: remove-all-occurrences-of-a-substring
+date: "2026-04-02"
 
 ---
 ---

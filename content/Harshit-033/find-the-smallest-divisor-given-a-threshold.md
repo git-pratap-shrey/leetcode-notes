@@ -1,6 +1,7 @@
 ---
 title: "Find the Smallest Divisor Given a Threshold"
 slug: find-the-smallest-divisor-given-a-threshold
+date: "2026-04-03"
 
 ---
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Longest Palindromic Substring"
 slug: longest-palindromic-substring
+date: "2026-03-30"
 
 ---
 ---

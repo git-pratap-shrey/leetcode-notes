@@ -1,6 +1,7 @@
 ---
 title: "Subarray Sum Equals K"
 slug: subarray-sum-equals-k
+date: "2026-04-01"
 
 ---
 ---

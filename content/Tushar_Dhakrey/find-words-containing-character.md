@@ -1,6 +1,7 @@
 ---
 title: "Find Words Containing Character"
 slug: find-words-containing-character
+date: "2026-03-30"
 
 ---
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Decode Ways"
 slug: decode-ways
+date: "2026-03-31"
 
 ---
 ---

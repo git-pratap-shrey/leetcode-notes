@@ -1,6 +1,7 @@
 ---
 title: "Maximum Product Subarray"
 slug: maximum-product-subarray
+date: "2026-03-31"
 
 ---
 ---

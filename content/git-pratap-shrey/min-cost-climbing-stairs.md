@@ -1,6 +1,7 @@
 ---
 title: "Min Cost Climbing Stairs"
 slug: min-cost-climbing-stairs
+date: "2026-03-29"
 
 ---
 ---

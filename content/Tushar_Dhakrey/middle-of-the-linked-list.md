@@ -1,6 +1,7 @@
 ---
 title: "Middle of the Linked List"
 slug: middle-of-the-linked-list
+date: "2026-04-03"
 
 ---
 ---

@@ -1,6 +1,7 @@
 ---
 title: "First Matching Character From Both Ends"
 slug: first-matching-character-from-both-ends
+date: "2026-04-03"
 
 ---
 ---

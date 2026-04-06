@@ -1,6 +1,7 @@
 ---
 title: "Palindromic Substrings"
 slug: palindromic-substrings
+date: "2026-03-30"
 
 ---
 ---

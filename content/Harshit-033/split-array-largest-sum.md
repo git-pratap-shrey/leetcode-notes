@@ -1,6 +1,7 @@
 ---
 title: "Split Array Largest Sum"
 slug: split-array-largest-sum
+date: "2026-04-05"
 
 ---
 ---

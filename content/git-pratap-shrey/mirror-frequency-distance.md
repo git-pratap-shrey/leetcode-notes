@@ -1,6 +1,7 @@
 ---
 title: "Mirror Frequency Distance"
 slug: mirror-frequency-distance
+date: "2026-04-05"
 
 ---
 ---

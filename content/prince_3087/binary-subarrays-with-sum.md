@@ -1,6 +1,7 @@
 ---
 title: "Binary Subarrays With Sum"
 slug: binary-subarrays-with-sum
+date: "2026-03-29"
 
 ---
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Count the Number of Vowel Strings in Range"
 slug: count-the-number-of-vowel-strings-in-range
+date: "2026-03-28"
 
 ---
 ---

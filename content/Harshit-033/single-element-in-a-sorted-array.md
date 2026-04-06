@@ -1,6 +1,7 @@
 ---
 title: "Single Element in a Sorted Array"
 slug: single-element-in-a-sorted-array
+date: "2026-04-02"
 
 ---
 ---

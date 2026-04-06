@@ -1,6 +1,7 @@
 ---
 title: "Reverse Linked List II"
 slug: reverse-linked-list-ii
+date: "2026-04-04"
 
 ---
 ---

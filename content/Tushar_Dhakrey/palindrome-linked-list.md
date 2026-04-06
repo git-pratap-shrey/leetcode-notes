@@ -1,6 +1,7 @@
 ---
 title: "Palindrome Linked List"
 slug: palindrome-linked-list
+date: "2026-04-04"
 
 ---
 ---

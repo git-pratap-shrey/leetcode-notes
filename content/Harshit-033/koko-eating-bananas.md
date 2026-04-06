@@ -1,6 +1,7 @@
 ---
 title: "Koko Eating Bananas"
 slug: koko-eating-bananas
+date: "2026-04-03"
 
 ---
 ---

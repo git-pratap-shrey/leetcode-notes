@@ -1,6 +1,7 @@
 ---
 title: "Container With Most Water"
 slug: container-with-most-water
+date: "2026-03-26"
 
 ---
 ---

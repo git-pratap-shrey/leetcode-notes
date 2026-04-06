@@ -1,6 +1,7 @@
 ---
 title: "Integers With Multiple Sum of Two Cubes"
 slug: integers-with-multiple-sum-of-two-cubes
+date: "2026-04-05"
 
 ---
 ---

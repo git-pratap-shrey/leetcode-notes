@@ -1,6 +1,7 @@
 ---
 title: "Minimum Absolute Difference Between Two Values"
 slug: minimum-absolute-difference-between-two-values
+date: "2026-04-05"
 
 ---
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Merge Strings Alternately"
 slug: merge-strings-alternately
+date: "2026-04-02"
 
 ---
 ---

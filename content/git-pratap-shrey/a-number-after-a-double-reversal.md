@@ -1,6 +1,7 @@
 ---
 title: "A Number After a Double Reversal"
 slug: a-number-after-a-double-reversal
+date: "2026-04-01"
 
 ---
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Find Minimum in Rotated Sorted Array II"
 slug: find-minimum-in-rotated-sorted-array-ii
+date: "2026-04-03"
 
 ---
 ---

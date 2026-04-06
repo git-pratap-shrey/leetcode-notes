@@ -1,6 +1,7 @@
 ---
 title: "Remove Duplicates from Sorted List"
 slug: remove-duplicates-from-sorted-list
+date: "2026-04-01"
 
 ---
 ---

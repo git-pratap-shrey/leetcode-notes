@@ -1,6 +1,7 @@
 ---
 title: "Add Two Numbers"
 slug: add-two-numbers
+date: "2026-03-31"
 
 ---
 ---

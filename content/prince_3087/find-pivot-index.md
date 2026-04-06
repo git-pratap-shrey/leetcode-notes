@@ -1,6 +1,7 @@
 ---
 title: "Find Pivot Index"
 slug: find-pivot-index
+date: "2026-03-27"
 
 ---
 ---

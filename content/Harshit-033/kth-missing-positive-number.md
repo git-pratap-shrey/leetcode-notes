@@ -1,6 +1,7 @@
 ---
 title: "Kth Missing Positive Number"
 slug: kth-missing-positive-number
+date: "2026-04-05"
 
 ---
 ---

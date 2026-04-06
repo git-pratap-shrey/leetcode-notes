@@ -1,6 +1,7 @@
 ---
 title: "Valid Palindrome"
 slug: valid-palindrome
+date: "2026-04-01"
 
 ---
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Linked List Cycle"
 slug: linked-list-cycle
+date: "2026-04-01"
 
 ---
 ---

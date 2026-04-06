@@ -1,6 +1,7 @@
 ---
 title: "Happy Number"
 slug: happy-number
+date: "2026-04-02"
 
 ---
 ---

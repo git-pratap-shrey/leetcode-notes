@@ -1,6 +1,7 @@
 ---
 title: "Search a 2D Matrix"
 slug: search-a-2d-matrix
+date: "2026-04-03"
 
 ---
 ---
