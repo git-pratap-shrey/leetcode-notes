@@ -1,1 +1,0 @@
-- [n8n workflow files](reference_n8n_workflows.md) — JSON files for main and authorizer n8n workflows
