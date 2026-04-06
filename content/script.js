@@ -209,9 +209,9 @@
         }
 
         if (data.status === 'new') {
-            let timeLeft = 120;
+            let timeLeft = 300;
             status.innerHTML =
-                '✅ Registered! Generating profile... redirecting in <span id="timer">120</span>s';
+                '✅ Registered! Generating profile... redirecting in <span id="timer">300</span>s';
             const timerInterval = setInterval(() => {
                 timeLeft--;
                 const timerEl = document.getElementById('timer');
