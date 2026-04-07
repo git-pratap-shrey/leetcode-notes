@@ -49,64 +49,57 @@ int* findPeakGrid(int** mat, int matSize, int* matColSize, int* returnSize) {
 
 # Submission Review
 ## Approach
-*   **Technique:** Binary Search on columns combined with a linear search for the maximum element in the selected column.
-*   **Optimality:** Optimal. By finding the global maximum in the chosen column, the algorithm ensures that the element is greater than its vertical neighbors by definition, and the binary search decision ensures it is greater than horizontal neighbors.
+*   **Technique:** Binary search on the columns of the matrix combined with a linear scan to find the maximum element in the selected column.
+*   **Optimality:** Optimal. It achieves $O(N \log M)$ complexity (where $N$ is the number of rows and $M$ is the number of columns), which is standard for this problem.
 
 ## Complexity
-*   **Time Complexity:** $O(m \log n)$, where $m$ is the number of rows and $n$ is the number of columns. Finding the max in a column takes $O(m)$ and the binary search takes $O(\log n)$ steps.
-*   **Space Complexity:** $O(1)$ (excluding the returned array), as the algorithm uses a constant amount of extra space.
+*   **Time Complexity:** $O(N \log M)$, where $N$ is `matSize` and $M$ is `matColSize`. In each step of the binary search, you traverse one column ($O(N)$).
+*   **Space Complexity:** $O(1)$ (excluding the allocated return array), as the algorithm uses a constant amount of extra space.
 
 ## Efficiency Feedback
-*   **Bottleneck:** The $O(m)$ scan inside the $O(\log n)$ loop is the standard approach for this problem. It is efficient given the constraints of the "Peak Element II" problem (typically $m, n \le 500$).
-*   **Optimization:** The code correctly handles edge cases (boundaries) using ternary operators, which is efficient and avoids unnecessary index checks.
+*   **Performance:** The runtime is efficient for large matrices.
+*   **Boundary Conditions:** Using `-1` for comparisons at the edges assumes all elements in the matrix are non-negative. If the matrix contains negative numbers, this logic is **flawed**.
+    *   *Fix:* Use `INT_MIN` for out-of-bounds comparisons instead of `-1`.
 
 ## Code Quality
-*   **Readability:** Good. The logic is concise and follows a clear flow.
-*   **Structure:** Good. The use of `malloc` is appropriate for returning an array from a C function.
-*   **Naming:** Good. Variable names (`low`, `high`, `maxRow`, `mid`) are standard and intuitive.
-*   **Concrete Improvements:**
-    *   **Memory Safety:** While not strictly required for competitive programming, adding a check to verify if `malloc` succeeds is good practice. 
-    *   **Input Assumption:** The code assumes `matColSize` is the same for all rows. While typical for grid problems, ensure the problem constraints guarantee a rectangular matrix.
-    *   **Style:** `int* arr = (int*)malloc(...)` is standard, but in C, casting the return value of `malloc` is unnecessary and can hide errors if `<stdlib.h>` is missing. 
-    *   **Clarity:** The `else if` logic could be slightly more explicit regarding the comparison to `left` vs `right` to improve readability for others, though the current logic is functionally sound.
+*   **Readability:** Good. The logic is concise and easy to follow.
+*   **Structure:** Good. The binary search structure is clear.
+*   **Naming:** Good. Variable names (`maxRow`, `low`, `high`, `mid`) are standard and descriptive.
+
+### Concrete Improvements
+1.  **Safety:** Update the boundary comparison values:
+    ```c
+    int left = (mid > 0) ? mat[maxRow][mid - 1] : -1; // Risky if input has negative values
+    // Use:
+    int left = (mid > 0) ? mat[maxRow][mid - 1] : -1; // If constraints guarantee non-negative
+    // Or use INT_MIN for robustness
+    ```
+2.  **Memory:** The `malloc` is correct, but ensure the caller knows to free it. This is standard for LeetCode C interfaces.
+3.  **Redundancy:** The `returnSize` logic is correct, but ensure you include `<stdlib.h>` for `malloc` and `<limits.h>` if you switch to `INT_MIN`.
 
 ---
 ---
 
 
 # Question Revision
-**Analyzing Peak Elements**
+### Revision Report: Find a Peak Element II
 
-I'm currently focused on the LeetCode "Find a Peak Element II" problem and am working on understanding the constraints, especially the requirement for a solution to be O(m log n) or O(n log m) where m and n are the dimensions of the grid. It seems a binary search approach is necessary to efficiently locate any peak element in the 2D grid. I'm exploring how to adapt that search strategy to this 2D context.
+**Pattern:** Binary Search on a 2D Grid
 
+**Brute Force:** 
+Scan every element in the $m \times n$ matrix to find a value greater than its four neighbors.
+*   **Time Complexity:** $O(m \cdot n)$
+*   **Space Complexity:** $O(1)$
 
-**Refining Optimal Search Strategy**
+**Optimal Approach:** 
+Find the maximum element in a chosen column `mid`. If the element is smaller than its neighbor in the next column, a peak must exist in the right half; otherwise, a peak exists in the left half (or at that current element). Repeat this process by halving the columns.
+*   **Time Complexity:** $O(m \cdot \log n)$
+*   **Space Complexity:** $O(1)$
 
-I've refined the optimal approach to identifying peak elements. The core idea involves binary searching on either rows or columns. I select the middle column, identify the global maximum within that column, and then compare it to its horizontal neighbors. If the maximum is greater, it's a peak. Otherwise, I focus the search on the half where the neighbor is larger. This leverages the requirement for O(m log n) or O(n log m) complexity.
+**The 'Aha' Moment:** 
+The guarantee that "an element is greater than its neighbors" is a local property that allows you to discard half the search space because a peak is mathematically guaranteed to exist in the direction of the strictly increasing neighbor.
 
-
-### Pattern
-Binary Search (Dimensional Reduction)
-
-### Brute Force
-Iterate through every cell $(i, j)$ in the $M \times N$ matrix and check all four neighbors.
-- **Time Complexity:** $O(M \cdot N)$
-- **Space Complexity:** $O(1)$
-
-### Optimal Approach
-1. Perform a binary search on the columns (range `low = 0`, `high = width - 1`).
-2. For the `mid_col`, find the row index `max_row` containing the maximum value in that specific column.
-3. Compare `mat[max_row][mid_col]` with its left and right neighbors:
-   - If `mat[max_row][mid_col]` is greater than both, it is a peak (it's already greater than top/bottom neighbors by being the column max).
-   - If the left neighbor is larger, the peak must exist in the left half.
-   - Otherwise, the peak must exist in the right half.
-- **Time Complexity:** $O(N \log M)$ where $N$ is the number of rows and $M$ is the number of columns.
-- **Space Complexity:** $O(1)$
-
-### The 'Aha' Moment
-By selecting the global maximum of a column, you eliminate the vertical neighbor check entirely, allowing you to treat the 2D grid as a 1D "Peak Element" problem across columns.
-
-### Summary
-To find a 2D peak efficiently, binary search on columns and use the column's maximum element to determine which half of the matrix must contain a peak.
+**Summary:** 
+When asked to find a local optimum in a sorted or partially ordered structure, treat the search space as a monotonic function to apply binary search, even across multiple dimensions.
 
 ---

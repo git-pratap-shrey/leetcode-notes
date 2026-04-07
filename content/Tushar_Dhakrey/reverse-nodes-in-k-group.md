@@ -67,37 +67,26 @@ class Solution {
 ~~~
 
 # Submission Review
-**Analyzing Node Reversal**
-
-I'm currently focused on an iterative method using pointers to reverse nodes within groups of *k*. The challenge lies in managing the pointers effectively to identify and reverse the correct segments, especially handling cases where the remaining nodes are fewer than *k*. I'm still working through the pointer manipulations for the reversal process itself.
-
-
-**Evaluating Algorithm Efficiency**
-
-I've been analyzing the algorithm's time and space complexity, confirming O(n) time due to visiting each node twice, once for group existence check and once for reversal. Space complexity remains O(1) as expected. I'm satisfied with the group existence check and the iterative reversal logic. Variable naming seems descriptive, and efficiency is maintained with no recursion.
-
-
 ## Approach
-- **Technique**: Iterative pointer manipulation with a look-ahead counter.
-- **Optimality**: This is **optimal**. It performs the reversal in-place without auxiliary data structures or recursion, satisfying the $O(1)$ extra space requirement common for this problem.
+*   **Technique:** Iterative pointer manipulation (In-place linked list reversal).
+*   **Optimality:** Optimal. The algorithm processes each node a constant number of times (once to count, once to reverse, once to relink), which is $O(n)$. It operates in $O(1)$ extra space.
 
 ## Complexity
-- **Time Complexity**: $O(n)$ — Each node is visited at most twice: once by the counting pointer (`temp`) to verify the group size, and once by the reversal logic (`current`).
-- **Space Complexity**: $O(1)$ — Only a constant number of pointers are used regardless of the list size.
+*   **Time Complexity:** $O(n)$, where $n$ is the number of nodes in the list. Each node is visited a constant number of times.
+*   **Space Complexity:** $O(1)$, as it only uses a few pointer variables regardless of the input size.
 
 ## Efficiency Feedback
-- **Runtime**: The logic is efficient as it avoids the overhead of recursion stacks. The look-ahead check (`while(temp != null && count<k)`) ensures that we only reverse segments that meet the size criteria, preventing unnecessary operations or "re-reversals" of trailing nodes.
-- **Memory**: Minimal. Using local pointers for the linked list is the most memory-efficient way to solve this in Java.
+*   The logic is efficient. The use of a look-ahead pointer (`temp`) to verify if $k$ nodes exist before reversing prevents unnecessary backtracking or partial reversals.
+*   The code avoids recursion, preventing stack overflow issues on very large lists.
 
 ## Code Quality
-- **Readability**: **Moderate**. While the logic is sound, the pointer manipulation is dense. The use of `while(true)` with multiple `break` points makes the control flow harder to follow than a standard `while(current != null)` loop.
-- **Structure**: **Moderate**. The handling of the first group (updating `head`) vs. subsequent groups (updating `last.next`) is done via an `if-else` check. This is correct but can be streamlined.
-- **Naming**: **Good**. `newend` correctly identifies that the current start will become the end of the reversed segment. `last` accurately represents the tail of the previously processed segment.
-
-### Concrete Improvements
-1.  **Dummy Node**: Use a `dummy` node (`ListNode dummy = new ListNode(0, head)`) to point to the start of the list. This eliminates the `if(last != null) ... else head = prev;` conditional, as every segment would then have a "previous" node.
-2.  **Loop Condition**: Instead of `while(true)`, consider calculating the total length once or checking the look-ahead count as the loop condition to make the termination logic more transparent.
-3.  **Redundancy**: The `if(current == null) break;` at the end of the main loop is technically redundant because the look-ahead `count < k` check would catch this in the next iteration.
+*   **Readability:** Moderate. The logic is dense and relies on multiple pointer updates (`prev`, `current`, `next`, `newend`) which are difficult to trace without comments or a debugger.
+*   **Structure:** Good. The loop-based structure correctly handles the head-case (where `last == null`) and the termination condition.
+*   **Naming:** Moderate. Variable names like `newend` are slightly ambiguous (it represents the "tail" of the reversed segment). `last` is essentially the "tail of the previous group."
+*   **Improvements:** 
+    *   The `if(next != null)` check inside the `for` loop is redundant if the logic is structured to cache the next node correctly at the start of the reversal.
+    *   Extracting the "reverse sub-segment" logic into a small helper method could significantly improve readability and reduce the complexity of the main loop.
+    *   The code `if(prev != null) { prev.next = current; }` inside the `if(count < k)` block is logically sound, but could be clearer if documented as "linking the remainder to the end of the last reversed group."
 
 ---
 ---
@@ -109,20 +98,22 @@ I've been analyzing the algorithm's time and space complexity, confirming O(n) t
 **Pattern:** Linked List Manipulation (Dummy Node + Iterative Reversal)
 
 **Brute Force:**
-Identify groups of size $k$ by traversing the list, store references to nodes in an array, reverse the sequence, and relink them. Requires $O(n)$ space for storage and two passes over the data.
+Identify groups of size $k$ by traversing the list, store references to nodes in an array, reverse the pointers within that subset, and manually relink the segments. 
+*   **Time:** $O(n)$
+*   **Space:** $O(k)$ (storing nodes) or $O(n)$ if cloning.
 
 **Optimal Approach:**
-Use a **dummy head** to simplify edge cases. Calculate the list length first, then use a `prev` pointer to track the tail of the last processed group. For each group of $k$:
-1. Check if $k$ nodes exist.
-2. Perform a standard in-place reversal of the sub-segment.
-3. Update `prev.next` to the new head of the group and re-link the tail to the next remaining segment.
-*   **Time Complexity:** $O(n)$ (each node is visited a constant number of times).
-*   **Space Complexity:** $O(1)$ (in-place modification).
+Use a "Dummy Node" to handle head changes and a "k-group counter" to detect full segments. For each group:
+1. Verify if $k$ nodes exist (to avoid reversing trailing segments).
+2. Use three pointers (`prev`, `curr`, `next`) to perform a standard in-place reversal of the sub-segment.
+3. Update the `tail` of the previous group to point to the new `head` of the reversed segment.
+*   **Time:** $O(n)$ (each node visited a constant number of times).
+*   **Space:** $O(1)$ (in-place pointer manipulation).
 
 **The 'Aha' Moment:**
-When the problem asks to process segments of a fixed size, using a "look-ahead" pointer to verify the group's existence before modifying pointers prevents the need for complex backtracking or secondary storage.
+When a problem requires maintaining the relative order of segments while reversing elements *within* those segments, you must treat the "grouping" as a two-step process: validate segment existence first, then decouple and reverse.
 
-**Summary:**
-Treat each $k$-sized group as a mini-linked list reversal, always connecting the tail of the previous group to the new head of the current one.
+**Summary:** 
+Use a dummy node and a "look-ahead" counter to validate group size before performing in-place pointer reversal, ensuring you link the `previous` segment's tail to the current segment's new head.
 
 ---

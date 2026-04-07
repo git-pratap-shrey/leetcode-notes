@@ -63,6 +63,21 @@
       },
       "bulls-and-cows": {
         "date": "2026-04-05"
+      },
+      "3sum": {
+        "date": "2026-04-06"
+      },
+      "middle-of-the-linked-list": {
+        "date": "2026-04-06"
+      },
+      "delete-node-in-a-linked-list": {
+        "date": "2026-04-06"
+      },
+      "find-a-peak-element-ii": {
+        "date": "2026-04-06"
+      },
+      "search-a-2d-matrix-ii": {
+        "date": "2026-04-06"
       }
     }
   },
@@ -121,6 +136,9 @@
       },
       "reorder-list": {
         "date": "2026-04-05"
+      },
+      "reverse-nodes-in-k-group": {
+        "date": "2026-04-06"
       }
     }
   },
@@ -228,10 +246,56 @@
       },
       "mirror-frequency-distance": {
         "date": "2026-04-05"
+      },
+      "longest-increasing-subsequence": {
+        "date": "2026-04-06"
       }
     }
   },
   "Satyam-31": {
-    "questions": {}
+    "questions": {
+      "mirror-frequency-distance": {
+        "date": "2026-04-06"
+      },
+      "first-matching-character-from-both-ends": {
+        "date": "2026-04-04"
+      },
+      "construct-uniform-parity-array-ii": {
+        "date": "2026-03-24"
+      },
+      "isomorphic-strings": {
+        "date": "2026-03-18"
+      },
+      "count-commas-in-range-ii": {
+        "date": "2026-03-16"
+      },
+      "minimum-cost-to-split-into-ones": {
+        "date": "2026-03-07"
+      },
+      "trionic-array-i": {
+        "date": "2026-02-26"
+      },
+      "longest-substring-without-repeating-characters": {
+        "date": "2026-02-25"
+      },
+      "stone-game": {
+        "date": "2026-02-25"
+      },
+      "check-digitorial-permutation": {
+        "date": "2026-02-24"
+      },
+      "linked-list-cycle-ii": {
+        "date": "2026-02-23"
+      },
+      "find-the-score-difference-in-a-game": {
+        "date": "2026-02-22"
+      },
+      "maximum-bags-with-full-capacity-of-rocks": {
+        "date": "2026-02-20"
+      },
+      "reverse-letters-then-special-characters-in-a-string": {
+        "date": "2026-02-19"
+      }
+    }
   }
 }

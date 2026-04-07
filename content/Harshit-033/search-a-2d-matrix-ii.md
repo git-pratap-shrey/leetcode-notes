@@ -36,63 +36,48 @@ bool searchMatrix(int** matrix, int matrixSize, int* matrixColSize, int target){
 
 # Submission Review
 ## Approach
-*   **Technique:** Greedy traversal starting from the top-right corner (or bottom-left).
-*   **Optimality:** Optimal. It leverages the sorted property of rows and columns to eliminate one row or column in each iteration.
+*   **Technique:** Staircase search (Greedy/Two-pointer approach).
+*   **Optimality:** Optimal. It utilizes the property that rows and columns are sorted to discard an entire row or column in each iteration.
 
 ## Complexity
-*   **Time Complexity:** $O(M + N)$, where $M$ is the number of rows and $N$ is the number of columns. Each step moves either down or left, visiting at most $M+N$ elements.
-*   **Space Complexity:** $O(1)$, as it uses a constant amount of extra space.
+*   **Time Complexity:** $O(M + N)$, where $M$ is the number of rows and $N$ is the number of columns.
+*   **Space Complexity:** $O(1)$, as it uses constant extra space.
 
 ## Efficiency Feedback
-*   The approach is highly efficient for the given constraints.
-*   No meaningful optimizations are possible, as the algorithm already achieves the lower bound complexity for this search problem.
+*   **Performance:** Highly efficient. The algorithm performs at most $M+N$ comparisons, which is the theoretical lower bound for this problem.
+*   **Memory:** Excellent; no additional memory allocation is required.
 
 ## Code Quality
-*   **Readability:** Good. The logic is straightforward and easy to follow.
-*   **Structure:** Good. The `while` loop condition correctly manages boundary checks.
-*   **Naming:** Moderate. `col` and `row` are clear, but `matrixSize` and `matrixColSize` are standard library-provided names that are slightly ambiguous (it is not immediately clear if `matrixColSize` is a pointer or array without context, though this is typical for LeetCode C interfaces).
-*   **Concrete Improvements:** 
-    *   Add a check for `matrix == NULL` or `matrixSize == 0` at the start to handle edge cases gracefully, although the current logic implicitly returns `false` (or potentially dereferences a null pointer if `matrixColSize` is null). 
-    *   Consider adding a `const` qualifier to `int** matrix` to indicate the matrix is not modified.
+*   **Readability:** Good. The logic is concise and easy to follow.
+*   **Structure:** Good. The implementation correctly handles boundary conditions for the search space.
+*   **Naming:** Moderate. `row` and `col` are standard, though `matrixSize` refers to the number of rows, which could be named `m` or `rows` for better clarity.
+*   **Improvements:**
+    *   **Input Validation:** The code assumes `matrixSize > 0` and `matrixColSize` exists. Adding a check for `matrix == NULL` or `matrixSize == 0` would make the function more robust.
+    *   **Pointer Const-correctness:** The `matrix` parameter should be `int** const matrix` since the matrix itself is not being modified.
 
 ---
 ---
 
 
 # Question Revision
-**Defining the Problem Scope**
+### Revision Report: Search a 2D Matrix II
 
-I'm currently focused on defining the problem scope for LeetCode's "Search a 2D Matrix II," aiming for a Markdown format tailored for junior/mid-level developers under mentorship. I'm prioritizing the inclusion of pattern recognition, brute force, and an optimal solution with clear logic and complexity analysis. The goal is to highlight a compelling "Aha!" moment for the developer.
+**Pattern:** Search Space Reduction / Two Pointers
 
+**Brute Force:**
+Iterate through every element in the matrix and check for the target.
+*   **Time:** $O(m \times n)$
+*   **Space:** $O(1)$
 
-**Refining the Solution's Structure**
+**Optimal Approach:**
+Start at the **top-right** corner (or bottom-left) of the matrix. If the current value is greater than the target, move left (decrease column). If the current value is less than the target, move down (increase row). Because rows and columns are sorted independently, moving in these directions eliminates an entire row or column from the search space in each step.
+*   **Time:** $O(m + n)$
+*   **Space:** $O(1)$
 
-I've refined the solution structure for LeetCode's 2D Matrix search. I'm prioritizing concise, high-signal content, immediately presenting the problem statement. The optimal approach uses "Staircase Search" starting from the top-right corner, offering an "Aha!" moment by comparing it to a Binary Search Tree root. The time complexity is O(m + n).
+**The 'Aha' Moment:**
+When rows and columns are sorted but the matrix is not fully sorted like a list, treating the top-right corner as a BST root—where moving left decreases value and moving down increases it—transforms the search into a simple path-finding problem.
 
-
-### Pattern
-Search Space Reduction (Staircase Search)
-
-### Brute Force
-Iterate through every element in the $m \times n$ matrix using nested loops.
-- **Time Complexity:** $O(m \times n)$
-- **Space Complexity:** $O(1)$
-
-### Optimal Approach
-Start at the **top-right** corner $(0, \text{cols}-1)$. Compare the current element with the `target`:
-1. If `matrix[row][col] == target`, return `true`.
-2. If `matrix[row][col] > target`, the entire current column can be ignored because all elements below it are even larger; move **left** (`col--`).
-3. If `matrix[row][col] < target`, the entire current row can be ignored because all elements to the left are even smaller; move **down** (`row++`).
-
-Repeat until the target is found or the boundaries are exceeded. (Note: This also works starting from the bottom-left corner).
-
-- **Time Complexity:** $O(m + n)$, as you can at most move $m$ steps down and $n$ steps left.
-- **Space Complexity:** $O(1)$
-
-### The 'Aha' Moment
-The top-right and bottom-left corners are the only positions where the two available directions offer opposite sorting gradients (one direction decreases values while the other increases them), effectively turning the matrix into a Binary Search Tree.
-
-### Summary
-Eliminate an entire row or column at each step by navigating the matrix from a corner where the horizontal and vertical sort orders diverge.
+**Summary:**
+Whenever you face a grid sorted by both rows and columns, use a corner-pointer strategy to prune the search space linearly rather than treating it like a standard 2D array.
 
 ---
