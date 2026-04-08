@@ -81,6 +81,15 @@
       },
       "next-permutation": {
         "date": "2026-04-07"
+      },
+      "4sum": {
+        "date": "2026-04-08"
+      },
+      "container-with-most-water": {
+        "date": "2026-04-08"
+      },
+      "string-to-integer-atoi": {
+        "date": "2026-04-08"
       }
     }
   },
@@ -200,6 +209,9 @@
       },
       "interval-list-intersections": {
         "date": "2026-04-05"
+      },
+      "remove-all-adjacent-duplicates-in-string": {
+        "date": "2026-04-07"
       }
     }
   },
@@ -304,6 +316,9 @@
       },
       "minimum-absolute-difference-between-two-values": {
         "date": "2026-04-07"
+      },
+      "maximum-product-subarray": {
+        "date": "2026-04-08"
       }
     }
   },
