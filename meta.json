@@ -297,6 +297,9 @@
       },
       "number-of-islands": {
         "date": "2026-04-08"
+      },
+      "max-area-of-island": {
+        "date": "2026-04-08"
       }
     }
   },
