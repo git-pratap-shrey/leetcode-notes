@@ -120,6 +120,12 @@
       },
       "power-of-two": {
         "date": "2026-04-09"
+      },
+      "subsets": {
+        "date": "2026-04-09"
+      },
+      "minimum-bit-flips-to-convert-number": {
+        "date": "2026-04-09"
       }
     }
   },
@@ -448,6 +454,12 @@
         "date": "2026-04-09"
       },
       "last-stone-weight": {
+        "date": "2026-04-09"
+      },
+      "smallest-range-covering-elements-from-k-lists": {
+        "date": "2026-04-09"
+      },
+      "merge-k-sorted-lists": {
         "date": "2026-04-09"
       }
     }
