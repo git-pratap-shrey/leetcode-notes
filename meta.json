@@ -144,6 +144,12 @@
       },
       "divide-two-integers": {
         "date": "2026-04-09"
+      },
+      "delete-the-middle-node-of-a-linked-list": {
+        "date": "2026-04-10"
+      },
+      "odd-even-linked-list": {
+        "date": "2026-04-10"
       }
     }
   },
