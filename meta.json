@@ -153,6 +153,18 @@
       },
       "intersection-of-two-linked-lists": {
         "date": "2026-04-10"
+      },
+      "a-number-after-a-double-reversal": {
+        "date": "2026-04-10"
+      },
+      "successful-pairs-of-spells-and-potions": {
+        "date": "2026-04-10"
+      },
+      "remove-outermost-parentheses": {
+        "date": "2026-04-10"
+      },
+      "reverse-nodes-in-k-group": {
+        "date": "2026-04-10"
       }
     }
   },
@@ -223,6 +235,9 @@
       },
       "add-strings": {
         "date": "2026-04-09"
+      },
+      "check-balanced-string": {
+        "date": "2026-04-10"
       }
     }
   },
@@ -502,6 +517,12 @@
         "date": "2026-04-10"
       },
       "find-median-from-data-stream": {
+        "date": "2026-04-10"
+      },
+      "range-sum-of-bst": {
+        "date": "2026-04-10"
+      },
+      "recover-binary-search-tree": {
         "date": "2026-04-10"
       }
     }
