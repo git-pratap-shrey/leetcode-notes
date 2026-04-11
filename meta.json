@@ -238,6 +238,9 @@
       },
       "check-balanced-string": {
         "date": "2026-04-10"
+      },
+      "string-to-integer-atoi": {
+        "date": "2026-04-11"
       }
     }
   },
@@ -424,6 +427,12 @@
       },
       "find-the-smallest-balanced-index": {
         "date": "2026-04-09"
+      },
+      "n-queens": {
+        "date": "2026-04-11"
+      },
+      "sudoku-solver": {
+        "date": "2026-04-11"
       }
     }
   },
