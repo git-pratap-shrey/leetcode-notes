@@ -165,6 +165,24 @@
       },
       "reverse-nodes-in-k-group": {
         "date": "2026-04-10"
+      },
+      "next-greater-element-i": {
+        "date": "2026-04-12"
+      },
+      "implement-queue-using-stacks": {
+        "date": "2026-04-12"
+      },
+      "min-stack": {
+        "date": "2026-04-12"
+      },
+      "implement-stack-using-queues": {
+        "date": "2026-04-12"
+      },
+      "max-consecutive-ones-iii": {
+        "date": "2026-04-11"
+      },
+      "powx-n": {
+        "date": "2026-04-11"
       }
     }
   },
@@ -240,6 +258,12 @@
         "date": "2026-04-10"
       },
       "string-to-integer-atoi": {
+        "date": "2026-04-11"
+      },
+      "string-compression": {
+        "date": "2026-04-12"
+      },
+      "fizz-buzz": {
         "date": "2026-04-11"
       }
     }
@@ -433,6 +457,21 @@
       },
       "sudoku-solver": {
         "date": "2026-04-11"
+      },
+      "angles-of-a-triangle": {
+        "date": "2026-04-12"
+      },
+      "permutations": {
+        "date": "2026-04-12"
+      },
+      "subsets": {
+        "date": "2026-04-12"
+      },
+      "count-digit-appearances": {
+        "date": "2026-04-11"
+      },
+      "traffic-signal-color": {
+        "date": "2026-04-11"
       }
     }
   },
@@ -533,6 +572,15 @@
       },
       "recover-binary-search-tree": {
         "date": "2026-04-10"
+      },
+      "count-complete-tree-nodes": {
+        "date": "2026-04-12"
+      },
+      "invert-binary-tree": {
+        "date": "2026-04-12"
+      },
+      "duplicate-zeros": {
+        "date": "2026-04-11"
       }
     }
   },
