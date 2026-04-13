@@ -183,6 +183,24 @@
       },
       "powx-n": {
         "date": "2026-04-11"
+      },
+      "online-stock-span": {
+        "date": "2026-04-13"
+      },
+      "remove-k-digits": {
+        "date": "2026-04-13"
+      },
+      "asteroid-collision": {
+        "date": "2026-04-13"
+      },
+      "sum-of-subarray-minimums": {
+        "date": "2026-04-13"
+      },
+      "trapping-rain-water": {
+        "date": "2026-04-12"
+      },
+      "next-greater-element-ii": {
+        "date": "2026-04-12"
       }
     }
   },
@@ -265,6 +283,15 @@
       },
       "fizz-buzz": {
         "date": "2026-04-11"
+      },
+      "implement-stack-using-queues": {
+        "date": "2026-04-13"
+      },
+      "implement-queue-using-stacks": {
+        "date": "2026-04-12"
+      },
+      "valid-parentheses": {
+        "date": "2026-04-12"
       }
     }
   },
@@ -323,6 +350,9 @@
       },
       "remove-all-adjacent-duplicates-in-string": {
         "date": "2026-04-07"
+      },
+      "valid-parentheses": {
+        "date": "2026-04-13"
       }
     }
   },
@@ -396,6 +426,9 @@
       },
       "surrounded-regions": {
         "date": "2026-04-10"
+      },
+      "pacific-atlantic-water-flow": {
+        "date": "2026-04-13"
       }
     }
   },
@@ -472,6 +505,9 @@
       },
       "traffic-signal-color": {
         "date": "2026-04-11"
+      },
+      "bulls-and-cows": {
+        "date": "2026-04-13"
       }
     }
   },
