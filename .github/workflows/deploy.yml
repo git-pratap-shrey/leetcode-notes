@@ -1,5 +1,9 @@
 name: Deploy Quartz site
 
+concurrency:
+  group: "pages-deploy"
+  cancel-in-progress: true
+  
 on:
   push:
     branches: [main]
