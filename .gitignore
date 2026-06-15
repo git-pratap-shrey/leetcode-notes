@@ -1,0 +1,26 @@
+.DS_Store
+node_modules
+public
+prof
+tsconfig.tsbuildinfo
+.obsidian
+.claude
+.quartz-cache
+private/
+.replit
+replit.nix
+
+# Data files
+leetcode-notes-authorizer.json
+leetcode-notes-main.json
+testing.txt
+backup
+tasksmd
+CLAUDE.md
+future_features.md
+
+memory/
+# Gemini CLI session files
+.gemini/
+
+temp/
