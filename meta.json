@@ -300,6 +300,15 @@
             },
             "climbing-stairs": {
                 "date": "2026-05-01"
+            },
+            "search-in-a-binary-search-tree": {
+                "date": "2026-06-24"
+            },
+            "validate-binary-search-tree": {
+                "date": "2026-06-24"
+            },
+            "path-sum": {
+                "date": "2026-06-25"
             }
         }
     },
