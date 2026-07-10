@@ -5,7 +5,8 @@ date: "2026-04-21"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
@@ -39,6 +40,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Modified Binary Search.
 - **Optimality**: Optimal. It achieves the theoretical lower bound for searching in a sorted (but rotated) array by eliminating half of the search space in each iteration.
@@ -60,7 +62,10 @@ public:
 ---
 
 # Question Revision
-### Search in Rotated Sorted Array
+
+#
+
+## Search in Rotated Sorted Array
 
 **Pattern:** Modified Binary Search
 

@@ -7,7 +7,8 @@ date: "2026-03-29"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int findMaxLength(vector<int>& nums) {
@@ -38,7 +39,6 @@ public:
                 result = max(result ,len);
             }
 
-
         }
         // if(result == 0){
         //     return 0;
@@ -49,6 +49,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Hash Map with Prefix Sum transformation. The problem is converted to finding the longest subarray with a sum of 0 by treating `0` as `-1` and `1` as `1`.
 *   **Optimality:** Optimal. It effectively uses the property that if the prefix sum (difference) at two indices is the same, the subarray between them has an equal count of 0s and 1s.
@@ -76,9 +77,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Contiguous Array
+
+#
+
+## Revision Report: Contiguous Array
 
 **Pattern:** Prefix Sum + Hash Map
 

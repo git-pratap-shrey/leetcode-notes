@@ -5,7 +5,8 @@ date: "2026-04-24"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int minBitFlips(int start, int goal) {
         return Integer.bitCount(start^goal);
@@ -14,6 +15,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Bit Manipulation (XOR + Population Count).
 - **Optimality**: Optimal. The XOR operation identifies all differing bits, and `bitCount` calculates the total number of these differences.
@@ -34,7 +36,10 @@ class Solution {
 ---
 
 # Question Revision
-### Revision Report: Minimum Bit Flips to Convert Number
+
+#
+
+## Revision Report: Minimum Bit Flips to Convert Number
 
 **Pattern:** Bit Manipulation
 

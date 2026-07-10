@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public boolean isValid(String s) {
         Stack<Character> st = new Stack<>();
@@ -32,6 +33,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Stack-based greedy approach.
 *   **Optimality:** Optimal. It processes the string in a single pass, ensuring that every closing bracket matches the most recently opened one (LIFO property).
@@ -56,9 +58,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Valid Parentheses
+
+#
+
+## Revision Report: Valid Parentheses
 
 **Pattern:** Stack
 

@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public String addStrings(String num1, String num2) {
         int i=num1.length()-1;
@@ -29,6 +30,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer approach with manual digit-by-digit addition and carry propagation.
 *   **Optimality:** Optimal. It traverses each string exactly once, which is the theoretical lower bound for this problem.
@@ -51,9 +53,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Add Strings
+
+#
+
+## Revision Report: Add Strings
 
 **Pattern:** Two Pointers (Reverse Traversal)
 

@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -36,6 +37,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** In-order tree traversal (Depth-First Search).
 *   **Optimal:** No. The approach treats the input as a generic binary tree and visits every node ($O(N)$). It fails to leverage the specific "Complete Binary Tree" property, which allows for $O(\log^2 N)$ performance.
@@ -59,9 +61,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Count Complete Tree Nodes
+
+#
+
+## Revision Report: Count Complete Tree Nodes
 
 **Pattern:** Binary Tree / Divide and Conquer
 

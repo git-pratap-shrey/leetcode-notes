@@ -5,7 +5,8 @@ date: "2026-07-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     long long maxSum(vector<int>& nums, int k, int mul) {
@@ -29,6 +30,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Greedy.
 *   **Optimality:** **Suboptimal/Incorrect.** The logic assumes that selecting the largest $K$ elements and applying the multipliers greedily is sufficient. However, if the multiplier $mul$ can be negative or if the interaction between $mul$ and the values in `nums` changes, this approach fails to consider the optimal sequence of multiplications (e.g., matching the smallest elements with the smallest multipliers or vice-versa to maximize the sum). 
@@ -53,7 +55,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Maximum Total Sum of K Selected Elements
+
+#
+
+## Revision Report: Maximum Total Sum of K Selected Elements
 
 **Pattern:** Greedy + Priority Queue (Min-Heap)
 

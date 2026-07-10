@@ -1,4 +1,14 @@
---- title: "Search a 2D Matrix II" slug: search-a-2d-matrix-ii date: "2026-06-26" ---  # My Solution ~~~class Solution {
+---
+title: "Search a 2D Matrix II"
+slug: search-a-2d-matrix-ii
+date: "2026-06-26"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int m=matrix.size();
@@ -19,11 +29,18 @@ public:
         return false;
     }
 };
-auto init = atexit( [](){ ofstream("display_runtime.txt") <<'0'; }); - cpp~~~  # Submission Review ## Approach
+auto init = atexit( [](){ ofstream("display_runtime.txt") <<'0'; });
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Staircase Search (Two-Pointer approach). The algorithm starts at the top-right corner and moves down or left based on the comparison with the target.
 - **Optimality**: Optimal. This approach leverages the sorted property of both rows and columns to prune the search space linearly.
 
 ## Complexity
+
 - **Time Complexity**: $O(m + n)$, where $m$ is the number of rows and $n$ is the number of columns. In the worst case, the pointer traverses from the top-right to the bottom-left.
 - **Space Complexity**: $O(1)$ as it only uses a few integer variables.
 
@@ -32,11 +49,20 @@ auto init = atexit( [](){ ofstream("display_runtime.txt") <<'0'; }); - cpp~~~  #
 - The line `auto init = atexit(...)` is a platform-specific hack used in competitive programming to attempt to bypass or manipulate judge runtime measurements; it has no impact on the algorithmic efficiency.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is concise and easy to follow.
 - **Structure**: Good.
 - **Naming**: Moderate. While `m`, `n`, `r`, and `c` are common in competitive programming, descriptive names like `rows`, `cols`, `currentRow`, and `currentCol` would be better for maintainability.
 - **Concrete Improvements**:
-    - **Safety**: The code lacks a check for an empty matrix. If `matrix` is empty, `matrix[0].size()` will cause a segmentation fault. Adding `if (matrix.empty() || matrix[0].empty()) return false;` is recommended.  ---  # Question Revision ### Search a 2D Matrix II
+    - **Safety**: The code lacks a check for an empty matrix. If `matrix` is empty, `matrix[0].size()` will cause a segmentation fault. Adding `if (matrix.empty() || matrix[0].empty()) return false;` is recommended.
+
+---
+
+# Question Revision
+
+#
+
+## Search a 2D Matrix II
 
 **Pattern:** Two Pointers (Staircase Search)
 
@@ -50,4 +76,6 @@ auto init = atexit( [](){ ofstream("display_runtime.txt") <<'0'; }); - cpp~~~  #
 
 **The 'Aha' Moment:** The dual sorting (rows and columns) allows the top-right (or bottom-left) corner to act as a decision node, where every move eliminates an entire row or column.
 
-**Summary:** Treat the top-right corner as the root of a Binary Search Tree to prune the search space linearly.  ---
+**Summary:** Treat the top-right corner as the root of a Binary Search Tree to prune the search space linearly.
+
+---

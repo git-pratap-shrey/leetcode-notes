@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -44,6 +45,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique:** Recursive Tree Traversal.
 * **Optimality:** Optimal. It traverses down the tree based on BST properties, inserting the node at the correct leaf position in $O(H)$ time.
@@ -76,9 +78,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Insert into a Binary Search Tree
+
+#
+
+## Revision Report: Insert into a Binary Search Tree
 
 **Pattern:** Binary Search Tree (BST) Traversal / Recursion
 

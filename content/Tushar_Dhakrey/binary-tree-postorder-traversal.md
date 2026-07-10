@@ -1,4 +1,12 @@
---- title: "Binary Tree Postorder Traversal" slug: binary-tree-postorder-traversal date: "2026-06-30" ---  # My Solution ~~~/**
+---
+title: "Binary Tree Postorder Traversal"
+slug: binary-tree-postorder-traversal
+date: "2026-06-30"
+
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -28,11 +36,18 @@ class Solution {
         ans.add(root.val);
 
     }
-} - java~~~  # Submission Review ## Approach
+}
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Recursive Depth-First Search (DFS).
 - **Optimality**: Optimal. Every node in the binary tree must be visited exactly once to produce the traversal.
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$, where $N$ is the number of nodes in the tree.
 - **Space Complexity**: $O(H)$, where $H$ is the height of the tree, representing the maximum depth of the recursion stack. In the worst case (skewed tree), this is $O(N)$.
 
@@ -41,12 +56,21 @@ class Solution {
 - Using a `List` to accumulate results is the standard approach in Java for this specific problem signature.
 
 ## Code Quality
+
 - **Readability**: Good. The logic follows the definition of postorder traversal (Left $\rightarrow$ Right $\rightarrow$ Root) exactly.
 - **Structure**: Good. The separation between the public API and the private recursive helper is clear.
 - **Naming**: Good. `ans` is acceptable for competitive programming, though `result` would be more descriptive.
 - **Improvements**:
     - The `postorder` helper method could be marked `private` to encapsulate it within the `Solution` class.
-    - Adding a null check at the start of `postorderTraversal` is implicitly handled by the helper, so the current flow is efficient.  ---  # Question Revision ### Binary Tree Postorder Traversal
+    - Adding a null check at the start of `postorderTraversal` is implicitly handled by the helper, so the current flow is efficient.
+
+---
+
+# Question Revision
+
+#
+
+## Binary Tree Postorder Traversal
 
 **Pattern:** Tree DFS (Depth-First Search)
 
@@ -62,4 +86,6 @@ Iterative traversal using a stack. To avoid complex state tracking, perform a mo
 Since postorder is the exact reverse of a "Root $\rightarrow$ Right $\rightarrow$ Left" traversal, reversing a modified preorder is the cleanest iterative implementation.
 
 **Summary:** 
-Visit Left $\rightarrow$ Right $\rightarrow$ Root; iteratively implemented as a reversed Root $\rightarrow$ Right $\rightarrow$ Left sequence.  ---
+Visit Left $\rightarrow$ Right $\rightarrow$ Root; iteratively implemented as a reversed Root $\rightarrow$ Right $\rightarrow$ Left sequence.
+
+---

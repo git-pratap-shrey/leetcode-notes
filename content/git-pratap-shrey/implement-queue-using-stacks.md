@@ -1,4 +1,14 @@
---- title: "Implement Queue using Stacks" slug: implement-queue-using-stacks date: "2026-06-25" ---  # My Solution ~~~class MyQueue {
+---
+title: "Implement Queue using Stacks"
+slug: implement-queue-using-stacks
+date: "2026-06-25"
+
+---
+
+# My Solution
+~~~
+class
+ MyQueue {
 private:
         stack<int> helperStack;
         stack<int> fifoStack;
@@ -55,11 +65,18 @@ public:
  * int param_2 = obj->pop();
  * int param_3 = obj->peek();
  * bool param_4 = obj->empty();
- */ - cpp~~~  # Submission Review ## Approach
+ */
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Two-stack simulation.
 - **Optimality**: **Suboptimal**. The implementation performs a full transfer of elements from `helperStack` to `fifoStack` and back again for every `pop()` and `peek()` operation. An optimal approach would maintain the elements in `fifoStack` until it is empty, achieving amortized $O(1)$ time complexity.
 
 ## Complexity
+
 - **Time Complexity**: 
     - `push()`: $O(1)$
     - `pop()`: $O(N)$
@@ -69,16 +86,26 @@ public:
 - **Bottleneck**: The redundant double-transfer of all elements between stacks during `pop()` and `peek()` operations.
 
 ## Efficiency Feedback
+
 - **High Runtime**: Moving all elements back to `helperStack` after every retrieval is unnecessary. 
 - **Optimization**: To optimize, only transfer elements from `helperStack` to `fifoStack` when `fifoStack` is empty. Leave them in `fifoStack` for subsequent `pop` or `peek` calls. This reduces the amortized cost of these operations to $O(1)$.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is straightforward and easy to follow.
 - **Structure**: Good. Follows the expected class interface.
 - **Naming**: Good. `helperStack` and `fifoStack` clearly communicate their roles.
 - **Concrete Improvements**:
     - Remove the second `while` loop in `pop()` and `peek()` that moves elements back to `helperStack`.
-    - Update `empty()` to check if **both** stacks are empty: `return helperStack.empty() && fifoStack.empty();`.  ---  # Question Revision ### Revision Report: Implement Queue using Stacks
+    - Update `empty()` to check if **both** stacks are empty: `return helperStack.empty() && fifoStack.empty();`.
+
+---
+
+# Question Revision
+
+#
+
+## Revision Report: Implement Queue using Stacks
 
 **Pattern:** Data Structure Design / Amortized Analysis
 
@@ -91,4 +118,6 @@ public:
 
 **The 'Aha' Moment:** Two reversals (LIFO $\rightarrow$ LIFO) result in the original order (FIFO).
 
-**Summary:** Use two stacks to flip element order, transferring only when the output stack is empty to maintain amortized constant time.  ---
+**Summary:** Use two stacks to flip element order, transferring only when the output stack is empty to maintain amortized constant time.
+
+---

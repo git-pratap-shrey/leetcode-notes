@@ -7,7 +7,8 @@ date: "2026-04-04"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int firstUniqChar(string s) {
@@ -27,6 +28,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Frequency counting using a hash map (`unordered_map`). 
 - **Optimality:** It is optimal in terms of asymptotic time complexity, but the constant factor can be improved significantly given the limited character set.
@@ -51,9 +53,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: First Unique Character in a String
+
+#
+
+## Revision Report: First Unique Character in a String
 
 **Pattern:** Frequency Counting (Hash Map / Array)
 

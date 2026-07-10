@@ -5,7 +5,8 @@ date: "2026-07-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> runningSum(vector<int>& nums) {
@@ -22,6 +23,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Prefix Sum (Iterative accumulation).
 *   **Optimal:** No. The approach is sub-optimal because it allocates a new vector (`v`) instead of performing the operation in-place.
@@ -60,7 +62,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Running Sum of 1d Array
+
+#
+
+## Revision Report: Running Sum of 1d Array
 
 **Pattern:** Prefix Sum
 

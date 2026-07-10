@@ -5,7 +5,8 @@ date: "2026-04-22"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {
@@ -44,6 +45,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Modified Binary Search.
 - **Optimality**: Optimal. Since the array contains duplicates, it is impossible to determine which half is sorted if `nums[low] == nums[mid] == nums[high]`, forcing a linear reduction of the search space in the worst case.
@@ -68,7 +70,10 @@ public:
 ---
 
 # Question Revision
-### Search in Rotated Sorted Array II
+
+#
+
+## Search in Rotated Sorted Array II
 
 **Pattern:** Modified Binary Search
 

@@ -7,7 +7,8 @@ date: "2026-03-30"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool build_dp(string& s, vector<vector<int>>& dp, int left, int right) {
@@ -48,6 +49,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Memoized recursion (Top-down DP).
 - **Optimality:** Suboptimal. While the DP state caching is correct, the overall approach checks all $O(N^2)$ possible substrings explicitly. Manacher's algorithm or the "Expand Around Center" technique are more efficient.
@@ -65,7 +67,9 @@ public:
 - **Structure:** Moderate. The `build_dp` function is logically sound, but the nested loops in `countSubstrings` combined with the recursion make the control flow slightly more complex than necessary.
 - **Naming:** Good. Variable names like `left`, `right`, and `dp` are standard and descriptive.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1. **Iterative DP:** If you prefer DP, use a bottom-up iterative approach. This avoids potential stack overflow issues for very large strings and reduces function call overhead.
 2. **Space Optimization:** Transition to the "Expand Around Center" pattern:
    ```cpp
@@ -84,9 +88,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Palindromic Substrings
+
+#
+
+## Revision Report: Palindromic Substrings
 
 **Pattern:** Expand Around Center (Two Pointers)
 

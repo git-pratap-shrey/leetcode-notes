@@ -7,7 +7,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 
 int* searchRange(int* nums, int numsSize, int target, int* returnSize) {
     *returnSize=2;
@@ -33,7 +34,6 @@ int* searchRange(int* nums, int numsSize, int target, int* returnSize) {
         else{
             low=mid+1;
         }
-
 
     }
     low=0;
@@ -66,6 +66,7 @@ int* searchRange(int* nums, int numsSize, int target, int* returnSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique**: Binary search.
 *   **Optimal**: Yes, it performs two separate passes of binary search to find the lower and upper bounds of the target, achieving the required $O(\log n)$ time complexity.
@@ -90,9 +91,11 @@ int* searchRange(int* nums, int numsSize, int target, int* returnSize) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find First and Last Position of Element in Sorted Array
+
+#
+
+## Revision Report: Find First and Last Position of Element in Sorted Array
 
 **Pattern:** Binary Search (Modified)
 

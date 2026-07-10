@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
@@ -53,6 +54,7 @@ int* successfulPairs(int* spells, int spellsSize, int* potions, int potionsSize,
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Binary Search on a sorted array.
 *   **Optimality:** Optimal. Sorting the potions allows for binary search on each spell, which is the standard approach for this problem.
@@ -86,9 +88,11 @@ int* successfulPairs(int* spells, int spellsSize, int* potions, int potionsSize,
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Successful Pairs of Spells and Potions
+
+#
+
+## Revision Report: Successful Pairs of Spells and Potions
 
 **Pattern:** Binary Search (on a sorted array)
 

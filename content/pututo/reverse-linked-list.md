@@ -5,7 +5,8 @@ date: "2026-05-02"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -33,6 +34,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Iterative pointer manipulation.
 - **Optimality**: Optimal. It processes each node exactly once and uses constant extra space.
@@ -59,7 +61,10 @@ public:
 ---
 
 # Question Revision
-### Reverse Linked List
+
+#
+
+## Reverse Linked List
 
 **Pattern:** Two Pointers (Iterative Traversal)
 

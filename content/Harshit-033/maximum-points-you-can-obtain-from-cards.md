@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int maxScore(vector<int>& cardPoints, int k) {
@@ -33,6 +34,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Sliding Window / Two-Pointer approach. It starts by taking all $k$ cards from the left, then iteratively replaces one card from the left end of the window with one card from the right end of the array.
 - **Optimality**: Optimal. It explores all $\binom{k}{x}$ combinations of taking $x$ cards from the left and $k-x$ from the right in linear time.
@@ -59,7 +61,10 @@ public:
 ---
 
 # Question Revision
-### Maximum Points You Can Obtain from Cards
+
+#
+
+## Maximum Points You Can Obtain from Cards
 
 **Pattern:** Sliding Window
 

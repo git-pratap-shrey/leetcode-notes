@@ -5,7 +5,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
@@ -23,6 +24,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: One-pass Greedy/Dynamic Programming. The code tracks the minimum price seen so far and calculates the potential profit at each subsequent step.
 - **Optimality**: Optimal. It finds the global maximum profit in a single traversal.
@@ -49,7 +51,10 @@ public:
 ---
 
 # Question Revision
-### Best Time to Buy and Sell Stock
+
+#
+
+## Best Time to Buy and Sell Stock
 
 **Pattern:** Greedy / Sliding Window
 

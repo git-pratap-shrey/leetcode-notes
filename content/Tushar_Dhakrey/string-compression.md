@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int compress(char[] chars) {
         int index = 0;
@@ -37,6 +38,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer approach (in-place modification).
 *   **Optimality:** Optimal. The algorithm processes each character exactly once and modifies the array in place with $O(1)$ auxiliary space.
@@ -61,9 +63,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: String Compression
+
+#
+
+## Revision Report: String Compression
 
 **Pattern:** Two Pointers (In-place modification)
 

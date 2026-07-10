@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -39,6 +40,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Recursive Tree Traversal (General LCA algorithm).
 *   **Optimality:** **Suboptimal.** This approach ignores the "Binary Search Tree" property. It treats the input as a generic binary tree, performing a post-order traversal rather than leveraging the ordering of nodes to prune the search space.
@@ -74,9 +76,11 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Lowest Common Ancestor (LCA) of a BST
+
+#
+
+## Revision Report: Lowest Common Ancestor (LCA) of a BST
 
 **Pattern:** Binary Search Tree Properties / Iterative Traversal
 

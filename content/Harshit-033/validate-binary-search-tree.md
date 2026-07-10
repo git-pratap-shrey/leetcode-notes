@@ -5,7 +5,8 @@ date: "2026-06-24"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -37,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive Depth-First Search (DFS) using range boundaries.
 - **Optimality**: Optimal. It validates the BST property by ensuring every node falls within a strictly defined minimum and maximum bound inherited from its ancestors.
@@ -60,7 +62,10 @@ public:
 ---
 
 # Question Revision
-### Validate Binary Search Tree
+
+#
+
+## Validate Binary Search Tree
 
 **Pattern:** DFS / Tree Range Validation
 

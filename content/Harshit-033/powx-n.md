@@ -7,7 +7,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 double myPow(double x, int n) {
     long long N=n;
     
@@ -27,6 +28,7 @@ double myPow(double x, int n) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Binary Exponentiation (Exponentiation by Squaring) using recursion.
 *   **Optimality:** Optimal. The algorithm reduces the number of multiplications to $O(\log N)$ by squaring the base and halving the exponent at each step.
@@ -47,7 +49,9 @@ double myPow(double x, int n) {
     *   **Tail Recursion:** The code is almost tail-recursive, but the `else` case (`x * myPow(...)`) prevents it from being strictly optimized by the compiler. While not necessary for this constraint, an iterative version would eliminate the $O(\log N)$ stack space entirely.
     *   **Style:** Minor: Consistent spacing around operators (e.g., `x = 1 / x;` instead of `x=1/x;`) would improve professional appearance.
 
-### Suggested Iterative Refinement:
+#
+
+## Suggested Iterative Refinement:
 ```c
 double myPow(double x, int n) {
     long long N = n;
@@ -69,9 +73,11 @@ This reduces space complexity to $O(1)$.
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Pow(x, n)
+
+#
+
+## Revision Report: Pow(x, n)
 
 **Pattern:** Divide and Conquer (Binary Exponentiation)
 

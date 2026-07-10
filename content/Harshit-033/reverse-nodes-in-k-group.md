@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 struct ListNode* getk(struct ListNode* head1, int k) {
     struct ListNode* temp = head1;
     while (k > 1) {
@@ -71,6 +72,7 @@ struct ListNode* reverseKGroup(struct ListNode* head, int k) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Iterative pointer manipulation (in-place linked list reversal).
 *   **Optimality:** Optimal. The algorithm processes each node a constant number of times (traversing to find $k$ and reversing segments), achieving $O(N)$ time and $O(1)$ auxiliary space.
@@ -95,9 +97,11 @@ struct ListNode* reverseKGroup(struct ListNode* head, int k) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Reverse Nodes in k-Group
+
+#
+
+## Revision Report: Reverse Nodes in k-Group
 
 **Pattern:** Linked List Manipulation / Dummy Node + Pointer Reversal
 

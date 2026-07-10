@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int firstMatchingIndex(string s) {
@@ -18,13 +19,13 @@ public:
             }
         }
 
-
         return -1;
     }
 };
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Linear iteration (two-pointer style).
 *   **Optimality:** Optimal. It performs a single pass up to the midpoint, which is the necessary bound to check all symmetry constraints.
@@ -57,9 +58,11 @@ int firstMatchingIndex(const string& s) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: First Matching Character (Two Pointers)
+
+#
+
+## Revision Report: First Matching Character (Two Pointers)
 
 **Pattern:** Two Pointers (Converging)
 

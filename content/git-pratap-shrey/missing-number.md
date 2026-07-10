@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int missingNumber(int* nums, int numsSize) {
     int s = numsSize*(numsSize+1)/2;
     for(int i = 0; i < numsSize; i++){
@@ -16,6 +17,7 @@ int missingNumber(int* nums, int numsSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Mathematical Summation (Gauss's Formula). It calculates the expected sum of an arithmetic progression from $0$ to $n$ and subtracts the actual elements present in the array.
 - **Optimality**: Optimal. It achieves the theoretical lower bound for both time and space.
@@ -39,7 +41,10 @@ int missingNumber(int* nums, int numsSize) {
 ---
 
 # Question Revision
-### Missing Number
+
+#
+
+## Missing Number
 
 **Pattern:** Mathematical / Bit Manipulation
 

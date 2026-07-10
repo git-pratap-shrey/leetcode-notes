@@ -5,7 +5,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
@@ -21,6 +22,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Counting using a Frequency Map.
 - **Optimality**: Suboptimal. While it solves the problem, it does not leverage the specific property of a majority element (appearing $> n/2$ times), which allows for a linear time and constant space solution (Boyer-Moore Voting Algorithm).
@@ -44,7 +46,10 @@ public:
 ---
 
 # Question Revision
-### Majority Element
+
+#
+
+## Majority Element
 
 **Pattern:** Boyer-Moore Voting Algorithm
 

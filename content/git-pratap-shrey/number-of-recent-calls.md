@@ -1,4 +1,14 @@
---- title: "Number of Recent Calls" slug: number-of-recent-calls date: "2026-06-30" ---  # My Solution ~~~class RecentCounter {
+---
+title: "Number of Recent Calls"
+slug: number-of-recent-calls
+date: "2026-06-30"
+
+---
+
+# My Solution
+~~~
+class
+ RecentCounter {
 private:
     queue<int> counter;
 
@@ -18,11 +28,18 @@ public:
  * Your RecentCounter object will be instantiated and called as such:
  * RecentCounter* obj = new RecentCounter();
  * int param_1 = obj->ping(t);
- */ - cpp~~~  # Submission Review ## Approach
+ */
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Sliding window using a `std::queue`.
 - **Optimality**: Optimal. Since input timestamps `t` are monotonically increasing, a queue effectively maintains the window `[t - 3000, t]` by removing expired elements from the front.
 
 ## Complexity
+
 - **Time Complexity**: Amortized $O(1)$ per `ping` call. Each timestamp is pushed into the queue once and popped at most once across all calls.
 - **Space Complexity**: $O(W)$, where $W$ is the maximum number of pings that occur within any 3000ms window.
 
@@ -31,10 +48,19 @@ public:
 - Using `std::queue` (which defaults to `std::deque`) is appropriate here as it provides $O(1)$ push and pop operations.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is concise and follows the problem requirements directly.
 - **Structure**: Good. Correct use of private members and public interface.
 - **Naming**: Good. Variable and class names are clear.
-- **Improvement**: No significant improvements needed for this specific implementation.  ---  # Question Revision ### Number of Recent Calls
+- **Improvement**: No significant improvements needed for this specific implementation.
+
+---
+
+# Question Revision
+
+#
+
+## Number of Recent Calls
 
 **Pattern:** Queue / Sliding Window
 
@@ -48,4 +74,6 @@ public:
 
 **The 'Aha' Moment:** Since requests are strictly increasing, the oldest timestamps are always at the front, allowing for efficient removal via a queue.
 
-**Summary:** Maintain a sliding time window using a queue, popping expired timestamps from the head to keep only those within the 3000ms limit.  ---
+**Summary:** Maintain a sliding time window using a queue, popping expired timestamps from the head to keep only those within the 3000ms limit.
+
+---

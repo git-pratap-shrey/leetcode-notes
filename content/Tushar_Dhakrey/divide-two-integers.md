@@ -5,7 +5,8 @@ date: "2026-04-22"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int divide(int dividend, int divisor) {
         if(dividend==divisor) return 1;
@@ -31,6 +32,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Bit-shifting subtraction (Exponential search). The code simulates division by finding the largest multiple of the divisor (in powers of 2) that fits into the remaining dividend.
 - **Optimality**: Optimal for constraints forbidding multiplication, division, and modulo operators. It achieves logarithmic time complexity relative to the dividend.
@@ -59,7 +61,10 @@ class Solution {
 ---
 
 # Question Revision
-### Divide Two Integers
+
+#
+
+## Divide Two Integers
 
 **Pattern:** Bit Manipulation / Binary Exponential Search
 

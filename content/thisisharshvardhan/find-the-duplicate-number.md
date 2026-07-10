@@ -5,7 +5,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
@@ -28,6 +29,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Floyd's Cycle-Finding Algorithm (Tortoise and Hare).
 - **Optimality:** Optimal. It finds the duplicate in linear time without modifying the input array and using constant extra space, which satisfies the typical constraints of this problem.
@@ -52,7 +54,10 @@ public:
 ---
 
 # Question Revision
-### Find the Duplicate Number
+
+#
+
+## Find the Duplicate Number
 
 **Pattern:** Floyd's Cycle-Finding Algorithm (Tortoise and Hare)
 

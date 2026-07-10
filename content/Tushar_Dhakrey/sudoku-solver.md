@@ -7,7 +7,8 @@ date: "2026-03-26"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public void solveSudoku(char[][] board) {
         solve(board);
@@ -51,6 +52,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Backtracking (Recursive Depth-First Search).
 *   **Optimality:** Optimal for standard Sudoku grid sizes (9x9). The search space is small enough that brute-force backtracking with pruning (validity checks) effectively finds the solution.
@@ -75,9 +77,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Sudoku Solver
+
+#
+
+## Revision Report: Sudoku Solver
 
 **Pattern:** Backtracking
 

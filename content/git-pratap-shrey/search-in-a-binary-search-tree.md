@@ -1,4 +1,12 @@
---- title: "Search in a Binary Search Tree" slug: search-in-a-binary-search-tree date: "2026-06-24" ---  # My Solution ~~~/**
+---
+title: "Search in a Binary Search Tree"
+slug: search-in-a-binary-search-tree
+date: "2026-06-24"
+
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
@@ -24,23 +32,40 @@ public:
             return searchBST(root->left, val);
         }
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Recursive Binary Search.
 - **Optimality**: Time-optimal. Space is suboptimal because it uses the call stack, whereas an iterative approach would use constant space.
 
 ## Complexity
+
 - **Time Complexity**: $O(H)$, where $H$ is the height of the tree. In the worst case (skewed tree), this is $O(N)$; in a balanced tree, $O(\log N)$.
 - **Space Complexity**: $O(H)$ due to the recursion stack depth.
 
 ## Efficiency Feedback
+
 - **Bottleneck**: The use of recursion introduces overhead and $O(H)$ auxiliary space.
 - **Optimization**: Convert the recursion into a `while` loop to achieve $O(1)$ space complexity.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is straightforward and easy to follow.
 - **Structure**: Good. Base cases are handled correctly before recursive calls.
 - **Naming**: Good. Variable names are consistent with standard BST terminology.
-- **Improvement**: Use an iterative loop to eliminate potential stack overflow on extremely deep trees.  ---  # Question Revision ### Search in a Binary Search Tree
+- **Improvement**: Use an iterative loop to eliminate potential stack overflow on extremely deep trees.
+
+---
+
+# Question Revision
+
+#
+
+## Search in a Binary Search Tree
 
 **Pattern:** Binary Search (Tree-based)
 
@@ -54,4 +79,6 @@ public:
 
 **The 'Aha' Moment:** The BST property effectively transforms the tree into a sorted array, allowing you to discard half of the remaining search space at each step.
 
-**Summary:** Use the value comparison to prune one subtree at every node until the target is located.  ---
+**Summary:** Use the value comparison to prune one subtree at every node until the target is located.
+
+---

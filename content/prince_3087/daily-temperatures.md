@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
@@ -37,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Monotonic Stack. The code processes the array from right to left, maintaining a stack of indices where the corresponding temperatures are strictly increasing from top to bottom.
 - **Optimality**: Optimal. This is the standard approach for "Next Greater Element" problems, ensuring each element is processed a constant number of times.
@@ -61,7 +63,10 @@ public:
 ---
 
 # Question Revision
-### Daily Temperatures
+
+#
+
+## Daily Temperatures
 
 **Pattern:** Monotonic Stack
 

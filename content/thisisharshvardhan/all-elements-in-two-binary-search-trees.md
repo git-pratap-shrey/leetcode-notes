@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -66,6 +67,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** In-order traversal to extract elements into sorted arrays, followed by a two-pointer merge algorithm.
 *   **Optimality:** Optimal in terms of time complexity ($O(N+M)$), which is the theoretical lower bound since all nodes must be visited.
@@ -90,9 +92,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: All Elements in Two Binary Search Trees
+
+#
+
+## Revision Report: All Elements in Two Binary Search Trees
 
 **Pattern:** Merge Sort (Two Pointers)
 

@@ -7,7 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Depth-First Search (DFS) with level tracking.
 *   **Optimality:** Optimal. By prioritizing the right child over the left child in recursion, the first node encountered at any new depth is guaranteed to be the rightmost node.
@@ -62,9 +64,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Binary Tree Right Side View
+
+#
+
+## Revision Report: Binary Tree Right Side View
 
 **Pattern:** Breadth-First Search (BFS) / Level-Order Traversal
 

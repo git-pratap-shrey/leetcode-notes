@@ -7,7 +7,8 @@ date: "2026-03-29"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool checkDFS(vector<vector<char>>& board, string& word,
@@ -62,6 +63,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Backtracking (DFS).
 *   **Optimality:** Optimal in terms of algorithmic complexity, as searching for a path in a grid necessitates exploring potential branches.
@@ -79,7 +81,9 @@ public:
 *   **Structure:** Moderate. The repeated `if` statements for the four directions can be refactored using a direction array (e.g., `dx = {0, 0, 1, -1}`) to make the code more concise and less prone to errors.
 *   **Naming:** Good. Variable names like `currPos` and `checkDFS` are descriptive.
 
-### Suggested Improvements
+#
+
+## Suggested Improvements
 1.  **Use Direction Arrays:** Replace the four `if` blocks with a simple loop over a direction array:
     ```cpp
     int dr[] = {0, 0, 1, -1};
@@ -94,9 +98,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Word Search (LeetCode #79)
+
+#
+
+## Revision Report: Word Search (LeetCode #79)
 
 **Pattern:** Backtracking (Depth-First Search)
 

@@ -7,7 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int* findPeakGrid(int** mat, int matSize, int* matColSize, int* returnSize) {
     *returnSize = 2;
     int* arr = (int*)malloc(sizeof(int) * 2);
@@ -48,6 +49,7 @@ int* findPeakGrid(int** mat, int matSize, int* matColSize, int* returnSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Binary search on the columns of the matrix combined with a linear scan to find the maximum element in the selected column.
 *   **Optimality:** Optimal. It achieves $O(N \log M)$ complexity (where $N$ is the number of rows and $M$ is the number of columns), which is standard for this problem.
@@ -66,7 +68,9 @@ int* findPeakGrid(int** mat, int matSize, int* matColSize, int* returnSize) {
 *   **Structure:** Good. The binary search structure is clear.
 *   **Naming:** Good. Variable names (`maxRow`, `low`, `high`, `mid`) are standard and descriptive.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1.  **Safety:** Update the boundary comparison values:
     ```c
     int left = (mid > 0) ? mat[maxRow][mid - 1] : -1; // Risky if input has negative values
@@ -80,9 +84,11 @@ int* findPeakGrid(int** mat, int matSize, int* matColSize, int* returnSize) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find a Peak Element II
+
+#
+
+## Revision Report: Find a Peak Element II
 
 **Pattern:** Binary Search on a 2D Grid
 

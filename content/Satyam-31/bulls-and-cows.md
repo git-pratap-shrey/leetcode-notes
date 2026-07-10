@@ -7,7 +7,8 @@ date: "2026-04-13"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string getHint(string secret, string guess) {
@@ -35,6 +36,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Frequency counting (Hashing).
 *   **Optimal:** Yes. The approach separates exact matches (bulls) from non-matches, then calculates the intersection of digit frequencies for the remaining characters (cows). This is a standard linear-time approach.
@@ -64,9 +66,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Bulls and Cows
+
+#
+
+## Revision Report: Bulls and Cows
 
 **Pattern:** Frequency Counting / Hash Map
 

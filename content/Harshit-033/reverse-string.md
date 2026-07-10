@@ -1,4 +1,14 @@
---- title: "Reverse String" slug: reverse-string date: "2026-06-05" ---  # My Solution ~~~class Solution {
+---
+title: "Reverse String"
+slug: reverse-string
+date: "2026-06-05"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     void reverseString(vector<char>& s) {
         int i=0;
@@ -12,11 +22,18 @@ public:
             j--;
         }
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Two-pointer approach.
 - **Optimality**: Optimal. It performs the minimum necessary swaps to reverse the sequence in-place.
 
 ## Complexity
+
 - **Time Complexity**: $O(n)$, where $n$ is the length of the vector. The loop iterates $n/2$ times.
 - **Space Complexity**: $O(1)$. Only a constant amount of extra space is used regardless of input size.
 
@@ -25,12 +42,21 @@ public:
 - The manual swap using a `temp` variable is efficient, though `std::swap(s[i], s[j])` is the idiomatic C++ way to achieve the same result.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is simple and easy to follow.
 - **Structure**: Good.
 - **Naming**: Moderate. `i` and `j` are acceptable for loop indices, but `s` for a `vector<char>` is slightly ambiguous (though common in LeetCode contexts).
 - **Concrete Improvements**:
     - Replace manual swapping with `std::swap(s[i], s[j])` for conciseness.
-    - Use `std::size_t` or `int n = s.size()` to avoid potential signed/unsigned comparison warnings between `int i` and `s.size()`.  ---  # Question Revision ### Reverse String
+    - Use `std::size_t` or `int n = s.size()` to avoid potential signed/unsigned comparison warnings between `int i` and `s.size()`.
+
+---
+
+# Question Revision
+
+#
+
+## Reverse String
 
 **Pattern:** Two Pointers
 
@@ -42,4 +68,6 @@ public:
 
 **The 'Aha' Moment:** The constraint to modify the input array "in-place" is a direct signal to use two pointers to avoid $O(n)$ auxiliary space.
 
-**Summary:** Use two pointers to swap elements from the outside-in for an in-place reversal.  ---
+**Summary:** Use two pointers to swap elements from the outside-in for an in-place reversal.
+
+---

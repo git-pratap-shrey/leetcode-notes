@@ -1,4 +1,14 @@
---- title: "Min Cost Climbing Stairs" slug: min-cost-climbing-stairs date: "2026-06-25" ---  # My Solution ~~~class Solution {
+---
+title: "Min Cost Climbing Stairs"
+slug: min-cost-climbing-stairs
+date: "2026-06-25"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     // int solve(vector<int>& cost, int i, vector<int>& dp){
     //     if (i >= cost.size()) return 0;
@@ -30,20 +40,29 @@ public:
     int minCostClimbingStairs(vector<int>& cost) {
         return tab(cost);
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Tabulation (Bottom-Up Dynamic Programming).
 - **Optimality**: Suboptimal. While the time complexity is linear, the implementation contains redundant logic and unnecessary space allocation. The code computes the same values twice using two different arrays (`dp` and `sp`).
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$ — The code iterates through the input array twice.
 - **Space Complexity**: $O(N)$ — Two vectors of size $N+2$ are allocated.
 
 ## Efficiency Feedback
+
 - **Redundant Computation**: The `sp` loop is a duplicate of the `dp` loop (calculating the exact same state transitions), merely stopping at index 1. `sp[1]` is equivalent to `dp[1]`.
 - **Pass-by-Value**: The `tab` function accepts `vector<int> cost` by value, creating an unnecessary copy of the entire input array.
 - **Space Bottleneck**: The problem can be solved in $O(1)$ space by using two variables to track the costs of the previous two steps instead of full arrays.
 
 ## Code Quality
+
 - **Readability**: Moderate. The presence of a large block of commented-out recursive code clutters the class.
 - **Structure**: Moderate. The logic is split into a helper function `tab` that provides no abstraction benefit.
 - **Naming**: Poor. `tab` is an abbreviation for tabulation and `sp` is ambiguous; they do not describe the purpose of the variables.
@@ -52,7 +71,15 @@ public:
 1. Remove the `sp` vector and its associated loop; use `min(dp[0], dp[1])`.
 2. Change `tab(vector<int> cost)` to `tab(const vector<int>& cost)` to avoid copying.
 3. Remove commented-out code.
-4. Use two variables (e.g., `prev1`, `prev2`) to reduce space complexity to $O(1)$.  ---  # Question Revision ### Min Cost Climbing Stairs
+4. Use two variables (e.g., `prev1`, `prev2`) to reduce space complexity to $O(1)$.
+
+---
+
+# Question Revision
+
+#
+
+## Min Cost Climbing Stairs
 
 **Pattern:** Dynamic Programming (Bottom-Up)
 
@@ -65,4 +92,6 @@ Maintain the minimum cost to reach the current step by taking the current step's
 
 **The 'Aha' Moment:** The "minimum cost" requirement combined with a decision at step $i$ that depends solely on the optimal results of steps $i-1$ and $i-2$ signals a DP approach with optimal substructure.
 
-**Summary:** The cost to reach the top is the cumulative minimum of the costs of the two preceding steps.  ---
+**Summary:** The cost to reach the top is the cumulative minimum of the costs of the two preceding steps.
+
+---

@@ -7,7 +7,8 @@ date: "2026-04-04"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int comp(int* weights, int weightsSize,int mid){
     int count=1;
     int temp=mid;
@@ -24,13 +25,10 @@ int comp(int* weights, int weightsSize,int mid){
             temp=temp-weights[i];
         }
 
-
     }
 
     return count;
 }
-
-
 
 int shipWithinDays(int* weights, int weightsSize, int days) {
 
@@ -61,12 +59,12 @@ int shipWithinDays(int* weights, int weightsSize, int days) {
 
     return ans;
 
-
     
 }
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Binary Search on the answer space.
 - **Optimality:** Optimal. The search space is bounded by the maximum weight (`low`) and the sum of all weights (`high`), which is the standard approach for this problem.
@@ -100,9 +98,11 @@ int shipWithinDays(int* weights, int weightsSize, int days) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Capacity To Ship Packages Within D Days
+
+#
+
+## Revision Report: Capacity To Ship Packages Within D Days
 
 **Pattern:** Binary Search on Answer Space
 

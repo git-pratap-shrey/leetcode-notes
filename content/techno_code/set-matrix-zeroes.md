@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: In-place marking using the first row and first column of the matrix as storage for zero indicators. A separate variable `col0` is used to track the state of the first column to avoid conflict with the first row's marker at `matrix[0][0]`.
 - **Optimality**: Optimal. It achieves the minimum possible time complexity and the minimum auxiliary space complexity.
@@ -61,7 +63,10 @@ public:
 ---
 
 # Question Revision
-### Set Matrix Zeroes
+
+#
+
+## Set Matrix Zeroes
 
 **Pattern**: In-place Matrix Manipulation
 

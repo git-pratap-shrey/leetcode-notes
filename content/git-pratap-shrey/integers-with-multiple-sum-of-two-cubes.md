@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> findGoodIntegers(int n) {
@@ -45,6 +46,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Brute force using precomputed cubes and a hash-based lookup to find values expressible as a sum of two cubes in at least two distinct ways.
 *   **Optimality:** Optimal for the given approach. The logic correctly handles the "multiple ways" requirement by tracking sums in `hash` and promoting duplicates to `answerSet`.
@@ -69,9 +71,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Integers With Multiple Sum of Two Cubes
+
+#
+
+## Revision Report: Integers With Multiple Sum of Two Cubes
 
 **Pattern:** Hash Map / Frequency Counting
 

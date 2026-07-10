@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class MyQueue {
     private Stack<Integer> first;
     private Stack<Integer> second;
@@ -59,6 +60,7 @@ class MyQueue {
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique:** Two-stack simulation of a queue.
 * **Optimality:** Suboptimal. The current implementation performs a full data transfer between stacks for every `pop()` and `peek()` operation. An optimal approach would amortize the transfer cost, keeping items in the "output" stack until it is exhausted.
@@ -85,9 +87,11 @@ class MyQueue {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Implement Queue using Stacks
+
+#
+
+## Revision Report: Implement Queue using Stacks
 
 **Pattern:** Data Structure Transformation (Adapter Pattern)
 

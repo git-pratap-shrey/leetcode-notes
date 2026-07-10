@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
@@ -48,6 +49,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Monotonic Queue using a `std::deque`.
 - **Optimality**: Optimal. The monotonic queue allows finding the maximum of a sliding window in linear time.
@@ -66,7 +68,9 @@ public:
 - **Structure**: Moderate. The flow is slightly fragmented due to the redundant `if/else` structure.
 - **Naming**: Moderate. `dq` is standard for deque, but `j` is vague; `windowStart` would be more descriptive.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1. **Remove the `dq.back() <= (i-k)` check**: The `while(dq.front() < j)` loop already handles elements falling out of the window.
 2. **Simplify the loop**: Remove the `if(dq.empty())` wrapper and just use the `while` loop to maintain the monotonic property.
 3. **Clean up indentation**: The spacing around the `dq.push_back(i)` and the closing braces is erratic.
@@ -75,7 +79,10 @@ public:
 ---
 
 # Question Revision
-### Sliding Window Maximum
+
+#
+
+## Sliding Window Maximum
 
 **Pattern:** Sliding Window + Monotonic Queue (Deque)
 

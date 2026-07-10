@@ -5,7 +5,8 @@ date: "2026-07-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int countPrimeSetBits(int left, int right) {
@@ -36,6 +37,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Brute force iteration with bit manipulation and manual primality testing.
 *   **Optimal:** No. The approach is suboptimal due to redundant primality checks and inefficient bit counting.
@@ -61,7 +63,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Prime Number of Set Bits in Binary Representation
+
+#
+
+## Revision Report: Prime Number of Set Bits in Binary Representation
 
 **Pattern:** Bit Manipulation / Counting
 

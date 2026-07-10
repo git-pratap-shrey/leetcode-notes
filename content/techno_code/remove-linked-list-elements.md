@@ -1,4 +1,12 @@
---- title: "Remove Linked List Elements" slug: remove-linked-list-elements date: "2026-07-04" ---  # My Solution ~~~/**
+---
+title: "Remove Linked List Elements"
+slug: remove-linked-list-elements
+date: "2026-07-04"
+
+---
+
+# My Solution
+~~~/**
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
@@ -32,19 +40,28 @@ public:
 
       return dummy.next;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Two-pointer traversal with a dummy head node.
 - **Optimality**: Optimal. It processes the list in a single pass and handles edge cases (like removing the head) without special conditional blocks.
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$, where $N$ is the number of nodes in the linked list.
 - **Space Complexity**: $O(1)$.
 
 ## Efficiency Feedback
+
 - **Memory Leak**: The code bypasses nodes that match `val` (`prev->next = cur->next`) but never calls `delete` on the removed nodes. In a production C++ environment, this results in a memory leak.
 - **Performance**: The runtime is minimal as it only involves pointer manipulation.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is straightforward and easy to follow.
 - **Structure**: Good. The use of a stack-allocated `dummy` node simplifies the return statement and head-removal logic.
 - **Naming**: Good. `prev`, `cur`, and `dummy` are standard and descriptive.
@@ -61,7 +78,15 @@ public:
           prev = cur;
           cur = cur->next;
       }
-      ```  ---  # Question Revision ### Remove Linked List Elements
+      ```
+
+---
+
+# Question Revision
+
+#
+
+## Remove Linked List Elements
 
 **Pattern:** Dummy Node / Single Pointer
 
@@ -74,4 +99,6 @@ Create a `dummy` node that points to the `head`. Iterate through the list using 
 
 **The 'Aha' Moment:** The need to potentially remove the head node indicates that a dummy node is required to provide a consistent reference point.
 
-**Summary:** Use a dummy node to unify the deletion logic for both the head and subsequent nodes.  ---
+**Summary:** Use a dummy node to unify the deletion logic for both the head and subsequent nodes.
+
+---

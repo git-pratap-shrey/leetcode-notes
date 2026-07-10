@@ -5,7 +5,8 @@ date: "2026-04-18"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int mergeSort(vector<int>& nums, int low, int high) {
@@ -63,6 +64,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Modified Merge Sort (Divide and Conquer).
 - **Optimality**: Optimal. The problem requires counting pairs with a specific condition, and the $O(n \log n)$ complexity is the standard optimal approach for this problem.
@@ -87,7 +89,10 @@ public:
 ---
 
 # Question Revision
-### Reverse Pairs
+
+#
+
+## Reverse Pairs
 
 **Pattern:** Divide and Conquer (Modified Merge Sort)
 

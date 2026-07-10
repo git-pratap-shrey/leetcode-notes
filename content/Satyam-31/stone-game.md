@@ -7,7 +7,8 @@ date: "2026-02-25"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool stoneGame(vector<int>& piles) {
@@ -17,6 +18,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Mathematical observation/Game Theory.
 *   **Optimality:** Optimal. The problem is a variant of the minimax game on an array where the total number of piles is even and the sum is odd. Since the first player can always choose to take all even-indexed piles or all odd-indexed piles, and one of those sums must be strictly greater than the other, the first player has a guaranteed winning strategy.
@@ -37,9 +39,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Stone Game
+
+#
+
+## Revision Report: Stone Game
 
 **Pattern:** Minimax / Dynamic Programming (Game Theory)
 

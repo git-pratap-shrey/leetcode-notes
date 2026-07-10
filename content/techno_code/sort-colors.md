@@ -5,7 +5,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
@@ -20,6 +21,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Bubble/Selection Sort variant (Nested loop comparison).
 - **Optimality**: **Suboptimal**. The problem "Sort Colors" is designed to be solved in $O(n)$ time using the Dutch National Flag algorithm (three-pointer approach) or counting sort, as there are only three distinct values. This implementation uses a generic $O(n^2)$ sorting approach.
@@ -44,7 +46,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Sort Colors
+
+#
+
+## Revision Report: Sort Colors
 
 **Pattern:** Three Pointers (Dutch National Flag Algorithm)
 

@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int subs(vector<int>& nums,int k){
@@ -44,6 +45,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Two-pointer / Sliding Window.
 - **Logic**: The solution uses a helper function `subs` to calculate the number of subarrays containing **at most** $k$ odd numbers. The number of subarrays with **exactly** $k$ odd numbers is then derived using the formula: `atMost(k) - atMost(k - 1)`.
@@ -71,7 +73,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Count Number of Nice Subarrays
+
+#
+
+## Revision Report: Count Number of Nice Subarrays
 
 **Pattern:** Sliding Window (Difference of Two Windows)
 

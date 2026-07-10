@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int comp(int* nums, int numsSize,int mid,int k){
     int count=1;
     int temp=mid;
@@ -23,7 +24,6 @@ int comp(int* nums, int numsSize,int mid,int k){
             count++;
             temp=mid-nums[i];
         }
-
 
     }
     return count;
@@ -59,11 +59,11 @@ int splitArray(int* nums, int numsSize, int k) {
 
     return ans;
 
-
 }
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Binary search on the answer space.
 - **Optimality:** Optimal. The problem is a classic application of binary search where the search space is `[max(nums), sum(nums)]`.
@@ -88,9 +88,11 @@ int splitArray(int* nums, int numsSize, int k) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Split Array Largest Sum
+
+#
+
+## Revision Report: Split Array Largest Sum
 
 **Pattern:** Binary Search on Answer / Greedy
 

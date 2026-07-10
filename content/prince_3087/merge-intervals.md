@@ -7,7 +7,8 @@ date: "2026-03-30"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
@@ -39,6 +40,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Greedy approach using sorting.
 *   **Optimality:** Optimal. Sorting ensures that intervals are processed linearly, allowing for a single-pass merge.
@@ -71,9 +73,11 @@ res.reserve(intervals.size());
 ---
 ---
 
-
 # Question Revision
-### Merge Intervals
+
+#
+
+## Merge Intervals
 
 **Pattern:** Sorting + Greedy
 

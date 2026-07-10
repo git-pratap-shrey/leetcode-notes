@@ -7,7 +7,8 @@ date: "2026-03-30"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int rob(vector<int>& nums) {
@@ -35,7 +36,6 @@ public:
             prev1 = currentFrom1;
         }
 
-
         prev1 = nums[1];
         prev2 = 0;
         int currentFrom2;
@@ -55,10 +55,10 @@ public:
     }
 };
 
-
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Dynamic Programming (Space-Optimized).
 *   **Optimal:** Yes. The problem is split into two linear "House Robber I" cases: robbing houses $[0, n-2]$ and $[1, n-1]$. This handles the circular constraint correctly.
@@ -80,7 +80,9 @@ public:
     *   Use `std::max(prev1, prev2 + nums[i])` instead of the manual `if/else` block.
     *   **Edge Case:** The current logic assumes `nums.size() > 2` for the loops. While your initial `if` blocks handle size 1 and 2, verify if the loop logic holds for the general case if the constraints allow `size == 0`.
 
-### Suggested Refactoring:
+#
+
+## Suggested Refactoring:
 ```cpp
 int robHelper(vector<int>& nums, int start, int end) {
     int prev1 = 0, prev2 = 0;
@@ -99,9 +101,11 @@ return max(robHelper(nums, 0, nums.size() - 2), robHelper(nums, 1, nums.size() -
 ---
 ---
 
-
 # Question Revision
-### Revision Report: House Robber II
+
+#
+
+## Revision Report: House Robber II
 
 **Pattern:** Dynamic Programming (DP) with Range Constraints
 

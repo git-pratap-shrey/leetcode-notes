@@ -5,7 +5,8 @@ date: "2026-04-23"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -52,6 +53,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: BFS (Breadth-First Search) using a nested data structure (`map<int, map<int, multiset<int>>>`) to store nodes based on their coordinates (column, row).
 - **Optimality**: Optimal. The problem requires nodes to be sorted by column, then row, and finally by value. The nested map and multiset automatically handle these sorting requirements.
@@ -78,7 +80,10 @@ public:
 ---
 
 # Question Revision
-### Vertical Order Traversal of a Binary Tree
+
+#
+
+## Vertical Order Traversal of a Binary Tree
 
 **Pattern:** BFS + Coordinate Mapping (Hash Map/TreeMap)
 

@@ -5,7 +5,8 @@ date: "2026-07-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int minBitFlips(int start, int goal) {
@@ -25,6 +26,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Bitwise manipulation (iterative bit-by-bit comparison).
 *   **Optimal:** No. While correct, it is less efficient than using the XOR operator, which directly identifies differing bits.
@@ -64,7 +66,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Minimum Bit Flips to Convert Number
+
+#
+
+## Revision Report: Minimum Bit Flips to Convert Number
 
 **Pattern:** Bit Manipulation (XOR / Brian Kernighan’s Algorithm)
 

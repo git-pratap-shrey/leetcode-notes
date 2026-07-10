@@ -5,7 +5,8 @@ date: "2026-07-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     char findTheDifference(string s, string t) {
@@ -27,6 +28,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Frequency counting using a hash map (`unordered_map`).
 *   **Optimality:** Suboptimal. While the logic is correct, a frequency array or bit manipulation (XOR) is more efficient for this specific problem given the character set is likely limited to lowercase English letters.
@@ -57,7 +59,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Find the Difference
+
+#
+
+## Revision Report: Find the Difference
 
 **Pattern:** Bit Manipulation (XOR) or Hash Map
 

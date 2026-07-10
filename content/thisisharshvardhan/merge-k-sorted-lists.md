@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -62,6 +63,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Min-Heap (Priority Queue) to maintain the smallest available node among the $k$ lists.
 *   **Optimality:** Optimal. Using a heap to perform a $k$-way merge is the standard, efficient approach.
@@ -83,7 +85,9 @@ public:
     *   **Naming:** Rename `rows` to `k` or `numLists`.
     *   **Const correctness:** The parameter `vector<ListNode*>& lists` could be `const vector<ListNode*>&` to indicate the input is not modified (though in this case, you are rearranging existing nodes).
 
-### Suggested Refactor (Snippet)
+#
+
+## Suggested Refactor (Snippet)
 ```cpp
 ListNode* mergeKLists(vector<ListNode*>& lists) {
     priority_queue<ListNode*, vector<ListNode*>, compare> pq;
@@ -110,9 +114,11 @@ ListNode* mergeKLists(vector<ListNode*>& lists) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Merge k Sorted Lists
+
+#
+
+## Revision Report: Merge k Sorted Lists
 
 **Pattern:** Divide and Conquer / Min-Heap
 

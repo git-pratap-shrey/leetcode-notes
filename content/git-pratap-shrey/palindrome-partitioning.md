@@ -7,7 +7,8 @@ date: "2026-03-29"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
 
@@ -53,6 +54,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Backtracking (recursive depth-first search) to explore all possible partition combinations.
 *   **Optimality:** Suboptimal. While the backtracking structure is standard, the validation logic is inefficient. The helper function `is_palin` creates a new string object and performs unnecessary character comparisons by reconstructing the substring, which could be avoided.
@@ -79,9 +81,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Palindrome Partitioning
+
+#
+
+## Revision Report: Palindrome Partitioning
 
 **Pattern:** Backtracking (Depth-First Search)
 

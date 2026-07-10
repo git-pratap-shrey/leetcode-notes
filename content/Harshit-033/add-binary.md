@@ -5,7 +5,8 @@ date: "2026-04-30"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string addBinary(string a, string b) {
@@ -40,6 +41,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Simulation of manual binary addition using two pointers and a carry variable.
 - **Optimality**: Optimal. The algorithm processes each character of the input strings exactly once.
@@ -64,7 +66,10 @@ public:
 ---
 
 # Question Revision
-### Add Binary
+
+#
+
+## Add Binary
 
 **Pattern:** Simulation / Two Pointers
 

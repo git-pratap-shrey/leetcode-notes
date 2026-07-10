@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
@@ -41,6 +42,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Sorting followed by a Two-Pointer approach.
 - **Optimality:** Optimal. The $O(n^2)$ time complexity is the standard best-known approach for the 3Sum problem.
@@ -64,7 +66,10 @@ public:
 ---
 
 # Question Revision
-### 3Sum Revision Report
+
+#
+
+## 3Sum Revision Report
 
 **Pattern:** Sorting + Two Pointers
 

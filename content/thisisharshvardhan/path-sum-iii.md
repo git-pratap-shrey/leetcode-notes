@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -46,6 +47,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Depth-First Search (DFS) with a backtracking path vector. It explores every possible path ending at a specific node by traversing backward through the current recursion stack.
 *   **Optimality:** Suboptimal. While it correctly finds all paths, it re-calculates the path sum repeatedly. An optimal approach uses a Hash Map (prefix sum technique) to achieve $O(N)$ time complexity.
@@ -69,9 +71,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Path Sum III
+
+#
+
+## Path Sum III
 
 **Pattern:** Prefix Sum + Hash Map (Tracking subtree paths)
 

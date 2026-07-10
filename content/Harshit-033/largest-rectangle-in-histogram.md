@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
@@ -50,6 +51,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Monotonic Stack. The solution uses two passes to precompute the distance to the nearest smaller element to the left (`prev`) and to the right (`next`) for every bar in the histogram.
 - **Optimality**: Optimal in terms of time complexity. The standard approach for this problem is either a two-pass or one-pass monotonic stack.
@@ -78,7 +80,10 @@ public:
 ---
 
 # Question Revision
-### Largest Rectangle in Histogram
+
+#
+
+## Largest Rectangle in Histogram
 
 **Pattern:** Monotonic Stack
 

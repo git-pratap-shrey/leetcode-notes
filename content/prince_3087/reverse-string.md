@@ -7,7 +7,8 @@ date: "2026-03-31"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void reverseString(vector<char>& s) {
@@ -24,6 +25,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer approach.
 *   **Optimality:** Optimal. It performs an in-place reversal with a single pass through the array.
@@ -47,9 +49,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Reverse String
+
+#
+
+## Revision Report: Reverse String
 
 **Pattern:** Two Pointers
 

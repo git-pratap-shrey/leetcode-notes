@@ -5,7 +5,8 @@ date: "2026-04-26"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int singleNumber(int[] nums) {
         int n = nums.length;
@@ -27,6 +28,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Bit Manipulation (Bit Counting).
 - **Optimality**: Optimal. The algorithm counts the occurrences of each bit across all numbers. Since every number except one appears three times, the sum of bits at any position $i$ will be $3k + 1$ if the single number has a bit at that position, and $3k$ otherwise.
@@ -50,7 +52,10 @@ class Solution {
 ---
 
 # Question Revision
-### Single Number II
+
+#
+
+## Single Number II
 
 **Pattern:** Bit Manipulation
 

@@ -1,4 +1,14 @@
---- title: "Number of Substrings Containing All Three Characters" slug: number-of-substrings-containing-all-three-characters date: "2026-07-02" ---  # My Solution ~~~class Solution {
+---
+title: "Number of Substrings Containing All Three Characters"
+slug: number-of-substrings-containing-all-three-characters
+date: "2026-07-02"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
     public int numberOfSubstrings(String s) {
         int n = s.length();
         int a =-1;
@@ -14,26 +24,43 @@
         }
         return ans;
     }
-} - java~~~  # Submission Review ## Approach
+}
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Sliding Window / Two-Pointer variation (Last-Seen Index Tracking).
 - **Optimality**: Optimal. It calculates the number of valid substrings ending at each index $i$ in a single pass by tracking the rightmost occurrence of each required character.
 
 ## Complexity
+
 - **Time Complexity**: $O(n)$, where $n$ is the length of the string. The string is traversed exactly once.
 - **Space Complexity**: $O(1)$. Only a constant amount of extra space is used regardless of input size.
 
 ## Efficiency Feedback
+
 - **Runtime**: Highly efficient. The use of `Math.min` and basic integer arithmetic ensures minimal overhead.
 - **Memory**: Minimal memory footprint.
 - **Optimization**: No meaningful optimizations available; the current logic is already at the theoretical lower bound for time and space.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is concise and easy to follow.
 - **Structure**: Good. The flow is linear and avoids unnecessary nesting.
 - **Naming**: Moderate. While `a`, `b`, and `c` are intuitive given the problem context, `lastA`, `lastB`, and `lastC` would more explicitly describe their purpose as index trackers.
 - **Concrete Improvements**:
     - Use more descriptive variable names (e.g., `lastA` instead of `a`).
-    - The `if-else if` chain is appropriate here since a character cannot be more than one of 'a', 'b', or 'c'.  ---  # Question Revision ### Number of Substrings Containing All Three Characters
+    - The `if-else if` chain is appropriate here since a character cannot be more than one of 'a', 'b', or 'c'.
+
+---
+
+# Question Revision
+
+#
+
+## Number of Substrings Containing All Three Characters
 
 **Pattern:** Sliding Window (Two Pointers)
 
@@ -50,4 +77,6 @@ Expand a `right` pointer to find the smallest window containing all three charac
 The "at least" constraint implies monotonicity: if a substring is valid, any larger substring containing it is also guaranteed to be valid.
 
 **Summary:**
-Find the minimum valid window and add the remaining string length to the total for every valid `left` pointer.  ---
+Find the minimum valid window and add the remaining string length to the total for every valid `left` pointer.
+
+---

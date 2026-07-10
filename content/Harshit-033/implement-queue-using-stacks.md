@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class MyQueue {
 public:
     stack<int> s;
@@ -74,6 +75,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-stack queue simulation.
 *   **Optimal:** Yes. This is the standard amortized $O(1)$ approach for implementing a queue using two stacks.
@@ -101,9 +103,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Implement Queue using Stacks
+
+#
+
+## Revision Report: Implement Queue using Stacks
 
 **Pattern:** Stack-based Queue (Amortized Analysis)
 

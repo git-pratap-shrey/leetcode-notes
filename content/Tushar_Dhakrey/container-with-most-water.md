@@ -7,7 +7,8 @@ date: "2026-03-26"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int maxArea(int[] height) {
         int left = 0;
@@ -31,6 +32,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Two-pointer approach.
 - **Optimality:** Optimal. It effectively reduces the search space by discarding the shorter line at each step, ensuring the maximum area is found in a single pass.
@@ -54,9 +56,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Container With Most Water
+
+#
+
+## Revision Report: Container With Most Water
 
 **Pattern:** Two Pointers (Greedy)
 

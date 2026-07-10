@@ -5,7 +5,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
@@ -34,6 +35,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Frequency counting using a hash map (`unordered_map`).
 - **Optimality**: Suboptimal. While the time complexity is asymptotically optimal, the space complexity is higher than necessary. The problem can be solved in $O(1)$ extra space using mathematical formulas (sum and sum of squares) or $O(n^2)$ using a simple frequency array for better constant factors.
@@ -57,7 +59,10 @@ public:
 ---
 
 # Question Revision
-### Find Missing and Repeated Values
+
+#
+
+## Find Missing and Repeated Values
 
 **Pattern:** Math / Counting
 

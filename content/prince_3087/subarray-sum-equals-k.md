@@ -7,7 +7,8 @@ date: "2026-03-27"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
@@ -29,6 +30,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Prefix Sum with Hash Map (Frequency Map).
 *   **Optimality:** Optimal. It achieves the linear time complexity required to solve the problem by trading space for speed.
@@ -53,9 +55,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Subarray Sum Equals K
+
+#
+
+## Revision Report: Subarray Sum Equals K
 
 **Pattern:** Prefix Sum + Hash Map
 

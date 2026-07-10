@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -61,6 +62,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Iterative traversal using pointer partitioning. The code maintains two separate linked lists (odd and even) and merges them at the end.
 *   **Optimal:** No. While $O(N)$ time is optimal, the implementation uses an unnecessary `index` counter and modulo operation, and creates redundant null checks inside the loop. The standard optimal approach performs this in-place by re-linking pointers (`curr = curr.next.next`) without needing an index variable.
@@ -86,9 +88,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Odd Even Linked List
+
+#
+
+## Revision Report: Odd Even Linked List
 
 **Pattern:** Two-Pointer (In-place Re-linking)
 

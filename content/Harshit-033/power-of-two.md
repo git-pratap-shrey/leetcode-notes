@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 bool isPowerOfTwo(int n) {
     if(n<=0){
         return false;
@@ -27,6 +28,7 @@ bool isPowerOfTwo(int n) {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive approach with trial division by 2.
 - **Optimality**: Suboptimal. The recursive approach adds overhead and is slower than bitwise manipulation. A power of two has exactly one bit set in binary representation, which can be checked in $O(1)$ time.
@@ -51,9 +53,11 @@ bool isPowerOfTwo(int n) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Power of Two
+
+#
+
+## Revision Report: Power of Two
 
 **Pattern:** Bit Manipulation
 

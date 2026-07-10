@@ -5,7 +5,8 @@ date: "2026-07-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> buildArray(vector<int>& nums) {
@@ -19,6 +20,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Iterative array mapping.
 - **Optimality:** Optimal in terms of time complexity ($O(N)$), but utilizes $O(N)$ extra space. While the problem can be solved in $O(1)$ extra space using bit manipulation/encoding, this approach is standard and acceptable for most interview contexts.
@@ -43,7 +45,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Build Array from Permutation
+
+#
+
+## Revision Report: Build Array from Permutation
 
 **Pattern:** Array Index Manipulation (In-place Encoding)
 

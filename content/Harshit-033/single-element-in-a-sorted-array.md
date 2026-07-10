@@ -7,7 +7,8 @@ date: "2026-04-02"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int singleNonDuplicate(int* nums, int numsSize) {
     if(numsSize==1){
         return nums[0];
@@ -44,6 +45,7 @@ int singleNonDuplicate(int* nums, int numsSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Binary Search on the index space to find the single element.
 *   **Optimality:** Optimal. It leverages the sorted property and pair-wise structure to achieve $O(\log n)$ time complexity.
@@ -68,9 +70,11 @@ int singleNonDuplicate(int* nums, int numsSize) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Single Element in a Sorted Array
+
+#
+
+## Revision Report: Single Element in a Sorted Array
 
 **Pattern:** Binary Search (Index Manipulation)
 

@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int maxDepth(char* s) {
     int max=0;
     int len=strlen(s);
@@ -31,6 +32,7 @@ int maxDepth(char* s) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Greedy traversal using a counter to track the current nesting level.
 *   **Optimality:** Optimal. It performs a single linear scan of the input string, which is necessary to determine the depth.
@@ -69,9 +71,11 @@ int maxDepth(char* s) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Maximum Nesting Depth of the Parentheses
+
+#
+
+## Revision Report: Maximum Nesting Depth of the Parentheses
 
 **Pattern:** Stack / Greedy Counter
 

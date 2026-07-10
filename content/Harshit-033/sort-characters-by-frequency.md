@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string frequencySort(string s) {
@@ -34,13 +35,12 @@ public:
 
         return s;
 
-
-
     }
 };
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Frequency counting using `std::map`, followed by sorting the frequency map entries and reconstructing the string.
 *   **Optimality:** Suboptimal. While the logic is correct, the use of `std::map` (ordered) adds unnecessary logarithmic overhead, and sorting the map entries is less efficient than using a bucket sort (or `std::unordered_map`) for this specific problem.
@@ -65,9 +65,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Sort Characters By Frequency
+
+#
+
+## Revision Report: Sort Characters By Frequency
 
 **Pattern:** Frequency Map + Sorting / Bucket Sort
 

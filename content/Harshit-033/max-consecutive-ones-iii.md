@@ -7,7 +7,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int longestOnes(int* nums, int numsSize, int k) {
     
     int current=0;
@@ -49,6 +50,7 @@ int longestOnes(int* nums, int numsSize, int k) {
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique**: Two-pointer / Sliding window.
 * **Status**: Suboptimal logic. The implementation attempts to maintain a window $[start, i]$, but the logic for managing `k` (the count of allowed zeros) is brittle and prone to errors. It treats the window size dynamically but relies on a `while` loop inside the main iteration that can behave unpredictably.
@@ -66,7 +68,9 @@ int longestOnes(int* nums, int numsSize, int k) {
 * **Structure**: Moderate. The logic combines window expansion and shrinking in a single loop, which obscures the "sliding window" invariant.
 * **Naming**: Moderate. `current`, `max`, and `start` are descriptive enough, but `current` is technically redundant if you simply use `i - start + 1`.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1. **Simplify the Window Logic**: Instead of complex conditional branching, maintain a counter for zeros.
 2. **Standard Sliding Window Pattern**:
    ```c
@@ -87,9 +91,11 @@ int longestOnes(int* nums, int numsSize, int k) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Max Consecutive Ones III
+
+#
+
+## Revision Report: Max Consecutive Ones III
 
 **Pattern:** Sliding Window (Variable Size)
 

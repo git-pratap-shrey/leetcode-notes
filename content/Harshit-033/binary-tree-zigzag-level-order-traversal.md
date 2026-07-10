@@ -5,7 +5,8 @@ date: "2026-04-21"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -68,6 +69,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Breadth-First Search (BFS) using a `std::deque`. 
 - **Optimality**: Optimal. The solution visits each node exactly once and avoids the need to explicitly reverse vectors at each level by manipulating the deque's insertion and extraction ends.
@@ -93,7 +95,10 @@ public:
 ---
 
 # Question Revision
-### Binary Tree Zigzag Level Order Traversal
+
+#
+
+## Binary Tree Zigzag Level Order Traversal
 
 **Pattern:** BFS (Breadth-First Search)
 

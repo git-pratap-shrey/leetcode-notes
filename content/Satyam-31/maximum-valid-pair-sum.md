@@ -1,4 +1,14 @@
---- title: "Maximum Valid Pair Sum" slug: maximum-valid-pair-sum date: "2026-07-04" ---  # My Solution ~~~class Solution {
+---
+title: "Maximum Valid Pair Sum"
+slug: maximum-valid-pair-sum
+date: "2026-07-04"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     int maxValidPairSum(vector<int>& nums, int k) {
         int n=nums.size();
@@ -13,18 +23,27 @@ public:
         }
         return ans;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Suffix Maximum Precomputation.
 - **Optimality**: Optimal. The algorithm ensures every potential pair $(i, j)$ where $j \ge i + k$ is considered by pairing each $nums[i]$ with the largest available element in the valid range $[i+k, n-1]$.
 
 ## Complexity
+
 - **Time Complexity**: $O(n)$ — Two linear passes over the input array.
 - **Space Complexity**: $O(n)$ — Used to store the suffix maximum array `s`.
 
 ## Efficiency Feedback
+
 - **Memory Optimization**: The space complexity can be reduced to $O(1)$ by iterating backwards from $n-1$ to $0$, maintaining a running maximum of the elements encountered so far, and calculating the pair sum once the index distance $\ge k$ is reached.
 
 ## Code Quality
+
 - **Readability**: Moderate. The logic is simple, but the lack of descriptive variable names makes it less intuitive.
 - **Structure**: Good. The separation of precomputation and result calculation is clear.
 - **Naming**: Poor. 
@@ -33,7 +52,15 @@ public:
     - `n` is standard for size.
 - **Concrete Improvements**:
     - Use `std::max_element` or a single backward pass to eliminate the extra vector.
-    - Use `long long` for `ans` if the problem constraints allow sums to exceed `INT_MAX` (though based on the provided snippet, `int` is used).  ---  # Question Revision ### Maximum Valid Pair Sum
+    - Use `long long` for `ans` if the problem constraints allow sums to exceed `INT_MAX` (though based on the provided snippet, `int` is used).
+
+---
+
+# Question Revision
+
+#
+
+## Maximum Valid Pair Sum
 
 **Pattern:** Modular Arithmetic / Hash Map
 
@@ -53,4 +80,6 @@ Iterate through every possible pair $(a, b)$ from `nums1` and `nums2`, checking 
 Divisibility constraints on a sum imply that only the remainders of the individual elements matter, allowing us to reduce the search space from all elements to just $k$ possible remainders.
 
 **Summary:**
-Store the maximum value for each remainder $\pmod k$ and pair complements to find the largest divisible sum.  ---
+Store the maximum value for each remainder $\pmod k$ and pair complements to find the largest divisible sum.
+
+---

@@ -5,7 +5,8 @@ date: "2026-04-26"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool canMake(vector<int>& bloomDay, int m, int k, int day) {
@@ -51,6 +52,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Search on the Answer combined with a Greedy check function (`canMake`).
 - **Optimality**: Optimal. The problem exhibits monotonicity (if it's possible to make $m$ bouquets in $d$ days, it is also possible in $d+1$ days), making binary search the most efficient approach.
@@ -73,7 +75,10 @@ public:
 ---
 
 # Question Revision
-### Minimum Number of Days to Make m Bouquets
+
+#
+
+## Minimum Number of Days to Make m Bouquets
 
 **Pattern:** Binary Search on Answer
 

@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void dfs(vector<vector<char>>& board, int i, int j, vector<vector<bool>>& visited, bool& surrounded) {
@@ -80,6 +81,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Depth-First Search (DFS) with multiple auxiliary boolean matrices (`visited`, `notSurrounded`).
 *   **Optimal Status:** Suboptimal. The logic attempts to identify connected components of 'O's and check if they touch the boundary. However, the implementation is unnecessarily complex, involving multiple full-grid traversals to reset/update states.
@@ -106,9 +108,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Surrounded Regions
+
+#
+
+## Revision Report: Surrounded Regions
 
 **Pattern:** Breadth-First Search (BFS) / Depth-First Search (DFS) / Graph Traversal
 

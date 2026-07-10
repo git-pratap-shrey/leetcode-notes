@@ -5,7 +5,8 @@ date: "2026-04-24"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -52,6 +53,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Breadth-First Search (BFS) using a `std::queue` and a `std::map` to track the last node encountered at each depth.
 - **Optimality**: Suboptimal. While the logic is correct, using a `std::map` introduces unnecessary logarithmic overhead and extra memory for keys that are contiguous integers.
@@ -76,7 +78,10 @@ public:
 ---
 
 # Question Revision
-### Binary Tree Right Side View
+
+#
+
+## Binary Tree Right Side View
 
 **Pattern:** Breadth-First Search (BFS) / Level Order Traversal
 

@@ -1,4 +1,12 @@
---- title: "Swap Nodes in Pairs" slug: swap-nodes-in-pairs date: "2026-06-26" ---  # My Solution ~~~/**
+---
+title: "Swap Nodes in Pairs"
+slug: swap-nodes-in-pairs
+date: "2026-06-26"
+
+---
+
+# My Solution
+~~~/**
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
@@ -29,11 +37,18 @@ public:
 
         return d.next;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Iterative pointer manipulation using a **dummy node**.
 - **Optimality**: Optimal. The solution processes the list in a single pass and swaps nodes in place.
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$, where $N$ is the number of nodes in the linked list. Each node is visited once.
 - **Space Complexity**: $O(1)$, as it only uses a fixed number of pointers regardless of the input size.
 
@@ -42,6 +57,7 @@ public:
 - Use of a stack-allocated dummy node (`ListNode d(0)`) avoids unnecessary dynamic memory allocation (`new`), reducing overhead.
 
 ## Code Quality
+
 - **Readability**: Moderate. While the logic is clean, the variable names are overly cryptic.
 - **Structure**: Good. The use of a dummy node correctly handles the edge case of swapping the head of the list.
 - **Naming**: Poor. Single-letter variable names (`h`, `d`, `p`, `a`, `b`) make the code harder to follow.
@@ -49,7 +65,15 @@ public:
     - Rename `h` $\rightarrow$ `head`.
     - Rename `d` $\rightarrow$ `dummy`.
     - Rename `p` $\rightarrow$ `prev`.
-    - Rename `a` $\rightarrow$ `first` and `b` $\rightarrow$ `second`.  ---  # Question Revision ### Swap Nodes in Pairs
+    - Rename `a` $\rightarrow$ `first` and `b` $\rightarrow$ `second`.
+
+---
+
+# Question Revision
+
+#
+
+## Swap Nodes in Pairs
 
 **Pattern:** Linked List Manipulation (Dummy Node / Iterative Pointer Reassignment)
 
@@ -62,4 +86,6 @@ Use a `dummy` node pointing to the head to handle edge cases (like swapping the 
 
 **The 'Aha' Moment:** The constraint to swap *nodes* rather than *values* requires a `dummy` node and a `prev` pointer to bridge the gap between the previously swapped pair and the current one.
 
-**Summary:** Use a dummy node and a trailing pointer to iteratively rewire pairs of nodes without losing the list's continuity.  ---
+**Summary:** Use a dummy node and a trailing pointer to iteratively rewire pairs of nodes without losing the list's continuity.
+
+---

@@ -1,4 +1,12 @@
---- title: "Path Sum" slug: path-sum date: "2026-06-25" ---  # My Solution ~~~/**
+---
+title: "Path Sum"
+slug: path-sum
+date: "2026-06-25"
+
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -28,11 +36,18 @@ class Solution {
         return dfs(root.left,curr,targetSum) || dfs(root.right,curr,targetSum);
     }
 
-} - java~~~  # Submission Review ## Approach
+}
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Depth-First Search (DFS) using recursion.
 - **Optimality**: Optimal. The algorithm visits each node at most once to determine if a valid path exists.
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$, where $N$ is the number of nodes in the binary tree.
 - **Space Complexity**: $O(H)$, where $H$ is the height of the tree, representing the maximum depth of the recursion stack. In the worst case (skewed tree), this is $O(N)$.
 
@@ -41,12 +56,21 @@ class Solution {
 - **Minor Optimization**: Instead of passing a `curr` (current sum) variable, the code could subtract the current node's value from `targetSum` and check if the remaining sum is $0$ at the leaf. This would reduce the number of parameters passed in each recursive call.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is straightforward and follows standard tree traversal patterns.
 - **Structure**: Good. The helper method `dfs` cleanly separates the recursive logic from the public API.
 - **Naming**: Moderate. `curr` is slightly ambiguous; `currentSum` would be more descriptive.
 - **Concrete Improvements**: 
     - Ensure consistency in spacing (e.g., `root == null` instead of `root==null`).
-    - Use `final` for `targetSum` if it remains unchanged throughout the recursion.  ---  # Question Revision ### Path Sum
+    - Use `final` for `targetSum` if it remains unchanged throughout the recursion.
+
+---
+
+# Question Revision
+
+#
+
+## Path Sum
 
 **Pattern:** DFS (Recursion)
 
@@ -58,4 +82,6 @@ class Solution {
 
 **The 'Aha' Moment:** The "root-to-leaf" constraint signals a depth-first traversal where the remaining target sum is passed down as state.
 
-**Summary:** Subtract node values from the target during a DFS traversal to check if any leaf reaches a remaining sum of zero.  ---
+**Summary:** Subtract node values from the target during a DFS traversal to check if any leaf reaches a remaining sum of zero.
+
+---

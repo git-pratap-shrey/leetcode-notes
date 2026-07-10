@@ -7,7 +7,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int search(int* nums, int numsSize, int target) {
 
     int mid;
@@ -43,6 +44,7 @@ int search(int* nums, int numsSize, int target) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Binary Search.
 *   **Optimality:** Optimal. The algorithm correctly leverages the property that at least one half of a rotated sorted array is always sorted, achieving $O(\log n)$ time complexity.
@@ -67,9 +69,11 @@ int search(int* nums, int numsSize, int target) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Search in Rotated Sorted Array
+
+#
+
+## Revision Report: Search in Rotated Sorted Array
 
 **Pattern:** Modified Binary Search
 

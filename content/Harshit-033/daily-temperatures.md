@@ -1,4 +1,14 @@
---- title: "Daily Temperatures" slug: daily-temperatures date: "2026-06-18" ---  # My Solution ~~~class Solution {
+---
+title: "Daily Temperatures"
+slug: daily-temperatures
+date: "2026-06-18"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
         int n=temperatures.size();
@@ -20,11 +30,18 @@ public:
 
         return answer;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique:** Monotonic Stack.
 - **Optimality:** Optimal. This is the standard approach for "Next Greater Element" problems, ensuring each element is processed a constant number of times.
 
 ## Complexity
+
 - **Time Complexity:** $O(n)$, where $n$ is the number of temperatures. Each index is pushed onto and popped from the stack exactly once.
 - **Space Complexity:** $O(n)$ to store the `answer` vector and the `stack` in the worst case (e.g., strictly decreasing temperatures).
 
@@ -34,12 +51,21 @@ public:
 - Memory usage is optimal for the given constraints.
 
 ## Code Quality
+
 - **Readability:** Good. The logic is clean and follows standard competitive programming patterns.
 - **Structure:** Good. The flow is linear and easy to trace.
 - **Naming:** Moderate. While `n` and `i` are standard, `st` is generic; `indexStack` would be more descriptive.
 - **Improvements:**
     - Use `std::vector<int> st` as a manual stack or `reserve()` space if using a vector to avoid potential reallocations, though `std::stack` is perfectly acceptable here.
-    - The code is already concise; no significant structural changes are needed.  ---  # Question Revision ### Daily Temperatures
+    - The code is already concise; no significant structural changes are needed.
+
+---
+
+# Question Revision
+
+#
+
+## Daily Temperatures
 
 **Pattern:** Monotonic Stack
 
@@ -57,4 +83,6 @@ Maintain a **monotonically decreasing stack** of indices. As you iterate through
 The requirement to find the "next greater element" for every item in a linear sequence is the classic signal for a monotonic stack.
 
 **Summary:**
-Store indices in a decreasing stack and pop them the moment a warmer temperature "breaks" the trend to calculate the distance.  ---
+Store indices in a decreasing stack and pop them the moment a warmer temperature "breaks" the trend to calculate the distance.
+
+---

@@ -5,7 +5,8 @@ date: "2026-04-16"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> finalPrices(vector<int>& prices) {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Monotonic Stack.
 - **Optimality**: Optimal. The solution iterates through the array once and each element is pushed and popped from the stack at most once, achieving the best possible time complexity for this problem.
@@ -71,7 +73,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Final Prices With a Special Discount in a Shop
+
+#
+
+## Revision Report: Final Prices With a Special Discount in a Shop
 
 **Pattern:** Monotonic Stack
 

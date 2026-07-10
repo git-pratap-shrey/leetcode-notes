@@ -7,7 +7,8 @@ date: "2026-04-03"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int findMin(int* nums, int numsSize) {
     
     int mid;
@@ -37,6 +38,7 @@ int findMin(int* nums, int numsSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Modified Binary Search.
 *   **Correctness:** Partially incorrect. While the logic attempts to handle duplicates by shrinking the search space (`low++`, `high--`), the condition `min=(nums[mid]<min)?nums[mid]:min;` inside the loop is redundant/misleading, and the `if/else` logic is fragile for finding the absolute minimum in all edge cases. Specifically, discarding the `mid` element in the `nums[low] <= nums[mid]` branch is unsafe when `nums[low] == nums[mid]`.
@@ -72,9 +74,11 @@ int findMin(int* nums, int numsSize) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find Minimum in Rotated Sorted Array II
+
+#
+
+## Revision Report: Find Minimum in Rotated Sorted Array II
 
 **Pattern:** Binary Search (Modified)
 

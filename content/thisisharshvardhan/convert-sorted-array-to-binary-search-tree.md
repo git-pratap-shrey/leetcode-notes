@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -45,6 +46,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Recursive Divide and Conquer. The array is split at the middle element to ensure height balance, which is the standard optimal approach for this problem.
 *   **Optimality:** Optimal in logic, but suboptimal in implementation due to parameter passing.
@@ -69,9 +71,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Convert Sorted Array to BST
+
+#
+
+## Revision Report: Convert Sorted Array to BST
 
 **Pattern:** Divide and Conquer (Recursive Tree Construction)
 

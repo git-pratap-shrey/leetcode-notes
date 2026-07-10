@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int findKthPositive(int* arr, int arrSize, int k) {
 
     int low=0;
@@ -39,6 +40,7 @@ int findKthPositive(int* arr, int arrSize, int k) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Binary Search.
 *   **Optimality:** Optimal. It correctly utilizes the property that the number of missing elements before `arr[i]` is given by `arr[i] - (i + 1)`. Binary search is the most efficient way ($O(\log N)$) to find the insertion point.
@@ -80,9 +82,11 @@ This simplified logic achieves the same result without needing `ans`, `count`, o
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Kth Missing Positive Number
+
+#
+
+## Revision Report: Kth Missing Positive Number
 
 **Pattern:** Binary Search (on an implicit index array)
 

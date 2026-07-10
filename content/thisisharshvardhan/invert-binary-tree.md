@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -40,6 +41,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique:** Recursive Depth-First Search (DFS).
 * **Optimality:** Optimal. The problem requires visiting every node at least once to perform the swap, and this approach does exactly that in $O(N)$ time.
@@ -57,7 +59,9 @@ public:
 * **Structure:** Moderate. The `solve` function is redundant. Since `invertTree` already returns a `TreeNode*`, the recursion can be performed directly inside `invertTree`.
 * **Naming:** Good. `root` and the recursive calls are intuitively named.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 You can simplify the code by eliminating the `solve` helper function entirely. This improves readability and reduces the depth of the call stack slightly:
 
 ```cpp
@@ -82,9 +86,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Invert Binary Tree
+
+#
+
+## Revision Report: Invert Binary Tree
 
 **Pattern:** Tree Traversal (Divide and Conquer / Recursion)
 

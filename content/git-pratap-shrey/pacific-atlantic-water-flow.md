@@ -7,7 +7,8 @@ date: "2026-04-13"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<vector<int>> pacificAtlantic(vector<vector<int>>& heights) {
@@ -114,6 +115,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Breadth-First Search (BFS) starting from the boundaries of the grid.
 *   **Optimality:** Optimal. The algorithm effectively reverses the flow direction (uphill) to find all cells reachable from both the Pacific and Atlantic oceans.
@@ -139,9 +141,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Pacific Atlantic Water Flow
+
+#
+
+## Revision Report: Pacific Atlantic Water Flow
 
 **Pattern:** Multi-Source Breadth-First Search (BFS) / Depth-First Search (DFS)
 

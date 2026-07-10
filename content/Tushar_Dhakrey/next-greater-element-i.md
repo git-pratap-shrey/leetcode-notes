@@ -5,7 +5,8 @@ date: "2026-04-13"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         Stack<Integer> st = new Stack<>();
@@ -41,6 +42,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Monotonic stack with a HashMap for lookup.
 - **Optimality:** Optimal. The solution processes `nums2` in a single pass to precalculate the next greater elements and uses a hash map for $O(1)$ retrieval during the `nums1` traversal.
@@ -58,7 +60,9 @@ class Solution {
 - **Structure:** Good. The logic is clearly separated into two distinct phases (preprocessing `nums2` and mapping to `nums1`).
 - **Naming:** Good. Variable names like `nextgreat`, `map`, and `st` are conventional and clear enough for this context.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1. **Remove Commented Code:** Delete the unused `arr` array and the commented-out logic blocks to clean up the source code.
 2. **Use `ArrayDeque`:** Replace `Stack<Integer> st = new Stack<>()` with `Deque<Integer> st = new ArrayDeque<>()` to improve performance.
 3. **Refine Initialization:** The `int arr[] = new int[n]` array is declared but never used. Removing this will save unnecessary memory allocation. 
@@ -75,7 +79,10 @@ st.push(nums2[i]);
 ---
 
 # Question Revision
-### Revision Report: Next Greater Element I
+
+#
+
+## Revision Report: Next Greater Element I
 
 **Pattern:** Monotonic Stack
 

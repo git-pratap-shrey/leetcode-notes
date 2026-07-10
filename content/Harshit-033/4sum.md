@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
@@ -52,6 +53,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Sorting combined with nested loops and the two-pointer technique.
 *   **Optimality:** Optimal. It reduces the $O(n^4)$ brute-force approach to $O(n^3)$ by fixing two elements and using two pointers for the remaining two.
@@ -77,9 +79,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: 4Sum
+
+#
+
+## Revision Report: 4Sum
 
 **Pattern:** Two Pointers (K-Sum generalization)
 

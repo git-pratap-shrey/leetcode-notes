@@ -5,7 +5,8 @@ date: "2026-04-19"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public double myPow(double x, int n) {
         double ans = 1;
@@ -33,6 +34,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Exponentiation (Exponentiation by Squaring), implemented iteratively.
 - **Optimality**: Optimal. It reduces the number of multiplications from $O(n)$ to $O(\log n)$.
@@ -56,7 +58,10 @@ class Solution {
 ---
 
 # Question Revision
-### Pow(x, n)
+
+#
+
+## Pow(x, n)
 
 **Pattern:** Divide and Conquer (Binary Exponentiation)
 

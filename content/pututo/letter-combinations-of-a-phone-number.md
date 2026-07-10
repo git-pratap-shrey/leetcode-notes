@@ -1,4 +1,14 @@
---- title: "Letter Combinations of a Phone Number" slug: letter-combinations-of-a-phone-number date: "2026-07-04" ---  # My Solution ~~~class Solution {
+---
+title: "Letter Combinations of a Phone Number"
+slug: letter-combinations-of-a-phone-number
+date: "2026-07-04"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     void Pn(vector<string>& ans, string& temp,int idx,string& digits,map<int,string>& letter){
         if(idx==digits.size()){
@@ -28,20 +38,29 @@ public:
         Pn(ans,temp,0,digits,letter);
         return ans;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Backtracking (Recursive Depth-First Search).
 - **Optimality**: Optimal. It generates every valid combination exactly once.
 
 ## Complexity
+
 - **Time Complexity**: $O(4^N \cdot N)$, where $N$ is the length of the input string. $4^N$ represents the maximum number of combinations (for digits 7 and 9), and $N$ is the cost of copying the `temp` string into the result vector.
 - **Space Complexity**: $O(N)$ for the recursion stack and the temporary string (excluding the output list).
 
 ## Efficiency Feedback
+
 - **Suboptimal Lookup**: Using `std::map<int, string>` introduces $O(\log K)$ overhead per lookup. A fixed-size array or `std::vector<string>` would provide $O(1)$ access.
 - **Redundant Operations**: The expression `letter[digits[idx]-'0']` is evaluated twice per loop iteration. Storing this in a local reference would reduce map lookups.
 - **Edge Case Bug**: If `digits` is an empty string, the code returns `[""]` instead of `[]` because the base case `idx == digits.size()` is met immediately.
 
 ## Code Quality
+
 - **Readability**: Moderate. The logic is clear, but naming is cryptic.
 - **Structure**: Good. Clear separation between the recursive helper and the main function.
 - **Naming**: Poor. 
@@ -51,7 +70,15 @@ public:
     - Change `map<int, string>` to `string mapping[] = {"", "", "abc", ...}`.
     - Add a guard clause: `if (digits.empty()) return {};`.
     - Rename `Pn` to `backtrack` or `generateCombinations`.
-    - Cache the current digit's string: `string& currentLetters = letter[digits[idx]-'0'];`.  ---  # Question Revision ### Letter Combinations of a Phone Number
+    - Cache the current digit's string: `string& currentLetters = letter[digits[idx]-'0'];`.
+
+---
+
+# Question Revision
+
+#
+
+## Letter Combinations of a Phone Number
 
 **Pattern:** Backtracking / DFS
 
@@ -65,4 +92,6 @@ Implement a recursive backtracking function that builds a combination character 
 
 **The 'Aha' Moment:** The requirement to "generate all possible combinations" from a variable-length input signals a state-space tree that must be explored via backtracking.
 
-**Summary:** Map digits to letters and use recursion to compute the Cartesian product of the letter sets.  ---
+**Summary:** Map digits to letters and use recursion to compute the Cartesian product of the letter sets.
+
+---

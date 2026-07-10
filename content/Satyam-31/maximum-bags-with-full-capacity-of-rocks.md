@@ -7,7 +7,8 @@ date: "2026-02-20"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int maximumBags(vector<int>& capacity, vector<int>& rocks, int additionalRocks) {
@@ -40,6 +41,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Greedy. The approach calculates the remaining capacity for each bag, sorts them in ascending order to prioritize filling bags that require the fewest rocks, and fills them until `additionalRocks` are exhausted.
 - **Optimality:** Optimal. Sorting is the necessary greedy strategy to maximize the total number of full bags.
@@ -64,9 +66,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Maximum Bags With Full Capacity of Rocks
+
+#
+
+## Revision Report: Maximum Bags With Full Capacity of Rocks
 
 **Pattern:** Greedy
 

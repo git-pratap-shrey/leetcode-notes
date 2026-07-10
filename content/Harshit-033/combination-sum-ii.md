@@ -5,7 +5,8 @@ date: "2026-04-22"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<vector<int>> ans;
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Backtracking with pruning.
 - **Optimality**: Optimal. The solution uses sorting to handle duplicates efficiently (`cand[i] == cand[i-1]`) and terminates branches early when the current element exceeds the remaining target (`cand[i] > target`).
@@ -62,7 +64,10 @@ public:
 ---
 
 # Question Revision
-### Combination Sum II
+
+#
+
+## Combination Sum II
 
 **Pattern:** Backtracking with Sorting
 

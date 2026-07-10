@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string minWindow(string s, string t) {
@@ -43,8 +44,6 @@ public:
             
             right++;
 
-
-
         }
         if(min == INT_MAX) return "";
         string ans;
@@ -59,6 +58,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Two-pointer sliding window with a frequency map.
 - **Optimality**: Optimal. The sliding window ensures each character in `s` is visited at most twice, and the frequency map allows for $O(1)$ average-time lookups.
@@ -87,7 +87,10 @@ public:
 ---
 
 # Question Revision
-### Minimum Window Substring
+
+#
+
+## Minimum Window Substring
 
 **Pattern:** Sliding Window (Two Pointers)
 

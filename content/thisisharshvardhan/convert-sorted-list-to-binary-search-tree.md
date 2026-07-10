@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -66,6 +67,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Simulation of an In-order traversal to build the Binary Search Tree. It uses a bottom-up recursive strategy by passing the `head` pointer by reference to ensure the linked list is traversed linearly as the tree is constructed.
 *   **Optimality:** Optimal. It achieves the construction in $O(N)$ time by utilizing the fact that an in-order traversal of a BST corresponds to the sorted sequence of the linked list.
@@ -90,9 +92,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Convert Sorted List to Binary Search Tree
+
+#
+
+## Revision Report: Convert Sorted List to Binary Search Tree
 
 **Pattern:** Divide and Conquer / Linked List manipulation (Fast & Slow Pointers)
 

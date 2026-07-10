@@ -7,7 +7,8 @@ date: "2026-03-30"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
@@ -50,6 +51,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pass approach. First, the code inserts the `newInterval` into the sorted list by iterating through the original vector. Second, it performs a linear scan to merge overlapping intervals.
 *   **Optimality:** Suboptimal. While the logic is correct, it can be implemented in a single pass ($O(N)$) without creating an intermediate `sortintervals` vector.
@@ -77,9 +79,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Insert Interval
+
+#
+
+## Revision Report: Insert Interval
 
 **Pattern:** Linear Scan / Greedy
 

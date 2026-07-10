@@ -7,7 +7,8 @@ date: "2026-04-13"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string removeKdigits(string num, int k) {
@@ -45,6 +46,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Greedy approach using a monotonic stack.
 *   **Optimal:** No. While the monotonic stack approach is the standard optimal strategy, the implementation logic for handling `k` and the final string construction is flawed and unnecessarily complex.
@@ -62,7 +64,9 @@ public:
 *   **Structure:** Poor. The separation between the stack-processing logic and the final formatting is disjointed. The `j` index skip logic is fragile.
 *   **Naming:** Moderate. `s` and `ans` are generic; `stack` would be more descriptive for `s`.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1.  **Simplify Post-Processing:** If $k > 0$ after the loop, simply remove the last $k$ elements from the stack (as they are in non-decreasing order).
 2.  **Use `std::string` as Stack:** A `std::string` can act as a stack, avoiding the need for a `vector<char>` and the eventual conversion to `string`.
 3.  **Refactor Leading Zeros:** Instead of searching for `j`, simply find the first non-zero character or remove leading zeros after building the string.
@@ -91,9 +95,11 @@ string removeKdigits(string num, int k) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Remove K Digits
+
+#
+
+## Revision Report: Remove K Digits
 
 **Pattern:** Monotonic Stack (Greedy)
 

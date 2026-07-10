@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public String removeOuterParentheses(String s) {
         StringBuilder sb = new StringBuilder();
@@ -26,6 +27,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Linear scan using a counter (`level`) to track nesting depth.
 - **Optimality**: Optimal. The solution processes each character once and uses the minimum necessary state to identify outermost parentheses.
@@ -47,7 +49,10 @@ class Solution {
 ---
 
 # Question Revision
-### Remove Outermost Parentheses
+
+#
+
+## Remove Outermost Parentheses
 
 **Pattern:** String Parsing / Balance Counter
 

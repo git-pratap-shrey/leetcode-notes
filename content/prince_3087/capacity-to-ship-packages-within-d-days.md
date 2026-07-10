@@ -1,4 +1,14 @@
---- title: "Capacity To Ship Packages Within D Days" slug: capacity-to-ship-packages-within-d-days date: "2026-06-16" ---  # My Solution ~~~class Solution {
+---
+title: "Capacity To Ship Packages Within D Days"
+slug: capacity-to-ship-packages-within-d-days
+date: "2026-06-16"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     bool fun(vector<int>& weights , int guess , int n , int days){
         int k =1;
@@ -39,20 +49,29 @@ public:
         }
         return res;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Binary Search on the Answer. The code searches for the minimum feasible capacity in the range `[max(weights), sum(weights)]`.
 - **Optimality**: Optimal. The problem exhibits monotonicity (if capacity $C$ works, any capacity $> C$ also works), making binary search the most efficient approach.
 
 ## Complexity
+
 - **Time Complexity**: $O(N \log(\sum \text{weights} - \max \text{weights}))$, where $N$ is the number of packages. The binary search takes logarithmic steps, and each check (`fun`) takes linear time.
 - **Space Complexity**: $O(1)$ as it uses a constant amount of extra space.
 
 ## Efficiency Feedback
+
 - **Critical Bug**: The variable `int high;` is declared but **not initialized**. The line `high = high + weights[i];` results in **Undefined Behavior (UB)** because it adds to a garbage value.
 - **Integer Overflow**: `int guess = (low + high) / 2;` is susceptible to overflow if the sum of weights exceeds $2^{31}-1$. Using `low + (high - low) / 2` is safer.
 - **Redundancy**: Passing `int n` to `fun` is unnecessary since `weights.size()` is available.
 
 ## Code Quality
+
 - **Readability**: Poor. 
     - `fun` is a generic name; `canShip` or `isPossible` would be more descriptive.
     - `ans` is used to track the current day's load, which is misleading (usually `ans` refers to the final result).
@@ -64,7 +83,15 @@ public:
 1. Initialize `int high = 0;`.
 2. Rename `fun` $\rightarrow$ `canShip`, `ans` $\rightarrow$ `currentLoad`, `k` $\rightarrow$ `daysCount`.
 3. Replace `(low + high) / 2` with `low + (high - low) / 2`.
-4. Remove the redundant `int n` parameter from the helper function.  ---  # Question Revision ### Capacity To Ship Packages Within D Days
+4. Remove the redundant `int n` parameter from the helper function.
+
+---
+
+# Question Revision
+
+#
+
+## Capacity To Ship Packages Within D Days
 
 **Pattern:** Binary Search on Answer
 
@@ -81,4 +108,6 @@ The search space for the capacity is monotonic: if a capacity $C$ works, any cap
 The requirement to find the "minimum possible value" of a capacity that satisfies a condition across a sorted range of potential answers signals Binary Search on the answer.
 
 **Summary:**
-Binary search for the smallest capacity in the range $[\max, \sum]$ that allows all packages to be shipped within $D$ days using a greedy simulation.  ---
+Binary search for the smallest capacity in the range $[\max, \sum]$ that allows all packages to be shipped within $D$ days using a greedy simulation.
+
+---

@@ -5,7 +5,8 @@ date: "2026-04-18"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int maxDepth(String s) {
         int count=0;
@@ -25,6 +26,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Single-pass linear scan using a counter to track current nesting depth.
 - **Optimality**: Optimal. The problem requires inspecting each character at least once, making $O(N)$ the theoretical lower bound.
@@ -47,7 +49,10 @@ class Solution {
 ---
 
 # Question Revision
-### Maximum Nesting Depth of the Parentheses
+
+#
+
+## Maximum Nesting Depth of the Parentheses
 
 **Pattern:** Counting / Stack Simulation
 

@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void nq(vector<vector<string>>& ans,vector<string>& s,int n,int k){
@@ -49,6 +50,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Backtracking with recursive exploration.
 - **Optimality**: Suboptimal. While the backtracking logic is correct, the safety check (`possible` function) iterates through the board, leading to unnecessary overhead.
@@ -77,7 +79,10 @@ public:
 ---
 
 # Question Revision
-### N-Queens Revision Report
+
+#
+
+## N-Queens Revision Report
 
 **Pattern:** Backtracking
 

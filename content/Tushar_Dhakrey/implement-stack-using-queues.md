@@ -7,7 +7,8 @@ date: "2026-04-13"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class MyStack {
     private Queue<Integer> q;
 
@@ -51,6 +52,7 @@ class MyStack {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Queue rotation (simulating LIFO using FIFO).
 - **Optimality:** Optimal for a single-queue implementation. By rotating the queue after every `push`, the most recently added element is always at the front, satisfying LIFO requirements with $O(1)$ `pop` and `top` operations.
@@ -77,9 +79,11 @@ class MyStack {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Implement Stack using Queues
+
+#
+
+## Revision Report: Implement Stack using Queues
 
 **Pattern:** Data Structure Transformation / Queue Simulation
 

@@ -1,4 +1,12 @@
---- title: "Binary Tree Level Order Traversal II" slug: binary-tree-level-order-traversal-ii date: "2026-07-01" ---  # My Solution ~~~/**
+---
+title: "Binary Tree Level Order Traversal II"
+slug: binary-tree-level-order-traversal-ii
+date: "2026-07-01"
+
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
@@ -37,11 +45,18 @@ public:
         reverse(res.begin(),res.end());
         return res;     
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Breadth-First Search (BFS) using a queue.
 - **Optimality**: Optimal. BFS is the standard approach for level-order traversal, and reversing the final result vector does not change the asymptotic time complexity.
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$, where $N$ is the number of nodes in the tree. Each node is visited and processed exactly once.
 - **Space Complexity**: $O(W)$, where $W$ is the maximum width of the tree. This is the maximum number of nodes stored in the queue at any given time. (The output list $O(N)$ is typically excluded from auxiliary space analysis).
 
@@ -50,12 +65,21 @@ public:
 - Using `std::reverse` on the final `vector<vector<int>>` is more efficient than inserting each level at the front of the vector (which would cause $O(N^2)$ shifts).
 
 ## Code Quality
+
 - **Readability**: Good. The logic is clear and follows standard competitive programming patterns.
 - **Structure**: Good. The edge case (null root) is handled immediately.
 - **Naming**: Moderate. `res` and `temp` are generic; `currentLevel` would be more descriptive than `temp`.
 - **Concrete Improvements**: 
     - Replace `NULL` with `nullptr` to adhere to modern C++ (C++11 and later) standards.
-    - Use `res.emplace_back(std::move(temp))` instead of `res.push_back(temp)` to avoid unnecessary copies of the level vectors.  ---  # Question Revision ### Binary Tree Level Order Traversal II
+    - Use `res.emplace_back(std::move(temp))` instead of `res.push_back(temp)` to avoid unnecessary copies of the level vectors.
+
+---
+
+# Question Revision
+
+#
+
+## Binary Tree Level Order Traversal II
 
 **Pattern:** Breadth-First Search (BFS)
 
@@ -67,4 +91,6 @@ public:
 
 **The 'Aha' Moment:** "Bottom-up" is simply a standard level-order traversal where the result sequence is inverted.
 
-**Summary:** Execute a standard BFS and prepend each level's results to the output list.  ---
+**Summary:** Execute a standard BFS and prepend each level's results to the output list.
+
+---

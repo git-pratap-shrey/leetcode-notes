@@ -5,7 +5,8 @@ date: "2026-04-18"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
@@ -32,6 +33,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Dynamic Programming. It tracks both the maximum and minimum product ending at the current position to handle the sign-flip property of negative numbers.
 - **Optimality**: Optimal. It solves the problem in a single pass without redundant calculations.
@@ -53,7 +55,10 @@ public:
 ---
 
 # Question Revision
-### Maximum Product Subarray
+
+#
+
+## Maximum Product Subarray
 
 **Pattern:** Dynamic Programming (Kadane's Variation)
 

@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
@@ -48,6 +49,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Brute-force lookup with a hash map.
 *   **Optimal:** No. The approach uses a nested loop structure to search for the "next greater" element, whereas this problem can be solved in linear time using a Monotonic Stack.
@@ -87,9 +89,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Next Greater Element I
+
+#
+
+## Revision Report: Next Greater Element I
 
 **Pattern:** Monotonic Stack
 

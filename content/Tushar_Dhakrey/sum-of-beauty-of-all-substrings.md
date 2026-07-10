@@ -5,7 +5,8 @@ date: "2026-04-16"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int beautySum(String s) {
         int n = s.length();
@@ -31,6 +32,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Brute force using nested loops to iterate through all possible substrings. For each substring, it maintains a frequency array of characters to calculate the difference between the maximum and minimum non-zero frequencies.
 - **Optimality**: Optimal for small to medium constraints (typically $n \le 500$). While $O(n^2 \cdot \Sigma)$ seems slow, the alphabet size $\Sigma=26$ is a small constant, and the problem requires checking all substrings, making $O(n^2)$ the expected baseline.
@@ -54,7 +56,10 @@ class Solution {
 ---
 
 # Question Revision
-### Sum of Beauty of All Substrings
+
+#
+
+## Sum of Beauty of All Substrings
 
 **Pattern:** Fixed-Start Expansion (Nested Loops)
 

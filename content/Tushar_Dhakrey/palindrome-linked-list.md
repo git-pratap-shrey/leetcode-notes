@@ -7,7 +7,8 @@ date: "2026-04-04"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -62,6 +63,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer approach to find the middle, followed by reversing the second half of the linked list to check for symmetry.
 *   **Status:** Optimal. This is the standard $O(N)$ time and $O(1)$ space approach. It correctly restores the list structure by re-reversing the second half.
@@ -87,9 +89,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Palindrome Linked List
+
+#
+
+## Revision Report: Palindrome Linked List
 
 **Pattern:** Fast & Slow Pointers / In-place Reversal
 

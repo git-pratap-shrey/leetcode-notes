@@ -5,7 +5,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void sub(vector<int>& candidates, int target,vector<int>& ans,vector<vector<int>>& result,int idx){
@@ -32,6 +33,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Backtracking (Recursive DFS).
 - **Optimality**: Optimal for the problem type (generating all combinations), though the implementation lacks pruning.
@@ -58,7 +60,10 @@ public:
 ---
 
 # Question Revision
-### Combination Sum
+
+#
+
+## Combination Sum
 
 **Pattern:** Backtracking (DFS)
 

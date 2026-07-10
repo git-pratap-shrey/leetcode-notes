@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int minAbsoluteDifference(vector<int>& nums) {
@@ -37,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Linear scan with state tracking (greedy).
 *   **Optimality:** Optimal. The problem requires tracking the most recently seen indices of the target values to minimize the distance, which this single-pass approach does in $O(N)$ time.
@@ -72,9 +74,11 @@ return (diff == INT_MAX) ? -1 : diff;
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Minimum Absolute Difference
+
+#
+
+## Revision Report: Minimum Absolute Difference
 
 **Pattern:** Sorting + Linear Scan
 

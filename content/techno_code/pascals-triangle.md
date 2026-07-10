@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
 
@@ -37,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Combinatorial formula. It calculates each element of a row based on the previous element using the identity $C(n, k) = C(n, k-1) \times \frac{n-k+1}{k}$.
 - **Optimality**: Optimal. The time complexity is the same as the additive approach ($O(N^2)$), as every element of the triangle must be computed.
@@ -61,7 +63,10 @@ public:
 ---
 
 # Question Revision
-### Pascal's Triangle
+
+#
+
+## Pascal's Triangle
 
 **Pattern:** Simulation / Dynamic Programming (Iterative)
 

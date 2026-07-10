@@ -1,4 +1,12 @@
---- title: "Invert Binary Tree" slug: invert-binary-tree date: "2026-06-22" ---  # My Solution ~~~/**
+---
+title: "Invert Binary Tree"
+slug: invert-binary-tree
+date: "2026-06-22"
+
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
@@ -24,11 +32,18 @@ public:
 
         return root;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Recursive Depth-First Search (DFS) / Pre-order traversal.
 - **Optimality**: Optimal. Every node in the tree must be visited exactly once to swap its children.
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$, where $N$ is the number of nodes in the tree.
 - **Space Complexity**: $O(H)$, where $H$ is the height of the tree, representing the maximum depth of the recursion stack. In the worst case (a skewed tree), this is $O(N)$.
 
@@ -37,10 +52,19 @@ public:
 - No significant bottlenecks are present.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is concise and follows the problem requirements directly.
 - **Structure**: Good. Standard recursive structure.
 - **Naming**: Good. Uses clear, standard naming conventions.
-- **Improvements**: Replace `NULL` with `nullptr` to adhere to modern C++ (C++11 and later) standards for better type safety.  ---  # Question Revision ### Invert Binary Tree
+- **Improvements**: Replace `NULL` with `nullptr` to adhere to modern C++ (C++11 and later) standards for better type safety.
+
+---
+
+# Question Revision
+
+#
+
+## Invert Binary Tree
 
 **Pattern:** DFS (Recursive)
 
@@ -53,4 +77,6 @@ Use a recursive post-order or pre-order traversal. At each node, swap its left a
 
 **The 'Aha' Moment:** The mirror image of a tree is simply the mirror image of its root's children, making this a classic recursive sub-problem.
 
-**Summary:** Recursively swap the left and right children of every node until the base case (null) is reached.  ---
+**Summary:** Recursively swap the left and right children of every node until the base case (null) is reached.
+
+---

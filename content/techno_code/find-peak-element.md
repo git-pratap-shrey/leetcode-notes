@@ -5,7 +5,8 @@ date: "2026-04-24"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int findPeakElement(vector<int>& nums) {
@@ -27,6 +28,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Search.
 - **Optimality**: Optimal. The algorithm leverages the property that if `nums[mid] < nums[mid + 1]`, an upward slope exists, guaranteeing a peak to the right. Otherwise, a peak must exist at `mid` or to the left. This reduces the search space logarithmically.
@@ -49,7 +51,10 @@ public:
 ---
 
 # Question Revision
-### Find Peak Element
+
+#
+
+## Find Peak Element
 
 **Pattern:** Binary Search
 

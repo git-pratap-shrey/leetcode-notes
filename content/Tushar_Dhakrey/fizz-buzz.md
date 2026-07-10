@@ -7,7 +7,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public List<String> fizzBuzz(int n) {
         List<String> ans = new ArrayList<>();
@@ -31,6 +32,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique**: Iterative simulation.
 *   **Optimality**: Optimal. The problem requires generating $n$ specific strings, necessitating at least $O(n)$ time.
@@ -53,9 +55,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### LeetCode: Fizz Buzz
+
+#
+
+## LeetCode: Fizz Buzz
 
 **Pattern:** Iterative Modulo Arithmetic
 

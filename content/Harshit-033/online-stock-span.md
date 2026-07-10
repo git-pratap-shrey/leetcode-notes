@@ -7,7 +7,8 @@ date: "2026-04-13"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class StockSpanner {
 public:
     stack<int> s;
@@ -41,6 +42,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Monotonic stack combined with a hash map to memoize the span of processed elements.
 *   **Optimal:** No. The approach is logically flawed. Using `unordered_map<int, int>` to store the span of a price will cause incorrect results if the same `price` occurs multiple times, as the map will overwrite the previous span for that specific price value.
@@ -67,9 +69,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Online Stock Span
+
+#
+
+## Revision Report: Online Stock Span
 
 **Pattern:** Monotonic Stack
 

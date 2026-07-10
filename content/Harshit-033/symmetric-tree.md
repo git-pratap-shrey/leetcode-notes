@@ -5,7 +5,8 @@ date: "2026-04-25"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -45,6 +46,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Iterative Breadth-First Search (BFS) using a queue to perform a simultaneous mirror traversal of the left and right subtrees.
 - **Optimality**: Optimal. Every node is visited exactly once, and the mirror condition is checked at each step.
@@ -68,7 +70,10 @@ public:
 ---
 
 # Question Revision
-### Symmetric Tree
+
+#
+
+## Symmetric Tree
 
 **Pattern:** Recursive Tree Traversal (DFS)
 

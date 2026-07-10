@@ -5,7 +5,8 @@ date: "2026-04-18"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int mirrorDistance(int n) {
@@ -23,6 +24,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Iterative digit extraction and reconstruction (Integer Reversal).
 - **Optimality**: Optimal. The solution processes each digit of the number exactly once.
@@ -49,7 +51,10 @@ public:
 ---
 
 # Question Revision
-### Mirror Distance of an Integer
+
+#
+
+## Mirror Distance of an Integer
 
 **Pattern:** Math / Digit Manipulation
 

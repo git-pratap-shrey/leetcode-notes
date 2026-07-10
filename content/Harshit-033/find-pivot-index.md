@@ -7,7 +7,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int pivotIndex(int* nums, int numsSize) {
     int sum=0;
     for(int i=0; i<numsSize; i++){
@@ -30,6 +31,7 @@ int pivotIndex(int* nums, int numsSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Prefix sum calculation using a linear scan.
 *   **Optimality:** Optimal. The algorithm computes the total sum once and performs a single pass to verify the pivot condition, achieving $O(N)$ time.
@@ -47,7 +49,9 @@ int pivotIndex(int* nums, int numsSize) {
 *   **Structure:** Moderate. The initial `if` block creates a special case that mimics the loop behavior; this can be refactored to make the code cleaner.
 *   **Naming:** Good. Variable names (`sum`, `prefix`) are descriptive and standard for this type of problem.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 You can simplify the loop to handle the edge case at index 0 without duplicating the logic:
 
 ```c
@@ -71,9 +75,11 @@ int pivotIndex(int* nums, int numsSize) {
 ---
 ---
 
-
 # Question Revision
-### Problem: Find Pivot Index
+
+#
+
+## Problem: Find Pivot Index
 
 **Pattern:** Prefix Sum
 

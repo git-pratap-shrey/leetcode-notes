@@ -7,7 +7,8 @@ date: "2026-04-02"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string mergeAlternately(string word1, string word2) {
@@ -35,6 +36,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Iterative two-pointer approach.
 *   **Optimality:** Optimal. It performs a single pass through both strings, which is the theoretical lower bound for the problem.
@@ -52,7 +54,9 @@ public:
 *   **Structure:** Good. The separation into a primary merging loop followed by cleanup loops for remaining characters is standard and efficient.
 *   **Naming:** Moderate. `s`, `i`, and `j` are standard, but `result` would be more descriptive than `s`.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1.  **Reserve memory:** Add `s.reserve(word1.length() + word2.length());` at the start to reduce allocations.
 2.  **Use `const` references:** While the problem signature passes strings by value (standard for LeetCode), if you were to define your own helper, pass them as `const string&` to avoid unnecessary copies.
 3.  **Modern C++ syntax:** You could use `for` loops or iterator-based approaches, but the existing `while` loop implementation is perfectly acceptable for this complexity class.
@@ -60,9 +64,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Merge Strings Alternately
+
+#
+
+## Revision Report: Merge Strings Alternately
 
 **Pattern:** Two Pointers
 

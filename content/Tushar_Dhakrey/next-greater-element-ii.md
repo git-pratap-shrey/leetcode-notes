@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int[] nextGreaterElements(int[] nums) {
         Stack<Integer> st = new Stack<>();
@@ -26,6 +27,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Monotonic Stack.
 - **Optimality**: Optimal. The solution simulates a circular array by iterating through the input twice ($2n-1$ down to $0$), ensuring every element has a chance to look at all subsequent elements (including those wrapping around the start).
@@ -49,7 +51,10 @@ class Solution {
 ---
 
 # Question Revision
-### Next Greater Element II
+
+#
+
+## Next Greater Element II
 
 **Pattern:** Monotonic Stack
 

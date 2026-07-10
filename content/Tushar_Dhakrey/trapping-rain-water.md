@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int trap(int[] height) {
         int lmax=0;
@@ -39,6 +40,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Two-pointer approach.
 - **Optimality**: Optimal. It calculates the trapped water in a single pass without requiring auxiliary arrays for prefix/suffix maximums.
@@ -62,7 +64,10 @@ class Solution {
 ---
 
 # Question Revision
-### Trapping Rain Water
+
+#
+
+## Trapping Rain Water
 
 **Pattern:** Two Pointers
 

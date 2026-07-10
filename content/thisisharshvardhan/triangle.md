@@ -1,4 +1,14 @@
---- title: "Triangle" slug: triangle date: "2026-06-25" ---  # My Solution ~~~class Solution {
+---
+title: "Triangle"
+slug: triangle
+date: "2026-06-25"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     // int solve(vector<vector<int>>& triangle, int i ,int row,vector<vector<int>>& dp){
     //     if (row == triangle.size()-1) return triangle[row][i];
@@ -50,20 +60,29 @@ public:
     int minimumTotal(vector<vector<int>>& triangle) {
         return tab(triangle);
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Tabulation (Bottom-Up Dynamic Programming).
 - **Optimality**: Optimal in terms of time complexity. Suboptimal in terms of space complexity.
 
 ## Complexity
+
 - **Time Complexity**: $O(N^2)$, where $N$ is the number of rows in the triangle. Every element in the triangle is visited exactly once.
 - **Space Complexity**: $O(N^2)$ to store the 2D `dp` table. This is suboptimal as the state only depends on the row immediately below it.
 
 ## Efficiency Feedback
+
 - **Space Bottleneck**: The `vector<vector<int>> dp` table replicates the structure of the input. This can be reduced to $O(N)$ by using a 1D vector to store only the results of the "previous" row.
 - **Redundant Checks**: The `INT_MAX` checks (e.g., `if (temp1 != INT_MAX)`) are unnecessary for this specific problem because the triangle is guaranteed to be a valid pyramid structure where `dp[i+1][j]` and `dp[i+1][j+1]` always exist for any `dp[i][j]`.
 - **Initialization**: The `dp` table is initialized with `INT_MAX` for all cells, then partially overwritten. This is slightly less efficient than initializing only the required dimensions.
 
 ## Code Quality
+
 - **Readability**: Moderate. The presence of a large block of commented-out code (the recursive `solve` function) creates noise and reduces maintainability.
 - **Structure**: Moderate. The logic is separated into a helper function `tab`, but the helper is defined inside the class without being `private`.
 - **Naming**: Poor. 
@@ -74,7 +93,15 @@ public:
     - Remove dead/commented code.
     - Use a 1D vector `vector<int> dp(m)` to achieve $O(N)$ space.
     - Rename `tab` to `calculateMinimumPath` and `final` to `minPath`.
-    - Simplify the inner loop logic to: `dp[i][j] = triangle[i][j] + min(dp[i+1][j], dp[i+1][j+1]);`.  ---  # Question Revision ### LeetCode: Triangle
+    - Simplify the inner loop logic to: `dp[i][j] = triangle[i][j] + min(dp[i+1][j], dp[i+1][j+1]);`.
+
+---
+
+# Question Revision
+
+#
+
+## LeetCode: Triangle
 
 **Pattern:** Dynamic Programming (Bottom-Up)
 
@@ -91,4 +118,6 @@ Start from the second-to-last row and move upwards. For each element, update its
 The "minimum path" requirement combined with a structure where each node depends on a small, fixed set of children suggests that solving from the bottom up eliminates the need for complex boundary checks required by top-down approaches.
 
 **Summary:** 
-Collapse the triangle upwards by iteratively adding the minimum of the two adjacent children to each parent node.  ---
+Collapse the triangle upwards by iteratively adding the minimum of the two adjacent children to each parent node.
+
+---

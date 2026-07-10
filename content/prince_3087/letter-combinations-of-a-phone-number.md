@@ -1,4 +1,14 @@
---- title: "Letter Combinations of a Phone Number" slug: letter-combinations-of-a-phone-number date: "2026-06-25" ---  # My Solution ~~~class Solution {
+---
+title: "Letter Combinations of a Phone Number"
+slug: letter-combinations-of-a-phone-number
+date: "2026-06-25"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     unordered_map<char,string>f{
         {'2', "abc"},
@@ -34,27 +44,46 @@ public:
         return res;
         
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Backtracking (DFS). The code recursively explores all possible character combinations mapped to the input digits.
 - **Optimality**: Optimal in terms of algorithmic strategy, as all combinations must be generated. However, it contains a logical bug regarding empty input.
 
 ## Complexity
+
 - **Time Complexity**: $O(4^N \cdot N)$, where $N$ is the length of the input string. There are at most $4^N$ combinations, and each takes $O(N)$ to be copied into the result vector.
 - **Space Complexity**: $O(N)$. The recursion depth is $N$, and the `temp` string consumes $O(N)$ space.
 
 ## Efficiency Feedback
+
 - **Bottleneck**: The use of `unordered_map<char, string>` introduces unnecessary hashing overhead. Since the keys are a small, contiguous range of characters ('2'-'9'), a fixed-size array or `vector<string>` would provide faster $O(1)$ access.
 - **Bug**: If `digits` is empty, the function returns `[""]` instead of `[]`. The base case `if(idx == n)` is triggered immediately when $n=0$, pushing an empty string into the result.
 
 ## Code Quality
+
 - **Readability**: Moderate. The logic is straightforward, but the naming is cryptic.
 - **Structure**: Moderate. The helper function is separated, but it lacks a guard clause for the empty input edge case in the main function.
 - **Naming**: Poor. `fun` and `f` are non-descriptive names. `fun` should be `backtrack` or `generateCombinations`, and `f` should be `digitMap`.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1. **Fix Edge Case**: Add `if (digits.empty()) return {};` at the start of `letterCombinations`.
 2. **Optimize Mapping**: Replace `unordered_map` with `string mapping[] = {"", "", "abc", "def", ...};` to allow indexing by `digits[idx] - '0'`.
-3. **Rename Variables**: Rename `f` $\rightarrow$ `digitMap` and `fun` $\rightarrow$ `backtrack`.  ---  # Question Revision ### Letter Combinations of a Phone Number
+3. **Rename Variables**: Rename `f` $\rightarrow$ `digitMap` and `fun` $\rightarrow$ `backtrack`.
+
+---
+
+# Question Revision
+
+#
+
+## Letter Combinations of a Phone Number
 
 **Pattern:** Backtracking / DFS
 
@@ -75,4 +104,6 @@ Map digits to their corresponding letters. Use a recursive backtracking function
 The requirement to "return all possible combinations" from a variable number of choice sets signifies a decision tree, which is the core signal for backtracking.
 
 **Summary:**
-Map digits to letters and use backtracking to explore every path in the decision tree.  ---
+Map digits to letters and use backtracking to explore every path in the decision tree.
+
+---

@@ -5,7 +5,8 @@ date: "2026-03-29"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void per(vector<int>& nums,int idx,vector<vector<int>>& ans){
@@ -28,6 +29,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Backtracking using in-place swapping.
 - **Optimality**: Optimal. Generating all permutations of a set of size $N$ inherently requires $O(N \cdot N!)$ time as there are $N!$ permutations, each taking $O(N)$ to store.
@@ -51,7 +53,10 @@ public:
 ---
 
 # Question Revision
-### Permutations
+
+#
+
+## Permutations
 
 **Pattern:** Backtracking
 

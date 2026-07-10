@@ -7,7 +7,8 @@ date: "2026-04-03"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 long long int comp(int* bloomDay, int bloomDaySize, int m, int k,long long int mid ){
     long long int chance=0;
     int coun=0;
@@ -28,13 +29,11 @@ long long int comp(int* bloomDay, int bloomDaySize, int m, int k,long long int m
 
 }
 
-
 int minDays(int* bloomDay, int bloomDaySize, int m, int k) {
     long long prod=(long long)m*k;
     if(prod>bloomDaySize){
         return -1;
     }
-
 
     long long int min=0;
     long long int max=0;
@@ -65,6 +64,7 @@ int minDays(int* bloomDay, int bloomDaySize, int m, int k) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Binary Search on the answer space (range of days).
 *   **Optimality:** Optimal. The search space is monotonic; if it's possible to make $m$ bouquets in $d$ days, it is also possible for any $d' > d$. The greedy check function (`comp`) correctly counts non-overlapping segments of length $k$.
@@ -92,9 +92,11 @@ int minDays(int* bloomDay, int bloomDaySize, int m, int k) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Minimum Number of Days to Make m Bouquets
+
+#
+
+## Revision Report: Minimum Number of Days to Make m Bouquets
 
 **Pattern:** Binary Search on Answer (Monotonic Predicate)
 

@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -45,6 +46,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Level-order traversal (BFS) using a queue.
 *   **Optimality:** Optimal. A complete binary tree requires all nodes to be filled level by level from left to right; the BFS approach correctly identifies the "end" of the tree nodes and ensures no non-null nodes appear after the first null encounter.
@@ -68,9 +70,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Check Completeness of a Binary Tree
+
+#
+
+## Revision Report: Check Completeness of a Binary Tree
 
 **Pattern:** Breadth-First Search (Level-Order Traversal)
 

@@ -1,4 +1,14 @@
---- title: "Next Greater Element I" slug: next-greater-element-i date: "2026-06-17" ---  # My Solution ~~~class Solution {
+---
+title: "Next Greater Element I"
+slug: next-greater-element-i
+date: "2026-06-17"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
 
@@ -28,24 +38,41 @@ public:
 
         return ans;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Monotonic Stack and Hash Map.
 - **Optimality**: Optimal. The monotonic stack allows finding the next greater element for all items in `nums2` in a single linear pass.
 
 ## Complexity
+
 - **Time Complexity**: $O(n + m)$, where $n$ is the size of `nums2` and $m$ is the size of `nums1`. Each element in `nums2` is pushed and popped from the stack exactly once.
 - **Space Complexity**: $O(n)$ to store the `unordered_map` and the `stack` for the elements of `nums2`.
 
 ## Efficiency Feedback
+
 - **Runtime**: Highly efficient. The use of a hash map provides $O(1)$ average-case lookup for elements of `nums1`.
 - **Optimization**: Call `ans.reserve(nums1.size())` before the final loop to prevent multiple memory reallocations as the vector grows.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is clean and follows standard patterns for monotonic stack problems.
 - **Structure**: Good. The separation between preprocessing `nums2` and querying for `nums1` is clear.
 - **Naming**: Moderate. Variable names are overly generic (`mp`, `st`, `ans`, `x`). More descriptive names like `nextGreaterMap`, `elementStack`, and `result` would improve maintainability.
 - **Improvements**:
-    - Replace `ans.push_back(mp[x])` with a pre-allocated vector initialized to the size of `nums1` to avoid `push_back` overhead: `vector<int> ans(nums1.size());` followed by `ans[i] = mp[nums1[i]];`.  ---  # Question Revision ### Next Greater Element I
+    - Replace `ans.push_back(mp[x])` with a pre-allocated vector initialized to the size of `nums1` to avoid `push_back` overhead: `vector<int> ans(nums1.size());` followed by `ans[i] = mp[nums1[i]];`.
+
+---
+
+# Question Revision
+
+#
+
+## Next Greater Element I
 
 **Pattern:** Monotonic Stack
 
@@ -58,4 +85,6 @@ public:
 
 **The 'Aha' Moment:** The requirement to find the "first element to the right" that satisfies a comparison (greater than) is the definitive signature of a Monotonic Stack.
 
-**Summary:** Precompute the next greater element for all members of the source array using a monotonic stack and a map for $O(1)$ retrieval.  ---
+**Summary:** Precompute the next greater element for all members of the source array using a monotonic stack and a map for $O(1)$ retrieval.
+
+---

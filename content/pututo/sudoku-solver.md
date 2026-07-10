@@ -1,4 +1,14 @@
---- title: "Sudoku Solver" slug: sudoku-solver date: "2026-07-08" ---  # My Solution ~~~class Solution {
+---
+title: "Sudoku Solver"
+slug: sudoku-solver
+date: "2026-07-08"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     bool helper(vector<vector<char>>& board,int row,int col){
         if(row==9){
@@ -54,21 +64,30 @@ public:
     void solveSudoku(vector<vector<char>>& board) {
         helper(board,0,0);
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Backtracking. The solution uses a recursive depth-first search to try digits 1-9 in empty cells, backtracking when a constraint is violated.
 - **Optimality**: Suboptimal but acceptable for a $9 \times 9$ grid. While it finds the solution, it performs redundant scans of the board for every digit attempt.
 
 ## Complexity
+
 - **Time Complexity**: $O(9^{K})$ where $K$ is the number of empty cells. In the worst case, it explores a vast state space, though pruned by the `isSafe` checks.
 - **Space Complexity**: $O(K)$ recursive stack depth, where $K \le 81$.
 
 ## Efficiency Feedback
+
 - **Bottleneck**: The `isSafe` function is called repeatedly and performs three separate iterations (row, column, and $3 \times 3$ block) every time.
 - **Optimization**: 
     - Use three 2D arrays or bitmasks (e.g., `bool rowUsed[9][10]`, `bool colUsed[9][10]`, `bool boxUsed[9][10]`) to track digits. This would reduce the `isSafe` check from $O(27)$ to $O(1)$.
     - Combine the row and column checks into a single loop to reduce iteration overhead.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is clean and follows a standard backtracking template.
 - **Structure**: Good. The separation of the recursive driver (`helper`) and the validation logic (`isSafe`) is appropriate.
 - **Naming**: Moderate. `helper` is too generic; a name like `solveRecursive` or `backtrack` would be more descriptive.
@@ -79,7 +98,15 @@ public:
           if(board[row][i] == dig || board[i][col] == dig) return false;
       }
       ```
-    - **Const Correctness**: `isSafe` should mark the board as `const vector<vector<char>>&` to indicate it does not modify the state.  ---  # Question Revision ### Sudoku Solver
+    - **Const Correctness**: `isSafe` should mark the board as `const vector<vector<char>>&` to indicate it does not modify the state.
+
+---
+
+# Question Revision
+
+#
+
+## Sudoku Solver
 
 **Pattern:** Backtracking
 
@@ -96,4 +123,6 @@ Recursively traverse the board. For every empty cell, try placing digits 1-9. Be
 The need to explore multiple possibilities while adhering to strict constraints—and the necessity to undo choices when they lead to a dead end—is the hallmark of backtracking.
 
 **Summary:** 
-Fill empty cells recursively and backtrack immediately upon hitting a constraint violation.  ---
+Fill empty cells recursively and backtrack immediately upon hitting a constraint violation.
+
+---

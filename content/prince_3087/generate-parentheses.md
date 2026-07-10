@@ -1,4 +1,14 @@
---- title: "Generate Parentheses" slug: generate-parentheses date: "2026-06-24" ---  # My Solution ~~~class Solution {
+---
+title: "Generate Parentheses"
+slug: generate-parentheses
+date: "2026-06-24"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     void fun(int open , int close , string temp , vector<string>& ans , int n ){
         if(open ==n && close ==n){
@@ -24,27 +34,44 @@ public:
 
         
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Backtracking (Recursive Depth-First Search).
 - **Optimality**: Optimal in terms of algorithmic logic. It explores only valid states by ensuring the number of closing parentheses never exceeds the number of opening ones.
 
 ## Complexity
+
 - **Time Complexity**: $O(\frac{4^n}{\sqrt{n}})$ — The number of valid combinations is the $n$-th Catalan number, and each takes $O(n)$ to construct/copy.
 - **Space Complexity**: $O(n)$ — The recursion depth is $2n$, and the `temp` string grows to length $2n$.
 
 ## Efficiency Feedback
+
 - **Critical Inefficiency**: The `string temp` parameter is passed **by value**. This creates a new string copy at every recursive call, significantly increasing memory allocation and runtime.
 - **Redundancy**: Because `temp` is passed by value, the `temp.pop_back()` calls are redundant; they modify a local copy that is discarded when the function returns.
 - **Optimization**: Pass `temp` by reference (`string& temp`) to utilize the `push_back`/`pop_back` backtracking mechanism effectively.
 
 ## Code Quality
+
 - **Readability**: Moderate. The logic is clear, but the naming is poor.
 - **Structure**: Good. The separation of the helper function from the main interface is standard.
 - **Naming**: Poor. `fun` is a non-descriptive name; `backtrack` or `generate` would be more appropriate.
 - **Concrete Improvements**:
     1. Change `string temp` to `string& temp` in `fun`'s signature.
     2. Rename `fun` to something descriptive.
-    3. Remove trailing whitespace and fix irregular indentation.  ---  # Question Revision ### Generate Parentheses
+    3. Remove trailing whitespace and fix irregular indentation.
+
+---
+
+# Question Revision
+
+#
+
+## Generate Parentheses
 
 **Pattern:** Backtracking
 
@@ -63,4 +90,6 @@ Use recursive backtracking to build the string incrementally, pruning invalid pa
 The requirement to generate *all* combinations of a specific structure based on counting constraints signals a decision tree that can be pruned via backtracking.
 
 **Summary:** 
-Build the string recursively, adding `(` until $n$ is reached and `)` only when it maintains a valid balance.  ---
+Build the string recursively, adding `(` until $n$ is reached and `)` only when it maintains a valid balance.
+
+---

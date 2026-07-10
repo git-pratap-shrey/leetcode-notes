@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -52,6 +53,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Breadth-First Search (BFS) using a queue with a delimiter (`NULL`) to mark level boundaries, followed by a `std::reverse` on the result vector.
 *   **Optimality:** Optimal. BFS is necessary to traverse levels, and reversing the result is the standard way to achieve the "bottom-up" order.
@@ -76,9 +78,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Binary Tree Level Order Traversal II
+
+#
+
+## Revision Report: Binary Tree Level Order Traversal II
 
 **Pattern:** Breadth-First Search (BFS) / Level Order Traversal
 

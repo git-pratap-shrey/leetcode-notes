@@ -5,7 +5,8 @@ date: "2026-04-20"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive Depth-First Search (DFS) / Post-order Traversal.
 - **Optimality**: Optimal. It computes the maximum path sum in a single pass by calculating the best contribution of each subtree to its parent while updating a global maximum for paths that peak at the current node.
@@ -63,7 +65,10 @@ public:
 ---
 
 # Question Revision
-### Binary Tree Maximum Path Sum
+
+#
+
+## Binary Tree Maximum Path Sum
 
 **Pattern:** Recursive DFS (Bottom-Up / Post-order Traversal)
 

@@ -5,7 +5,8 @@ date: "2026-03-30"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isPowerOfTwo(int n) {
@@ -21,6 +22,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive division.
 - **Optimality**: Suboptimal. While correct, it uses $O(\log n)$ time and space, whereas a bitwise approach (`n > 0 && (n & (n - 1)) == 0`) achieves $O(1)$ for both.
@@ -44,7 +46,10 @@ public:
 ---
 
 # Question Revision
-### Power of Two
+
+#
+
+## Power of Two
 
 **Pattern:** Bit Manipulation
 

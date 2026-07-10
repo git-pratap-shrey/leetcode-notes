@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> nextGreaterElements(vector<int>& nums) {
@@ -64,13 +65,13 @@ public:
         vector<int> arr(ans, ans + len);
         return arr;
 
-
         
     }
 };
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Monotonic Stack.
 *   **Optimality:** Optimal. The solution uses a circular array traversal (simulated by iterating up to `2 * len`) to maintain a monotonic stack, which is the standard approach for this problem.
@@ -101,9 +102,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Next Greater Element II
+
+#
+
+## Revision Report: Next Greater Element II
 
 **Pattern:** Monotonic Stack (Circular Array)
 

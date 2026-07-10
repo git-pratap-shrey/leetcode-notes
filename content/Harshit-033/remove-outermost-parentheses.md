@@ -7,8 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~c
-
+~~~
+c
 
 char* removeOuterParentheses(char* s) {
     int len=strlen(s);
@@ -46,6 +46,7 @@ char* removeOuterParentheses(char* s) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Greedy simulation using a counter to track the nesting depth of parentheses.
 *   **Optimality:** Optimal. It performs a single pass over the input string ($O(N)$) and constructs the result in-place without needing extra data structures like stacks.
@@ -70,9 +71,11 @@ char* removeOuterParentheses(char* s) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Remove Outermost Parentheses
+
+#
+
+## Revision Report: Remove Outermost Parentheses
 
 **Pattern:** Counter/Balance Tracking
 

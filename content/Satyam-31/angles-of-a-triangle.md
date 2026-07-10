@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<double> internalAngles(vector<int>& sides) {
@@ -33,6 +34,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Law of Cosines.
 *   **Optimal:** Yes. The approach directly applies the Law of Cosines to solve for the angles of a triangle given its side lengths, which is the standard mathematical method.
@@ -57,9 +59,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Angles of a Triangle
+
+#
+
+## Revision Report: Angles of a Triangle
 
 **Pattern:** Geometry / Fundamental Constraints
 

@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Info{
 public:
     int data;
@@ -82,6 +83,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique**: Greedy approach using a Min-Priority Queue to track the smallest element across $K$ sorted lists. This is an application of the "Merge K Sorted Lists" pattern.
 *   **Optimality**: Optimal. The algorithm maintains a sliding window of size $K$ by always discarding the minimum and adding the next element from the list that contained that minimum. This ensures all lists are represented in the window at all times.
@@ -99,7 +101,9 @@ public:
 *   **Structure**: Moderate. The use of a separate `Info` class is verbose for modern C++. Using `std::pair` or `std::tuple` would make the code more idiomatic.
 *   **Naming**: Good. Variable names like `rInd`, `cInd`, `mini`, and `maxi` clearly describe their purpose.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1.  **Remove Dynamic Allocation**: Replace `Info*` with a simple `struct` or `std::pair` inside the priority queue to avoid heap overhead and manual memory management.
     ```cpp
     struct Element {
@@ -114,9 +118,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Smallest Range Covering Elements from K Lists
+
+#
+
+## Revision Report: Smallest Range Covering Elements from K Lists
 
 **Pattern:** Multi-way Merge / Min-Heap
 

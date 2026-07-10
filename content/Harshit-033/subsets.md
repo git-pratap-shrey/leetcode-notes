@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Bit manipulation (iterative generation of the power set).
 *   **Optimality:** This is the standard, optimal approach for generating all subsets. Time complexity $O(n \cdot 2^n)$ is necessary because there are $2^n$ subsets and each requires proportional work to construct.
@@ -62,9 +64,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Subsets
+
+#
+
+## Revision Report: Subsets
 
 **Pattern:** Backtracking / Bit Manipulation
 

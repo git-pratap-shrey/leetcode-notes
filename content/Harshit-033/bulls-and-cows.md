@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string getHint(string secret, string guess) {
@@ -41,6 +42,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pass counting using an unordered map to track frequency differences of unmatched characters.
 *   **Optimality:** Optimal. It performs a linear scan for "bulls" (A) and another for "cows" (B), resulting in an $O(N)$ solution.
@@ -65,9 +67,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Bulls and Cows
+
+#
+
+## Revision Report: Bulls and Cows
 
 **Pattern:** Hash Map / Frequency Counting
 

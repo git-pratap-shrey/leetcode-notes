@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class MedianFinder {
 public:
         priority_queue<int> maxHeap;
@@ -56,7 +57,6 @@ public:
         }
     }
 
-
     
     double findMedian() {
         return median;
@@ -72,6 +72,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-heap pattern (Max-Heap for the lower half, Min-Heap for the upper half).
 *   **Optimal:** Yes. This is the standard approach for dynamic median finding.
@@ -98,9 +99,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find Median from Data Stream
+
+#
+
+## Revision Report: Find Median from Data Stream
 
 **Pattern:** Two Heaps (Max-Heap & Min-Heap)
 

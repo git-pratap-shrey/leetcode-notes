@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -42,6 +43,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: In-order tree traversal using a helper pointer (`curr`) to reconstruct the tree structure.
 - **Optimality**: Optimal. It traverses each node exactly once and rearranges pointers in-place, achieving $O(N)$ time and $O(H)$ space.
@@ -82,9 +84,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Increasing Order Search Tree
+
+#
+
+## Revision Report: Increasing Order Search Tree
 
 **Pattern:** In-order Traversal (Tree Reconstruction)
 

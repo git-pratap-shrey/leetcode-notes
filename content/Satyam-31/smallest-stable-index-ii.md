@@ -5,7 +5,8 @@ date: "2026-04-19"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int firstStableIndex(vector<int>& nums, int k) {
@@ -29,6 +30,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Prefix Maximum and Suffix Minimum.
 - **Optimality**: Optimal. The problem requires evaluating a condition based on the range $[0, i]$ and $[i, n-1]$. Precomputing the suffix minimum allows the condition to be checked in a single linear pass.
@@ -54,7 +56,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Smallest Stable Index II
+
+#
+
+## Revision Report: Smallest Stable Index II
 
 **Pattern:** Fenwick Tree (Binary Indexed Tree) + Coordinate Compression
 

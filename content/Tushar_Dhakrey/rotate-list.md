@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -45,6 +46,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Linked List manipulation using a cyclic pointer approach.
 *   **Optimality:** Optimal. It transforms the list into a circular linked list to find the new tail/head in one pass after calculating the length.
@@ -68,9 +70,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Rotate List
+
+#
+
+## Revision Report: Rotate List
 
 **Pattern:** Linked List Manipulation (Cyclic adjustment)
 

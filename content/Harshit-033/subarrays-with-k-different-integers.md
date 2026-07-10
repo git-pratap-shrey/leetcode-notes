@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int subnum(vector<int>& nums, int k){
@@ -41,7 +42,6 @@ public:
             ans=ans+(right-left+1);
             right++;
 
-
         }
         return ans;
 
@@ -56,6 +56,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Sliding Window (Two Pointers). The solution uses the "at most $K$" strategy: it calculates the number of subarrays with at most $k$ distinct integers and subtracts the number of subarrays with at most $k-1$ distinct integers to find the number of subarrays with exactly $k$.
 - **Optimality**: Optimal. This is the standard efficient approach for this problem.
@@ -84,7 +85,10 @@ public:
 ---
 
 # Question Revision
-### Subarrays with K Different Integers
+
+#
+
+## Subarrays with K Different Integers
 
 **Pattern:** Sliding Window (Two Pointers)
 

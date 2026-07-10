@@ -5,7 +5,8 @@ date: "2026-04-30"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool canSplit(vector<int>& nums, int k, int maxSum) {
@@ -50,6 +51,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Search on the Answer combined with a Greedy verification function (`canSplit`).
 - **Optimality**: Optimal. This is the standard efficient approach for "minimize the maximum value" problems.
@@ -73,7 +75,10 @@ public:
 ---
 
 # Question Revision
-### Split Array Largest Sum
+
+#
+
+## Split Array Largest Sum
 
 **Pattern:** Binary Search on Answer
 

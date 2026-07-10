@@ -5,7 +5,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void set(vector<string>& ans,string &s,int n,int m){
@@ -34,6 +35,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Backtracking (Recursive exploration of a state space).
 - **Optimality**: Optimal. It generates only valid combinations by maintaining counts of remaining open and closed parentheses, avoiding the need to generate all permutations and validate them.
@@ -58,7 +60,10 @@ public:
 ---
 
 # Question Revision
-### Generate Parentheses
+
+#
+
+## Generate Parentheses
 
 **Pattern:** Backtracking
 

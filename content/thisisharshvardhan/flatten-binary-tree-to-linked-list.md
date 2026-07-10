@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -50,6 +51,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Pre-order traversal using recursion with external pointers to track the "tail" of the linked list being constructed.
 *   **Optimality:** Suboptimal. While it achieves the correct transformation, it uses auxiliary recursion (stack space) and modifies the tree in a way that ignores the Morris Traversal approach, which can solve this problem in $O(1)$ space.
@@ -74,9 +76,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Flatten Binary Tree to Linked List
+
+#
+
+## Revision Report: Flatten Binary Tree to Linked List
 
 **Pattern:** Tree Traversal / Morris Traversal (In-place Transformation)
 

@@ -7,7 +7,8 @@ date: "2026-04-02"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -70,6 +71,7 @@ public class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Floyd’s Cycle-Finding Algorithm (Tortoise and Hare) variant. 
 - **Optimality:** Suboptimal. While it correctly identifies the cycle, the implementation uses two distinct passes to calculate the cycle length, effectively traversing parts of the list multiple times. The standard optimal approach uses the mathematical property that moving one pointer from `head` and another from the intersection point at the same speed will meet at the cycle entry point without needing the cycle length.
@@ -98,9 +100,11 @@ public class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Linked List Cycle II
+
+#
+
+## Revision Report: Linked List Cycle II
 
 **Pattern:** Two Pointers (Floyd’s Cycle-Finding Algorithm / Tortoise and Hare)
 

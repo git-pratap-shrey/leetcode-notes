@@ -7,7 +7,8 @@ date: "2026-03-24"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool uniformArray(vector<int>& nums1) {
@@ -41,6 +42,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Greedy/Simulation.
 - **Optimality:** The logic appears **incorrect** for the problem implied by the code. The algorithm checks if all even numbers can be reduced by the smallest odd number to remain positive. This only covers one specific transformation rule, likely failing if the problem allows multiple operations or different parity-based swaps/modifications.
@@ -67,9 +69,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Sort Array By Parity II
+
+#
+
+## Revision Report: Sort Array By Parity II
 
 **Pattern:** Two Pointers (In-place)
 

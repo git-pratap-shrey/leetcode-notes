@@ -5,7 +5,8 @@ date: "2026-07-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int minBitFlips(int start, int goal) {
@@ -21,6 +22,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Bitwise manipulation (iterating through each bit).
 *   **Optimal:** No. While functionally correct, it is not the most idiomatic or concise way to solve this problem.
@@ -38,7 +40,9 @@ public:
 *   **Structure:** Good. Simple, self-contained method.
 *   **Naming:** Good. Variables are descriptive.
 
-### Suggested Improvement
+#
+
+## Suggested Improvement
 Replace the loop with a single expression for better performance and idiomatic C++ style:
 
 ```cpp
@@ -51,7 +55,10 @@ int minBitFlips(int start, int goal) {
 ---
 
 # Question Revision
-### Revision Report: Minimum Bit Flips to Convert Number
+
+#
+
+## Revision Report: Minimum Bit Flips to Convert Number
 
 **Pattern:** Bit Manipulation (XOR / Kernighan’s Algorithm)
 

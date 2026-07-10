@@ -7,7 +7,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int myAtoi(String s) {
         s = s.trim();
@@ -38,6 +39,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique**: Iterative parsing (Greedy).
 *   **Status**: Optimal for the requirements. It processes the string in a single pass ($O(n)$) without storing extra data structures, correctly handling constraints and edge cases.
@@ -62,9 +64,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: String to Integer (atoi)
+
+#
+
+## Revision Report: String to Integer (atoi)
 
 **Pattern:** Simulation / State Machine
 

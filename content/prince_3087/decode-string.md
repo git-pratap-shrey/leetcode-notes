@@ -1,4 +1,14 @@
---- title: "Decode String" slug: decode-string date: "2026-06-11" ---  # My Solution ~~~class Solution {
+---
+title: "Decode String"
+slug: decode-string
+date: "2026-06-11"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     string decodeString(string s) {
         stack<int> countStack;
@@ -42,25 +52,42 @@ public:
 
         return curr;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Iterative parsing using two stacks (one for repetition counts and one for string fragments) to handle nested structures.
 - **Optimality**: Optimal. This is the standard approach for decoding nested patterns, ensuring each character is processed a constant number of times relative to the final output length.
 
 ## Complexity
+
 - **Time Complexity**: $O(L)$, where $L$ is the length of the decoded string. Each character of the final result is constructed once.
 - **Space Complexity**: $O(L + D)$, where $D$ is the maximum nesting depth. The stacks store fragments and counts proportional to the depth, while the resulting string occupies $O(L)$.
 
 ## Efficiency Feedback
+
 - **Runtime**: The logic is efficient. However, the loop `temp += curr` may cause multiple memory reallocations for very large values of `k`.
 - **Optimization**: Using `temp.reserve(k * curr.size())` before the repetition loop would minimize reallocations and improve performance for large output strings.
 
 ## Code Quality
+
 - **Readability**: Good. The logic flows naturally and follows a clear state-machine-like structure.
 - **Structure**: Good. The use of separate stacks for integers and strings keeps the logic clean and avoids complex `std::variant` or `std::any` types.
 - **Naming**: Good. Variables like `countStack`, `stringStack`, and `curr` are descriptive and appropriate.
 - **Improvement**: 
     - Consider using `std::string::append` or `std::string(k, ' ')` patterns if available, though the current loop is clear.
-    - Use `const auto& ch` or a range-based for loop (`for (char ch : s)`) to make the code more modern and concise.  ---  # Question Revision ### Decode String
+    - Use `const auto& ch` or a range-based for loop (`for (char ch : s)`) to make the code more modern and concise.
+
+---
+
+# Question Revision
+
+#
+
+## Decode String
 
 **Pattern:** Stack
 
@@ -77,4 +104,6 @@ public:
 
 **The 'Aha' Moment:** Nested brackets indicate a LIFO (Last-In, First-Out) structure, signaling that the innermost expression must be resolved before the outer one.
 
-**Summary:** Use stacks to preserve the "outer" context (multiplier and prefix) while processing "inner" nested strings.  ---
+**Summary:** Use stacks to preserve the "outer" context (multiplier and prefix) while processing "inner" nested strings.
+
+---

@@ -5,7 +5,8 @@ date: "2026-07-09"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int maxDistinct(String s) {
         long count = s.chars().distinct().count();
@@ -15,6 +16,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Set-based counting. 
 *   **Correctness:** The provided code counts the total number of **unique characters** present in the string. If the problem asks for the maximum number of substrings with distinct starts (or any interpretation involving grouping), this solution is **incorrect**. It simply calculates the alphabet cardinality of the input string.
@@ -39,7 +41,10 @@ class Solution {
 ---
 
 # Question Revision
-### Revision Report: Maximum Substrings With Distinct Start
+
+#
+
+## Revision Report: Maximum Substrings With Distinct Start
 
 **Pattern:** Sliding Window (Variable Size)
 

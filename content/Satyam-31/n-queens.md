@@ -7,7 +7,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
 bool isSafe(vector<string>& board, int row, int col, int n) {
@@ -65,6 +66,7 @@ bool isSafe(vector<string>& board, int row, int col, int n) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Backtracking (recursive depth-first search).
 *   **Optimality:** Optimal for finding all solutions. It explores the search space systematically and prunes invalid branches early.
@@ -82,7 +84,9 @@ bool isSafe(vector<string>& board, int row, int col, int n) {
 *   **Structure:** Good. Separation of concerns between `isSafe` and `solve` is clear.
 *   **Naming:** Good. The function and variable names are descriptive and standard.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1.  **Refactor `isSafe`:** Replace the manual iteration with three auxiliary data structures (e.g., `vector<bool> cols`, `diag1`, `diag2`) to perform constant-time validation. 
 2.  **Pass by Reference:** You are correctly passing `ans` and `board` by reference, which avoids unnecessary copying.
 3.  **Modern C++:** Consider using `std::vector<bool>` or bitsets for the safety arrays to save space. 
@@ -94,9 +98,11 @@ bool isSafe(vector<string>& board, int row, int col, int n) {
 ---
 ---
 
-
 # Question Revision
-### N-Queens Revision Report
+
+#
+
+## N-Queens Revision Report
 
 **Pattern:** Backtracking
 

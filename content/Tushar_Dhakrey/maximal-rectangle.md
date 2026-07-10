@@ -5,7 +5,8 @@ date: "2026-04-18"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int maximalRectangle(char[][] matrix) {
         int n = matrix.length;
@@ -70,6 +71,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: The solution treats each row of the matrix as the base of a histogram. It transforms the 2D binary matrix into a series of 1D histogram problems. For each row, it calculates the heights of consecutive '1's and then applies the **Monotonic Stack** technique to find the largest rectangle area in that histogram.
 - **Optimality**: The approach is asymptotically optimal in terms of time complexity $O(n \times m)$.
@@ -95,7 +97,10 @@ class Solution {
 ---
 
 # Question Revision
-### Maximal Rectangle
+
+#
+
+## Maximal Rectangle
 
 **Pattern:** Monotonic Stack / Histogram-based DP
 

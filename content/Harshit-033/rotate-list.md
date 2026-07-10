@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -38,7 +39,6 @@ struct ListNode* rotateRight(struct ListNode* head, int k) {
     head=temp2->next;
     temp2->next=NULL;
 
-
     return head;
 
     
@@ -46,6 +46,7 @@ struct ListNode* rotateRight(struct ListNode* head, int k) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Linked List manipulation (Circularization).
 *   **Optimal:** Yes. The approach correctly calculates the length, handles the rotation offset via modulo, and performs a single pass to re-link the list.
@@ -70,9 +71,11 @@ struct ListNode* rotateRight(struct ListNode* head, int k) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Rotate List
+
+#
+
+## Revision Report: Rotate List
 
 **Pattern:** Linked List / Cycle Detection
 

@@ -5,7 +5,8 @@ date: "2026-04-21"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int hammingWeight(int n) {
         int bits = 0;
@@ -22,6 +23,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Bit manipulation using a sliding mask.
 - **Optimality**: Correct, but suboptimal. It iterates through all 32 bits regardless of the number of set bits present in the input.
@@ -46,7 +48,10 @@ class Solution {
 ---
 
 # Question Revision
-### Number of 1 Bits
+
+#
+
+## Number of 1 Bits
 
 **Pattern:** Bit Manipulation
 

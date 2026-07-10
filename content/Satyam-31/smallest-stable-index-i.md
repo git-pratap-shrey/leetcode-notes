@@ -5,7 +5,8 @@ date: "2026-04-19"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int firstStableIndex(vector<int>& nums, int k) {
@@ -29,6 +30,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Prefix Maximum and Suffix Minimum preprocessing.
 - **Optimality**: Optimal. The problem requires comparing the max of the left partition and the min of the right partition for every possible split point; precomputing these values allows each split to be evaluated in $O(1)$.
@@ -54,7 +56,10 @@ public:
 ---
 
 # Question Revision
-### Smallest Stable Index I
+
+#
+
+## Smallest Stable Index I
 
 **Pattern:** Hash Map / Frequency Counting
 

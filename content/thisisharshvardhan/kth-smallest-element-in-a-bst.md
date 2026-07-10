@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -40,6 +41,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** In-order Binary Tree Traversal (Recursive).
 *   **Optimality:** Optimal. It visits nodes in sorted order, ensuring the $k$-th node visited is the result.
@@ -80,9 +82,11 @@ void solve(TreeNode* root, int k, int& count, int& ans) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Kth Smallest Element in a BST
+
+#
+
+## Revision Report: Kth Smallest Element in a BST
 
 **Pattern:** Depth-First Search (In-order Traversal)
 

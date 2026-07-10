@@ -5,7 +5,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void sum(int k,int n,vector<int>& temp,vector<vector<int>>& ans,int idx){
@@ -33,6 +34,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Backtracking.
 - **Optimality**: Optimal. Given the constraints (numbers 1-9), the search space is extremely small ($\binom{9}{k}$), making exhaustive search the most straightforward and efficient method.
@@ -58,7 +60,10 @@ public:
 ---
 
 # Question Revision
-### Combination Sum III
+
+#
+
+## Combination Sum III
 
 **Pattern:** Backtracking
 

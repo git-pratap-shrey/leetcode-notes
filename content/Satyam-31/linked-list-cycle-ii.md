@@ -7,7 +7,8 @@ date: "2026-02-23"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Hash Map (Hashing).
 - **Optimality:** Suboptimal. While it correctly identifies the cycle, it utilizes $O(N)$ extra space, whereas the problem can be solved in $O(1)$ space using Floyd's Cycle-Finding Algorithm (Tortoise and Hare).
@@ -63,9 +65,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Linked List Cycle II
+
+#
+
+## Revision Report: Linked List Cycle II
 
 **Pattern:** Two Pointers (Floyd’s Cycle-Finding Algorithm)
 

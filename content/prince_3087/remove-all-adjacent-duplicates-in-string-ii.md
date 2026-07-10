@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string removeDuplicates(string s, int k) {
@@ -41,6 +42,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Stack-based counting. The solution uses a stack of pairs `(character, current_count)` to track consecutive identical characters and remove them once the count reaches $k$.
 - **Optimality**: Optimal. This approach ensures each character is processed a constant number of times, avoiding the $O(n^2)$ complexity of repeatedly scanning and erasing from a string.
@@ -65,7 +67,10 @@ public:
 ---
 
 # Question Revision
-### Remove All Adjacent Duplicates in String II
+
+#
+
+## Remove All Adjacent Duplicates in String II
 
 **Pattern:** Stack (Frequency Tracking)
 

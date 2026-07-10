@@ -5,7 +5,8 @@ date: "2026-04-28"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> plusOne(vector<int>& digits) {
@@ -30,6 +31,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Iterative simulation of addition with carry.
 - **Optimality**: Optimal. The problem requires visiting digits from least to most significant, resulting in a linear time complexity.
@@ -53,7 +55,10 @@ public:
 ---
 
 # Question Revision
-### Plus One
+
+#
+
+## Plus One
 
 **Pattern:** Simulation / Mathematical Carry
 

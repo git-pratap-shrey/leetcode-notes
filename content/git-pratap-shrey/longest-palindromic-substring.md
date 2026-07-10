@@ -7,7 +7,8 @@ date: "2026-03-30"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool build_dp(string& s, vector<vector<int>>& dp, int left, int right) {
@@ -53,6 +54,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Memoized recursion (Top-down DP).
 - **Optimality:** Suboptimal. While the DP state space $O(N^2)$ is correct, the implementation uses an $O(N^2)$ outer loop to iterate through all substrings, resulting in redundant checks and unnecessary overhead compared to iterative DP or the Expand Around Center approach.
@@ -77,9 +79,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Longest Palindromic Substring
+
+#
+
+## Revision Report: Longest Palindromic Substring
 
 **Pattern:** Expand Around Center / Dynamic Programming
 

@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
@@ -30,6 +31,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Greedy/Dynamic Programming (Tracking local min and max).
 *   **Optimality:** Optimal. It performs a single pass through the array, maintaining only the necessary state variables ($O(1)$ extra space).
@@ -53,9 +55,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Maximum Product Subarray
+
+#
+
+## Revision Report: Maximum Product Subarray
 
 **Pattern:** Dynamic Programming (State Tracking)
 

@@ -7,7 +7,8 @@ date: "2026-04-03"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 long long int comp(int* piles, int pilesSize, long long int mid){
     long long int count=0;
     for(int i=0;i<pilesSize;i++){
@@ -47,7 +48,6 @@ int minEatingSpeed(int* piles, int pilesSize, int h) {
             low=mid+1;
         }
 
-
     }
     return (int)time;
 
@@ -57,6 +57,7 @@ int minEatingSpeed(int* piles, int pilesSize, int h) {
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique:** Binary Search on the Answer.
 * **Optimality:** Optimal. The search space is monotonic (faster speed results in fewer hours), and binary search is the standard approach for this problem.
@@ -93,9 +94,11 @@ long long int getRequiredHours(int* piles, int pilesSize, int mid) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Koko Eating Bananas
+
+#
+
+## Revision Report: Koko Eating Bananas
 
 **Pattern:** Binary Search on Answer Space
 

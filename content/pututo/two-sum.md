@@ -5,7 +5,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -28,6 +29,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Brute-force search using nested loops to check every possible pair.
 - **Optimality**: Suboptimal. The problem can be solved in linear time using a hash map.
@@ -52,7 +54,10 @@ public:
 ---
 
 # Question Revision
-### Two Sum
+
+#
+
+## Two Sum
 
 **Pattern:** Hash Map (Complement Lookup)
 

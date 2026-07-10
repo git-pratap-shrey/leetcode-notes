@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
@@ -16,7 +17,6 @@ public:
         int lent=t.size();
 
         if(lens!=lent) return false;
-
 
         unordered_map<char,int> mps;
         unordered_map<char,int> mpt;
@@ -56,6 +56,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Mapping/Hashing. The solution tracks the last seen positions of characters in both strings to ensure a bijective (one-to-one) mapping between $s$ and $t$.
 *   **Optimality:** It is functionally correct but suboptimal. The use of `std::unordered_map` adds unnecessary constant overhead for a fixed-size character set (ASCII).
@@ -92,9 +93,11 @@ return true;
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Isomorphic Strings
+
+#
+
+## Revision Report: Isomorphic Strings
 
 **Pattern:** Hash Mapping / Bijective Mapping
 

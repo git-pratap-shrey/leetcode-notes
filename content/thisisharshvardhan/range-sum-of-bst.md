@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** In-order traversal (Depth-First Search).
 *   **Optimality:** **Suboptimal.** While correct, it performs a full traversal ($O(N)$) of the tree. It ignores the Binary Search Tree (BST) property, which allows pruning subtrees that fall outside the `[low, high]` range.
@@ -65,9 +67,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Range Sum of BST
+
+#
+
+## Revision Report: Range Sum of BST
 
 **Pattern:** Tree Traversal (DFS/Pruning)
 

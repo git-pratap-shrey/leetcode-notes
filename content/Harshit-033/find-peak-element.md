@@ -7,7 +7,8 @@ date: "2026-04-03"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int findPeakElement(int* nums, int numsSize) {
     if(numsSize==1){
         return 0;
@@ -49,6 +50,7 @@ int findPeakElement(int* nums, int numsSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Binary Search.
 *   **Optimality:** Optimal. It effectively leverages the property that an ascending slope must eventually lead to a peak, achieving $O(\log n)$ time complexity.
@@ -80,9 +82,11 @@ int findPeakElement(int* nums, int numsSize) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find Peak Element
+
+#
+
+## Revision Report: Find Peak Element
 
 **Pattern:** Binary Search (on index space)
 

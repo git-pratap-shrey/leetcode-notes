@@ -7,7 +7,8 @@ date: "2026-04-03"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int firstMatchingIndex(string s) {
@@ -32,6 +33,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer approach.
 *   **Optimal:** Yes. The problem asks for the first index where a character from the front matches the character at the corresponding position from the back. Since the loop starts from both ends and moves inward, returning `i` upon the first encounter is the correct greedy strategy.
@@ -52,7 +54,9 @@ public:
     *   Remove `int count = 0;` and `int res = 0;`.
     *   The `while(i <= j)` loop condition is technically correct, but if `s.size()` is 0, the code correctly handles it (the loop won't execute). Ensure the function signature or input handling accounts for empty strings if required.
 
-### Refined Code
+#
+
+## Refined Code
 ```cpp
 class Solution {
 public:
@@ -74,9 +78,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: First Matching Character From Both Ends
+
+#
+
+## Revision Report: First Matching Character From Both Ends
 
 **Pattern:** Two Pointers (Converging)
 

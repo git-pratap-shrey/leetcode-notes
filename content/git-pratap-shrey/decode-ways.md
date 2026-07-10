@@ -7,7 +7,8 @@ date: "2026-03-31"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int numDecodings(string s) {
@@ -39,6 +40,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Dynamic Programming (iterative, space-optimized).
 - **Optimality:** Optimal. It uses $O(1)$ auxiliary space and a single $O(N)$ pass, which is the theoretical lower bound for this problem.
@@ -64,9 +66,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Decode Ways
+
+#
+
+## Revision Report: Decode Ways
 
 **Pattern:** Dynamic Programming (Memoization or Tabulation)
 

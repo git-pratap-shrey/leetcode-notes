@@ -7,7 +7,8 @@ date: "2026-04-03"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -73,6 +74,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Merge Sort (Divide and Conquer).
 *   **Optimality:** Optimal for linked lists. It provides $O(n \log n)$ time complexity and $O(\log n)$ stack space (due to recursion), which is standard for this problem.
@@ -98,9 +100,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Sort List
+
+#
+
+## Revision Report: Sort List
 
 **Pattern:** Merge Sort (Divide & Conquer)
 

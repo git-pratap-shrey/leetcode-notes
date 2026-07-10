@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
@@ -30,6 +31,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Frequency counting using a hash map (`unordered_map`).
 - **Optimality**: Optimal asymptotically, as it processes each character of both strings exactly once.
@@ -54,7 +56,10 @@ public:
 ---
 
 # Question Revision
-### Ransom Note
+
+#
+
+## Ransom Note
 
 **Pattern:** Frequency Map (Hash Table / Fixed Array)
 

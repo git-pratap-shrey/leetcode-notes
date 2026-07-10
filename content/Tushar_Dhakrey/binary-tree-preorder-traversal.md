@@ -1,4 +1,12 @@
---- title: "Binary Tree Preorder Traversal" slug: binary-tree-preorder-traversal date: "2026-07-03" ---  # My Solution ~~~/**
+---
+title: "Binary Tree Preorder Traversal"
+slug: binary-tree-preorder-traversal
+date: "2026-07-03"
+
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -28,11 +36,18 @@ class Solution {
         preorder(root.right,ans);
 
     }
-} - java~~~  # Submission Review ## Approach
+}
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique:** Recursive Depth-First Search (DFS).
 - **Optimality:** Optimal. Every node in the binary tree must be visited exactly once to complete the traversal.
 
 ## Complexity
+
 - **Time Complexity:** $O(N)$, where $N$ is the number of nodes in the tree.
 - **Space Complexity:** $O(H)$, where $H$ is the height of the tree. This represents the maximum depth of the recursion stack. In the worst case (a skewed tree), this becomes $O(N)$.
 
@@ -41,12 +56,21 @@ class Solution {
 - For extremely deep trees, a recursive approach may trigger a `StackOverflowError`. An iterative approach using an explicit `Stack` would mitigate this risk, though it is typically unnecessary for standard competitive programming constraints.
 
 ## Code Quality
+
 - **Readability:** Good. The logic is straightforward and follows standard preorder traversal patterns.
 - **Structure:** Good. Separating the recursive helper method from the main entry point is the correct practice.
 - **Naming:** Moderate. `ans` is a common shorthand, but `result` or `traversalList` would be more descriptive. `preorder` is an acceptable method name.
 - **Concrete Improvements:** 
     - Add access modifiers (e.g., `private`) to the `preorder` helper method to encapsulate it within the `Solution` class.
-    - Initialize the `ArrayList` with an initial capacity if the number of nodes $N$ were known, reducing internal array resizing.  ---  # Question Revision ### Binary Tree Preorder Traversal
+    - Initialize the `ArrayList` with an initial capacity if the number of nodes $N$ were known, reducing internal array resizing.
+
+---
+
+# Question Revision
+
+#
+
+## Binary Tree Preorder Traversal
 
 **Pattern:** DFS (Depth First Search) / Tree Traversal
 
@@ -67,4 +91,6 @@ Use an explicit **Stack** to mimic the call stack:
 The requirement to visit the root *before* its children explicitly defines the "Root $\rightarrow$ Left $\rightarrow$ Right" sequence of a Preorder DFS.
 
 **Summary:** 
-Process the current node immediately, then use a stack (pushing right then left) to explore the tree depth-first.  ---
+Process the current node immediately, then use a stack (pushing right then left) to explore the tree depth-first.
+
+---

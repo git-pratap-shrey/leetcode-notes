@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void dfs(vector<vector<char>>& grid, vector<vector<bool>>& dp, int i, int j) {
@@ -15,7 +16,6 @@ public:
             return;
         }
         // cout<<i<<" "<<j<<"->"<<grid[i][j]<<endl;
-
 
         grid[i][j] = 0;
         dp[i][j] = 1;
@@ -46,6 +46,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Depth-First Search (DFS) for graph traversal to identify connected components.
 *   **Optimality:** Suboptimal. The algorithm uses an auxiliary 2D boolean array (`dp`) to track visited nodes, which is redundant because the input grid can be modified in-place (or by using a `visited` set) to mark nodes as processed.
@@ -72,9 +73,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Number of Islands
+
+#
+
+## Revision Report: Number of Islands
 
 **Pattern:** Graph Traversal (DFS/BFS)
 

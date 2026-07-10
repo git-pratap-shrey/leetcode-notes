@@ -5,7 +5,8 @@ date: "2026-04-16"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
@@ -26,6 +27,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Sorting followed by a linear scan (Greedy).
 - **Optimality**: Optimal. Sorting by start time is the standard and most efficient way to solve the merge intervals problem, as it ensures that only the most recently added interval in the result set needs to be checked for overlaps.
@@ -49,7 +51,10 @@ public:
 ---
 
 # Question Revision
-### Merge Intervals
+
+#
+
+## Merge Intervals
 
 **Pattern:** Sorting / Greedy
 

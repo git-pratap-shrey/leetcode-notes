@@ -5,7 +5,8 @@ date: "2026-04-24"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int singleNonDuplicate(vector<int>& nums) {
@@ -31,6 +32,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Search on index parity.
 - **Optimality**: Optimal. The solution achieves logarithmic time complexity by exploiting the sorted property and the fact that pairs should start at even indices.
@@ -55,7 +57,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Single Element in a Sorted Array
+
+#
+
+## Revision Report: Single Element in a Sorted Array
 
 **Pattern:** Binary Search
 

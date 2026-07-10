@@ -5,7 +5,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
@@ -23,6 +24,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** One-pass Greedy approach. It tracks the minimum price encountered so far and calculates the potential profit at each step.
 - **Optimality:** Optimal. This is the most efficient way to solve the problem as it requires only a single traversal of the data.
@@ -48,7 +50,10 @@ public:
 ---
 
 # Question Revision
-### Best Time to Buy and Sell Stock
+
+#
+
+## Best Time to Buy and Sell Stock
 
 **Pattern:** Single Pass (Greedy)
 

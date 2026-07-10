@@ -1,4 +1,14 @@
---- title: "Palindrome Partitioning" slug: palindrome-partitioning date: "2026-07-01" ---  # My Solution ~~~class Solution {
+---
+title: "Palindrome Partitioning"
+slug: palindrome-partitioning
+date: "2026-07-01"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     void pp(vector<vector<string>>& ans,vector<string>&res,int idx,string& s){
         if(idx==s.size()){
@@ -31,20 +41,29 @@ public:
         pp(ans,res,0,s);
         return ans;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique:** Backtracking with recursion.
 - **Optimality:** Optimal for generating all possible partitions, as the problem requires an exhaustive list of combinations. However, the palindrome check is redundant across recursive calls.
 
 ## Complexity
+
 - **Time Complexity:** $O(N \cdot 2^N)$, where $N$ is the length of the string. There are $2^{N-1}$ possible ways to partition the string, and for each partition, the code performs palindrome checks and substring operations taking $O(N)$.
 - **Space Complexity:** $O(N)$ for the recursion stack and the temporary `res` vector (excluding the space required for the final `ans` list).
 
 ## Efficiency Feedback
+
 - **Bottleneck:** The `isP` function is called repeatedly for the same substrings. 
 - **Optimization:** Pre-calculate a 2D boolean DP table where `dp[i][j]` is true if `s[i...j]` is a palindrome. This would reduce the palindrome check from $O(N)$ to $O(1)$ during the backtracking phase.
 - **Memory:** `s.substr()` creates a new string object in every valid recursive step, increasing overhead.
 
 ## Code Quality
+
 - **Readability:** Moderate. The logic is clear, but the shorthand naming makes it less intuitive.
 - **Structure:** Good. The separation of the palindrome check and the recursive backtracking is appropriate.
 - **Naming:** Poor.
@@ -54,7 +73,15 @@ public:
 - **Improvements:**
     - Use more descriptive function and variable names.
     - Pass the `ans` and `res` vectors by reference (already done) to avoid copying.
-    - Consider pre-computing palindromes for strings of significant length.  ---  # Question Revision ### Palindrome Partitioning
+    - Consider pre-computing palindromes for strings of significant length.
+
+---
+
+# Question Revision
+
+#
+
+## Palindrome Partitioning
 
 **Pattern:** Backtracking
 
@@ -67,4 +94,6 @@ Use a recursive backtracking function to explore the string. At each index, atte
 
 **The 'Aha' Moment:** The requirement to "return all possible" valid configurations is a classic signal for a backtracking search.
 
-**Summary:** Use backtracking to recursively split the string, only diving deeper into the recursion tree if the current prefix is a palindrome.  ---
+**Summary:** Use backtracking to recursively split the string, only diving deeper into the recursion tree if the current prefix is a palindrome.
+
+---

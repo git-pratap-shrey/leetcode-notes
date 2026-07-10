@@ -7,7 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -28,6 +29,7 @@ void deleteNode(struct ListNode* node) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Iterative value-shifting (copying values forward until the second-to-last node).
 *   **Optimal:** No. The standard optimal approach for this problem is an $O(1)$ operation that simply copies the value of the *next* node into the current node and skips the next node (`node->val = node->next->val; node->next = node->next->next;`).
@@ -58,9 +60,11 @@ void deleteNode(struct ListNode* node) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Delete Node in a Linked List
+
+#
+
+## Revision Report: Delete Node in a Linked List
 
 **Pattern:** Linked List Mutation (Node Value Manipulation)
 

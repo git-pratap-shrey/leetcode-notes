@@ -5,7 +5,8 @@ date: "2026-04-23"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int findMin(vector<int>& nums) {
@@ -28,6 +29,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Binary Search.
 - **Optimality:** Optimal. It leverages the sorted property of the rotated array to reduce the search space logarithmically.
@@ -49,7 +51,10 @@ public:
 ---
 
 # Question Revision
-### Find Minimum in Rotated Sorted Array
+
+#
+
+## Find Minimum in Rotated Sorted Array
 
 **Pattern:** Binary Search
 

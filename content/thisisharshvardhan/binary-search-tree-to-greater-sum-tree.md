@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -37,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique**: Reverse In-order Traversal (Right-Root-Left).
 * **Optimality**: Optimal. Visiting each node exactly once is the theoretical lower bound for this problem.
@@ -76,9 +78,11 @@ TreeNode* bstToGst(TreeNode* root) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: BST to Greater Sum Tree
+
+#
+
+## Revision Report: BST to Greater Sum Tree
 
 **Pattern:** Reverse In-Order Traversal (Right -> Root -> Left)
 

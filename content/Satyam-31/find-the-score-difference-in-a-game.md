@@ -7,7 +7,8 @@ date: "2026-02-22"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int scoreDifference(vector<int>& nums) {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Iterative simulation.
 - **Optimality**: Optimal. The logic performs a single pass over the input array, calculating the cumulative sum for two players based on specific conditions.
@@ -79,9 +81,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find the Score Difference
+
+#
+
+## Revision Report: Find the Score Difference
 
 **Pattern:** Greedy / Sorting or Frequency Counting
 

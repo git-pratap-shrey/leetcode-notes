@@ -5,7 +5,8 @@ date: "2026-03-28"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void As(vector<int>& nums,vector<int>& ans,int i,vector<vector<int>>& result){
@@ -33,6 +34,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive backtracking with pruning.
 - **Optimality**: Optimal. The algorithm explores the state space and uses sorting combined with a skip-logic (`while` loop) to avoid generating duplicate subsets. Given the problem requires returning all subsets, the exponential complexity is unavoidable.
@@ -60,7 +62,10 @@ public:
 ---
 
 # Question Revision
-### Subsets II
+
+#
+
+## Subsets II
 
 **Pattern:** Backtracking / DFS
 

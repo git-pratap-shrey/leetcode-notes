@@ -5,7 +5,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
@@ -15,6 +16,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Utilizes the C++ Standard Template Library (STL) function `std::next_permutation`.
 - **Optimality**: Optimal. The STL implementation follows the standard algorithm (finding the pivot, swapping with the successor, and reversing the suffix), which is the most efficient way to solve this problem.
@@ -36,7 +38,10 @@ public:
 ---
 
 # Question Revision
-### Next Permutation
+
+#
+
+## Next Permutation
 
 **Pattern:** Array Manipulation / Two Pointers
 

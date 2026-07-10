@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -53,6 +54,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Level-order traversal (BFS) using a sentinel node (`NULL`) to mark level boundaries.
 *   **Optimality:** Suboptimal. While the traversal logic is correct, the use of an intermediate `vector<int> temp` to store values per level forces an unnecessary secondary pass to compute the sum and adds extra space overhead.
@@ -98,9 +100,11 @@ vector<double> averageOfLevels(TreeNode* root) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Average of Levels in Binary Tree
+
+#
+
+## Revision Report: Average of Levels in Binary Tree
 
 **Pattern:** Breadth-First Search (BFS) / Level-Order Traversal
 

@@ -5,7 +5,8 @@ date: "2026-04-16"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int characterReplacement(string s, int k) {
@@ -27,7 +28,6 @@ public:
                 mp[s[left]]-=1;
                 left++;
 
-
             }
             if((right-left+1)-maxf<=k){
                 current=right-left+1;
@@ -45,6 +45,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Sliding Window.
 - **Optimality**: Optimal. The window expands to find the maximum length and shrinks only when the number of characters to be replaced exceeds $k$.
@@ -71,7 +72,10 @@ public:
 ---
 
 # Question Revision
-### Longest Repeating Character Replacement
+
+#
+
+## Longest Repeating Character Replacement
 
 **Pattern:** Sliding Window (Dynamic Size)
 

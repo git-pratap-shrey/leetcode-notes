@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int longestPalindrome(string s) {
@@ -41,6 +42,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Frequency Counting + Greedy.
 - **Optimality:** The logic is optimal ($O(N)$), but the implementation is suboptimal due to redundant iterations and the use of a heavy data structure for a small key set.
@@ -68,7 +70,10 @@ public:
 ---
 
 # Question Revision
-### Longest Palindrome
+
+#
+
+## Longest Palindrome
 
 **Pattern:** Frequency Counting (Hash Map/Array)
 

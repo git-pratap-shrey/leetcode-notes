@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -70,6 +71,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Post-order traversal (Bottom-up Dynamic Programming/Recursion).
 *   **Optimality:** Optimal. It visits each node exactly once, which is the theoretical lower bound for tree traversal.
@@ -91,7 +93,9 @@ public:
     *   **Edge Case:** The logic `curr.mini = min(root->val, min(left.mini, right.mini))` is safe here due to `INT_MAX/INT_MIN` handling in the base case, but it is technically cleaner to handle `nullptr` children explicitly within the `if` logic to avoid potential integer overflow or underflow issues if `root->val` is near `INT_MIN` or `INT_MAX`.
     *   **Consistency:** Use `nullptr` instead of `NULL` (already done).
 
-### Suggested Minor Refactor:
+#
+
+## Suggested Minor Refactor:
 ```cpp
 struct SubtreeInfo {
     int minVal, maxVal, sum;
@@ -106,9 +110,11 @@ if (!root) return {INT_MAX, INT_MIN, 0, true};
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Maximum Sum BST in Binary Tree
+
+#
+
+## Revision Report: Maximum Sum BST in Binary Tree
 
 **Pattern:** Post-order Traversal (Bottom-Up DFS)
 

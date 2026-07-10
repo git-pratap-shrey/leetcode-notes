@@ -5,7 +5,8 @@ date: "2026-04-04"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int romanToInt(string s) {
@@ -32,6 +33,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Single-pass iteration with a lookup table.
 - **Optimality**: Optimal. The logic correctly implements the subtraction rule (if a smaller value precedes a larger value, subtract it).
@@ -55,7 +57,10 @@ public:
 ---
 
 # Question Revision
-### Roman to Integer
+
+#
+
+## Roman to Integer
 
 **Pattern:** String Parsing / Greedy
 

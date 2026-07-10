@@ -7,8 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~c
-
+~~~
+c
 
 char* longestCommonPrefix(char** strs, int strsSize) {
 
@@ -30,6 +30,7 @@ char* longestCommonPrefix(char** strs, int strsSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Horizontal scanning / In-place iterative comparison.
 - **Optimality**: Optimal. It compares each character of the strings exactly as much as necessary to determine the prefix.
@@ -54,9 +55,11 @@ char* longestCommonPrefix(char** strs, int strsSize) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Longest Common Prefix
+
+#
+
+## Revision Report: Longest Common Prefix
 
 **Pattern:** Horizontal Scanning / Vertical Scanning
 

@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
@@ -25,6 +26,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Frequency counting using a balanced Binary Search Tree (`std::map`).
 - **Optimality**: Suboptimal. While it correctly solves the problem, it does not meet the $O(n)$ time and $O(1)$ space constraints typically expected for this problem (which can be achieved via the Boyer-Moore Voting Algorithm).
@@ -50,7 +52,10 @@ public:
 ---
 
 # Question Revision
-### Majority Element II
+
+#
+
+## Majority Element II
 
 **Pattern:** Boyer-Moore Voting Algorithm (Extension)
 

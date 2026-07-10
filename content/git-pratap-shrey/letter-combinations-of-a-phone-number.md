@@ -7,7 +7,8 @@ date: "2026-03-29"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void fn(const vector<string>& mapping, vector<string>& answer, string& digits,
@@ -40,6 +41,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Backtracking (recursive depth-first search).
 *   **Optimality:** Optimal. The problem requires generating all possible combinations, which is an $O(3^N \cdot 4^M)$ operation, where $N$ and $M$ are the counts of digits mapping to 3 and 4 letters, respectively. The solution explores the state space tree once without redundant computations.
@@ -65,9 +67,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Letter Combinations of a Phone Number
+
+#
+
+## Revision Report: Letter Combinations of a Phone Number
 
 **Pattern:** Backtracking / Depth-First Search (DFS)
 

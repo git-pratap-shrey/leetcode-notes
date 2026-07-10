@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -59,6 +60,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** In-order traversal to extract values, identifying the two swapped elements by detecting inversions in the sorted sequence, and performing a second in-order traversal to overwrite the tree nodes.
 *   **Optimality:** Suboptimal. While correct, it uses $O(N)$ auxiliary space for the `vector` and performs two full tree traversals. The problem can be solved in $O(1)$ space using Morris Traversal.
@@ -90,9 +92,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Recover Binary Search Tree
+
+#
+
+## Revision Report: Recover Binary Search Tree
 
 **Pattern:** Morris Traversal / In-order Traversal
 

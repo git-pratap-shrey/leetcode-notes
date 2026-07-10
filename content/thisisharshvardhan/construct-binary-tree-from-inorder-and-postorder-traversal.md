@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -58,6 +59,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Recursive divide-and-conquer. The algorithm selects the last element of the current postorder segment as the root and partitions the inorder array to define left and right subtrees.
 *   **Optimality:** Suboptimal. While the tree construction logic is correct, the implementation of finding the root index in the inorder array is inefficient.
@@ -83,9 +85,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Construct Binary Tree from Inorder and Postorder Traversal
+
+#
+
+## Revision Report: Construct Binary Tree from Inorder and Postorder Traversal
 
 **Pattern:** Divide and Conquer / Recursion
 

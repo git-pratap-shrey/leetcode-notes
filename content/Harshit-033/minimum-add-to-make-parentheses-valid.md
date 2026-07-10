@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
 
@@ -37,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Greedy approach using two counters to track unmatched opening and closing parentheses.
 - **Optimality**: Optimal. It solves the problem in a single pass with minimal space.
@@ -62,7 +64,10 @@ public:
 ---
 
 # Question Revision
-### Minimum Add to Make Parentheses Valid
+
+#
+
+## Minimum Add to Make Parentheses Valid
 
 **Pattern:** Greedy / Stack (Simplified to Counters)
 

@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int[] asteroidCollision(int[] asteroids) {
         List<Integer> st = new ArrayList<>();
@@ -36,6 +37,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Stack-based simulation. 
 - **Optimality**: Optimal. The problem requires processing collisions in a Last-In-First-Out (LIFO) manner, and each asteroid is pushed and popped at most once.
@@ -60,7 +62,10 @@ class Solution {
 ---
 
 # Question Revision
-### Asteroid Collision
+
+#
+
+## Asteroid Collision
 
 **Pattern:** Stack
 

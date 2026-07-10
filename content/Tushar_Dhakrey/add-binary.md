@@ -5,7 +5,8 @@ date: "2026-04-29"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public String addBinary(String a, String b) {
         int n1 = a.length()-1;
@@ -39,6 +40,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Two-pointer simulation of column-wise binary addition.
 - **Optimality**: Optimal. It processes each character exactly once and uses the minimum required space to store the result.
@@ -67,7 +69,10 @@ class Solution {
 ---
 
 # Question Revision
-### Add Binary
+
+#
+
+## Add Binary
 
 **Pattern:** Simulation / Two Pointers
 

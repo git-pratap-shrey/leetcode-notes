@@ -5,7 +5,8 @@ date: "2026-07-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int hammingDistance(int x, int y) {
@@ -25,6 +26,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Bitwise manipulation via arithmetic simulation.
 *   **Optimal:** No. While logically correct for positive integers, it is less efficient and less idiomatic than leveraging the XOR operator and built-in hardware instructions.
@@ -59,7 +61,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Hamming Distance
+
+#
+
+## Revision Report: Hamming Distance
 
 **Pattern:** Bit Manipulation
 

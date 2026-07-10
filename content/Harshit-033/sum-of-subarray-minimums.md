@@ -7,7 +7,8 @@ date: "2026-04-13"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int sumSubarrayMins(vector<int>& arr) {
@@ -48,10 +49,10 @@ public:
     }
 };
 
-
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique:** Monotonic Stack.
 * **Optimality:** Optimal. It uses the "Contribution Technique," where each element `arr[i]` is treated as the minimum of a range `[left, right]`. By finding the distance to the nearest smaller element on both sides, the algorithm calculates how many subarrays have `arr[i]` as the minimum in $O(N)$ time.
@@ -76,9 +77,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Sum of Subarray Minimums
+
+#
+
+## Revision Report: Sum of Subarray Minimums
 
 **Pattern:** Monotonic Stack
 

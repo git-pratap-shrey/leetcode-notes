@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
@@ -54,6 +55,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Two-pointer/Boundary contraction. It maintains four boundaries (`top`, `bottom`, `left`, `right`) and shrinks them inward as each side of the spiral is traversed.
 - **Optimality**: Optimal. Every element in the matrix must be visited exactly once to construct the result.
@@ -75,7 +77,10 @@ public:
 ---
 
 # Question Revision
-### Spiral Matrix
+
+#
+
+## Spiral Matrix
 
 **Pattern:** Boundary Simulation
 

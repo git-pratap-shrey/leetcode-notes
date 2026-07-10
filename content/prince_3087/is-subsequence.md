@@ -7,7 +7,8 @@ date: "2026-04-02"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isSubsequence(string s, string t) {
@@ -36,6 +37,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique:** Two-pointer (greedy) approach.
 * **Optimality:** Optimal. It traverses the string `t` exactly once to find characters of `s` in sequence.
@@ -57,7 +59,9 @@ public:
     * Use `i == s.size()` as the exit condition.
     * Handle the edge case where `s` is empty (should return `true`).
 
-### Suggested Refinement:
+#
+
+## Suggested Refinement:
 ```cpp
 class Solution {
 public:
@@ -78,9 +82,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Is Subsequence
+
+#
+
+## Revision Report: Is Subsequence
 
 **Pattern:** Two Pointers (Greedy)
 

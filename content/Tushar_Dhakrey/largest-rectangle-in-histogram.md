@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int largestRectangleArea(int[] heights) {
         int maxarea = 0;
@@ -49,6 +50,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Monotonic Stack.
 - **Optimality**: Optimal. The solution correctly identifies the left and right boundaries for each bar to determine the maximum rectangle it can sustain, which is the standard $O(n)$ approach for this problem.
@@ -76,7 +78,10 @@ class Solution {
 ---
 
 # Question Revision
-### Largest Rectangle in Histogram
+
+#
+
+## Largest Rectangle in Histogram
 
 **Pattern:** Monotonic Stack
 

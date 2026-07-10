@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /*
 // Definition for a Node.
 class Node {
@@ -61,6 +62,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Depth-First Search (DFS) with memoization.
 *   **Optimality:** Suboptimal. The logic assumes node values are in the range $[1, 100]$ (due to the hardcoded `vector<Node*> created(101)`), which is a constraint-dependent assumption not guaranteed by the general problem definition.
@@ -101,9 +103,11 @@ Node* cloneGraph(Node* node) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Clone Graph
+
+#
+
+## Revision Report: Clone Graph
 
 **Pattern:** Graph Traversal (DFS/BFS) with Hash Map
 

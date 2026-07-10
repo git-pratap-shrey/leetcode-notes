@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
@@ -40,6 +41,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique:** Prefix sum combined with a hash map (frequency map) to track seen prefix sums.
 * **Optimality:** Optimal. It reduces the $O(N^2)$ brute-force approach to $O(N)$ by calculating the number of subarrays ending at index $i$ in constant time.
@@ -82,9 +84,11 @@ int subarraySum(vector<int>& nums, int k) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Subarray Sum Equals K
+
+#
+
+## Revision Report: Subarray Sum Equals K
 
 **Pattern:** Prefix Sum + Hash Map
 

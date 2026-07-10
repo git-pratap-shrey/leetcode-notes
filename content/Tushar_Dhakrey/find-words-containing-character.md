@@ -7,7 +7,8 @@ date: "2026-03-30"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public List<Integer> findWordsContaining(String[] words, char x) {
         List<Integer> result = new ArrayList<>();
@@ -30,6 +31,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Linear scan with string searching.
 - **Optimality:** Suboptimal. While the linear scan is necessary, the use of `String.contains()` with `String.valueOf(x)` creates unnecessary intermediate `String` objects for every iteration.
@@ -64,9 +66,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find Words Containing Character
+
+#
+
+## Revision Report: Find Words Containing Character
 
 **Pattern:** Iterative Traversal / String Manipulation
 

@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
 
@@ -37,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Combinatorial mathematics. The solution uses the property $C(n, k) = C(n, k-1) \times \frac{n-k+1}{k}$ to calculate row elements iteratively.
 - **Optimality**: Optimal in terms of time and space complexity ($O(N^2)$). While the standard DP approach (summing adjacent elements from the previous row) is more common and avoids multiplication/division, this mathematical approach is equally efficient for the given constraints.
@@ -60,7 +62,10 @@ public:
 ---
 
 # Question Revision
-### Pascal's Triangle
+
+#
+
+## Pascal's Triangle
 
 **Pattern:** Iterative Simulation / Dynamic Programming
 

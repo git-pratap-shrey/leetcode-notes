@@ -7,7 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -72,6 +73,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Recursive BST node deletion.
 *   **Optimality:** Optimal. It correctly handles all three cases of deletion: leaf nodes, nodes with one child, and nodes with two children (by replacing the node value with the in-order predecessor).
@@ -94,7 +96,9 @@ public:
     *   **Modern C++:** Ensure that `NULL` is replaced with `nullptr` for better type safety.
     *   **Refactor `getMax`:** Instead of `int`, consider passing the node reference or returning the node directly to avoid potential issues if the tree contained values equal to `-1`.
 
-### Refactored logic snippet:
+#
+
+## Refactored logic snippet:
 ```cpp
 if (root->left && root->right) {
     int replace = getMax(root->left);
@@ -111,9 +115,11 @@ This reduces code duplication significantly.
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Delete Node in a BST
+
+#
+
+## Revision Report: Delete Node in a BST
 
 **Pattern:** Binary Search Tree (BST) Recursion / Pointer Manipulation
 

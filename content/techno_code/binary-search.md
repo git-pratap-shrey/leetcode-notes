@@ -5,7 +5,8 @@ date: "2026-04-19"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
@@ -24,6 +25,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Iterative Binary Search.
 - **Optimality**: Optimal. It reduces the search space by half in each iteration, which is the most efficient way to search a sorted array.
@@ -45,7 +47,10 @@ public:
 ---
 
 # Question Revision
-### Binary Search Revision Report
+
+#
+
+## Binary Search Revision Report
 
 **Pattern:** Binary Search
 

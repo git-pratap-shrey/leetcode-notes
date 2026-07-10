@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public long subArrayRanges(int[] nums) {
         return  (long)sumSubarrayMax(nums)- sumSubarrayMins(nums);
@@ -93,6 +94,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Monotonic Stack. The problem is decomposed into calculating $\sum \text{max(subarray)} - \sum \text{min(subarray)}$. The code calculates the contribution of each element by finding the range $[L, R]$ where the current element is the minimum/maximum.
 - **Optimality**: Optimal. The time complexity is linear, which is the best possible for this problem.
@@ -118,7 +120,10 @@ class Solution {
 ---
 
 # Question Revision
-### Sum of Subarray Ranges
+
+#
+
+## Sum of Subarray Ranges
 
 **Pattern:** Monotonic Stack
 

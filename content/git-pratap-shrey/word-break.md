@@ -6,7 +6,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool fn(string& s, unordered_set<string>& hash, vector<int>& dp, int left) {
@@ -34,6 +35,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Top-down Dynamic Programming (Memoization).
 *   **Optimality:** Optimal. The approach explores partitions of the string and uses memoization to store the result of each suffix starting index, avoiding redundant subproblem computations.
@@ -58,9 +60,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Word Break (LeetCode 139)
+
+#
+
+## Word Break (LeetCode 139)
 
 **Pattern:** Dynamic Programming
 

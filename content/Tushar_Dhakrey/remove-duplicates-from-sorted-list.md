@@ -7,7 +7,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -39,6 +40,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique**: Iterative traversal of a singly linked list.
 *   **Optimality**: Optimal. Since the list is already sorted, duplicates are guaranteed to be adjacent. A single pass is the theoretical lower bound for this problem.
@@ -62,9 +64,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Remove Duplicates from Sorted List
+
+#
+
+## Revision Report: Remove Duplicates from Sorted List
 
 **Pattern:** Linked List Traversal / Pointer Manipulation
 

@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int compare(const void* a, const void* b) {
     return (*(int*)a - *(int*)b);
 }
@@ -21,7 +22,6 @@ void nextPermutation(int* nums, int numsSize) {
             ind=i;
             break;
         }
-
 
     }
 
@@ -51,6 +51,7 @@ void nextPermutation(int* nums, int numsSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique**: Greedy algorithm based on the standard lexicographical permutation generation rule (finding the first decreasing element from the right, swapping it with the smallest element larger than it to its right, and sorting the remainder).
 *   **Optimality**: Suboptimal. While the logic is correct, the use of `qsort` for the tail end makes the solution $O(N \log N)$ instead of the optimal $O(N)$.
@@ -77,9 +78,11 @@ void nextPermutation(int* nums, int numsSize) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Next Permutation
+
+#
+
+## Revision Report: Next Permutation
 
 **Pattern:** Two Pointers / Greedy
 

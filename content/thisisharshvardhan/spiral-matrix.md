@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
@@ -54,6 +55,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Boundary Simulation using four pointers (`top`, `bottom`, `left`, `right`).
 - **Optimality**: Optimal. Each element of the matrix is visited exactly once.
@@ -76,7 +78,10 @@ public:
 ---
 
 # Question Revision
-### Spiral Matrix
+
+#
+
+## Spiral Matrix
 
 **Pattern:** Simulation / Boundary Management
 

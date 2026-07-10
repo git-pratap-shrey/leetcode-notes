@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int bfs(vector<vector<int>>& grid, queue<pair<int, int>> &q){
@@ -70,6 +71,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Breadth-First Search (BFS) using recursion to process level-by-level updates.
 *   **Optimality:** Optimal in terms of algorithmic logic (BFS is the standard approach), but the recursive implementation is unnecessary and risky for large grid sizes.
@@ -94,9 +96,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Rotting Oranges
+
+#
+
+## Revision Report: Rotting Oranges
 
 **Pattern:** Multi-Source Breadth-First Search (BFS)
 

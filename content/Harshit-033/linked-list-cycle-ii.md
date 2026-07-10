@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Hash Map (Hashing) to track visited nodes.
 *   **Optimality:** Suboptimal. Floyd’s Cycle-Finding Algorithm (Tortoise and Hare) provides the optimal solution by achieving constant space complexity.
@@ -61,9 +63,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Linked List Cycle II
+
+#
+
+## Revision Report: Linked List Cycle II
 
 **Pattern:** Two Pointers (Floyd’s Cycle-Finding Algorithm)
 

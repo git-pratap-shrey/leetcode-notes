@@ -5,7 +5,8 @@ date: "2026-04-29"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isHappy(int n) {
@@ -32,6 +33,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Cycle detection using a Hash Map.
 - **Optimality:** Optimal. The problem requires detecting if a sequence enters a loop or reaches 1; tracking seen elements is a standard way to achieve this.
@@ -59,7 +61,10 @@ public:
 ---
 
 # Question Revision
-### Happy Number
+
+#
+
+## Happy Number
 
 **Pattern:** Cycle Detection
 

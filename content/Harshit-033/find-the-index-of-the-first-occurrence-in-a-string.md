@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int strStr(string haystack, string needle) {
@@ -31,10 +32,10 @@ public:
         
 };
 
-
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Brute-force sliding window (naive pattern matching).
 - **Optimality:** Suboptimal. While sufficient for typical constraints where the needle is short, it does not achieve the linear time complexity of advanced algorithms like KMP (Knuth-Morris-Pratt) or Z-algorithm.
@@ -60,9 +61,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find the Index of the First Occurrence in a String
+
+#
+
+## Revision Report: Find the Index of the First Occurrence in a String
 
 **Pattern:** Sliding Window / String Matching (KMP)
 

@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string removeDuplicates(string s) {
@@ -36,6 +37,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Stack-based greedy approach.
 *   **Optimality:** Optimal in terms of logic, but implementation can be improved. Using a `std::string` as a stack (via `push_back` and `pop_back`) is more idiomatic and efficient than using `std::stack<char>` and reversing the result.
@@ -68,9 +70,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Remove All Adjacent Duplicates In String
+
+#
+
+## Revision Report: Remove All Adjacent Duplicates In String
 
 **Pattern:** Stack
 

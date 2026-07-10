@@ -7,7 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -67,6 +68,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Iterative pointer manipulation (In-place linked list reversal).
 *   **Optimality:** Optimal. The algorithm processes each node a constant number of times (once to count, once to reverse, once to relink), which is $O(n)$. It operates in $O(1)$ extra space.
@@ -91,9 +93,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Reverse Nodes in k-Group
+
+#
+
+## Revision Report: Reverse Nodes in k-Group
 
 **Pattern:** Linked List Manipulation (Dummy Node + Iterative Reversal)
 

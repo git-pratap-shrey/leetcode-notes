@@ -5,7 +5,8 @@ date: "2026-04-13"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
@@ -33,6 +34,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Hash Set based linear scan.
 - **Optimality**: Optimal. It ensures each element is processed at most twice (once during the set iteration and once during the sequence expansion), achieving linear time complexity.
@@ -60,7 +62,10 @@ public:
 ---
 
 # Question Revision
-### Longest Consecutive Sequence
+
+#
+
+## Longest Consecutive Sequence
 
 **Pattern:** Hashing (Set)
 

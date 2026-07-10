@@ -5,7 +5,8 @@ date: "2026-07-09"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int scoreOfString(String s) {
         int sum = 0;
@@ -19,6 +20,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Linear iteration (Single-pass greedy accumulation).
 - **Optimality:** Optimal. The problem requires calculating the absolute difference between every adjacent pair, which necessitates visiting every character at least once.
@@ -42,7 +44,10 @@ class Solution {
 ---
 
 # Question Revision
-### Revision Report: Score of a String
+
+#
+
+## Revision Report: Score of a String
 
 **Pattern:** Linear Scan / Iteration
 

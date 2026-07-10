@@ -1,4 +1,14 @@
---- title: "First Unique Character in a String" slug: first-unique-character-in-a-string date: "2026-06-08" ---  # My Solution ~~~class Solution {
+---
+title: "First Unique Character in a String"
+slug: first-unique-character-in-a-string
+date: "2026-06-08"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     int firstUniqChar(string s) {
         int ind=-1;
@@ -18,26 +28,43 @@ public:
         return ind;
         
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique:** Two-pass hash map (frequency counting).
 - **Optimality:** Optimal asymptotic time complexity. It correctly identifies the first unique character by decoupling the counting phase from the lookup phase.
 
 ## Complexity
+
 - **Time Complexity:** $O(n)$, where $n$ is the length of the string. The string is traversed twice.
 - **Space Complexity:** $O(1)$. Although an `unordered_map` is used, the number of unique keys is capped by the size of the character set (e.g., 26 for lowercase English or 256 for extended ASCII), making it constant regardless of input size.
 
 ## Efficiency Feedback
+
 - **Bottleneck:** `unordered_map` introduces unnecessary hashing overhead and memory allocation for this specific problem.
 - **Optimization:** Since the input consists of characters, using a fixed-size array `int freq[26]` (if lowercase only) or `int freq[256]` would significantly reduce runtime and memory overhead.
 
 ## Code Quality
+
 - **Readability:** Good. The logic is straightforward and easy to follow.
 - **Structure:** Moderate. The variable `ind` is initialized and assigned but serves no real purpose since the function returns immediately upon finding the result.
 - **Naming:** Moderate. `mp` is a generic abbreviation; `counts` or `freq` would be more descriptive.
 - **Concrete Improvements:**
     - Replace `unordered_map<char, int>` with `int count[256] = {0};`.
     - Remove the `ind` variable and return `i` directly in the loop; return `-1` at the end.
-    - Use `const string& s` in the function signature (if possible) to avoid potential copying, though not applicable in this specific LeetCode-style signature.  ---  # Question Revision ### First Unique Character in a String
+    - Use `const string& s` in the function signature (if possible) to avoid potential copying, though not applicable in this specific LeetCode-style signature.
+
+---
+
+# Question Revision
+
+#
+
+## First Unique Character in a String
 
 **Pattern:** Frequency Map / Hashing
 
@@ -56,4 +83,6 @@ Use nested loops to compare each character with every other character in the str
 The requirement for "uniqueness" across the entire string implies that local information (like a sliding window) is insufficient; you must first aggregate global counts.
 
 **Summary:** 
-Count all character frequencies first, then re-scan the string to find the first character with a count of one.  ---
+Count all character frequencies first, then re-scan the string to find the first character with a count of one.
+
+---

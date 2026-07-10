@@ -7,7 +7,8 @@ date: "2026-03-18"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
@@ -24,6 +25,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Hash mapping (bijective mapping). The code ensures that each character in `s` maps to a unique character in `t` and vice versa.
 *   **Optimality:** Optimal. It validates the bijection in a single pass.
@@ -48,9 +50,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Isomorphic Strings
+
+#
+
+## Revision Report: Isomorphic Strings
 
 **Pattern:** Hash Mapping (Bi-directional Mapping)
 

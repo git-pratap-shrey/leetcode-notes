@@ -5,7 +5,8 @@ date: "2026-06-24"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -32,6 +33,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive traversal leveraging the Binary Search Tree (BST) property.
 - **Optimality**: Optimal. The algorithm eliminates half of the remaining search space at each step, visiting only nodes along a single path from the root to the target or a leaf.
@@ -54,7 +56,10 @@ public:
 ---
 
 # Question Revision
-### Search in a Binary Search Tree
+
+#
+
+## Search in a Binary Search Tree
 
 **Pattern:** Binary Search (Tree-based)
 

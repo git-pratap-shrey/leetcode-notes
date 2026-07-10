@@ -7,7 +7,8 @@ date: "2026-03-16"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     long long countCommas(long long n) {
@@ -21,6 +22,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Digit counting based on powers of 1000. 
 - **Optimality:** The approach is **optimal**. It correctly counts the number of times a comma appears in numbers from 1 to $n$. A number $x$ has a comma if $x \ge 1000$, two commas if $x \ge 1,000,000$, etc. The logic `n - i + 1` calculates how many numbers in the range $[1, n]$ are at least $i$, effectively counting the $k$-th comma for all positions $k$.
@@ -57,9 +59,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Count Commas in Range II
+
+#
+
+## Revision Report: Count Commas in Range II
 
 **Pattern:** Digit DP (Combinatorics on Digits)
 

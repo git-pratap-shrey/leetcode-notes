@@ -7,7 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -52,6 +53,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Breadth-First Search (BFS) using a queue.
 *   **Optimality:** Optimal. It traverses each node exactly once. The zigzag order is handled by calculating the insertion index `ind` based on the current level's direction, avoiding the need for `std::deque` or `std::reverse`.
@@ -75,9 +77,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Binary Tree Zigzag Level Order Traversal
+
+#
+
+## Revision Report: Binary Tree Zigzag Level Order Traversal
 
 **Pattern:** Breadth-First Search (BFS) / Level Order Traversal
 

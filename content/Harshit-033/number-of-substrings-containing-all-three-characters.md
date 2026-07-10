@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int numberOfSubstrings(string s) {
@@ -68,6 +69,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Two-pointer / Sliding Window.
 - **Optimality**: Optimal. The algorithm processes each character of the string at most twice (once by pointer `j` and once by pointer `i`), resulting in linear time complexity.
@@ -94,7 +96,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Number of Substrings Containing All Three Characters
+
+#
+
+## Revision Report: Number of Substrings Containing All Three Characters
 
 **Pattern:** Sliding Window (Two Pointers)
 

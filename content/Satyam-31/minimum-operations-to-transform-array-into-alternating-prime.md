@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isPrime(int n)
@@ -46,6 +47,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Greedy. The code iterates through the array and increments each element one by one until the required condition (prime for even indices, composite for odd indices) is met.
 - **Optimality**: Optimal, assuming the only permitted operation is incrementing the value by 1. It finds the nearest valid integer $\ge$ the current value.
@@ -71,7 +73,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Minimum Operations to Transform Array into Alternating Prime
+
+#
+
+## Revision Report: Minimum Operations to Transform Array into Alternating Prime
 
 **Pattern:** Frequency Map / Greedy
 

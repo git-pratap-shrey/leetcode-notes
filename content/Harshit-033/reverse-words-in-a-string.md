@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 char* reverseWords(char* s) {
     int len = strlen(s);
     char* ans = (char*)malloc(sizeof(char) * (len + 1));
@@ -45,6 +46,7 @@ char* reverseWords(char* s) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique**: Two-pointer iteration (reverse scan). The code scans the input string from right to left, identifies words by skipping spaces, and copies them to a newly allocated result buffer.
 *   **Optimal**: No. While the logic is functionally correct in identifying words, it is suboptimal due to unnecessary heap allocation and redundant indexing.
@@ -69,9 +71,11 @@ char* reverseWords(char* s) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Reverse Words in a String
+
+#
+
+## Revision Report: Reverse Words in a String
 
 **Pattern:** Two Pointers / String Manipulation
 

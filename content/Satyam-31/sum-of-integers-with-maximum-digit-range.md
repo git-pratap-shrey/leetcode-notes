@@ -1,4 +1,14 @@
---- title: "Sum of Integers with Maximum Digit Range" slug: sum-of-integers-with-maximum-digit-range date: "2026-07-05" ---  # My Solution ~~~class Solution {
+---
+title: "Sum of Integers with Maximum Digit Range"
+slug: sum-of-integers-with-maximum-digit-range
+date: "2026-07-05"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     int digitrange(int num){
         if(num==0) return 0;
@@ -24,19 +34,28 @@ public:
         }
         return ans;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Two-pass iterative approach using a helper function for digit extraction.
 - **Optimality**: Optimal. Finding the global maximum range requires inspecting every element, and summing the elements requires a second pass (or tracking the sum during the first pass).
 
 ## Complexity
+
 - **Time Complexity**: $O(N \cdot D)$, where $N$ is the number of elements and $D$ is the maximum number of digits in an integer (constant for 32-bit integers, max $\approx 10$).
 - **Space Complexity**: $O(1)$ auxiliary space.
 
 ## Efficiency Feedback
+
 - **Redundant Computation**: The code calls `digitrange(x)` twice for elements that match the maximum range. While the cost is low, it is inefficient.
 - **Optimization**: One could maintain a running sum and the current maximum range in a single pass. If a new higher range is found, reset the sum to the current element; if a range equals the current maximum, add the element to the sum.
 
 ## Code Quality
+
 - **Readability**: Moderate. The logic is clear, but the lack of descriptive naming hinders immediate understanding.
 - **Structure**: Good. The helper function separates the digit logic from the accumulation logic.
 - **Naming**: Poor. 
@@ -44,7 +63,15 @@ public:
     - `mi`/`mx` $\rightarrow$ `minDigit`/`maxDigit`
     - `x` $\rightarrow$ `num`
     - `digitrange` $\rightarrow$ `getDigitRange` (should follow camelCase or snake_case consistently).
-- **Concrete Improvement**: The `if(num==0) return 0;` check is correct, but the loop `while(num > 0)` fails for negative integers. If the input can contain negative numbers, `abs(num)` should be used.  ---  # Question Revision ### Revision Report: Sum of Integers with Maximum Digit Range
+- **Concrete Improvement**: The `if(num==0) return 0;` check is correct, but the loop `while(num > 0)` fails for negative integers. If the input can contain negative numbers, `abs(num)` should be used.
+
+---
+
+# Question Revision
+
+#
+
+## Revision Report: Sum of Integers with Maximum Digit Range
 
 **Pattern:** Digit DP
 
@@ -66,4 +93,6 @@ Use Digit DP to count and sum numbers based on their digit properties. Define th
 Whenever a problem asks for a sum or count of numbers in a range $[low, high]$ based on properties of their individual digits, Digit DP is the required pattern.
 
 **Summary:** 
-Use Digit DP to track the min/max digits during number construction to isolate and sum integers with the largest digit spread.  ---
+Use Digit DP to track the min/max digits during number construction to isolate and sum integers with the largest digit spread.
+
+---

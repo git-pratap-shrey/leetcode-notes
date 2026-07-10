@@ -7,7 +7,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void duplicateZeros(vector<int>& arr) {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer approach (in-place modification).
 *   **Optimality:** Optimal. It performs the task in $O(N)$ time with $O(1)$ extra space, avoiding the $O(N)$ space required by a auxiliary array.
@@ -61,9 +63,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Duplicate Zeros
+
+#
+
+## Revision Report: Duplicate Zeros
 
 **Pattern:** Two Pointers (In-place modification)
 

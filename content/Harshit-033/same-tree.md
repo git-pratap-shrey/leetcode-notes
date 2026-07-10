@@ -5,7 +5,8 @@ date: "2026-04-21"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -73,6 +74,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive Depth-First Search (DFS).
 - **Optimality**: Suboptimal. The solution implements two separate recursive passes (`checkdepth` and `check`) to verify the tree structure and values. Since `check` already validates the structure (null checks) and the values, `checkdepth` is entirely redundant.
@@ -98,7 +100,10 @@ public:
 ---
 
 # Question Revision
-### LeetCode: Same Tree
+
+#
+
+## LeetCode: Same Tree
 
 **Pattern:** Recursion (DFS)
 

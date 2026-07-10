@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int trap(vector<int>& height) {
@@ -37,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer approach.
 *   **Optimality:** Optimal. It achieves the theoretical limit of $O(n)$ time and $O(1)$ extra space by processing the array from both ends and maintaining prefix/suffix maximums on the fly.
@@ -62,9 +64,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Trapping Rain Water Revision Report
+
+#
+
+## Trapping Rain Water Revision Report
 
 **Pattern:** Two Pointers (or Monotonic Stack)
 

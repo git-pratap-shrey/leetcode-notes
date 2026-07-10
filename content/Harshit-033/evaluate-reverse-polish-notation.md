@@ -5,7 +5,8 @@ date: "2026-06-18"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int solve(int a, int b, char c){
@@ -55,6 +56,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Stack-based evaluation.
 - **Optimality**: Optimal. Using a stack is the standard and most efficient way to evaluate postfix expressions.
@@ -80,7 +82,10 @@ public:
 ---
 
 # Question Revision
-### Evaluate Reverse Polish Notation
+
+#
+
+## Evaluate Reverse Polish Notation
 
 **Pattern:** Stack
 

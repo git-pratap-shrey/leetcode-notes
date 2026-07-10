@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class MinStack {
 public:
     stack<int> s;
@@ -63,6 +64,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Two-stack approach (main stack for data, auxiliary stack for min tracking).
 - **Optimality:** Optimal. It achieves $O(1)$ time complexity for all required operations by maintaining a non-increasing auxiliary stack.
@@ -118,9 +120,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Min Stack
+
+#
+
+## Revision Report: Min Stack
 
 **Pattern:** Stack / Auxiliary Data Structure
 

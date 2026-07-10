@@ -7,7 +7,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 bool search(int* nums, int numsSize, int target) {
     int mid;
     int low=0;
@@ -47,6 +48,7 @@ bool search(int* nums, int numsSize, int target) {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Modified Binary Search.
 - **Optimality**: Optimal. Handling duplicates in a rotated sorted array requires an $O(n)$ worst-case scenario, which this implementation handles correctly by shrinking the search space when `nums[low] == nums[mid] == nums[high]`.
@@ -71,9 +73,11 @@ bool search(int* nums, int numsSize, int target) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Search in Rotated Sorted Array II
+
+#
+
+## Revision Report: Search in Rotated Sorted Array II
 
 **Pattern:** Binary Search (Modified)
 

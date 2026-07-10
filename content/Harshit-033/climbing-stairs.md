@@ -5,7 +5,8 @@ date: "2026-05-01"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int fibbonaci(int x){
@@ -20,7 +21,6 @@ public:
         }
         return second;
 
-
     }
     int climbStairs(int n) {
         if (n <= 2) return n;
@@ -32,6 +32,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Iterative Dynamic Programming (Space-Optimized).
 - **Optimality**: Optimal. It computes the $n$-th value using the recurrence $f(n) = f(n-1) + f(n-2)$ without redundant calculations or extra memory.
@@ -56,7 +57,10 @@ public:
 ---
 
 # Question Revision
-### Climbing Stairs
+
+#
+
+## Climbing Stairs
 
 **Pattern:** Dynamic Programming / Fibonacci Sequence
 

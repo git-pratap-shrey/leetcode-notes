@@ -7,7 +7,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string trafficSignal(int timer) {
@@ -21,6 +22,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Simple conditional branching (if-else logic).
 *   **Optimality:** Optimal for the logic provided. The time complexity is $O(1)$ and space complexity is $O(1)$.
@@ -54,9 +56,11 @@ string trafficSignal(int timer) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Traffic Signal Color (Cyclic State)
+
+#
+
+## Revision Report: Traffic Signal Color (Cyclic State)
 
 **Pattern:** Modular Arithmetic / State Machine
 

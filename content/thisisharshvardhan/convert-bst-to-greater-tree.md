@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -37,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Reverse In-order Traversal (Right -> Node -> Left).
 *   **Optimality:** Optimal. It visits each node exactly once to accumulate the running sum and update values in-place, which is the standard approach for this problem.
@@ -70,9 +72,11 @@ TreeNode* convertBST(TreeNode* root) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Convert BST to Greater Tree
+
+#
+
+## Revision Report: Convert BST to Greater Tree
 
 **Pattern:** Reverse In-Order Traversal (Right-Root-Left)
 

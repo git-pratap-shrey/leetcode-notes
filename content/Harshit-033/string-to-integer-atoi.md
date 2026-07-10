@@ -7,8 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~c
-
+~~~
+c
 
 int myAtoi(char* s) {
 
@@ -40,6 +40,7 @@ int myAtoi(char* s) {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Iterative state processing (linear scan).
 - **Optimality**: Optimal. The solution processes the string in a single pass ($O(N)$) and uses constant extra space.
@@ -66,9 +67,11 @@ int myAtoi(char* s) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: String to Integer (atoi)
+
+#
+
+## Revision Report: String to Integer (atoi)
 
 **Pattern:** State Machine / Iterative Parsing
 

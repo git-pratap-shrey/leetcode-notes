@@ -1,4 +1,14 @@
---- title: "Find All Anagrams in a String" slug: find-all-anagrams-in-a-string date: "2026-06-15" ---  # My Solution ~~~class Solution {
+---
+title: "Find All Anagrams in a String"
+slug: find-all-anagrams-in-a-string
+date: "2026-06-15"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     bool is_equal(int (&hashP)[26], int (&windowHash)[26]) {
         for (int i = 0; i < 26; i++) {
@@ -41,25 +51,42 @@ public:
 
         return solution;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Sliding Window with frequency arrays (fixed-size hash maps).
 - **Optimality**: Optimal. The sliding window ensures each character in `s` is processed at most twice.
 
 ## Complexity
+
 - **Time Complexity**: $O(26 \cdot |s|)$, which simplifies to $O(|s|)$. The constant factor 26 comes from the `is_equal` array comparison performed at each window shift.
 - **Space Complexity**: $O(1)$ auxiliary space. The frequency arrays are fixed at size 26 regardless of the input size (excluding the output vector).
 
 ## Efficiency Feedback
+
 - **Runtime**: The current implementation is efficient for the given constraints.
 - **Optimization**: The $O(26)$ comparison can be reduced to $O(1)$ by maintaining a `matches` integer variable that tracks how many characters in the current window have the exact frequency required by `p`. When a character frequency reaches the target, `matches` increments; when it leaves the target, it decrements. This would eliminate the `is_equal` loop.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is linear and easy to follow.
 - **Structure**: Good. The use of a helper function for array comparison keeps the main loop clean.
 - **Naming**: Moderate. `hashP` and `windowHash` are descriptive enough, though `j` could be named `start` for better clarity.
 - **Concrete Improvements**:
     - The use of `int (&hashP)[26]` (reference to array) is a professional touch that avoids array-to-pointer decay and unnecessary copying.
-    - Ensure `s.size()` and `p.size()` are cast to `int` if working in environments where `size_t` (unsigned) might cause underflow/comparison warnings, though not an issue here due to the `p.size() > s.size()` guard.  ---  # Question Revision ### Find All Anagrams in a String
+    - Ensure `s.size()` and `p.size()` are cast to `int` if working in environments where `size_t` (unsigned) might cause underflow/comparison warnings, though not an issue here due to the `p.size() > s.size()` guard.
+
+---
+
+# Question Revision
+
+#
+
+## Find All Anagrams in a String
 
 **Pattern:** Sliding Window + Frequency Map
 
@@ -76,4 +103,6 @@ Maintain a frequency map for `p` and a sliding window of size $m$ over `s`. Inst
 The requirement for a "fixed-length substring" combined with "character frequency" signals a sliding window with incremental map updates.
 
 **Summary:** 
-Slide a window of size `p.length()` across `s`, updating character counts at the boundaries to identify anagrams in linear time.  ---
+Slide a window of size `p.length()` across `s`, updating character counts at the boundaries to identify anagrams in linear time.
+
+---

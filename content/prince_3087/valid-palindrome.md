@@ -7,7 +7,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
  bool isalpha(char ch){
@@ -42,6 +43,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer approach.
 *   **Optimality:** Optimal. It performs a single pass over the string in-place without requiring extra memory.
@@ -74,9 +76,11 @@ bool isAlphanumeric(char ch) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Valid Palindrome
+
+#
+
+## Revision Report: Valid Palindrome
 
 **Pattern:** Two Pointers
 

@@ -1,4 +1,14 @@
---- title: "Combination Sum" slug: combination-sum date: "2026-06-27" ---  # My Solution ~~~class Solution {
+---
+title: "Combination Sum"
+slug: combination-sum
+date: "2026-06-27"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     void fun(vector<int>& candidates , int n , int target , vector<int>&diary , vector<vector<int>>&res , int sum,int idx){
         if(idx == n){
@@ -28,19 +38,28 @@ public:
         return res;
         
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Backtracking (Recursive DFS).
 - **Optimality**: Optimal in terms of algorithmic class. Since the problem requires generating all possible combinations, an exponential time complexity is unavoidable.
 
 ## Complexity
+
 - **Time Complexity**: $O(N^{\frac{T}{M}})$, where $N$ is the number of candidates, $T$ is the target value, and $M$ is the minimum value among candidates. The depth of the recursion tree can reach $T/M$.
 - **Space Complexity**: $O(\frac{T}{M})$ to account for the recursion stack and the `diary` vector storing the current combination.
 
 ## Efficiency Feedback
+
 - **Pruning**: The code performs basic pruning with `if(sum + candidates[idx] <= target)`. However, it does not sort the `candidates` array first. If the array were sorted, the algorithm could stop exploring further candidates as soon as `sum + candidates[idx] > target` is encountered, rather than continuing to check subsequent indices.
 - **Parameter Overhead**: Passing `n` and `target` by value is fine, but `sum` is tracked manually. Subtracting/adding to `sum` is efficient, but the base case `if(idx == n)` is only reached after all elements are processed, which is slightly less efficient than returning immediately when `sum == target`.
 
 ## Code Quality
+
 - **Readability**: Moderate. The logic is straightforward, but the naming is non-standard.
 - **Structure**: Good. Standard backtracking template (Choose $\rightarrow$ Explore $\rightarrow$ Un-choose).
 - **Naming**: Poor. 
@@ -48,7 +67,15 @@ public:
     - `diary`: Unconventional name for a path or current combination buffer (e.g., `currentCombination` or `path`).
 - **Improvements**:
     - Sort `candidates` and implement a `break` condition to prune the search space.
-    - Change the base case to `if (sum == target)` to return earlier and avoid unnecessary recursive calls once the target is met.  ---  # Question Revision ### Combination Sum
+    - Change the base case to `if (sum == target)` to return earlier and avoid unnecessary recursive calls once the target is met.
+
+---
+
+# Question Revision
+
+#
+
+## Combination Sum
 
 **Pattern:** Backtracking
 
@@ -67,4 +94,6 @@ Use a Depth-First Search (DFS) backtracking algorithm to explore the decision tr
 
 **The 'Aha' Moment:** The requirement to find "all unique combinations" where elements can be reused signals a state-space search using backtracking with a fixed starting index.
 
-**Summary:** Use backtracking with a `start` index to explore candidate combinations while allowing the same element to be picked repeatedly.  ---
+**Summary:** Use backtracking with a `start` index to explore candidate combinations while allowing the same element to be picked repeatedly.
+
+---

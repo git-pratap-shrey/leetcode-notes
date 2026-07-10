@@ -7,7 +7,8 @@ date: "2026-04-02"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string removeOccurrences(string s, string part) {
@@ -20,6 +21,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Simulation using string search and erase.
 - **Optimality:** Suboptimal. The algorithm repeatedly scans the string from the beginning and performs $O(N)$ string shifts for every removal, leading to redundant work.
@@ -50,9 +52,11 @@ while((size_t pos = s.find(part)) != string::npos){
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Remove All Occurrences of a Substring
+
+#
+
+## Revision Report: Remove All Occurrences of a Substring
 
 **Pattern:** Stack-based Simulation (or String Manipulation)
 

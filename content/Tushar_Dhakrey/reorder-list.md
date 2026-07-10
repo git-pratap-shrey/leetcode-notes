@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -64,6 +65,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer technique for list partitioning, linked list reversal, and in-place pointer manipulation (merging).
 *   **Optimality:** Optimal. It achieves the reordering in $O(N)$ time and $O(1)$ extra space by modifying the existing nodes' `next` pointers.
@@ -88,9 +90,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Reorder List
+
+#
+
+## Revision Report: Reorder List
 
 **Pattern:** Linked List Manipulation (Fast/Slow Pointers + Reversal)
 

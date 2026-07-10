@@ -5,7 +5,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void solve(vector<int>& candidates, int target, vector<vector<int>>& ans, vector<int>& temp, int idx) {
@@ -32,6 +33,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Backtracking with sorting and pruning.
 - **Optimality**: Optimal. Sorting allows the algorithm to skip duplicate elements and terminate loops early when the current candidate exceeds the remaining target.
@@ -55,7 +57,10 @@ public:
 ---
 
 # Question Revision
-### Combination Sum II
+
+#
+
+## Combination Sum II
 
 **Pattern:** Backtracking with Sorting
 

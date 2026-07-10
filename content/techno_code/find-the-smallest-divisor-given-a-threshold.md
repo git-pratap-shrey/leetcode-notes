@@ -5,7 +5,8 @@ date: "2026-04-27"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isPossible(vector<int>& nums, int threshold, int divisor) {
@@ -43,6 +44,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Search on the Answer. The problem exhibits monotonicity: if a divisor $d$ satisfies the threshold, any divisor $d' > d$ will also satisfy it.
 - **Optimality**: Optimal. The search space for the divisor is $[1, \max(nums)]$, and each check takes linear time.
@@ -67,7 +69,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Find the Smallest Divisor Given a Threshold
+
+#
+
+## Revision Report: Find the Smallest Divisor Given a Threshold
 
 **Pattern:** Binary Search on Answer Space
 

@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -48,6 +49,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Hash Map (Hashing pointers).
 *   **Optimal:** No. While correct, it uses auxiliary space $O(N+M)$ when an $O(1)$ space solution exists.
@@ -80,9 +82,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Intersection of Two Linked Lists
+
+#
+
+## Revision Report: Intersection of Two Linked Lists
 
 **Pattern:** Two Pointers
 

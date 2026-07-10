@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int mirrorFrequency(string s) {
@@ -45,6 +46,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Frequency counting and mirrored index comparison.
 *   **Optimality:** Optimal. It performs a single pass over the string to populate frequency arrays, followed by a linear scan of the character/digit ranges, which is $O(N)$.
@@ -78,9 +80,11 @@ int mirrorFrequency(const string& s) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Mirror Frequency Distance
+
+#
+
+## Revision Report: Mirror Frequency Distance
 
 **Pattern:** Two Pointers / Sliding Window
 

@@ -7,7 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int mirrorFrequency(string s) {
@@ -45,6 +46,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Frequency hashing using `unordered_map`. The code counts the occurrences of each character, then iterates through the string to calculate the difference between the frequency of a character and its "mirror" counterpart (e.g., 'a' and 'z', '0' and '9').
 *   **Optimal:** Yes. The approach is optimal as it visits the string twice, achieving linear time complexity.
@@ -62,7 +64,9 @@ public:
 *   **Structure:** Moderate. The logic for resetting frequencies (`mp[r]=0` and `mp[s[i]]=0`) is redundant because the check `if(mp[s[i]]>0)` handles the exhaustion of pairs.
 *   **Naming:** Moderate. `m`, `c`, `ans`, and `r` are non-descriptive. `m` represents the frequency of the mirror char, and `c` represents the current char's frequency.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1.  **Replace `unordered_map`**: Use `int freq[128] = {0};` to improve performance.
 2.  **Logic Simplification**: You do not need to set the map values to `0` repeatedly. Simply process each unique character once or use a boolean array to track visited characters.
 3.  **Variable Naming**: Rename variables for clarity (e.g., `mirrorChar`, `mirrorFreq`, `totalDistance`).
@@ -91,9 +95,11 @@ for(char c : s) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Mirror Frequency Distance
+
+#
+
+## Revision Report: Mirror Frequency Distance
 
 **Pattern:** Frequency Map + Sliding Window (or Two-Pointer)
 

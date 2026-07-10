@@ -7,7 +7,8 @@ date: "2026-02-19"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string reverseByType(string s) {
@@ -39,6 +40,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pass categorization and reversal using auxiliary storage. 
 *   **Optimality:** Suboptimal. The logic correctly separates and reverses characters but performs unnecessary passes and uses redundant memory allocation.
@@ -65,9 +67,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Reverse Only Letters
+
+#
+
+## Revision Report: Reverse Only Letters
 
 **Pattern:** Two Pointers
 

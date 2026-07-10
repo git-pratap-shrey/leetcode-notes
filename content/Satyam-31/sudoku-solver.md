@@ -7,7 +7,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isSafe(vector<vector<char>>& board, int row, int col, char digit) {
@@ -73,6 +74,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Backtracking (recursive depth-first search).
 *   **Optimality:** Standard optimal approach for solving Sudoku by brute-forcing empty cells, though performance could be improved by using bitmasks to track constraints.
@@ -90,7 +92,9 @@ public:
 *   **Structure:** Good. The separation between the validator (`isSafe`) and the solver (`solve`) is clean.
 *   **Naming:** Good. `isSafe`, `solve`, and parameter names are intuitive and descriptive.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1.  **State Tracking:** Maintain `rowUsed[9][9]`, `colUsed[9][9]`, and `boxUsed[3][3][9]` boolean arrays. This allows you to check if a digit is safe in $O(1)$ without iterating over the board, which provides a noticeable speedup in tight recursive calls.
 2.  **Input Validation:** The current code assumes the input `board` is always valid or solvable. Adding a basic initial check or ensuring `solve` returns correctly is fine, but the function signature is correct for the standard LeetCode problem.
 3.  **Parameter Passing:** Passing `board` by reference is already correctly implemented, avoiding unnecessary copies.
@@ -98,9 +102,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Sudoku Solver
+
+#
+
+## Revision Report: Sudoku Solver
 
 **Pattern:** Backtracking (Constraint Satisfaction)
 

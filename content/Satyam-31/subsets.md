@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void solve(int i, vector<int>& nums, vector<int>& subset, vector<vector<int>>& ans) {
@@ -39,6 +40,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Recursive backtracking (generating the power set by making a binary choice for each element: include or exclude).
 - **Optimality:** Optimal. It visits each of the $2^n$ subsets exactly once, which is the theoretical lower bound for this problem.
@@ -62,9 +64,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Subsets
+
+#
+
+## Revision Report: Subsets
 
 **Pattern:** Backtracking / Bit Manipulation
 

@@ -7,7 +7,8 @@ date: "2026-03-29"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int minCostClimbingStairs(vector<int>& cost) {
@@ -24,6 +25,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique**: Dynamic Programming (Bottom-up).
 *   **Optimality**: Optimal. It correctly computes the minimum cost to reach each step by considering the two possible preceding steps.
@@ -57,9 +59,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Min Cost Climbing Stairs
+
+#
+
+## Revision Report: Min Cost Climbing Stairs
 
 **Pattern:** Dynamic Programming (Bottom-Up)
 

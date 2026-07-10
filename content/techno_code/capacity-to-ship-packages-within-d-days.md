@@ -5,7 +5,8 @@ date: "2026-04-28"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int findDays(vector<int>& weights, int cap) {
@@ -45,6 +46,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Search on Answer combined with a Greedy simulation.
 - **Optimality**: Optimal. The problem exhibits monotonicity (if capacity $C$ works, any capacity $> C$ also works), making binary search the most efficient approach.
@@ -69,7 +71,10 @@ public:
 ---
 
 # Question Revision
-### Capacity To Ship Packages Within D Days
+
+#
+
+## Capacity To Ship Packages Within D Days
 
 **Pattern:** Binary Search on Answer
 

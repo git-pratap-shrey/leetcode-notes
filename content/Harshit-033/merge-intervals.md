@@ -7,7 +7,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 /**
  * Return an array of arrays of size *returnSize.
  * The sizes of the arrays are returned as *returnColumnSizes array.
@@ -63,6 +64,7 @@ int** merge(int** intervals, int intervalsSize, int* intervalsColSize, int* retu
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Sorting followed by a single-pass linear scan (Greedy approach).
 *   **Optimality:** Optimal. Sorting is required to process intervals in linear order, and merging can be done in one pass thereafter.
@@ -88,9 +90,11 @@ int** merge(int** intervals, int intervalsSize, int* intervalsColSize, int* retu
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Merge Intervals
+
+#
+
+## Revision Report: Merge Intervals
 
 **Pattern:** Sorting + Greedy (Sweep Line)
 

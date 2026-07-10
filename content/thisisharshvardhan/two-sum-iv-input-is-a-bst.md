@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -50,6 +51,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** In-order traversal to flatten the BST into a sorted array, followed by the two-pointer technique.
 *   **Optimality:** Optimal in terms of asymptotic time complexity, though space complexity could be improved from $O(N)$ to $O(H)$ using an iterator-based approach (BST iterator).
@@ -74,9 +76,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Two Sum IV - Input is a BST
+
+#
+
+## Revision Report: Two Sum IV - Input is a BST
 
 **Pattern:** In-order Traversal + Two Pointers (or Hash Set)
 

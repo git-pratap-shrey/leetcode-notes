@@ -5,7 +5,8 @@ date: "2026-04-19"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -27,8 +28,6 @@ public:
         }
         queue<TreeNode*> q;
         q.push(root);
-
-
 
         while(!q.empty()){
 
@@ -55,6 +54,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Breadth-First Search (BFS) / Level-Order Traversal.
 - **Optimality**: Optimal. The algorithm visits every node exactly once to determine the total number of levels.
@@ -78,7 +78,10 @@ public:
 ---
 
 # Question Revision
-### Maximum Depth of Binary Tree
+
+#
+
+## Maximum Depth of Binary Tree
 
 **Pattern:** DFS / Recursion
 

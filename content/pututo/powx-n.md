@@ -5,7 +5,8 @@ date: "2026-03-31"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     double solve(double x,long long n){
@@ -32,6 +33,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Exponentiation (Exponentiation by Squaring) using recursion.
 - **Optimality**: Optimal. It reduces the number of multiplications from $O(n)$ to $O(\log n)$.
@@ -55,7 +57,10 @@ public:
 ---
 
 # Question Revision
-### Pow(x, n)
+
+#
+
+## Pow(x, n)
 
 **Pattern:** Divide and Conquer (Binary Exponentiation)
 

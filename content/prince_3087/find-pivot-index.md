@@ -7,7 +7,8 @@ date: "2026-03-27"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int pivotIndex(vector<int>& nums) {
@@ -33,6 +34,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique:** Prefix sum (accumulative sum comparison).
 * **Optimality:** Optimal. It uses two passes: one to calculate the total sum and one to compare left/right segments in $O(1)$ time per index.
@@ -57,9 +59,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find Pivot Index
+
+#
+
+## Revision Report: Find Pivot Index
 
 **Pattern:** Prefix Sum / Running Sum
 

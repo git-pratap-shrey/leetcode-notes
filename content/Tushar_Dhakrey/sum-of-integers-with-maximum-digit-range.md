@@ -1,4 +1,14 @@
---- title: "Sum of Integers with Maximum Digit Range" slug: sum-of-integers-with-maximum-digit-range date: "2026-07-05" ---  # My Solution ~~~class Solution {
+---
+title: "Sum of Integers with Maximum Digit Range"
+slug: sum-of-integers-with-maximum-digit-range
+date: "2026-07-05"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
     public int maxDigitRange(int[] nums) {
         int maxrange = -1;
         int sum =0;
@@ -26,19 +36,28 @@
         }
         return sum;
     }
-} - java~~~  # Submission Review ## Approach
+}
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique:** Iterative digit extraction. The code iterates through the array, calculates the digit range (max digit - min digit) for each number, and maintains a running sum of elements that share the current maximum range.
 - **Optimality:** Optimal. Every element must be visited, and every digit of every element must be inspected to determine the range.
 
 ## Complexity
+
 - **Time Complexity:** $O(N \cdot \log_{10}(M))$, where $N$ is the number of elements in the array and $M$ is the maximum value of an element.
 - **Space Complexity:** $O(1)$ as only a few integer variables are used regardless of input size.
 
 ## Efficiency Feedback
+
 - **Runtime:** The complexity is minimal.
 - **Edge Case Bug:** The logic `while(temp > 0)` fails if an element in `nums` is `0`. In such cases, the loop is skipped, `smallest` remains `9` and `largest` remains `0`, resulting in a range of `-9`. This will lead to incorrect results if $0$ is the only element or if other elements have ranges smaller than $-9$ (though the latter is impossible).
 
 ## Code Quality
+
 - **Readability:** Moderate. The logic is straightforward, but the handling of the `maxrange` update is slightly verbose.
 - **Structure:** Moderate. The `if(range < maxrange) continue;` block is redundant and adds unnecessary noise to the control flow.
 - **Naming:** Good. Variables like `maxrange`, `smallest`, and `largest` clearly communicate their purpose.
@@ -54,7 +73,15 @@
        sum += num;
    }
    ```
-3. **Negative Numbers:** If the input can contain negative integers, `temp = Math.abs(num)` should be used to avoid issues with the modulo operator.  ---  # Question Revision ### Revision Report: Sum of Integers with Maximum Digit Range
+3. **Negative Numbers:** If the input can contain negative integers, `temp = Math.abs(num)` should be used to avoid issues with the modulo operator.
+
+---
+
+# Question Revision
+
+#
+
+## Revision Report: Sum of Integers with Maximum Digit Range
 
 **Pattern:** Digit DP (Dynamic Programming)
 
@@ -75,4 +102,6 @@ Use Digit DP to count and sum numbers satisfying the digit range constraint. Def
 When a problem asks for a sum of integers in a range $[L, R]$ based on properties of their individual digits, it is almost always a Digit DP problem.
 
 **Summary:** 
-Use Digit DP to track min/max digits and propagate both count and sum through the state transitions to avoid iterating over the range.  ---
+Use Digit DP to track min/max digits and propagate both count and sum through the state transitions to avoid iterating over the range.
+
+---

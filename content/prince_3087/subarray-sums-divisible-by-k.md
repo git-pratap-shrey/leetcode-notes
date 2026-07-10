@@ -7,7 +7,8 @@ date: "2026-03-28"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int subarraysDivByK(vector<int>& nums, int k) {
@@ -32,6 +33,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Prefix sum with hash map (frequency array) to track modular remainders.
 *   **Optimality:** Optimal. The problem requires checking subarray sums $(sum[j] - sum[i]) \pmod k = 0$, which is equivalent to $sum[j] \pmod k = sum[i] \pmod k$. This approach does this in a single pass.
@@ -72,9 +74,11 @@ int subarraysDivByK(vector<int>& nums, int k) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Subarray Sums Divisible by K
+
+#
+
+## Revision Report: Subarray Sums Divisible by K
 
 **Pattern:** Prefix Sum + Hash Map (Remainder Theorem)
 

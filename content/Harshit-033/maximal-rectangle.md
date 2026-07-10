@@ -5,7 +5,8 @@ date: "2026-04-16"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     
@@ -60,7 +61,6 @@ public:
         return maxarea(arr, i, len);
     }
 
-
     int maximalRectangle(vector<vector<char>>& matrix) {
         vector<int> arr(matrix[0].size(), 0);
 
@@ -76,6 +76,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Monotonic Stack + Histogram conversion.
 - **Optimality**: Optimal. The solution converts each row into a histogram representing the height of consecutive '1's and solves the "Largest Rectangle in Histogram" problem for each row.
@@ -104,7 +105,10 @@ public:
 ---
 
 # Question Revision
-### Maximal Rectangle
+
+#
+
+## Maximal Rectangle
 
 **Pattern:** Monotonic Stack / Histogram Transformation
 

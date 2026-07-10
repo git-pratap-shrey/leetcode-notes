@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int dfs(vector<vector<int>>& grid, vector<vector<bool>>& dp, int i, int j) {
@@ -15,7 +16,6 @@ public:
             return 0;
         }
         // cout<<i<<" "<<j<<"->"<<grid[i][j]<<endl;
-
 
         grid[i][j] = 0;
         dp[i][j] = 1;
@@ -44,6 +44,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Depth-First Search (DFS) for graph traversal to compute connected component sizes.
 *   **Optimality:** Optimal in terms of algorithmic logic, but the implementation is redundant (see Efficiency).
@@ -61,7 +62,9 @@ public:
 *   **Structure:** Moderate. The recursion logic is standard, but the `if` checks in `dfs` could be cleaner by handling negative bounds explicitly (current code relies on implicit behavior if `i-1` or `j-1` is passed, but the base case `i >= grid.size()` fails to account for `i < 0`).
 *   **Naming:** Moderate. `MaxIslandArea` follows PascalCase, while the rest of the function uses camelCase. Stick to one convention (typically camelCase for variables).
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1.  **Remove the `dp` table:** Rely solely on the `grid[i][j] = 0` modification to mark visited nodes.
 2.  **Fix Bound Checks:** Update the base case to handle negative indices safely:
     ```cpp
@@ -74,9 +77,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Max Area of Island
+
+#
+
+## Revision Report: Max Area of Island
 
 **Pattern:** Depth-First Search (DFS) / Graph Traversal
 

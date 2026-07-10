@@ -5,7 +5,8 @@ date: "2026-04-20"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int findFirst(vector<int>& nums, int target) {
@@ -59,6 +60,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Search. The solution implements two separate binary search passes: one to find the leftmost (first) occurrence and one to find the rightmost (last) occurrence of the target.
 - **Optimality**: Optimal. Binary search is the most efficient way to search a sorted array.
@@ -83,7 +85,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Find First and Last Position of Element in Sorted Array
+
+#
+
+## Revision Report: Find First and Last Position of Element in Sorted Array
 
 **Pattern:** Binary Search (Boundary Search)
 

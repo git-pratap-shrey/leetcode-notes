@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -48,6 +49,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Depth-First Search (DFS) traversal.
 *   **Optimality:** Optimal. It visits each node exactly once to track the maximum depth and accumulate the sum of values at that depth.
@@ -72,9 +74,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Deepest Leaves Sum
+
+#
+
+## Revision Report: Deepest Leaves Sum
 
 **Pattern:** Breadth-First Search (BFS) / Level-Order Traversal
 

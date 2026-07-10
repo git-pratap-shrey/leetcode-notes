@@ -5,7 +5,8 @@ date: "2026-04-16"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int subsum(vector<int>& nums, int goal){
@@ -37,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Sliding Window (Two Pointers).
 - **Logic**: The solution uses a helper function `subsum` to calculate the number of subarrays with a sum **at most** `goal`. The exact count for `goal` is derived using the principle: $\text{count}(\text{sum} = \text{goal}) = \text{count}(\text{sum} \le \text{goal}) - \text{count}(\text{sum} \le \text{goal} - 1)$.
@@ -62,7 +64,10 @@ public:
 ---
 
 # Question Revision
-### Binary Subarrays With Sum
+
+#
+
+## Binary Subarrays With Sum
 
 **Pattern:** Sliding Window (Two Pointers)
 

@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     string makeGood(string s) {
@@ -24,7 +25,6 @@ public:
            }
         
 
-
         }
         string res = "";
         while(!st.empty()){
@@ -40,6 +40,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Stack-based simulation. It uses a stack to keep track of characters and removes pairs that satisfy the "bad" condition (same letter, different case) in a single pass.
 - **Optimality**: Optimal. Each character is pushed and popped at most once.
@@ -65,7 +66,10 @@ public:
 ---
 
 # Question Revision
-### Make The String Great
+
+#
+
+## Make The String Great
 
 **Pattern:** Stack
 

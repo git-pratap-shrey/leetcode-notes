@@ -5,7 +5,8 @@ date: "2026-04-13"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
@@ -33,6 +34,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Hash Set. The code uses an `unordered_set` to store all numbers and identifies the start of a sequence by checking if `num - 1` exists. It then counts the length of the sequence starting from that element.
 - **Optimality**: Optimal. This approach ensures each element is processed at most twice, achieving linear time complexity.
@@ -60,7 +62,10 @@ public:
 ---
 
 # Question Revision
-### Longest Consecutive Sequence
+
+#
+
+## Longest Consecutive Sequence
 
 **Pattern:** Hash Set
 

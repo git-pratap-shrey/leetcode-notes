@@ -1,4 +1,14 @@
---- title: "Two Sum" slug: two-sum date: "2026-07-08" ---  # My Solution ~~~class Solution {
+---
+title: "Two Sum"
+slug: two-sum
+date: "2026-07-08"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         int n=nums.size();
@@ -13,11 +23,18 @@ public:
         return{-1,-1};
         
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Single-pass Hash Map.
 - **Optimality**: Optimal. It achieves the best possible time complexity for an unsorted array by trading space for time.
 
 ## Complexity
+
 - **Time Complexity**: $O(n)$ — Each element is visited once, and `unordered_map` lookups/insertions are $O(1)$ on average.
 - **Space Complexity**: $O(n)$ — In the worst case, all elements are stored in the map before a pair is found.
 
@@ -26,12 +43,21 @@ public:
 - Using `unordered_map` (hash table) instead of `map` (red-black tree) ensures linear time complexity rather than $O(n \log n)$.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is concise and easy to follow.
 - **Structure**: Good. Standard competitive programming structure.
 - **Naming**: Moderate. While `mp` is a common shorthand for map, more descriptive names like `numToIndex` or `seen` would improve clarity. `need` is acceptable, though `complement` is the standard mathematical term.
 - **Concrete Improvements**:
     - Change `int n = nums.size();` to `size_t` or use the iterator/range-based loop to avoid signed/unsigned comparison warnings.
-    - `mp.count(need)` is a more concise alternative to `mp.find(need) != mp.end()`.  ---  # Question Revision ### Two Sum
+    - `mp.count(need)` is a more concise alternative to `mp.find(need) != mp.end()`.
+
+---
+
+# Question Revision
+
+#
+
+## Two Sum
 
 **Pattern:** Hash Map (Complement Search)
 
@@ -45,4 +71,6 @@ public:
 
 **The 'Aha' Moment:** The requirement to find a specific "missing" value to reach a target suggests using a hash map for $O(1)$ lookup of previously seen elements.
 
-**Summary:** Trade space for time by storing seen values in a map to find the target complement in a single pass.  ---
+**Summary:** Trade space for time by storing seen values in a map to find the target complement in a single pass.
+
+---

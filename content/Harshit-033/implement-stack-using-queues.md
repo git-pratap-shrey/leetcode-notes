@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class MyStack {
 public:
     queue<int> q;
@@ -21,7 +22,6 @@ public:
             q.pop();
 
         }
-
 
         
     }
@@ -55,6 +55,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Using a single queue to simulate a stack by rotating elements during insertion.
 *   **Optimality:** Optimal for a single-queue implementation. By pushing the new element and rotating the previous $N-1$ elements to the back, the queue maintains the last-in-first-out (LIFO) property at the front of the queue.
@@ -81,9 +82,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Implement Stack using Queues
+
+#
+
+## Revision Report: Implement Stack using Queues
 
 **Pattern:** Data Structure Transformation / Queue Simulation
 

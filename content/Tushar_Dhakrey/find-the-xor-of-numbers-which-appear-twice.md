@@ -5,7 +5,8 @@ date: "2026-04-28"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int duplicateNumbersXOR(int[] nums) {
         Set<Integer> seen = new HashSet<>();
@@ -25,6 +26,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Hashing. The solution uses a `HashSet` to detect duplicates and an `ArrayList` to store them before performing the XOR operation.
 - **Optimality**: Suboptimal. While the time complexity is asymptotically optimal, the use of an intermediate list is redundant.
@@ -54,7 +56,10 @@ class Solution {
 ---
 
 # Question Revision
-### Find the XOR of Numbers Which Appear Twice
+
+#
+
+## Find the XOR of Numbers Which Appear Twice
 
 **Pattern:** Hash Set / Frequency Tracking
 

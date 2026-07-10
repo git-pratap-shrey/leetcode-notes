@@ -7,7 +7,8 @@ date: "2026-04-13"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
@@ -37,7 +38,6 @@ public:
             }            
         }
 
-
         vector<int> ans;
 
         while(!s.empty()){
@@ -52,6 +52,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Stack-based simulation.
 *   **Correctness:** The logic is **flawed**. Processing the array from right-to-left (`i = size - 1` down to `0`) and using a stack to store results effectively reverses the simulation logic. Collisions only occur when a positive asteroid is to the left of a negative one; the current implementation attempts to resolve collisions in reverse, leading to incorrect state management for complex sequences (e.g., `[10, 2, -5]`).
@@ -88,9 +89,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Asteroid Collision
+
+#
+
+## Revision Report: Asteroid Collision
 
 **Pattern:** Stack
 

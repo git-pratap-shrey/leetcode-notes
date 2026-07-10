@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Recursive Depth-First Search (DFS).
 *   **Optimality:** Optimal for a recursive implementation. It visits each node exactly once and follows the postorder (left-right-root) traversal sequence.
@@ -61,9 +63,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Binary Tree Postorder Traversal
+
+#
+
+## Revision Report: Binary Tree Postorder Traversal
 
 **Pattern:** Depth-First Search (DFS) / Recursion & Iterative Stack
 

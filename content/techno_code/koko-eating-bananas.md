@@ -5,7 +5,8 @@ date: "2026-04-25"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     long long calculateHours(vector<int>& piles, int speed) {
@@ -40,6 +41,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Search on the answer space.
 - **Optimality**: Optimal. The relationship between eating speed and total hours is monotonic, making binary search the most efficient approach to find the minimum threshold.
@@ -65,7 +67,10 @@ public:
 ---
 
 # Question Revision
-### Koko Eating Bananas
+
+#
+
+## Koko Eating Bananas
 
 **Pattern:** Binary Search on Answer
 

@@ -5,7 +5,8 @@ date: "2026-04-20"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     private long mod = 1_000_000_007;
     public int countGoodNumbers(long n) {
@@ -29,6 +30,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Exponentiation (Exponentiation by Squaring).
 - **Optimality**: Optimal. The problem requires calculating large powers modulo $10^9+7$, and binary exponentiation reduces the time complexity from linear to logarithmic.
@@ -52,7 +54,10 @@ class Solution {
 ---
 
 # Question Revision
-### Count Good Numbers
+
+#
+
+## Count Good Numbers
 
 **Pattern:** Modular Exponentiation / Combinatorics
 

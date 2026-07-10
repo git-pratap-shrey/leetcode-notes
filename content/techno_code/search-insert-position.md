@@ -5,7 +5,8 @@ date: "2026-04-19"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
@@ -27,6 +28,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Search (Lower Bound implementation).
 - **Optimality**: Optimal. Searching a sorted array for a specific position is most efficiently done in logarithmic time.
@@ -52,7 +54,10 @@ public:
 ---
 
 # Question Revision
-### Search Insert Position
+
+#
+
+## Search Insert Position
 
 **Pattern:** Binary Search
 

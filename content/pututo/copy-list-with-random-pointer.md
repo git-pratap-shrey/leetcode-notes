@@ -1,4 +1,12 @@
---- title: "Copy List with Random Pointer" slug: copy-list-with-random-pointer date: "2026-07-03" ---  # My Solution ~~~/*
+---
+title: "Copy List with Random Pointer"
+slug: copy-list-with-random-pointer
+date: "2026-07-03"
+
+---
+
+# My Solution
+~~~/*
 // Definition for a Node.
 class Node {
 public:
@@ -46,7 +54,13 @@ public:
         }
         return dummy->next;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Interweaving (Three-pass algorithm). 
     1. Create copy nodes and insert them immediately after original nodes.
     2. Assign `random` pointers to copy nodes using the interweaved structure.
@@ -54,19 +68,30 @@ public:
 - **Optimality**: Optimal. It achieves the deep copy without requiring an auxiliary hash map for mapping original nodes to copies.
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$, where $N$ is the number of nodes. The list is traversed three times.
 - **Space Complexity**: $O(1)$ auxiliary space. While $O(N)$ space is used for the new list, no additional data structures proportional to the input size are used.
 
 ## Efficiency Feedback
+
 - **Runtime**: High efficiency due to linear scans and avoidance of hash map overhead.
 - **Memory**: Minimal overhead. The only minor inefficiency is the allocation of a `dummy` node on the heap (`new Node(0)`) which is not explicitly deleted, though negligible in competitive programming contexts.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is partitioned into three clear phases.
 - **Structure**: Good. The flow is sequential and easy to follow.
 - **Naming**: Good. Variables like `curr`, `copy`, and `copyCurr` clearly indicate their roles.
 - **Improvements**: 
-    - To avoid a minor memory leak, the `dummy` node could be allocated on the stack: `Node dummy(0);` and return `dummy.next`.  ---  # Question Revision ### Copy List with Random Pointer
+    - To avoid a minor memory leak, the `dummy` node could be allocated on the stack: `Node dummy(0);` and return `dummy.next`.
+
+---
+
+# Question Revision
+
+#
+
+## Copy List with Random Pointer
 
 **Pattern:** Interweaving / Node Manipulation
 
@@ -82,4 +107,6 @@ public:
 
 **The 'Aha' Moment:** By placing the clone directly next to the original, the original node acts as a pointer to its own clone, eliminating the need for an external map.
 
-**Summary:** Interweave clones with original nodes to use the existing list structure as a temporary mapping for random pointers.  ---
+**Summary:** Interweave clones with original nodes to use the existing list structure as a temporary mapping for random pointers.
+
+---

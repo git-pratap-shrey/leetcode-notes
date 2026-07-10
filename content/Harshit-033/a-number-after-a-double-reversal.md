@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 bool isSameAfterReversals(int num) {
 
     if(num==0) return true;
@@ -19,6 +20,7 @@ bool isSameAfterReversals(int num) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Mathematical observation (Greedy/Constant time logic).
 *   **Optimality:** Optimal. The problem relies on the property that reversing an integer $x$ and then reversing it again returns $x$ if and only if there are no trailing zeros (unless $x=0$).
@@ -40,9 +42,11 @@ bool isSameAfterReversals(int num) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: A Number After a Double Reversal
+
+#
+
+## Revision Report: A Number After a Double Reversal
 
 **Pattern:** Mathematical Property / Digit Manipulation
 

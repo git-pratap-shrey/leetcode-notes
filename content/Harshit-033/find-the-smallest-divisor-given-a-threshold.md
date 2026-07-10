@@ -7,7 +7,8 @@ date: "2026-04-03"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 long long int comp(int* nums, int numsSize,long long int mid){
     long long int count=0;
     for(int i=0;i<numsSize;i++){
@@ -15,7 +16,6 @@ long long int comp(int* nums, int numsSize,long long int mid){
     }
     return count;
 }
-
 
 int smallestDivisor(int* nums, int numsSize, int threshold) {
     long long int min=1;
@@ -46,6 +46,7 @@ int smallestDivisor(int* nums, int numsSize, int threshold) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Binary Search on the Answer.
 *   **Optimality:** Optimal. The search space is monotonic; as the divisor increases, the sum of divisions decreases. $O(N \log M)$ is the standard optimal approach for this problem ($N$ = array size, $M$ = maximum element).
@@ -70,9 +71,11 @@ int smallestDivisor(int* nums, int numsSize, int threshold) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find the Smallest Divisor Given a Threshold
+
+#
+
+## Revision Report: Find the Smallest Divisor Given a Threshold
 
 **Pattern:** Binary Search on Answer (Monotonic Function)
 

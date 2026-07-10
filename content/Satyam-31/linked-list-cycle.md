@@ -5,7 +5,8 @@ date: "2026-04-22"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -30,6 +31,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Floyd's Cycle-Finding Algorithm (Tortoise and Hare).
 - **Optimality:** Optimal. It detects cycles without needing extra memory for visited nodes.
@@ -54,7 +56,10 @@ public:
 ---
 
 # Question Revision
-### Linked List Cycle
+
+#
+
+## Linked List Cycle
 
 **Pattern:** Two Pointers (Fast & Slow)
 

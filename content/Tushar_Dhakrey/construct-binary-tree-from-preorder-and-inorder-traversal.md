@@ -1,4 +1,12 @@
---- title: "Construct Binary Tree from Preorder and Inorder Traversal" slug: construct-binary-tree-from-preorder-and-inorder-traversal date: "2026-06-26" ---  # My Solution ~~~/**
+---
+title: "Construct Binary Tree from Preorder and Inorder Traversal"
+slug: construct-binary-tree-from-preorder-and-inorder-traversal
+date: "2026-06-26"
+
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -33,21 +41,30 @@ class Solution {
         root.right = Tree(preorder,prestart+numleft+1,preend,inorder,inroot+1,inend, inmap);
         return root;
     }
-} - java~~~  # Submission Review ## Approach
+}
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Recursive Divide and Conquer. The algorithm identifies the root from the `preorder` array, finds its position in the `inorder` array to determine the size of the left and right subtrees, and recursively constructs them.
 - **Optimality**: Optimal. Using a `HashMap` to store `inorder` indices reduces the search time for the root from $O(N)$ to $O(1)$ per node.
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$ — Each node is visited exactly once, and map lookups are constant time.
 - **Space Complexity**: $O(N)$ — The `HashMap` stores all $N$ nodes, and the recursion stack takes $O(H)$ space (where $H$ is tree height, $O(N)$ in the worst case).
 
 ## Efficiency Feedback
+
 - **Logic Error**: There is a critical bug in the recursive call for the left subtree:
   `root.left = Tree(..., prestart+1, preend+numleft, ...);`
   The `preend` parameter for the left child should be `prestart + numleft`, not `preend + numleft`. This will cause `ArrayIndexOutOfBoundsException` or incorrect tree construction.
 - **Performance**: Otherwise efficient. The use of indices instead of array slicing (e.g., `Arrays.copyOfRange`) prevents unnecessary memory allocation.
 
 ## Code Quality
+
 - **Readability**: Moderate. The logic is straightforward, but naming is poor.
 - **Structure**: Good. Logic is correctly split between an initialization method and a recursive helper.
 - **Naming**: Poor.
@@ -56,7 +73,15 @@ class Solution {
 - **Improvements**:
     - Fix the index bug: `preend + numleft` $\rightarrow$ `prestart + numleft`.
     - Rename the helper method to `build` or `helper`.
-    - Use `final` for the map to indicate it is not modified after initialization.  ---  # Question Revision ### Construct Binary Tree from Preorder and Inorder Traversal
+    - Use `final` for the map to indicate it is not modified after initialization.
+
+---
+
+# Question Revision
+
+#
+
+## Construct Binary Tree from Preorder and Inorder Traversal
 
 **Pattern:** Divide and Conquer / Recursive Tree Construction
 
@@ -78,4 +103,6 @@ Iteratively search for the current root's value in the inorder array to find the
 Preorder tells you **which** node is the root, while Inorder tells you **where** that root splits the left and right subtrees.
 
 **Summary:** 
-Use a HashMap to find the root's index in the inorder array and recursively partition the arrays to build subtrees.  ---
+Use a HashMap to find the root's index in the inorder array and recursively partition the arrays to build subtrees.
+
+---

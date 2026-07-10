@@ -7,7 +7,8 @@ date: "2026-03-29"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool checkSubarraySum(vector<int>& nums, int k) {
@@ -36,6 +37,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Prefix sum with Hash Map (modular arithmetic).
 *   **Optimality:** Optimal. It uses the property that if `(sum[i] - sum[j]) % k == 0`, then `sum[i] % k == sum[j] % k`. Storing the first occurrence index ensures the subarray length constraint ($\ge 2$) is met.
@@ -60,9 +62,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Continuous Subarray Sum
+
+#
+
+## Revision Report: Continuous Subarray Sum
 
 **Pattern:** Prefix Sums + Hash Map (Remainder Theorem)
 

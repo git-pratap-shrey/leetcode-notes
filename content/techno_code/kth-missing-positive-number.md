@@ -5,7 +5,8 @@ date: "2026-04-29"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int findKthPositive(vector<int>& arr, int k) {
@@ -30,6 +31,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary Search on indices.
 - **Optimality**: Optimal. Instead of linear scanning $O(N)$, it leverages the sorted property of the array to find the insertion point of the $k$-th missing number in $O(\log N)$.
@@ -52,7 +54,10 @@ public:
 ---
 
 # Question Revision
-### Kth Missing Positive Number
+
+#
+
+## Kth Missing Positive Number
 
 **Pattern:** Binary Search
 

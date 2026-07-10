@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public String largestOddNumber(String num) {
         int ind = -1;
@@ -24,6 +25,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Two-pointer/Linear Scan. The solution scans from the end of the string to find the rightmost odd digit to determine the boundary of the largest possible odd substring, then scans from the start to trim leading zeros.
 - **Optimality**: Suboptimal/Incorrect. While finding the rightmost odd digit is the correct strategy for this problem, **trimming leading zeros is typically incorrect** for this specific challenge (e.g., LeetCode 1903). The problem asks for the largest odd number that is a *substring*; the longest prefix ending at the last odd digit is the largest. Trimming zeros may fail test cases expecting the exact substring.
@@ -62,7 +64,10 @@ public String largestOddNumber(String num) {
 ---
 
 # Question Revision
-### Largest Odd Number in String
+
+#
+
+## Largest Odd Number in String
 
 **Pattern:** Right-to-Left Scan (Greedy)
 

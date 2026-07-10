@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> findGoodIntegers(int n) {
@@ -45,6 +46,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Brute force/Enumeration using a hash map to store sums of pairs of cubes.
 *   **Optimal:** No. The approach is conceptually correct for finding integers expressible as $a^3 + b^3$ in multiple ways, but the implementation is fundamentally flawed for the likely intended problem constraints (usually $N$ up to $10^6$ or higher). It uses $O(N^{2/3})$ space unnecessarily and performs an unoptimized search.
@@ -70,9 +72,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Integers With Multiple Sum of Two Cubes
+
+#
+
+## Revision Report: Integers With Multiple Sum of Two Cubes
 
 **Pattern:** Hash Map / Frequency Counting
 

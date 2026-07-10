@@ -7,7 +7,8 @@ date: "2026-03-31"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -35,6 +36,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Iterative pointer manipulation.
 - **Optimality:** Optimal. It traverses the list exactly once and modifies pointers in place without requiring extra auxiliary data structures.
@@ -56,9 +58,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Reverse Linked List
+
+#
+
+## Revision Report: Reverse Linked List
 
 **Pattern:** Iterative Pointer Manipulation
 

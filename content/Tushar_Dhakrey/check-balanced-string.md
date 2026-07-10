@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public boolean isBalanced(String num) {
         int evensum = 0;
@@ -32,6 +33,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Iterative accumulation (Linear Scan).
 *   **Optimality:** Optimal. The problem requires inspecting each digit at least once, and this approach does so in a single pass $O(N)$ with $O(1)$ auxiliary space.
@@ -70,9 +72,11 @@ public boolean isBalanced(String num) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Check Balanced String
+
+#
+
+## Revision Report: Check Balanced String
 
 **Pattern:** Iterative Index Tracking
 

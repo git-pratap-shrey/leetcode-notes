@@ -7,7 +7,8 @@ date: "2026-02-24"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
 int f(int a){
@@ -50,6 +51,7 @@ int f(int a){
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Digit extraction and factorial computation.
 *   **Optimal:** **No**. 
@@ -77,9 +79,11 @@ int f(int a){
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Check Digitorial Permutation
+
+#
+
+## Revision Report: Check Digitorial Permutation
 
 **Pattern:** Frequency Counting (Hash Map / Array)
 

@@ -1,4 +1,12 @@
---- title: "Validate Binary Search Tree" slug: validate-binary-search-tree date: "2026-06-24" ---  # My Solution ~~~/**
+---
+title: "Validate Binary Search Tree"
+slug: validate-binary-search-tree
+date: "2026-06-24"
+
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -26,25 +34,42 @@ class Solution {
         }
         return valid(node.left,left,node.val) && valid(node.right,node.val,right);
     }    
-} - java~~~  # Submission Review ## Approach
+}
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Recursive range validation (Top-down).
 - **Optimality**: Optimal. It visits each node exactly once and uses the minimum required information (upper and lower bounds) to validate the BST property.
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$, where $N$ is the number of nodes in the tree.
 - **Space Complexity**: $O(H)$, where $H$ is the height of the tree, due to the recursion stack. In the worst case (a skewed tree), this is $O(N)$.
 
 ## Efficiency Feedback
+
 - **Range Handling**: Using `long` boundaries is an efficient way to handle edge cases where node values are exactly `Integer.MIN_VALUE` or `Integer.MAX_VALUE`.
 - **Performance**: Runtime and memory usage are minimal as there are no auxiliary data structures used beyond the call stack.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is straightforward and easy to follow.
 - **Structure**: Good. The use of a private helper method correctly encapsulates the recursion.
 - **Naming**: Moderate. 
     - `valid` is slightly vague; `validate` or `isWithinRange` would be more descriptive.
     - `left` and `right` parameters refer to the value boundaries; `min` and `max` would be more conventional for this context.
-- **Improvements**: No functional changes needed. For absolute robustness in environments where `long` might not suffice (though not applicable for `int` node values), one could use `Integer` objects and null checks for the boundaries.  ---  # Question Revision ### Validate Binary Search Tree
+- **Improvements**: No functional changes needed. For absolute robustness in environments where `long` might not suffice (though not applicable for `int` node values), one could use `Integer` objects and null checks for the boundaries.
+
+---
+
+# Question Revision
+
+#
+
+## Validate Binary Search Tree
 
 **Pattern:** DFS / Recursive Bounds
 
@@ -58,4 +83,6 @@ class Solution {
 
 **The 'Aha' Moment:** Realizing that a node must be compared not just to its immediate children, but to the constraints imposed by all its ancestors.
 
-**Summary:** Validate a BST by recursively passing and narrowing the allowable range of values for each subtree.  ---
+**Summary:** Validate a BST by recursively passing and narrowing the allowable range of values for each subtree.
+
+---

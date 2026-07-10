@@ -7,7 +7,8 @@ date: "2026-04-03"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -32,6 +33,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer approach (Tortoise and Hare).
 *   **Optimality:** Optimal. It traverses the list exactly once without requiring extra memory.
@@ -67,9 +69,11 @@ public ListNode middleNode(ListNode head) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Middle of the Linked List
+
+#
+
+## Revision Report: Middle of the Linked List
 
 **Pattern:** Two Pointers (Fast & Slow)
 

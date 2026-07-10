@@ -5,7 +5,8 @@ date: "2026-04-16"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public String removeKdigits(String num, int k) {
         Stack<Character> st = new Stack<>();
@@ -37,6 +38,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Monotonic Stack.
 - **Optimality**: Optimal. The greedy approach of removing the first digit that is larger than its successor ensures the smallest lexicographical result.
@@ -60,7 +62,10 @@ class Solution {
 ---
 
 # Question Revision
-### Remove K Digits
+
+#
+
+## Remove K Digits
 
 **Pattern:** Monotonic Stack
 

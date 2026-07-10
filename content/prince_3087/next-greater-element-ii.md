@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> nextGreaterElements(vector<int>& nums) {
@@ -30,8 +31,6 @@ public:
             }
             st.push(nums[i]);
 
-
-
         }
         return res;
     }
@@ -39,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Monotonic Stack.
 - **Optimality**: Optimal. The solution correctly simulates a circular array by pre-loading the stack with elements from the array before the primary processing loop, ensuring each element can "look ahead" to elements that appeared earlier in the sequence.
@@ -65,7 +65,10 @@ public:
 ---
 
 # Question Revision
-### Next Greater Element II
+
+#
+
+## Next Greater Element II
 
 **Pattern:** Monotonic Stack
 

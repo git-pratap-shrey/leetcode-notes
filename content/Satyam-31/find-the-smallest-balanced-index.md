@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int smallestBalancedIndex(vector<int>& nums) {
@@ -31,6 +32,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Iterative calculation using prefix/suffix logic. The algorithm maintains a running sum of elements to the left (by subtracting from a total sum) and a running product of elements to the right.
 *   **Optimality:** Optimal. It traverses the array once ($O(N)$), which is the theoretical lower bound.
@@ -54,9 +56,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find the Smallest Balanced Index
+
+#
+
+## Revision Report: Find the Smallest Balanced Index
 
 **Pattern:** Prefix Sums / Cumulative Frequency
 

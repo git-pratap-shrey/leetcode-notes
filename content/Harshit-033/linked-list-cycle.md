@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -34,6 +35,7 @@ bool hasCycle(struct ListNode *head) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Floyd's Cycle-Finding Algorithm (Tortoise and Hare).
 *   **Optimality:** Optimal. It is the standard approach for cycle detection in a linked list, achieving the best possible time complexity with minimal space.
@@ -55,9 +57,11 @@ bool hasCycle(struct ListNode *head) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Linked List Cycle
+
+#
+
+## Revision Report: Linked List Cycle
 
 **Pattern:** Two Pointers (Floyd’s Cycle-Finding Algorithm)
 

@@ -1,4 +1,14 @@
---- title: "Valid Sudoku" slug: valid-sudoku date: "2026-07-01" ---  # My Solution ~~~class Solution {
+---
+title: "Valid Sudoku"
+slug: valid-sudoku
+date: "2026-07-01"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
 
@@ -27,26 +37,43 @@ public:
 
         return true;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Frequency tracking using lookup tables (hashing).
 - **Optimality**: Optimal. The solution performs a single pass over the $9 \times 9$ grid and uses constant auxiliary space relative to the problem constraints.
 
 ## Complexity
+
 - **Time Complexity**: $O(1)$ (or $O(N^2)$ where $N=9$). The board size is fixed, resulting in exactly 81 iterations.
 - **Space Complexity**: $O(1)$ (or $O(N^2)$ where $N=9$). The three $9 \times 9$ matrices occupy a constant amount of memory.
 
 ## Efficiency Feedback
+
 - **Memory Overhead**: The use of `vector<vector<int>>` triggers multiple heap allocations. Since the dimensions are constant (9x9), using stack-allocated arrays (e.g., `int row[9][9]`) or `std::bitset<9> row[9]` would be more performant and cache-friendly.
 - **Data Type**: Using `int` to store binary states (0 or 1) is less efficient than `bool` or bit-masking.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is straightforward and easy to follow.
 - **Structure**: Good. The nested loop correctly covers all cells, and the early exit (`return false`) is handled properly.
 - **Naming**: Good. Variables `row`, `col`, `box`, `val`, and `idx` are descriptive and appropriate for the context.
 
 **Concrete Improvements**:
 - Replace `vector<vector<int>>` with `int row[9][9] = {0};` to eliminate dynamic allocation overhead.
-- Alternatively, use `std::bitset<9> row[9];` to reduce the memory footprint and potentially speed up lookups.  ---  # Question Revision ### Valid Sudoku
+- Alternatively, use `std::bitset<9> row[9];` to reduce the memory footprint and potentially speed up lookups.
+
+---
+
+# Question Revision
+
+#
+
+## Valid Sudoku
 
 **Pattern:** Hashing / Tracking Sets
 
@@ -58,4 +85,6 @@ public:
 
 **The 'Aha' Moment:** The requirement to validate three independent constraints (row, column, and box) simultaneously suggests a single-pass traversal using hash-based trackers.
 
-**Summary:** Iterate the grid once and use sets to track seen values for each row, column, and $3 \times 3$ block.  ---
+**Summary:** Iterate the grid once and use sets to track seen values for each row, column, and $3 \times 3$ block.
+
+---

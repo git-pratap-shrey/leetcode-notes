@@ -7,7 +7,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
@@ -33,6 +34,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Prefix Sum with Hash Map (Frequency Map).
 *   **Optimality:** Optimal. It achieves $O(N)$ time complexity by transforming the range sum problem into a difference lookup, effectively finding subarrays $[j, i]$ where $P[i] - P[j-1] = k$.
@@ -68,9 +70,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Subarray Sum Equals K
+
+#
+
+## Revision Report: Subarray Sum Equals K
 
 **Pattern:** Prefix Sum + Hash Map
 

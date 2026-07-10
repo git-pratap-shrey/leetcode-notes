@@ -5,7 +5,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int myAtoi(string s) {
@@ -35,6 +36,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Iterative parsing (Two-pointer/Simulation).
 - **Optimality**: Optimal. The solution processes the string in a single pass, adhering to all `atoi` constraints (whitespace, sign, digit extraction, and overflow handling).
@@ -58,7 +60,10 @@ public:
 ---
 
 # Question Revision
-### String to Integer (atoi)
+
+#
+
+## String to Integer (atoi)
 
 **Pattern:** Simulation / String Parsing
 

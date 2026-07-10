@@ -5,7 +5,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) {
@@ -28,6 +29,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Two-pointer placement. The code uses two indices (`pos` and `neg`) to place positive and negative integers into their respective interleaved positions in a pre-allocated result vector.
 - **Optimality:** Optimal. It processes the input in a single pass and uses the minimum necessary space to store the result.
@@ -49,7 +51,10 @@ public:
 ---
 
 # Question Revision
-### Rearrange Array Elements by Sign
+
+#
+
+## Rearrange Array Elements by Sign
 
 **Pattern:** Two Pointers (Index Tracking)
 

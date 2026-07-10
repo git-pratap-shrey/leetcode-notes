@@ -7,7 +7,8 @@ date: "2026-04-03"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 bool searchMatrix(int** matrix, int matrixSize, int* matrixColSize, int target) {
     int m=matrixColSize[0];
     
@@ -33,6 +34,7 @@ bool searchMatrix(int** matrix, int matrixSize, int* matrixColSize, int target) 
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Binary Search on a flattened 2D array index.
 *   **Optimality:** Optimal. The matrix has row-wise and column-wise sorted properties that allow treating it as a virtual sorted 1D array of size $M \times N$.
@@ -57,9 +59,11 @@ bool searchMatrix(int** matrix, int matrixSize, int* matrixColSize, int target) 
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Search a 2D Matrix
+
+#
+
+## Revision Report: Search a 2D Matrix
 
 **Pattern:** Binary Search (Flattened View)
 

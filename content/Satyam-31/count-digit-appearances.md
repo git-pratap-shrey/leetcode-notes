@@ -7,7 +7,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int countDigitOccurrences(vector<int>& nums, int digit) {
@@ -30,6 +31,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Brute-force digit extraction via arithmetic modulo operations.
 *   **Optimality:** Optimal for the given approach. It iterates through every digit of every number exactly once.
@@ -73,9 +75,11 @@ int countDigitOccurrences(const vector<int>& nums, int digit) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Digit Count (Digit DP)
+
+#
+
+## Revision Report: Digit Count (Digit DP)
 
 **Pattern:** Digit Dynamic Programming / Combinatorics (Mathematical Counting)
 

@@ -5,7 +5,8 @@ date: "2026-04-18"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -23,7 +24,6 @@ public:
     vector<int> preorderTraversal(TreeNode* root) {
         if(root==NULL) return {};
 
-
         
 
         ans.push_back(root->val);
@@ -38,6 +38,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive Depth-First Search (DFS).
 - **Optimality**: Suboptimal. While the traversal logic is $O(N)$, the implementation contains a critical architectural flaw regarding how the result is collected and returned.
@@ -65,7 +66,10 @@ public:
 ---
 
 # Question Revision
-### Binary Tree Preorder Traversal
+
+#
+
+## Binary Tree Preorder Traversal
 
 **Pattern:** Tree Traversal (DFS)
 

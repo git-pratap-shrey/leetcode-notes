@@ -7,7 +7,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -36,6 +37,7 @@ public class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Floyd’s Cycle-Finding Algorithm (Tortoise and Hare).
 *   **Optimality:** Optimal. It is the standard, most space-efficient way to detect a cycle in a linked list.
@@ -58,9 +60,11 @@ public class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Linked List Cycle
+
+#
+
+## Revision Report: Linked List Cycle
 
 **Pattern:** Two Pointers (Tortoise and Hare)
 

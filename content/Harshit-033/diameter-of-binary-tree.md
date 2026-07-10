@@ -5,7 +5,8 @@ date: "2026-04-19"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive Depth First Search (DFS).
 - **Optimality**: Optimal. It visits each node exactly once to calculate height and update the global diameter.
@@ -66,7 +68,10 @@ public:
 ---
 
 # Question Revision
-### Diameter of Binary Tree
+
+#
+
+## Diameter of Binary Tree
 
 **Pattern:** Post-order DFS (Bottom-Up Tree Traversal)
 

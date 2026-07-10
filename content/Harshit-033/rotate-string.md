@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 bool rotateString(char* s, char* goal) {
     int lens=strlen(s);
     int leng=strlen(goal);
@@ -35,6 +36,7 @@ bool rotateString(char* s, char* goal) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Brute-force pattern matching on a doubled string concatenation.
 *   **Optimal:** Yes, the logic correctly identifies if `goal` is a rotation of `s` by searching for it within `s + s`.
@@ -68,9 +70,11 @@ bool rotateString(char* s, char* goal) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Rotate String
+
+#
+
+## Revision Report: Rotate String
 
 **Pattern:** String Concatenation / Search
 

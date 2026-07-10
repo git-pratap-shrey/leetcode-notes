@@ -5,7 +5,8 @@ date: "2026-04-22"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Vector conversion followed by a two-pointer palindrome check.
 - **Optimality**: Suboptimal. While time-optimal, it fails to achieve the $O(1)$ space complexity possible by reversing the second half of the linked list in place.
@@ -61,7 +63,10 @@ public:
 ---
 
 # Question Revision
-### Palindrome Linked List
+
+#
+
+## Palindrome Linked List
 
 **Pattern:** Two Pointers (Fast & Slow) + Linked List Reversal
 

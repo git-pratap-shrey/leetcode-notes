@@ -5,7 +5,8 @@ date: "2026-04-02"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void comb(vector<vector<int>>& ans,vector<int>& temp,int idx,int k,int n){
@@ -29,6 +30,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Backtracking.
 - **Optimality:** Optimal for the given problem, as all combinations must be generated.
@@ -52,7 +54,10 @@ public:
 ---
 
 # Question Revision
-### Pattern: Backtracking
+
+#
+
+## Pattern: Backtracking
 
 **Brute Force**
 Generate the entire power set ($2^n$ subsets) and filter for those with exactly length $k$.

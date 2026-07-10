@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -58,6 +59,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Bottom-up Tree DP (Post-order traversal). 
 - **Optimality**: Optimal. The approach correctly validates the BST property by passing up the minimum and maximum values of subtrees to ensure all nodes satisfy the BST constraint ($left.max < root.val < right.min$).
@@ -82,9 +84,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Validate Binary Search Tree
+
+#
+
+## Revision Report: Validate Binary Search Tree
 
 **Pattern:** Depth-First Search (DFS) / Range Constraints
 

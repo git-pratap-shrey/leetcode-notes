@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<vector<int>> intervalIntersection(vector<vector<int>>& firstList, vector<vector<int>>& secondList) {
@@ -51,6 +52,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer approach.
 *   **Optimality:** Optimal. The algorithm processes each interval at most once, which is the theoretical lower bound for this problem.
@@ -81,9 +83,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Interval List Intersections
+
+#
+
+## Revision Report: Interval List Intersections
 
 **Pattern:** Two Pointers
 

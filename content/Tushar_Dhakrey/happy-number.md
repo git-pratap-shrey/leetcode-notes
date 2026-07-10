@@ -7,7 +7,8 @@ date: "2026-04-02"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public boolean isHappy(int n) {
         int slow = n;
@@ -34,6 +35,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Floyd’s Cycle-Finding Algorithm (Tortoise and Hare).
 *   **Optimality:** Optimal. It detects cycles in the sequence of digit-square sums without requiring $O(N)$ extra space for a `HashSet`.
@@ -57,9 +59,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Happy Number
+
+#
+
+## Revision Report: Happy Number
 
 **Pattern:** Two Pointers (Cycle Detection)
 

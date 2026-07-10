@@ -7,7 +7,8 @@ date: "2026-04-02"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int findMin(int* nums, int numsSize) {
 
     int mid;
@@ -34,6 +35,7 @@ int findMin(int* nums, int numsSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Binary Search.
 *   **Optimality:** Suboptimal. The logic attempts to track `min` while performing a binary search, but the branching logic is flawed for the rotated sorted array property. It fails to correctly identify the pivot point where the rotation occurs.
@@ -52,7 +54,9 @@ int findMin(int* nums, int numsSize) {
 *   **Structure:** Poor. The use of a `min` variable alongside binary search logic suggests a misunderstanding of how to locate the inflection point.
 *   **Naming:** Good. `low`, `high`, `mid`, and `numsSize` are standard.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 Replace the logic with the standard approach that identifies the pivot:
 
 ```c
@@ -78,9 +82,11 @@ int findMin(int* nums, int numsSize) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Find Minimum in Rotated Sorted Array
+
+#
+
+## Revision Report: Find Minimum in Rotated Sorted Array
 
 **Pattern:** Binary Search (Modified)
 

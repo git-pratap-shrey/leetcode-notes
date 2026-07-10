@@ -5,7 +5,8 @@ date: "2026-04-16"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
@@ -36,6 +37,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Brute-force nested loops with a set-based lookup for the fourth element and a set to handle duplicate quadruplets.
 - **Optimality**: Suboptimal. The standard optimal approach is sorting the array and using the two-pointer technique, which avoids the overhead of sets and achieves better average-case performance.
@@ -62,7 +64,10 @@ public:
 ---
 
 # Question Revision
-### 4Sum Revision Report
+
+#
+
+## 4Sum Revision Report
 
 **Pattern:** Sorting + Two Pointers (Nested)
 

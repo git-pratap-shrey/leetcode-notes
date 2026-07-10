@@ -5,7 +5,8 @@ date: "2026-05-01"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
@@ -56,6 +57,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Binary search on the partition point of the smaller array.
 - **Optimality**: Optimal. It achieves the logarithmic time complexity required for this problem by leveraging the sorted property of both arrays.
@@ -80,7 +82,10 @@ public:
 ---
 
 # Question Revision
-### Median of Two Sorted Arrays
+
+#
+
+## Median of Two Sorted Arrays
 
 **Pattern:** Binary Search (Partitioning)
 

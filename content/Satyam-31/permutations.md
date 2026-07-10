@@ -7,7 +7,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void solve(vector<int>& nums, vector<int>& temp, vector<vector<int>>& ans, vector<bool>& used) {
@@ -44,6 +45,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Backtracking (recursive depth-first search) to explore all permutations.
 *   **Optimality:** Optimal for generating all permutations. The complexity is inherently tied to the number of permutations ($O(n!)$), which is the lower bound for this problem.
@@ -68,9 +70,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Permutations (LeetCode 46)
+
+#
+
+## Revision Report: Permutations (LeetCode 46)
 
 **Pattern:** Backtracking
 

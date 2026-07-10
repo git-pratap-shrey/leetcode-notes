@@ -7,7 +7,8 @@ date: "2026-03-29"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int numSubarraysWithSum(vector<int>& nums, int goal) {
@@ -31,6 +32,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Prefix Sum with Hash Map (Frequency Map).
 *   **Optimality:** Optimal in terms of logic. It solves the problem in a single pass by tracking the frequency of prefix sums encountered so far to identify subarrays that sum to `goal`.
@@ -65,9 +67,11 @@ freq[sum]++;
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Binary Subarrays With Sum
+
+#
+
+## Revision Report: Binary Subarrays With Sum
 
 **Pattern:** Prefix Sum + Hash Map (or Sliding Window)
 

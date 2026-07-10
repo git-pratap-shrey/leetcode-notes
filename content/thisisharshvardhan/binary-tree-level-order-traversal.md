@@ -7,7 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -58,6 +59,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Breadth-First Search (BFS) using a `std::queue` with a delimiter (`NULL`) to track levels.
 *   **Optimality:** Optimal. It visits each node exactly once and processes each edge exactly once.
@@ -96,9 +98,11 @@ while (!q.empty()) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Binary Tree Level Order Traversal
+
+#
+
+## Revision Report: Binary Tree Level Order Traversal
 
 **Pattern:** Breadth-First Search (BFS)
 

@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int divide(int dividend, int divisor) {
@@ -50,6 +51,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Bit manipulation (binary long division/shifting).
 *   **Optimality:** Optimal. The algorithm mimics manual long division in binary, resulting in logarithmic time complexity $O(\log^2(\text{dividend}))$.
@@ -68,7 +70,9 @@ public:
 *   **Structure:** Good. The logic flow is logical and follows standard bit-manipulation practices for division.
 *   **Naming:** Moderate. `sin` is ambiguous (could mean 'sine'); `sign` would be more descriptive. `divd` and `divi` are acceptable abbreviations but `dividend_abs` and `divisor_abs` would improve clarity.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1.  **Refactor Variable Names:** Rename `sin` to `isNegative`, `divd` to `absDividend`, and `divi` to `absDivisor`.
 2.  **Edge Case Clarity:** While `dividend == divisor` is handled, the code relies on implicit behavior for `0`. If `dividend` is `0`, the loop condition `divd >= divi` fails immediately, returning `0`, which is correct.
 3.  **Use `std::abs`:** Ensure `<cmath>` or `<cstdlib>` is included. Since you are using `long long`, `std::abs` is overloaded correctly, but explicitly casting to `long long` as you did is safe.
@@ -91,9 +95,11 @@ This revision removes the need for manual index backtracking, making the logic e
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Divide Two Integers
+
+#
+
+## Revision Report: Divide Two Integers
 
 **Pattern:** Bit Manipulation / Exponential Search
 

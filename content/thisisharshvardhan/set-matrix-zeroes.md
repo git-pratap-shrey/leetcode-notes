@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
@@ -38,6 +39,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: In-place marker technique. It uses the first row and first column of the matrix as storage to track which rows and columns need to be zeroed, with an auxiliary variable `col0` to handle the overlap at `matrix[0][0]`.
 - **Optimality**: Optimal. It achieves the theoretical minimum time and space complexity for this problem.
@@ -61,7 +63,10 @@ public:
 ---
 
 # Question Revision
-### Set Matrix Zeroes
+
+#
+
+## Set Matrix Zeroes
 
 **Pattern:** In-place State Marking
 

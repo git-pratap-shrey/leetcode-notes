@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {
@@ -29,6 +30,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Matrix Transformation (Transpose followed by Row Reversal).
 - **Optimality**: Optimal. Rotating a matrix 90 degrees clockwise is mathematically equivalent to transposing it and then reversing each row. This achieves the result in-place.
@@ -50,7 +52,10 @@ public:
 ---
 
 # Question Revision
-### Rotate Image
+
+#
+
+## Rotate Image
 
 **Pattern:** Matrix Manipulation
 

@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -41,6 +42,7 @@ struct ListNode* oddEvenList(struct ListNode* head) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** In-place pointer manipulation (Three-pointer sliding window).
 *   **Optimal:** No. The logic is overly complex and fragile. It attempts to weave the lists by re-inserting nodes into the odd/even chains, which is less efficient and harder to maintain than the standard "two-chain separation" approach.
@@ -77,9 +79,11 @@ struct ListNode* oddEvenList(struct ListNode* head) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Odd Even Linked List
+
+#
+
+## Revision Report: Odd Even Linked List
 
 **Pattern:** Two Pointers / In-place Link Manipulation
 

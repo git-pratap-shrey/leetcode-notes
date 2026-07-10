@@ -7,7 +7,8 @@ date: "2026-04-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int minAbsoluteDifference(vector<int>& nums) {
@@ -34,6 +35,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Brute force search. The code iterates through every pair $(i, j)$ where one element is 1 and the other is 2 to find the minimum index distance.
 *   **Optimal:** No. The problem can be solved in $O(N)$ time with a single pass.
@@ -59,9 +61,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Minimum Absolute Difference
+
+#
+
+## Revision Report: Minimum Absolute Difference
 
 **Pattern:** Sorting + Linear Scan
 

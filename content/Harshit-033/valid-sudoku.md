@@ -5,7 +5,8 @@ date: "2026-04-26"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
@@ -33,6 +34,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Frequency tracking using auxiliary arrays (Hash-map equivalent). It uses three separate structures to track occurrences of digits (1-9) across rows, columns, and 3x3 sub-grids.
 - **Optimality:** Optimal. The solution visits each cell exactly once and uses a constant amount of extra space relative to the fixed board size.
@@ -61,7 +63,10 @@ public:
 ---
 
 # Question Revision
-### Valid Sudoku
+
+#
+
+## Valid Sudoku
 
 **Pattern:** Hashing / Set
 

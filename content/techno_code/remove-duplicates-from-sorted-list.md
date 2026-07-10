@@ -1,4 +1,12 @@
---- title: "Remove Duplicates from Sorted List" slug: remove-duplicates-from-sorted-list date: "2026-07-02" ---  # My Solution ~~~/**
+---
+title: "Remove Duplicates from Sorted List"
+slug: remove-duplicates-from-sorted-list
+date: "2026-07-02"
+
+---
+
+# My Solution
+~~~/**
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
@@ -24,19 +32,28 @@ public:
 
         return head;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Single-pass traversal using a pointer to track the current node.
 - **Optimality**: Optimal. Since the list is sorted, duplicates are guaranteed to be adjacent, allowing the problem to be solved in a single linear scan.
 
 ## Complexity
+
 - **Time Complexity**: $O(n)$, where $n$ is the number of nodes in the linked list. Each node is visited at most once.
 - **Space Complexity**: $O(1)$, as it only uses a single pointer regardless of input size.
 
 ## Efficiency Feedback
+
 - **Runtime/Memory**: Very efficient due to the in-place modification of the list.
 - **Observation**: In a production environment, this code causes a **memory leak**. The nodes removed via `cur->next = cur->next->next` are not explicitly deleted using `delete`, leaving them orphaned in memory. For competitive programming, this is typically acceptable, but for software engineering, it is a bug.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is straightforward and easy to follow.
 - **Structure**: Good. The while-loop condition correctly handles both empty lists and lists with a single element.
 - **Naming**: Good. `cur` is a standard abbreviation for "current".
@@ -47,7 +64,15 @@ public:
       cur->next = cur->next->next;
       delete temp;
       ```
-    - Ensure consistent indentation (the provided snippet has slight alignment issues).  ---  # Question Revision ### Remove Duplicates from Sorted List
+    - Ensure consistent indentation (the provided snippet has slight alignment issues).
+
+---
+
+# Question Revision
+
+#
+
+## Remove Duplicates from Sorted List
 
 **Pattern:** Two Pointers (Slow/Fast or Current/Next)
 
@@ -65,4 +90,6 @@ Traverse the list with a single pointer. Compare the current node's value with t
 The keyword "Sorted" guarantees that all duplicate elements are contiguous, eliminating the need for extra storage.
 
 **Summary:** 
-Iterate through the sorted list and skip adjacent nodes with identical values.  ---
+Iterate through the sorted list and skip adjacent nodes with identical values.
+
+---

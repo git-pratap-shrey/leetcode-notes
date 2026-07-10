@@ -5,7 +5,8 @@ date: "2026-04-18"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool nq(vector<vector<char>>& board,string& word,int i ,int j,int count){
@@ -36,6 +37,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Backtracking using Depth First Search (DFS).
 - **Optimality**: Optimal. Given the constraints of the Word Search problem, an exhaustive search with backtracking is the standard approach to ensure all possible paths are explored.
@@ -62,7 +64,10 @@ public:
 ---
 
 # Question Revision
-### Word Search
+
+#
+
+## Word Search
 
 **Pattern:** Backtracking / DFS on a Grid
 

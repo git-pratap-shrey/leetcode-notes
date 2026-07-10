@@ -1,4 +1,14 @@
---- title: "Find All Anagrams in a String" slug: find-all-anagrams-in-a-string date: "2026-06-09" ---  # My Solution ~~~class Solution {
+---
+title: "Find All Anagrams in a String"
+slug: find-all-anagrams-in-a-string
+date: "2026-06-09"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
         vector<int> ans;
@@ -25,25 +35,42 @@ public:
 
         return ans;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Sliding Window with Frequency Arrays.
 - **Optimality**: Optimal. It processes the string $s$ in a single pass and uses a constant-sized frequency map for alphabet characters.
 
 ## Complexity
+
 - **Time Complexity**: $O(n \cdot \Sigma)$, where $n$ is the length of string $s$ and $\Sigma$ is the size of the alphabet (26). The vector comparison `f1 == f2` takes $O(\Sigma)$ time and is performed $n - m + 1$ times.
 - **Space Complexity**: $O(\Sigma)$ to store the frequency arrays `f1` and `f2`.
 
 ## Efficiency Feedback
+
 - **Runtime**: The runtime is efficient. Since $\Sigma$ is small (26), the $O(26)$ comparison overhead is negligible.
 - **Optimizations**: To further reduce the constant factor, one could maintain a `count` variable tracking how many unique characters in the current window match the frequencies in `p`, avoiding the full vector comparison at every step. However, for $\Sigma=26$, this is rarely necessary.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is concise and easy to follow.
 - **Structure**: Good. Handles edge cases (e.g., `m > n`) early and follows a linear execution path.
 - **Naming**: Moderate. `f1`, `f2`, `n`, and `m` are common in competitive programming but lack descriptiveness. Better names would be `p_freq`, `s_freq`, `s_len`, and `p_len`.
 - **Improvements**: 
     - The current implementation relies on `std::vector`'s `operator==`, which is clean but abstracts the $O(26)$ loop.
-    - Ensure the input strings only contain lowercase English letters as per the `'a'` offset assumption.  ---  # Question Revision ### Find All Anagrams in a String
+    - Ensure the input strings only contain lowercase English letters as per the `'a'` offset assumption.
+
+---
+
+# Question Revision
+
+#
+
+## Find All Anagrams in a String
 
 **Pattern:** Sliding Window (Fixed Size) + Frequency Map
 
@@ -61,4 +88,6 @@ Use a frequency map (array of size 26) to store counts of characters in `p`. Mai
 The requirement for "anagrams" (character frequency) within a contiguous "string" (sequence) signals a fixed-size sliding window.
 
 **Summary:** 
-Use a fixed-size sliding window with a character count array to identify anagrams in linear time.  ---
+Use a fixed-size sliding window with a character count array to identify anagrams in linear time.
+
+---

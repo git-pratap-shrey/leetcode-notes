@@ -7,7 +7,8 @@ date: "2026-03-28"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int vowelStrings(String[] words, int left, int right) {
         int count = 0;
@@ -31,6 +32,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Linear iteration (Brute force).
 *   **Optimality:** Optimal. The problem requires checking each word in the given range $[left, right]$ at least once. Since each check is $O(1)$, the overall approach is $O(N)$ where $N$ is the number of elements in the range.
@@ -73,9 +75,11 @@ public int vowelStrings(String[] words, int left, int right) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Count Vowel Strings in Range
+
+#
+
+## Revision Report: Count Vowel Strings in Range
 
 **Pattern:** Linear Scan / Iteration
 

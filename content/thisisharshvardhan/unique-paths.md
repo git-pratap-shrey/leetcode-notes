@@ -1,4 +1,14 @@
---- title: "Unique Paths" slug: unique-paths date: "2026-06-25" ---  # My Solution ~~~class Solution {
+---
+title: "Unique Paths"
+slug: unique-paths
+date: "2026-06-25"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     int solve(int m, int n, vector<vector<int>>& dp){
         if (m==0 && n==0) return 1;
@@ -15,19 +25,28 @@ public:
         vector<vector<int>> dp(m+1,vector<int>(n+1,-1));
         return solve(m-1,n-1,dp);
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Top-down Dynamic Programming (Recursion with Memoization).
 - **Optimality**: Optimal in terms of asymptotic time complexity for DP ($O(m \times n)$), though a mathematical approach using combinatorics ($\binom{m+n-2}{r-1}$) would be more optimal ($O(\min(m, n))$ time and $O(1)$ space).
 
 ## Complexity
+
 - **Time Complexity**: $O(m \times n)$ — Each cell in the `dp` table is computed exactly once.
 - **Space Complexity**: $O(m \times n)$ — Required for the memoization table, plus $O(m + n)$ for the recursion call stack.
 
 ## Efficiency Feedback
+
 - **Memory usage**: The current implementation uses $O(m \times n)$ space. This could be reduced to $O(n)$ using a bottom-up iterative approach with a single row array.
 - **Recursion Overhead**: For very large inputs, the recursion depth might lead to a stack overflow, though for standard "Unique Paths" constraints, this is typically not an issue.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is straightforward and easy to follow.
 - **Structure**: Good. The separation of the recursive helper from the main interface is standard.
 - **Naming**: Moderate. 
@@ -35,7 +54,15 @@ public:
     - `final` is a generic name for the result.
 - **Concrete Improvements**:
     - Rename `solve(int m, int n, ...)` to `solve(int r, int c, ...)` to distinguish indices from dimensions.
-    - Use a constant or `std::vector` size optimization to avoid `m+1` and `n+1` if the indices are already 0-indexed (the current code allocates $m+1$ but only uses up to index $m-1$).  ---  # Question Revision ### Unique Paths
+    - Use a constant or `std::vector` size optimization to avoid `m+1` and `n+1` if the indices are already 0-indexed (the current code allocates $m+1$ but only uses up to index $m-1$).
+
+---
+
+# Question Revision
+
+#
+
+## Unique Paths
 
 **Pattern:** Dynamic Programming (DP) / Combinatorics
 
@@ -53,4 +80,6 @@ Recursive DFS exploring every possible path from $(0,0)$ to $(m-1, n-1)$.
 The total ways to reach a cell depend solely on the sum of the ways to reach its immediate predecessors.
 
 **Summary:** 
-Total paths to a cell is the sum of paths from its only possible predecessors (above and left).  ---
+Total paths to a cell is the sum of paths from its only possible predecessors (above and left).
+
+---

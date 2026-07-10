@@ -7,7 +7,8 @@ date: "2026-04-01"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isSameAfterReversals(int num) {
@@ -20,6 +21,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Mathematical logic/Observation.
 *   **Optimality:** Optimal. The problem states that reversing a number $N$ results in $N'$ and reversing $N'$ results in $N''$. If the number ends in a trailing zero, the leading zero in the first reversal is dropped, making the second reversal unequal to the original. This solution correctly identifies that only numbers ending in zero (excluding zero itself) fail the condition.
@@ -40,9 +42,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: A Number After a Double Reversal
+
+#
+
+## Revision Report: A Number After a Double Reversal
 
 **Pattern:** Mathematical Property / Digit Manipulation
 

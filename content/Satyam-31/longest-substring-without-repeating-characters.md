@@ -7,7 +7,8 @@ date: "2026-02-25"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -28,6 +29,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Sliding window using an `unordered_map` to track character frequencies.
 - **Optimality:** It is optimal in terms of asymptotic time complexity, though using a fixed-size array (`vector<int>(128, -1)`) would be faster than `unordered_map` due to lower constant-factor overhead.
@@ -52,9 +54,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Longest Substring Without Repeating Characters
+
+#
+
+## Revision Report: Longest Substring Without Repeating Characters
 
 **Pattern:** Sliding Window (with Hash Map/Set)
 

@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -42,6 +43,7 @@ struct ListNode* deleteMiddle(struct ListNode* head) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer (slow/fast) approach to identify the middle node.
 *   **Optimality:** Optimal. It performs a single pass through the list ($O(N)$) and uses constant extra space ($O(1)$).
@@ -66,9 +68,11 @@ struct ListNode* deleteMiddle(struct ListNode* head) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Delete the Middle Node of a Linked List
+
+#
+
+## Revision Report: Delete the Middle Node of a Linked List
 
 **Pattern:** Fast and Slow Pointers (Tortoise and Hare)
 

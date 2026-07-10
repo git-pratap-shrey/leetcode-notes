@@ -7,7 +7,8 @@ date: "2026-04-13"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isValid(string s) {
@@ -51,6 +52,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Stack-based greedy matching.
 *   **Optimality:** Optimal. It processes the string in a single linear pass and uses a stack to ensure Last-In-First-Out (LIFO) property for valid nesting.
@@ -93,9 +95,11 @@ bool isValid(string s) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Valid Parentheses
+
+#
+
+## Revision Report: Valid Parentheses
 
 **Pattern:** Stack
 

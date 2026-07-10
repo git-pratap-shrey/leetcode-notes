@@ -7,7 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void fn(vector<int>& nums, vector<int>& dp, int curr, int& answer){
@@ -40,6 +41,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Recursive Dynamic Programming (memoization-like state update using a helper function).
 *   **Optimality:** Suboptimal. The logic is essentially the $O(N^2)$ DP approach, but implemented via recursion instead of an iterative loop. This incurs unnecessary function call overhead and stack depth risks.
@@ -69,9 +71,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Longest Increasing Subsequence
+
+#
+
+## Revision Report: Longest Increasing Subsequence
 
 **Pattern:** Dynamic Programming / Binary Search
 

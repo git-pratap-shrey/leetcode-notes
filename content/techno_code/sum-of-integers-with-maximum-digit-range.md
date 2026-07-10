@@ -1,4 +1,14 @@
---- title: "Sum of Integers with Maximum Digit Range" slug: sum-of-integers-with-maximum-digit-range date: "2026-07-06" ---  # My Solution ~~~class Solution {
+---
+title: "Sum of Integers with Maximum Digit Range"
+slug: sum-of-integers-with-maximum-digit-range
+date: "2026-07-06"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     int maxDigitRange(vector<int>& nums) {
         int value=0,maximum=0,sum=0;
@@ -22,27 +32,35 @@ public:
     
         maximum=*max_element(v.begin(),v.end());  
 
-
         for(int i=0;i<nums.size();i++){
         if(v[i]==maximum)
         sum+=nums[i];
         }
         return sum;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Iterative simulation. The code extracts digits of each number to calculate the range (maximum digit - minimum digit), identifies the global maximum range, and sums the numbers achieving that range.
 - **Optimality**: The time complexity is optimal, but space complexity is suboptimal as it stores ranges for all elements in a separate vector.
 
 ## Complexity
+
 - **Time Complexity**: $O(N \cdot \log_{10}(\text{max\_val}))$, where $N$ is the number of elements and $\log_{10}(\text{max\_val})$ is the number of digits in the largest integer.
 - **Space Complexity**: $O(N)$ to store the range of every number in vector `v`. This could be reduced to $O(1)$ by tracking the maximum range and updating the sum dynamically.
 
 ## Efficiency Feedback
+
 - **Memory Overhead**: The `vector<int> v` is unnecessary. You can maintain a `globalMaxRange` and a `currentSum`. If a new higher range is found, reset `currentSum` to the current number; if a range equal to `globalMaxRange` is found, add the number to `currentSum`.
 - **Unused Variable**: The variable `int value` is declared but never used.
 - **Integer Overflow**: The variable `sum` is an `int`. Depending on the problem constraints (e.g., $N=10^5$, elements$=10^9$), this will likely overflow. `long long` should be used for the sum.
 
 ## Code Quality
+
 - **Readability**: Moderate. The logic is straightforward, but indentation is inconsistent (e.g., the `if(nums[i]==0)` block and the closing braces).
 - **Structure**: Moderate. The process is split into three separate passes (calculate ranges $\rightarrow$ find max $\rightarrow$ sum), which is inefficient compared to a single or double pass.
 - **Naming**: Poor. Variables `v`, `z`, and `r` are non-descriptive. `maxi` and `mini` are acceptable but could be `maxDigit` and `minDigit`.
@@ -50,7 +68,15 @@ public:
     1. Remove `vector<int> v` to achieve $O(1)$ space.
     2. Change `sum` to `long long`.
     3. Combine the range calculation and summation into a more streamlined logic to avoid multiple iterations over the input vector.
-    4. Fix indentation for better maintainability.  ---  # Question Revision ### Revision Report: Sum of Integers with Maximum Digit Range
+    4. Fix indentation for better maintainability.
+
+---
+
+# Question Revision
+
+#
+
+## Revision Report: Sum of Integers with Maximum Digit Range
 
 **Pattern:** Digit DP (Dynamic Programming)
 
@@ -74,4 +100,6 @@ Complexity: $O((R-L) \cdot \log R)$
 Any problem asking for the sum or count of numbers in a range $[L, R]$ based on digit-specific properties is a signal for Digit DP.
 
 **Summary:** 
-First determine the maximum possible digit range $k$ present in $[L, R]$ using Digit DP, then perform a second Digit DP pass to sum all integers matching that range.  ---
+First determine the maximum possible digit range $k$ present in $[L, R]$ using Digit DP, then perform a second Digit DP pass to sum all integers matching that range.
+
+---

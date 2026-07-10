@@ -1,4 +1,14 @@
---- title: "Permutation in String" slug: permutation-in-string date: "2026-06-09" ---  # My Solution ~~~class Solution {
+---
+title: "Permutation in String"
+slug: permutation-in-string
+date: "2026-06-09"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     bool checkInclusion(string s1, string s2) {
         int n=s1.size(),m=s2.size();
@@ -25,26 +35,43 @@ public:
 
         return false;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Sliding Window with Frequency Arrays.
 - **Optimality**: Optimal. It processes the string $s2$ in a single pass, maintaining a constant-sized frequency map to track permutations.
 
 ## Complexity
+
 - **Time Complexity**: $O(m)$, where $m$ is the length of $s2$. Although there is a vector comparison `f1 == f2` inside the loop, it compares exactly 26 elements, making it $O(26 \times m)$, which simplifies to $O(m)$.
 - **Space Complexity**: $O(1)$. The space used by the two vectors is fixed at $26 \times 2$ integers regardless of the input size.
 
 ## Efficiency Feedback
+
 - **Runtime**: Very efficient. The use of `std::vector` equality operator is concise and performant for small fixed sizes.
 - **Memory**: Minimal. 
 - **Potential Optimization**: While not necessary given the constraints, using a `count` variable to track how many characters currently match between `f1` and `f2` would eliminate the need to compare the entire 26-element array in every iteration, reducing the constant factor from 26 to 1.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is straightforward and follows a standard sliding window pattern.
 - **Structure**: Good. The edge case (`n > m`) is handled immediately.
 - **Naming**: Moderate. `f1` and `f2` are slightly generic; `countS1` and `windowCount` would be more descriptive.
 - **Improvements**:
     - Use `const string&` in function signatures if this were a helper method to avoid potential copies (though not applicable to the provided LeetCode-style signature).
-    - Use `std::array<int, 26>` instead of `std::vector<int>` to allocate memory on the stack rather than the heap.  ---  # Question Revision ### Permutation in String
+    - Use `std::array<int, 26>` instead of `std::vector<int>` to allocate memory on the stack rather than the heap.
+
+---
+
+# Question Revision
+
+#
+
+## Permutation in String
 
 **Pattern:** Sliding Window (Fixed Size)
 
@@ -61,4 +88,6 @@ Maintain a frequency map (or an array of size 26) for `s1` and a sliding window 
 The keyword "permutation" combined with "substring" indicates that we need to find a contiguous block with identical character frequencies, regardless of order.
 
 **Summary:** 
-Use a fixed-size sliding window with a frequency map to track character counts across `s2`.  ---
+Use a fixed-size sliding window with a frequency map to track character counts across `s2`.
+
+---

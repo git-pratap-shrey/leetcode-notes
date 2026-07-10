@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
@@ -40,6 +41,7 @@ int* findErrorNums(int* nums, int numsSize, int* returnSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Frequency array (counting sort principle).
 *   **Optimality:** Optimal in terms of time complexity $O(n)$, but sub-optimal in terms of space complexity $O(M)$ (where $M=10001$) compared to an $O(1)$ auxiliary space approach using bit manipulation or cyclic sort.
@@ -64,9 +66,11 @@ int* findErrorNums(int* nums, int numsSize, int* returnSize) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Set Mismatch
+
+#
+
+## Revision Report: Set Mismatch
 
 **Pattern:** Frequency Array / Cyclic Sort / Index Mapping
 

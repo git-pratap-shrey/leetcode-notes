@@ -7,7 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -31,6 +32,7 @@ struct ListNode* middleNode(struct ListNode* head) {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Two-pointer technique (Tortoise and Hare).
 - **Optimality:** Optimal. It finds the middle node in a single pass without requiring extra space for storage (like an array or counter).
@@ -55,9 +57,11 @@ struct ListNode* middleNode(struct ListNode* head) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Middle of the Linked List
+
+#
+
+## Revision Report: Middle of the Linked List
 
 **Pattern:** Two Pointers (Slow and Fast)
 

@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int lastStoneWeight(vector<int>& stones) {
@@ -28,6 +29,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Max-Heap (Priority Queue).
 *   **Optimality:** Optimal. Using a heap is the standard and most efficient way to repeatedly extract and compare the two largest values in a collection.
@@ -65,9 +67,11 @@ int lastStoneWeight(vector<int>& stones) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Last Stone Weight
+
+#
+
+## Revision Report: Last Stone Weight
 
 **Pattern:** Max-Heap (Priority Queue)
 

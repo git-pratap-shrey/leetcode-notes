@@ -5,7 +5,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) {
@@ -28,6 +29,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Two-pointer placement using a linear scan.
 - **Optimality**: Optimal. The problem requires preserving relative order and alternating signs; a single pass with a pre-allocated result array is the most efficient way to achieve this.
@@ -49,7 +51,10 @@ public:
 ---
 
 # Question Revision
-### Rearrange Array Elements by Sign
+
+#
+
+## Rearrange Array Elements by Sign
 
 **Pattern:** Two Pointers
 

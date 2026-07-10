@@ -5,7 +5,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
@@ -20,6 +21,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Nested loop exchange sort (a variant of Selection Sort).
 - **Optimality**: **Not optimal**. The problem is a classic "Dutch National Flag" problem, which can be solved in a single pass $O(n)$ using three pointers. This solution uses a generic sorting approach that ignores the constraint that there are only three distinct values.
@@ -47,7 +49,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Sort Colors
+
+#
+
+## Revision Report: Sort Colors
 
 **Pattern:** Three-Way Partitioning (Two Pointers)
 

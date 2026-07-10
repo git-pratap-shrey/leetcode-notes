@@ -5,7 +5,8 @@ date: "2026-04-15"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
@@ -25,6 +26,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Frequency counting using a `std::map`.
 - **Optimality**: Suboptimal. While it correctly identifies elements appearing more than $n/3$ times, it does not meet the optimal $O(n)$ time and $O(1)$ space constraints typically expected for this problem (which are achievable via the Boyer-Moore Voting Algorithm).
@@ -51,7 +53,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Majority Element II
+
+#
+
+## Revision Report: Majority Element II
 
 **Pattern:** Boyer-Moore Voting Algorithm (Generalized)
 

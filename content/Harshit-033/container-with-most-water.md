@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int maxArea(int* height, int heightSize) {
     int left=0;
     int right=heightSize-1;
@@ -33,6 +34,7 @@ int maxArea(int* height, int heightSize) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer approach.
 *   **Optimality:** Optimal. It effectively prunes the search space by always discarding the shorter vertical line, which is guaranteed to yield the maximum possible area for that specific width.
@@ -57,9 +59,11 @@ int maxArea(int* height, int heightSize) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Container With Most Water
+
+#
+
+## Revision Report: Container With Most Water
 
 **Pattern:** Two Pointers (Greedy)
 

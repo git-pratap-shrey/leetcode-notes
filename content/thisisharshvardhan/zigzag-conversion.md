@@ -1,4 +1,14 @@
---- title: "Zigzag Conversion" slug: zigzag-conversion date: "2026-06-25" ---  # My Solution ~~~class Solution {
+---
+title: "Zigzag Conversion"
+slug: zigzag-conversion
+date: "2026-06-25"
+
+---
+
+# My Solution
+~~~
+class
+ Solution {
 public:
     string convert(string s, int numRows) {
         if (numRows==1) return s;
@@ -15,25 +25,42 @@ public:
         for (string row : rows) ans+=row;
         return ans;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique:** Simulation. The code simulates the zigzag movement by maintaining a set of strings (one for each row) and toggling the direction of traversal when the top or bottom row is reached.
 - **Optimality:** Optimal. It processes each character of the input string exactly once.
 
 ## Complexity
+
 - **Time Complexity:** $O(n)$, where $n$ is the length of string `s`. The algorithm iterates through the string once to distribute characters and once more to concatenate the rows.
 - **Space Complexity:** $O(n)$. The `rows` vector stores all $n$ characters of the input string.
 
 ## Efficiency Feedback
+
 - **Performance:** The runtime and memory usage are minimal.
 - **Optimization:** The final string concatenation `ans += row` may cause multiple reallocations. Using `ans.reserve(s.size())` before the final loop would optimize memory allocation.
 
 ## Code Quality
+
 - **Readability:** Good. The logic is intuitive and the flow is linear.
 - **Structure:** Good. Edge cases (like `numRows == 1`) are handled at the start.
 - **Naming:** Moderate. `curr` and `down` are acceptable, though `currentRow` and `isMovingDown` would be more explicit.
 - **Improvements:**
     - Use `std::string::reserve()` to prevent unnecessary reallocations of the result string.
-    - Use a `const string&` in the final loop (`for (const string& row : rows)`) to avoid copying each row string during concatenation.  ---  # Question Revision ### Zigzag Conversion
+    - Use a `const string&` in the final loop (`for (const string& row : rows)`) to avoid copying each row string during concatenation.
+
+---
+
+# Question Revision
+
+#
+
+## Zigzag Conversion
 
 **Pattern:** Simulation / String Manipulation
 
@@ -45,4 +72,6 @@ public:
 
 **The 'Aha' Moment:** The character placement is simply a periodic oscillation between the first and last row indices.
 
-**Summary:** Simulate the vertical "bounce" by tracking the current row and flipping the direction at the boundaries.  ---
+**Summary:** Simulate the vertical "bounce" by tracking the current row and flipping the direction at the boundaries.
+
+---

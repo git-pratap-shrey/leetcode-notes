@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 bool canPlaceFlowers(int* flowerbed, int flowerbedSize, int n) {
     if(n==0) return true;
 
@@ -28,6 +29,7 @@ bool canPlaceFlowers(int* flowerbed, int flowerbedSize, int n) {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Greedy. The algorithm iterates through the array and plants a flower at the first available spot that satisfies the non-adjacency constraint.
 - **Optimality:** Optimal. Planting a flower at the earliest possible valid position minimizes the constraints imposed on subsequent positions.
@@ -51,7 +53,10 @@ bool canPlaceFlowers(int* flowerbed, int flowerbedSize, int n) {
 ---
 
 # Question Revision
-### Can Place Flowers
+
+#
+
+## Can Place Flowers
 
 **Pattern:** Greedy / Simulation
 

@@ -7,7 +7,8 @@ date: "2026-04-05"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int mirrorFrequency(char* s) {
     int hass[257];
     int len=strlen(s);
@@ -46,6 +47,7 @@ int mirrorFrequency(char* s) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Frequency hashing (counting sort approach).
 *   **Optimal:** Yes, the algorithm processes the string in $O(N)$ and the fixed-size character set in $O(1)$, which is optimal for frequency-based character matching.
@@ -63,7 +65,9 @@ int mirrorFrequency(char* s) {
 *   **Structure:** Poor. The logic is fragmented into three `if` blocks that perform redundant work.
 *   **Naming:** Moderate. `hass` is a non-standard name; `freq` or `counts` would be clearer.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1.  **Initialize Array:** Use `int hass[257] = {0};`.
 2.  **Simplify Logic:** Use a helper function or a loop that iterates up to the midpoint of each character group (e.g., `'A' + ('Z'-i)`) to avoid redundant calculation and double-counting.
 3.  **Use Constants:** Define ASCII ranges as constants (e.g., `'0'`, `'9'`, `'A'`, `'Z'`, `'a'`, `'z'`) instead of raw integers.
@@ -79,9 +83,11 @@ for (int i = 0; i <= (90 - 65) / 2; i++) { // For uppercase
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Mirror Frequency Distance
+
+#
+
+## Revision Report: Mirror Frequency Distance
 
 **Pattern:** Two Pointers / Sliding Window (Frequency Balancing)
 

@@ -5,7 +5,8 @@ date: "2026-05-01"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int findMaxConsecutiveOnes(int[] nums) {
         int n = nums.length;
@@ -26,6 +27,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Single-pass linear scan (Iterative).
 - **Optimality**: Optimal. The problem requires checking every element at least once to determine the maximum sequence.
@@ -51,7 +53,10 @@ class Solution {
 ---
 
 # Question Revision
-### Max Consecutive Ones
+
+#
+
+## Max Consecutive Ones
 
 **Pattern:** Linear Scan / Greedy
 

@@ -5,7 +5,8 @@ date: "2026-04-30"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int[] plusOne(int[] digits) {
         int n = digits.length;
@@ -24,6 +25,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Iterative simulation of addition (Right-to-Left traversal).
 - **Optimality**: Optimal. It processes the array in a single pass and handles the carry-over logic with minimum overhead.
@@ -45,7 +47,10 @@ class Solution {
 ---
 
 # Question Revision
-### Plus One
+
+#
+
+## Plus One
 
 **Pattern:** Array Simulation
 

@@ -5,7 +5,8 @@ date: "2026-04-18"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -36,6 +37,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive Depth-First Search (DFS).
 - **Optimality**: Suboptimal. While the traversal logic is correct, the implementation suffers from a critical state management flaw and inefficient return handling.
@@ -61,7 +63,10 @@ public:
 ---
 
 # Question Revision
-### Binary Tree Inorder Traversal
+
+#
+
+## Binary Tree Inorder Traversal
 
 **Pattern:** DFS (Tree Traversal)
 

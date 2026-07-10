@@ -7,7 +7,8 @@ date: "2026-04-03"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 double findMedianSortedArrays(int* nums1, int m, int* nums2, int n) {
     
     int new_arr[m+n];
@@ -40,6 +41,7 @@ double findMedianSortedArrays(int* nums1, int m, int* nums2, int n) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer merging (Merge step of Merge Sort).
 *   **Optimality:** Suboptimal. The standard approach for this problem is binary search (partitioning), which achieves logarithmic time complexity. This solution merges the arrays in linear time.
@@ -64,9 +66,11 @@ double findMedianSortedArrays(int* nums1, int m, int* nums2, int n) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Median of Two Sorted Arrays
+
+#
+
+## Revision Report: Median of Two Sorted Arrays
 
 **Pattern:** Binary Search (on partition index)
 

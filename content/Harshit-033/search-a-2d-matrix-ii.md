@@ -7,8 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~c
-
+~~~
+c
 
 bool searchMatrix(int** matrix, int matrixSize, int* matrixColSize, int target){
 
@@ -30,11 +30,11 @@ bool searchMatrix(int** matrix, int matrixSize, int* matrixColSize, int target){
 
     return false;
 
-
 }
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Staircase search (Greedy/Two-pointer approach).
 *   **Optimality:** Optimal. It utilizes the property that rows and columns are sorted to discard an entire row or column in each iteration.
@@ -58,9 +58,11 @@ bool searchMatrix(int** matrix, int matrixSize, int* matrixColSize, int target){
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Search a 2D Matrix II
+
+#
+
+## Revision Report: Search a 2D Matrix II
 
 **Pattern:** Search Space Reduction / Two Pointers
 

@@ -5,7 +5,8 @@ date: "2026-04-18"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -47,13 +48,13 @@ public:
         }
         return ans;
 
-
         
     }
 };
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Breadth-First Search (BFS) using a `std::queue` to traverse the tree level by level.
 - **Optimality**: Optimal. BFS is the standard and most efficient way to perform level order traversal.
@@ -77,7 +78,10 @@ public:
 ---
 
 # Question Revision
-### Binary Tree Level Order Traversal
+
+#
+
+## Binary Tree Level Order Traversal
 
 **Pattern:** Breadth-First Search (BFS)
 

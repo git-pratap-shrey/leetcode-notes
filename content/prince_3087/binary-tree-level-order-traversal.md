@@ -1,4 +1,12 @@
---- title: "Binary Tree Level Order Traversal" slug: binary-tree-level-order-traversal date: "2026-07-01" ---  # My Solution ~~~/**
+---
+title: "Binary Tree Level Order Traversal"
+slug: binary-tree-level-order-traversal
+date: "2026-07-01"
+
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
@@ -40,25 +48,42 @@ public:
         return res;
         
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Breadth-First Search (BFS) using a `std::queue`.
 - **Optimality**: Optimal. It visits each node exactly once and processes levels sequentially, which is the requirement for level-order traversal.
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$, where $N$ is the number of nodes in the tree. Each node is pushed and popped from the queue once.
 - **Space Complexity**: $O(W)$, where $W$ is the maximum width of the tree. In the worst case (a perfect binary tree), the queue holds up to $N/2$ nodes at the deepest level.
 
 ## Efficiency Feedback
+
 - **Performance**: The implementation is efficient.
 - **Optimization**: To minimize reallocations for the inner vectors, `temp.reserve(lvl);` could be called before the inner `while` loop, as the size of the level is known beforehand.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is clear and follows standard BFS patterns.
 - **Structure**: Good. The handling of the edge case (`root == NULL`) is correctly placed at the beginning.
 - **Naming**: Moderate. `lvl` is used to store the *count* of nodes at the current level rather than the level *index* itself; a name like `levelSize` would be more accurate. `temp` is a generic name for the level container.
 - **Concrete Improvements**:
     - Replace `NULL` with `nullptr` to adhere to modern C++ (C++11 and later) standards.
-    - Consistent indentation would improve visual clarity.  ---  # Question Revision ### Binary Tree Level Order Traversal
+    - Consistent indentation would improve visual clarity.
+
+---
+
+# Question Revision
+
+#
+
+## Binary Tree Level Order Traversal
 
 **Pattern:** Breadth-First Search (BFS)
 
@@ -75,4 +100,6 @@ Use a `Queue` to process nodes level by level. At the start of each level, captu
 The explicit request for "level order" is the definitive signal to use BFS over DFS.
 
 **Summary:** 
-Use a queue and a nested loop based on the current queue size to snapshot and isolate each level of the tree.  ---
+Use a queue and a nested loop based on the current queue size to snapshot and isolate each level of the tree.
+
+---

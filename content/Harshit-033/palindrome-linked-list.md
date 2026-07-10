@@ -7,7 +7,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -50,13 +51,13 @@ public:
             slow=slow->next;
         }
 
-
         return true;
     }
 };
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer traversal combined with an `unordered_map` to store the first half of the linked list.
 *   **Optimal:** No. The optimal approach uses $O(1)$ auxiliary space by reversing the second half of the linked list in-place. This solution uses $O(N)$ space.
@@ -82,9 +83,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Palindrome Linked List
+
+#
+
+## Revision Report: Palindrome Linked List
 
 **Pattern:** Two Pointers / Linked List Manipulation (Fast & Slow Pointers)
 

@@ -5,7 +5,8 @@ date: "2026-04-11"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     long long mod = 1e9 + 7;
@@ -30,6 +31,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Modular Exponentiation (Binary Exponentiation) using a recursive divide-and-conquer strategy.
 - **Optimality**: Optimal. The number of choices for even positions (5) and odd positions (4) is independent, leading to the formula $5^{\lceil n/2 \rceil} \times 4^{\lfloor n/2 \rfloor} \pmod{10^9+7}$, which is efficiently computed in logarithmic time.
@@ -54,7 +56,10 @@ public:
 ---
 
 # Question Revision
-### Count Good Numbers
+
+#
+
+## Count Good Numbers
 
 **Pattern:** Modular Exponentiation / Combinatorics
 

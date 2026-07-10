@@ -7,7 +7,8 @@ date: "2026-04-06"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -44,6 +45,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Recursive Tree Traversal (Binary Search Tree property).
 *   **Optimal:** Yes. It utilizes the BST property to prune the search space by half at each step.
@@ -76,9 +78,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Search in a Binary Search Tree
+
+#
+
+## Revision Report: Search in a Binary Search Tree
 
 **Pattern:** Binary Search Tree (BST) Properties / Divide and Conquer
 

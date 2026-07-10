@@ -7,7 +7,8 @@ date: "2026-03-27"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int candy(int[] ratings) {
         int i = 1;
@@ -38,6 +39,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique**: Greedy (One-pass slope analysis).
 *   **Optimal**: Yes. This approach computes the result in a single pass by identifying increasing and decreasing sequences ("mountains"), which is the optimal $O(n)$ strategy.
@@ -62,9 +64,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Candy (LeetCode 135)
+
+#
+
+## Revision Report: Candy (LeetCode 135)
 
 **Pattern:** Two-Pass Greedy
 

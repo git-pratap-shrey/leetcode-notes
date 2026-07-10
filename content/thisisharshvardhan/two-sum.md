@@ -5,7 +5,8 @@ date: "2026-04-10"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -25,6 +26,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: One-pass Hash Map.
 - **Optimality**: Optimal. It achieves the best possible time complexity for an unsorted input array.
@@ -48,7 +50,10 @@ public:
 ---
 
 # Question Revision
-### Two Sum
+
+#
+
+## Two Sum
 
 **Pattern:** Hash Map (Complement Search)
 

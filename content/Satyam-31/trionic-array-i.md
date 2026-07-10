@@ -7,7 +7,8 @@ date: "2026-02-26"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool isTrionic(vector<int>& nums) {
@@ -46,6 +47,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Greedy traversal/linear scan.
 *   **Optimal:** Yes. The logic checks for a "mountain" or "trionic" shape (strictly increasing, then strictly decreasing) by identifying the peak ($p$) and the valley ($q$) transitions. It effectively validates a three-segment structure in $O(n)$ time.
@@ -70,9 +72,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Trionic Array I
+
+#
+
+## Revision Report: Trionic Array I
 
 **Pattern:** Prefix Sums / Sliding Window
 

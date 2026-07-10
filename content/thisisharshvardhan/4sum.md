@@ -5,7 +5,8 @@ date: "2026-04-16"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
@@ -36,6 +37,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Three nested loops combined with a Hash Set (to find the 4th element) and a `std::set` (to handle duplicate quadruplets).
 - **Optimality**: Suboptimal. The optimal approach for 4Sum is $O(n^3)$ using sorting and the two-pointer technique. This implementation incurs additional logarithmic overhead due to the use of `std::set`.
@@ -66,7 +68,10 @@ public:
 ---
 
 # Question Revision
-### LeetCode 18: 4Sum
+
+#
+
+## LeetCode 18: 4Sum
 
 **Pattern:** Two Pointers / Sorting
 

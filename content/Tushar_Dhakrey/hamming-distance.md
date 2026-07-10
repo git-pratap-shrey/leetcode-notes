@@ -5,7 +5,8 @@ date: "2026-04-23"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int hammingDistance(int x, int y) {
         return Integer.bitCount(x^y);
@@ -14,6 +15,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Bit Manipulation.
 - **Optimality**: Optimal. The XOR operator identifies differing bits, and `Integer.bitCount` calculates the population count (Hamming weight) of the resulting mask.
@@ -34,7 +36,10 @@ class Solution {
 ---
 
 # Question Revision
-### Hamming Distance
+
+#
+
+## Hamming Distance
 
 **Pattern:** Bit Manipulation
 

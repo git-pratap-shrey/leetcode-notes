@@ -7,7 +7,8 @@ date: "2026-03-28"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int minAbsoluteDifference(vector<int>& nums) {
@@ -46,6 +47,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Two-pointer linear scan.
 *   **Optimal:** Yes. The algorithm effectively tracks the most recent positions of values `1` and `2` and computes their distance in a single pass.
@@ -63,7 +65,9 @@ public:
 *   **Structure:** Good. The logic is encapsulated well within the class method, and the edge case (no occurrences) is handled correctly.
 *   **Naming:** Good. Variables are concise and standard for competitive programming.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 *   **Simplify iteration:** Instead of nested `while` loops, use a single `for` loop to track the indices of `1` and `2`.
     ```cpp
     int last1 = -1, last2 = -1, minDiff = INT_MAX;
@@ -81,9 +85,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Minimum Absolute Difference
+
+#
+
+## Revision Report: Minimum Absolute Difference
 
 **Pattern:** Sorting + Linear Scan
 

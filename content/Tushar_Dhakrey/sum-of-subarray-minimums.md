@@ -5,7 +5,8 @@ date: "2026-04-14"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int sumSubarrayMins(int[] arr) {
         int n = arr.length;
@@ -51,6 +52,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Monotonic Stack. The solution calculates the contribution of each element `arr[i]` by finding the range $[psee[i] + 1, nse[i] - 1]$ where `arr[i]` is the minimum.
 - **Optimality**: Optimal. It achieves linear time complexity, which is the theoretical lower bound for this problem.
@@ -76,7 +78,10 @@ class Solution {
 ---
 
 # Question Revision
-### Sum of Subarray Minimums
+
+#
+
+## Sum of Subarray Minimums
 
 **Pattern:** Monotonic Stack
 

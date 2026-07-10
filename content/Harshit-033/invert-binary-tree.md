@@ -5,7 +5,8 @@ date: "2026-06-22"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -32,12 +33,10 @@ public:
     }
 };
 
-
-
-
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive Depth-First Search (DFS) using a pre-order traversal strategy.
 - **Optimality**: Optimal. Every node in the tree must be visited at least once to perform the swap.
@@ -59,7 +58,10 @@ public:
 ---
 
 # Question Revision
-### Invert Binary Tree
+
+#
+
+## Invert Binary Tree
 
 **Pattern:** Tree Traversal (DFS/Recursion)
 

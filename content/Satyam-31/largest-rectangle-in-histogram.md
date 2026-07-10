@@ -1,4 +1,13 @@
---- title: "Largest Rectangle in Histogram" slug: largest-rectangle-in-histogram date: "2026-06-18" ---  # My Solution ~~~class Solution {
+---
+title: "Largest Rectangle in Histogram"
+slug: largest-rectangle-in-histogram
+date: "2026-06-18"
+---
+
+# My Solution
+~~~
+cpp
+class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
 
@@ -28,7 +37,6 @@ public:
 
         while(!st.empty()) st.pop();
 
-        
         for(int i = n - 1; i >= 0; i--) {
 
             while(!st.empty() &&
@@ -59,7 +67,12 @@ public:
 
         return ans;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~
+
+# Submission Review
+
+## Approach
 - **Technique:** Monotonic Stack.
 - **Optimality:** Optimal. It uses a monotonic stack to precompute the boundaries (nearest smaller element to the left and right) for every bar in $O(n)$ time.
 
@@ -68,7 +81,7 @@ public:
 - **Space Complexity:** $O(n)$ to store the `left` and `right` boundary arrays and the stack.
 
 ## Efficiency Feedback
-- **Performance:** The implementation is highly efficient. 
+- **Performance:** The implementation is highly efficient.
 - **Optimization:** While a single-pass approach exists (calculating area as elements are popped from the stack), the current three-pass approach (left, right, then area) is $O(n)$ and maintains better clarity without any significant performance penalty.
 
 ## Code Quality
@@ -77,11 +90,19 @@ public:
 - **Naming:** Good. Variables like `left`, `right`, and `st` (stack) are standard and intuitive in this context.
 - **Improvements:**
     - `ans` could be declared as `long long` if the problem constraints allowed for areas exceeding $2^{31}-1$, though for standard LeetCode constraints on this problem, `int` suffices.
-    - The `while(!st.empty()) st.pop();` can be replaced with `st = stack<int>();` or simply declaring a new stack to be more idiomatic.  ---  # Question Revision ### Largest Rectangle in Histogram
+    - The `while(!st.empty()) st.pop();` can be replaced with `st = stack<int>();` or simply declaring a new stack to be more idiomatic.
+
+---
+
+# Question Revision
+
+#
+
+## Largest Rectangle in Histogram
 
 **Pattern:** Monotonic Stack
 
-**Brute Force:** Iterate through every possible pair of boundaries $(i, j)$, find the minimum height $h$ within that range, and calculate $\text{area} = h \times (j - i + 1)$. 
+**Brute Force:** Iterate through every possible pair of boundaries $(i, j)$, find the minimum height $h$ within that range, and calculate $\text{area} = h \times (j - i + 1)$.
 - Time: $O(n^2)$
 - Space: $O(1)$
 
@@ -91,4 +112,6 @@ public:
 
 **The 'Aha' Moment:** The maximum area is determined by the distance between the first smaller element to the left and the first smaller element to the right of each bar.
 
-**Summary:** Use a monotonic stack to find the left and right boundaries where each bar serves as the shortest height.  ---
+**Summary:** Use a monotonic stack to find the left and right boundaries where each bar serves as the shortest height.
+
+---

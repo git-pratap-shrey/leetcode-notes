@@ -5,7 +5,8 @@ date: "2026-04-19"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -50,6 +51,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Recursive Post-order Traversal (DFS).
 - **Optimality**: Optimal. It calculates the height and checks the balance property in a single bottom-up pass, avoiding the $O(N^2)$ complexity associated with calling a separate height function for every node.
@@ -74,7 +76,10 @@ public:
 ---
 
 # Question Revision
-### Balanced Binary Tree
+
+#
+
+## Balanced Binary Tree
 
 **Pattern:** Tree DFS (Bottom-Up / Post-Order Traversal)
 

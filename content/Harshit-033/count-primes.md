@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     bool prime(int num){
@@ -19,7 +20,6 @@ public:
         }
         return true;
     }
-
 
     int countPrimes(int n) {
         if(n<=2) return 0;
@@ -47,6 +47,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** The code attempts a hybrid of the **Sieve of Eratosthenes** and trial division.
 *   **Optimality:** **Suboptimal.** While the Sieve is the standard approach, this implementation redundantly calls a `prime()` function inside the Sieve loop and uses an uninitialized Variable Length Array (VLA), which is non-standard in C++.
@@ -70,7 +71,9 @@ public:
     3.  **Fix VLA:** Replace `int arr[n]` with `vector<bool> isPrime(n, true);`.
     4.  **Loop Boundary:** The `prime()` loop condition `i < num/2` is logically incorrect for some numbers; it should be `i * i <= num`. However, since `prime()` shouldn't exist, this is moot.
 
-### Optimized Logic Snippet
+#
+
+## Optimized Logic Snippet
 ```cpp
 int countPrimes(int n) {
     if (n <= 2) return 0;
@@ -89,9 +92,11 @@ int countPrimes(int n) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Count Primes
+
+#
+
+## Revision Report: Count Primes
 
 **Pattern:** Number Theory / Sieve of Eratosthenes
 

@@ -7,7 +7,8 @@ date: "2026-03-26"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public List<List<String>> partition(String s) {
         List<List<String>> parti = new ArrayList<>();
@@ -45,6 +46,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Backtracking with recursion.
 - **Optimality**: Optimal. This approach correctly explores all valid palindrome partitions using a standard backtracking pattern.
@@ -71,9 +73,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Palindrome Partitioning
+
+#
+
+## Revision Report: Palindrome Partitioning
 
 **Pattern:** Backtracking (DFS)
 

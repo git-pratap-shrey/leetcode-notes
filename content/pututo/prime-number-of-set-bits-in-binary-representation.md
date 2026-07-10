@@ -5,7 +5,8 @@ date: "2026-07-09"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int isPrime(int ans,int count){
@@ -42,6 +43,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Iterative bit manipulation and primality testing.
 *   **Optimality:** Suboptimal. The primality test is performed repeatedly for every number in the range `[left, right]`. Since the maximum possible number of set bits for a 32-bit integer is small (max 32), a precomputed set or a small lookup table is more efficient.
@@ -59,7 +61,9 @@ public:
 *   **Structure:** Moderate. The `isPrime` function signature is confusing; passing `ans` into `isPrime` and returning it makes the flow unnecessarily coupled.
 *   **Naming:** Moderate. Variables like `z`, `p`, and `ans` are somewhat generic; `bitCount` or `is_prime` would be better.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1.  **Bit Counting:** Replace the `while` loop with `__builtin_popcount(i)`.
 2.  **Primality Logic:** Replace the entire `isPrime` function with a static set or a simple `switch/if` statement checking against known primes:
     ```cpp
@@ -73,7 +77,10 @@ public:
 ---
 
 # Question Revision
-### Revision Report: Prime Number of Set Bits
+
+#
+
+## Revision Report: Prime Number of Set Bits
 
 **Pattern:** Bit Manipulation / Counting
 

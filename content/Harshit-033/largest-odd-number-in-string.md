@@ -7,7 +7,8 @@ date: "2026-04-08"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 char* largestOddNumber(char* num) {
 
     int len=strlen(num);
@@ -35,6 +36,7 @@ char* largestOddNumber(char* num) {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Greedy traversal from right-to-left.
 *   **Optimality:** Optimal. The largest odd number is formed by the longest prefix that ends with an odd digit. Finding the rightmost odd digit and truncating the string there is the most efficient way to satisfy the condition.
@@ -59,9 +61,11 @@ char* largestOddNumber(char* num) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Largest Odd Number in String
+
+#
+
+## Revision Report: Largest Odd Number in String
 
 **Pattern:** Greedy / Right-to-Left Traversal
 

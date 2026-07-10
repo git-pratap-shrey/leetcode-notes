@@ -5,7 +5,8 @@ date: "2026-04-12"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
@@ -15,6 +16,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Utilizes the C++ Standard Template Library (STL) function `std::next_permutation`.
 - **Optimality**: Optimal. This is the standard algorithmic approach to find the lexicographically next permutation.
@@ -36,7 +38,10 @@ public:
 ---
 
 # Question Revision
-### Next Permutation
+
+#
+
+## Next Permutation
 
 **Pattern:** Two Pointers / Array Manipulation
 

@@ -1,4 +1,12 @@
---- title: "Serialize and Deserialize Binary Tree" slug: serialize-and-deserialize-binary-tree date: "2026-06-26" ---  # My Solution ~~~/**
+---
+title: "Serialize and Deserialize Binary Tree"
+slug: serialize-and-deserialize-binary-tree
+date: "2026-06-26"
+
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -59,28 +67,45 @@ public class Codec {
 // Your Codec object will be instantiated and called as such:
 // Codec ser = new Codec();
 // Codec deser = new Codec();
-// TreeNode ans = deser.deserialize(ser.serialize(root)); - java~~~  # Submission Review ## Approach
+// TreeNode ans = deser.deserialize(ser.serialize(root));
+~~~
+
+# Submission Review
+
+## Approach
+
 - **Technique**: Breadth-First Search (BFS) / Level-order traversal using a `Queue`.
 - **Optimality**: Optimal. It visits every node exactly once during both serialization and deserialization.
 
 ## Complexity
+
 - **Time Complexity**: $O(N)$, where $N$ is the number of nodes in the tree. Each node is processed once.
 - **Space Complexity**: $O(N)$. 
     - In `serialize`, the queue can hold up to the maximum width of the tree, and the `StringBuilder` stores all nodes.
     - In `deserialize`, the `split()` method creates an array of size $O(N)$, and the queue holds the tree width.
 
 ## Efficiency Feedback
+
 - **String Splitting**: The use of `data.split(",")` creates a large array of strings. For extremely large trees, using a `StringTokenizer` or a manual pointer (index) to parse the string would reduce memory overhead and object creation.
 - **StringBuilder**: Efficiently used to avoid $O(N^2)$ string concatenation.
 - **Trailing Comma**: The `serialize` method appends a comma after every element, including the last one. While Java's `split()` handles trailing empty strings by discarding them, this produces a slightly redundant string.
 
 ## Code Quality
+
 - **Readability**: Good. The logic is straightforward and follows standard BFS patterns.
 - **Structure**: Good. The methods are logically separated and handle edge cases (like `root == null`) at the start.
 - **Naming**: Moderate. Variable names like `q`, `sb`, and `i` are common in competitive programming but would be considered too terse in a production environment (e.g., `nodeQueue`, `stringBuilder`, `valueIndex`).
 - **Concrete Improvements**:
     - Replace `data.split(",")` with a more memory-efficient parsing mechanism if memory limits are tight.
-    - Use more descriptive variable names to improve maintainability.  ---  # Question Revision ### Serialize and Deserialize Binary Tree
+    - Use more descriptive variable names to improve maintainability.
+
+---
+
+# Question Revision
+
+#
+
+## Serialize and Deserialize Binary Tree
 
 **Pattern:** Tree Traversal (DFS / Pre-order)
 
@@ -94,4 +119,6 @@ public class Codec {
 
 **The 'Aha' Moment:** To reconstruct a tree from a single traversal, you must explicitly encode the `null` leaf pointers to mark the boundaries of every subtree.
 
-**Summary:** Use Pre-order DFS with null markers to flatten the tree into a string and a queue to rebuild it recursively.  ---
+**Summary:** Use Pre-order DFS with null markers to flatten the tree into a string and a queue to rebuild it recursively.
+
+---

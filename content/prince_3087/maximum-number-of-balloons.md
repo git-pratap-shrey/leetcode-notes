@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int maxNumberOfBalloons(string text) {
@@ -29,15 +30,13 @@ public:
         }
         return result;
 
-
-
-
         
     }
 };
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Frequency counting using hash maps.
 - **Optimality**: Optimal. The problem requires counting specific character occurrences to determine the limiting factor, which is exactly what this approach does.
@@ -62,7 +61,10 @@ public:
 ---
 
 # Question Revision
-### Maximum Number of Balloons
+
+#
+
+## Maximum Number of Balloons
 
 **Pattern:** Frequency Map (Counting)
 

@@ -5,7 +5,8 @@ date: "2026-04-27"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
@@ -28,6 +29,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Frequency array (Hashing). The code tracks the occurrence of positive integers within the range $[1, N]$ using an auxiliary boolean-like vector.
 - **Optimality**: Suboptimal. While time-optimal, it fails to meet the common $O(1)$ auxiliary space constraint typically associated with this specific problem.
@@ -52,7 +54,10 @@ public:
 ---
 
 # Question Revision
-### First Missing Positive
+
+#
+
+## First Missing Positive
 
 **Pattern:** Cyclic Sort
 

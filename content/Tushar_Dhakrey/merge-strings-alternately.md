@@ -7,7 +7,8 @@ date: "2026-03-29"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public String mergeAlternately(String word1, String word2) {
         StringBuilder sb = new StringBuilder();
@@ -27,6 +28,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Iterative simulation using two-pointer logic (effectively a single index `i`).
 *   **Optimality:** Optimal. It traverses each string exactly once and constructs the result in linear time.
@@ -50,9 +52,11 @@ class Solution {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Merge Strings Alternately
+
+#
+
+## Revision Report: Merge Strings Alternately
 
 **Pattern:** Two Pointers
 

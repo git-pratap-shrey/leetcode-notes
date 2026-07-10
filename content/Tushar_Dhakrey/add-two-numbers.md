@@ -7,7 +7,8 @@ date: "2026-03-31"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -45,6 +46,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique:** Iterative simulation (single-pass addition).
 * **Optimality:** Optimal. The algorithm processes each node exactly once, which is the theoretical lower bound for this problem.
@@ -62,16 +64,20 @@ class Solution {
 * **Structure:** Good. The while-loop condition `l1 != null || l2 != null || carry != 0` elegantly handles cases where the lists have different lengths or a carry exists after the final digits.
 * **Naming:** Good. Variable names (`dummy`, `temp`, `carry`) are idiomatic and descriptive.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 * **Memory Optimization:** While the current space complexity is $O(\max(N, M))$, if you were permitted to modify the input lists, you could reuse the nodes of the longer list to reduce auxiliary space to $O(1)$. However, the current approach is safer and better practice as it leaves input data structures immutable.
 * **Code Compactness:** The `if` statements could be slightly simplified, but they are already quite clear. No refactoring is necessary for performance.
 
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Add Two Numbers
+
+#
+
+## Revision Report: Add Two Numbers
 
 **Pattern:** Linked List Traversal / Simulation
 

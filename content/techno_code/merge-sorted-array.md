@@ -5,7 +5,8 @@ date: "2026-04-17"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
@@ -35,6 +36,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Two-pointer approach (backward traversal).
 - **Optimality**: Optimal. It leverages the trailing empty space in `nums1` to merge the arrays in-place without requiring additional memory or shifting elements.
@@ -56,7 +58,10 @@ public:
 ---
 
 # Question Revision
-### Merge Sorted Array
+
+#
+
+## Merge Sorted Array
 
 **Pattern:** Two Pointers (Backward)
 

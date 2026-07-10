@@ -7,7 +7,8 @@ date: "2026-03-07"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int minCost(int n) {
@@ -18,6 +19,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 *   **Technique:** Mathematical formula (Arithmetic series summation).
 *   **Optimality:** Optimal. The problem asks for the minimum cost to split an integer $n$ into $n$ ones using a process where splitting an integer $x$ into $a$ and $b$ costs $x$. The total cost to reduce $n$ to $n$ ones is $\sum_{i=1}^{n-1} i$, which is equivalent to the triangular number formula $n(n-1)/2$.
@@ -40,9 +42,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Minimum Cost to Split into Ones
+
+#
+
+## Revision Report: Minimum Cost to Split into Ones
 
 **Pattern:** Dynamic Programming (DP) / Greedy Optimization
 

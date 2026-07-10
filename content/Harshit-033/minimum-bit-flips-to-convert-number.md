@@ -7,7 +7,8 @@ date: "2026-04-09"
 ---
 
 # My Solution
-~~~c
+~~~
+c
 int minBitFlips(int start, int goal) {
 
     int num=start^goal;
@@ -22,6 +23,7 @@ int minBitFlips(int start, int goal) {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique:** Bitwise XOR followed by a bit-counting loop (Brian Kernighan’s algorithm alternative).
 - **Optimality:** It is functionally correct but technically suboptimal compared to standard built-in functions or bit-manipulation tricks.
@@ -58,9 +60,11 @@ int minBitFlips(int start, int goal) {
 ---
 ---
 
-
 # Question Revision
-### Revision Report: Minimum Bit Flips to Convert Number
+
+#
+
+## Revision Report: Minimum Bit Flips to Convert Number
 
 **Pattern:** Bit Manipulation (XOR/Popcount)
 

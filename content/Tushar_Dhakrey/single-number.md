@@ -5,7 +5,8 @@ date: "2026-04-25"
 ---
 
 # My Solution
-~~~java
+~~~
+java
 class Solution {
     public int singleNumber(int[] nums) {
         int n = nums.length;
@@ -19,6 +20,7 @@ class Solution {
 ~~~
 
 # Submission Review
+
 ## Approach
 - **Technique**: Bit Manipulation (XOR).
 - **Optimality**: Optimal. It leverages the property that $x \oplus x = 0$ and $x \oplus 0 = x$. Since every number except one appears twice, the duplicate values cancel out, leaving only the single number.
@@ -40,7 +42,10 @@ class Solution {
 ---
 
 # Question Revision
-### Single Number
+
+#
+
+## Single Number
 
 **Pattern:** Bit Manipulation (XOR)
 

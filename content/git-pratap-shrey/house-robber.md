@@ -7,7 +7,8 @@ date: "2026-03-30"
 ---
 
 # My Solution
-~~~cpp
+~~~
+cpp
 class Solution {
 public:
     int rob(vector<int>& nums) {
@@ -29,6 +30,7 @@ public:
 ~~~
 
 # Submission Review
+
 ## Approach
 * **Technique:** Iterative Dynamic Programming with space optimization.
 * **Optimality:** Optimal. It correctly reduces the standard $O(N)$ space DP table to $O(1)$ by only tracking the last two states.
@@ -47,7 +49,9 @@ public:
 * **Structure:** Moderate. The commented-out line `vector<int> dp(nums.size()) = {0,0};` should be removed as it is syntactically incorrect and serves no purpose.
 * **Naming:** Good. `prev1` and `prev2` clearly represent the previous states in the recurrence relation.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1. **Handle Empty Input:** Add `if (nums.empty()) return 0;` at the beginning.
 2. **Cleanup:** Remove the commented-out code.
 3. **Initialization:** Explicitly initialize `current = 0` to ensure safe returns for empty inputs.
@@ -75,9 +79,11 @@ public:
 ---
 ---
 
-
 # Question Revision
-### Revision Report: House Robber
+
+#
+
+## Revision Report: House Robber
 
 **Pattern:** Dynamic Programming (1D)
 
