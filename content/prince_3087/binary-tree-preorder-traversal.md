@@ -1,4 +1,11 @@
---- title: "Binary Tree Preorder Traversal" slug: binary-tree-preorder-traversal date: "2026-06-30" ---  # My Solution ~~~/**
+---
+title: "Binary Tree Preorder Traversal"
+slug: binary-tree-preorder-traversal
+date: "2026-06-30"
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
@@ -25,7 +32,10 @@ public:
         fun(node->right,res);
         return;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~  # Submission Review 
+
+## Approach
 - **Technique:** Recursive Depth-First Search (DFS).
 - **Optimality:** Optimal. Preorder traversal requires visiting every node exactly once, and recursion is the standard way to implement this.
 
@@ -43,7 +53,13 @@ public:
 - **Naming:** Poor. `fun` is a generic name that does not describe the function's purpose (e.g., `traverse` or `preorder` would be better).
 - **Improvements:** 
     - Rename `fun` to `traverse` or `dfs`.
-    - Use `nullptr` instead of `NULL` for consistency with modern C++ standards.  ---  # Question Revision ### Binary Tree Preorder Traversal
+    - Use `nullptr` instead of `NULL` for consistency with modern C++ standards.
+
+---
+
+# Question Revision #
+
+## Binary Tree Preorder Traversal
 
 **Pattern:** Tree Traversal (DFS)
 
@@ -64,4 +80,6 @@ Iterative DFS using an explicit stack to mimic the call stack.
 The requirement to visit the root before its children explicitly defines a Preorder DFS sequence.
 
 **Summary:** 
-Process the root, then dive left, then right; use a stack and push right-then-left to maintain this order iteratively.  ---
+Process the root, then dive left, then right; use a stack and push right-then-left to maintain this order iteratively.
+
+---

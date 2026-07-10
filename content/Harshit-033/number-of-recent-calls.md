@@ -1,4 +1,11 @@
---- title: "Number of Recent Calls" slug: number-of-recent-calls date: "2026-06-19" ---  # My Solution ~~~
+---
+title: "Number of Recent Calls"
+slug: number-of-recent-calls
+date: "2026-06-19"
+---
+
+# My Solution
+~~~
 class RecentCounter {
 public:
     queue<int> q;
@@ -20,7 +27,10 @@ public:
  * Your RecentCounter object will be instantiated and called as such:
  * RecentCounter* obj = new RecentCounter();
  * int param_1 = obj->ping(t);
- */ - cpp~~~  # Submission Review ## Approach
+ */
+~~~  # Submission Review 
+
+## Approach
 - **Technique**: Queue-based sliding window.
 - **Optimality**: Optimal. Since input timestamps $t$ are guaranteed to be strictly increasing, a queue effectively maintains the window $[t-3000, t]$ by removing expired elements from the front.
 
@@ -38,7 +48,13 @@ public:
 - **Naming**: Moderate. While `q` is acceptable in a competitive programming context, a name like `timestamps` would be more descriptive.
 - **Improvements**: 
     - The constructor `RecentCounter()` is empty and can be omitted or defaulted (`RecentCounter() = default;`).
-    - The member variable `q` is public; it should be `private` to follow encapsulation principles.  ---  # Question Revision ### Number of Recent Calls
+    - The member variable `q` is public; it should be `private` to follow encapsulation principles.
+
+---
+
+# Question Revision #
+
+## Number of Recent Calls
 
 **Pattern:** Queue / Sliding Window
 
@@ -52,4 +68,6 @@ public:
 
 **The 'Aha' Moment:** Since timestamps are strictly increasing, any call that is too old for the current `ping` will also be too old for all future `pings`.
 
-**Summary:** Use a queue to track timestamps and prune the head to maintain a sliding time window.  ---
+**Summary:** Use a queue to track timestamps and prune the head to maintain a sliding time window.
+
+---

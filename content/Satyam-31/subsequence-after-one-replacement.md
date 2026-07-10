@@ -1,4 +1,12 @@
---- title: "Subsequence After One Replacement" slug: subsequence-after-one-replacement date: "2026-07-05" ---  # My Solution ~~~class Solution {
+---
+title: "Subsequence After One Replacement"
+slug: subsequence-after-one-replacement
+date: "2026-07-05"
+---
+
+# My Solution
+~~~
+class Solution {
 public:
     bool canMakeSubsequence(string s, string t) {
        int n=s.size(),m=t.size();
@@ -29,7 +37,10 @@ public:
         }
         return false;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~  # Submission Review 
+
+## Approach
 - **Technique**: Two-pointer approach with Prefix and Suffix precomputation.
 - **Optimality**: Optimal. The algorithm pre-calculates the leftmost possible positions for every prefix of `s` and the rightmost possible positions for every suffix of `s` in `t`. This allows it to evaluate the possibility of replacing any single character in $O(1)$ time.
 
@@ -46,10 +57,18 @@ public:
 - **Structure**: Good. The logic flows linearly: Prefix pass $\rightarrow$ Suffice pass $\rightarrow$ Combination check.
 - **Naming**: Moderate. `L` and `R` are common shorthand in competitive programming for "Left" and "Right" bounds, but `prefixMinIdx` and `suffixMinLen` would be more descriptive for software engineering standards.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1. **Consistency**: The loop for `L` uses `L[i+1]` while the loop for `R` uses `R[i]`. While logically correct, aligning the indexing style would improve maintainability.
 2. **Formatting**: Adding newline separators between the three main logic phases would improve readability.
-3. **Constants**: `INF` is set to `1e9`; while sufficient here, using `m + 1` would be more precise as no valid index/length can exceed the size of `t`.  ---  # Question Revision ### Revision Report: Subsequence After One Replacement
+3. **Constants**: `INF` is set to `1e9`; while sufficient here, using `m + 1` would be more precise as no valid index/length can exceed the size of `t`.
+
+---
+
+# Question Revision #
+
+## Revision Report: Subsequence After One Replacement
 
 **Pattern:** Combinatorics / Dynamic Programming
 
@@ -71,4 +90,6 @@ Complexity: $O(26 \cdot n^2)$
 The "one replacement" constraint signals that you should calculate a baseline result and then find the marginal gain (delta) for each possible change rather than recomputing from scratch.
 
 **Summary:**
-Compute the baseline distinct subsequences and use prefix/suffix counts to efficiently calculate the delta for every potential character replacement.  ---
+Compute the baseline distinct subsequences and use prefix/suffix counts to efficiently calculate the delta for every potential character replacement.
+
+---

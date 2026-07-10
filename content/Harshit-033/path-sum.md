@@ -1,4 +1,11 @@
---- title: "Path Sum" slug: path-sum date: "2026-06-25" ---  # My Solution ~~~/**
+---
+title: "Path Sum"
+slug: path-sum
+date: "2026-06-25"
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
@@ -33,7 +40,10 @@ public:
 
         return false;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~  # Submission Review 
+
+## Approach
 - **Technique**: Recursive Depth-First Search (DFS).
 - **Optimality**: Optimal. The algorithm must visit nodes to determine if a valid path exists, and $O(N)$ is the lower bound for this problem.
 
@@ -52,7 +62,13 @@ public:
 **Concrete Improvements**:
 1. **Simplify Booleans**: Replace `if(targetSum==0){ return true; } else { return false; }` with `return targetSum == 0;`.
 2. **Short-circuit Recursion**: Replace the `leftPath`/`rightPath` variables and the subsequent `if` block with:
-   `return hasPathSum(root->left, targetSum) || hasPathSum(root->right, targetSum);`  ---  # Question Revision ### Path Sum
+   `return hasPathSum(root->left, targetSum) || hasPathSum(root->right, targetSum);`
+
+---
+
+# Question Revision #
+
+## Path Sum
 
 **Pattern:** DFS / Recursion
 
@@ -64,4 +80,6 @@ public:
 
 **The 'Aha' Moment:** The requirement for a "root-to-leaf path" signals a depth-first traversal where the state (remaining sum) is passed down to children.
 
-**Summary:** Subtract node values from the target during DFS; if a leaf's value matches the remaining sum, return true.  ---
+**Summary:** Subtract node values from the target during DFS; if a leaf's value matches the remaining sum, return true.
+
+---

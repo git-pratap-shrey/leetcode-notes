@@ -1,4 +1,12 @@
---- title: "Partitioning Into Minimum Number Of Deci-Binary Numbers" slug: partitioning-into-minimum-number-of-deci-binary-numbers date: "2026-07-10" ---  # My Solution ~~~class Solution {
+---
+title: "Partitioning Into Minimum Number Of Deci-Binary Numbers"
+slug: partitioning-into-minimum-number-of-deci-binary-numbers
+date: "2026-07-10"
+---
+
+# My Solution
+~~~
+class Solution {
     public int minPartitions(String n) {
         int max = 0;
         for(char ch : n.toCharArray()){
@@ -6,7 +14,10 @@
         }
         return max;
     }
-} - java~~~  # Submission Review ## Approach
+}
+~~~  # Submission Review 
+
+## Approach
 - **Technique:** Greedy/Observation. The minimum number of deci-binary numbers required is equal to the maximum digit present in the string, as each deci-binary number can contribute at most 1 to any specific decimal position.
 - **Optimality:** Optimal. This is the theoretical lower bound for the problem.
 
@@ -24,7 +35,13 @@
 - **Naming:** Moderate. `max` is acceptable, but `maxDigit` would be more descriptive.
 - **Improvements:** 
     - Replace `n.toCharArray()` with `n.charAt(i)` to optimize space.
-    - Consider adding a check for an empty string if the problem constraints allow it, though typically not required in competitive programming.  ---  # Question Revision ### Revision Report: Partitioning Into Minimum Number Of Deci-Binary Numbers
+    - Consider adding a check for an empty string if the problem constraints allow it, though typically not required in competitive programming.
+
+---
+
+# Question Revision #
+
+## Revision Report: Partitioning Into Minimum Number Of Deci-Binary Numbers
 
 **Pattern:** Greedy / Observation
 
@@ -40,4 +57,6 @@ The minimum number of deci-binary numbers required is equal to the maximum digit
 Realizing that a digit like '9' cannot be formed by fewer than nine $0/1$ digits regardless of what happens in other decimal positions.
 
 **Summary:** 
-The answer is simply the maximum digit in the string.  ---
+The answer is simply the maximum digit in the string.
+
+---

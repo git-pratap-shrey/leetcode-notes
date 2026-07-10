@@ -1,4 +1,12 @@
---- title: "Ransom Note" slug: ransom-note date: "2026-06-08" ---  # My Solution ~~~class Solution {
+---
+title: "Ransom Note"
+slug: ransom-note
+date: "2026-06-08"
+---
+
+# My Solution
+~~~
+class Solution {
 public:
     bool canConstruct(string ran, string mag) {
         map<char,int> mp1;
@@ -22,7 +30,10 @@ public:
         return true;
         
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~  # Submission Review 
+
+## Approach
 - **Technique**: Frequency counting using a map.
 - **Optimality**: Suboptimal. While the logic is correct, using a `std::map` (balanced BST) introduces logarithmic overhead for operations that can be performed in constant time.
 
@@ -42,7 +53,13 @@ public:
 - **Improvements**:
     - Replace `std::map<char, int>` with `int counts[256] = {0};`.
     - Use descriptive names like `ransomNote` and `magazine`.
-    - Remove redundant `find()` calls.  ---  # Question Revision ### Ransom Note
+    - Remove redundant `find()` calls.
+
+---
+
+# Question Revision #
+
+## Ransom Note
 
 **Pattern**: Frequency Map (Hash Table)
 
@@ -55,4 +72,6 @@ public:
 
 **The 'Aha' Moment**: The constraint that each letter in the magazine can be used "only once" signals a need to track character availability/counts.
 
-**Summary**: Use a frequency map to verify that the magazine contains at least as many of each character as required by the ransom note.  ---
+**Summary**: Use a frequency map to verify that the magazine contains at least as many of each character as required by the ransom note.
+
+---
