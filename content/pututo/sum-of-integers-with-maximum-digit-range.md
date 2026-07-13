@@ -1,4 +1,12 @@
---- title: "Sum of Integers with Maximum Digit Range" slug: sum-of-integers-with-maximum-digit-range date: "2026-07-06" ---  # My Solution ~~~class Solution {
+---
+title: "Sum of Integers with Maximum Digit Range"
+slug: sum-of-integers-with-maximum-digit-range
+date: "2026-07-06"
+---
+
+# My Solution
+~~~
+class Solution {
 public:
     int maxDigitRange(vector<int>& nums) {
         vector<int>dr(nums.size());
@@ -24,7 +32,10 @@ public:
         }
         return sum;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~  # Submission Review 
+
+## Approach
 - **Technique**: Linear scan with digit extraction.
 - **Optimality**: Time complexity is optimal, but space complexity is suboptimal. The logic can be implemented in a single pass without storing intermediate ranges.
 
@@ -44,7 +55,9 @@ public:
     - **Zero Handling**: If `nums[i]` is `0`, the `while(z > 0)` loop never executes. `lar` and `small` remain `INT_MIN` and `INT_MAX`, causing an integer overflow/underflow when calculating `dr[i] = lar - small`.
     - **Negative Numbers**: The `while(z > 0)` condition ignores negative numbers entirely.
 
-### Concrete Improvements
+#
+
+## Concrete Improvements
 1. **Single Pass**: 
    ```cpp
    if (currentRange > maxRange) {
@@ -55,7 +68,13 @@ public:
    }
    ```
 2. **Robust Digit Extraction**: Use `abs(num)` and handle the `0` case explicitly to avoid initialization errors.
-3. **Naming**: Rename `lar` $\to$ `maxDigit`, `small` $\to$ `minDigit`, `dr` $\to$ `digitRanges`.  ---  # Question Revision ### Revision Report: Sum of Integers with Maximum Digit Range
+3. **Naming**: Rename `lar` $\to$ `maxDigit`, `small` $\to$ `minDigit`, `dr` $\to$ `digitRanges`.
+
+---
+
+# Question Revision #
+
+## Revision Report: Sum of Integers with Maximum Digit Range
 
 **Pattern:** Digit Dynamic Programming (Digit DP)
 
@@ -75,4 +94,6 @@ Use Digit DP to count and sum numbers that satisfy the digit range condition. De
 Whenever a problem asks for a sum or count of integers in a range $[L, R]$ based on properties of their digits, it is a signal to use Digit DP.
 
 **Summary:** 
-Use Digit DP to track `min` and `max` digit states across positions to efficiently sum numbers in a large range.  ---
+Use Digit DP to track `min` and `max` digit states across positions to efficiently sum numbers in a large range.
+
+---

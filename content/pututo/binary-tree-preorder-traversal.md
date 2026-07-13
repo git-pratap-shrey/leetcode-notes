@@ -1,4 +1,11 @@
---- title: "Binary Tree Preorder Traversal" slug: binary-tree-preorder-traversal date: "2026-07-10" ---  # My Solution ~~~/**
+---
+title: "Binary Tree Preorder Traversal"
+slug: binary-tree-preorder-traversal
+date: "2026-07-10"
+---
+
+# My Solution
+~~~/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
@@ -25,7 +32,10 @@ public:
         preorder(root,res);
         return res;
     }
-}; - cpp~~~  # Submission Review ## Approach
+};
+~~~  # Submission Review 
+
+## Approach
 - **Technique**: Recursive Depth-First Search (DFS).
 - **Optimality**: Optimal for a standard recursive implementation. While Morris Traversal could reduce auxiliary space to $O(1)$, recursion is the standard approach for this problem.
 
@@ -44,7 +54,13 @@ public:
 - **Concrete Improvements**:
     - **Const Correctness**: The `node` parameter in `preorder` should be `const TreeNode*` as the function does not modify the tree.
     - **Namespace Consistency**: The code mixes `std::vector` (in the helper) and `vector` (in the main function). It should be consistent (preferably using `std::` explicitly).
-    - **Pass-by-reference**: Correctly uses a reference for the vector to avoid redundant copies.  ---  # Question Revision ### Binary Tree Preorder Traversal
+    - **Pass-by-reference**: Correctly uses a reference for the vector to avoid redundant copies.
+
+---
+
+# Question Revision #
+
+## Binary Tree Preorder Traversal
 
 **Pattern:** DFS (Depth-First Search) / Tree Traversal
 
@@ -60,4 +76,6 @@ Use an explicit **Stack** to simulate the recursion. Push the root onto the stac
 The term "Pre-order" explicitly dictates the sequence: Process $\rightarrow$ Left $\rightarrow$ Right.
 
 **Summary:** 
-Visit the root first, then exhaust the left branch before switching to the right.  ---
+Visit the root first, then exhaust the left branch before switching to the right.
+
+---
