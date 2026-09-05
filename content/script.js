@@ -208,7 +208,7 @@
                 if (timerEl) timerEl.textContent = timeLeft;
                 if (timeLeft <= 0) {
                     clearInterval(timerInterval);
-                    window.location.href = '/leetcode-notes/' + username + '/';
+                    window.location.href = username + '/';
                 }
             }, 1000);
         } else {
