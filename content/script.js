@@ -35,17 +35,7 @@
     // ── Tunnel URL ─────────────────────────────────────────────
 
     async function getTunnelUrl() {
-        let url = 'https://sustainability-collaboration-execute-kai.trycloudflare.com';
-        try {
-            const res = await fetch('./tunnel.txt');
-            if (res.ok) {
-                const text = (await res.text()).trim();
-                if (text.startsWith('http')) url = text;
-            }
-        } catch {
-            // use default
-        }
-        return url;
+        return 'https://n8n.git-pratap-shrey.online';
     }
 
     // ── Webhook submit (stands alone, no UI mutation) ──────────
