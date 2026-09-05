@@ -44,7 +44,7 @@
         // Always probe for existing page first
         let userExists = false;
         try {
-            const probe = await fetch(`/leetcode-notes/${username}/index.html`, { method: 'GET' });
+            const probe = await fetch(`/${username}/index.html`, { method: 'GET' });
             userExists = probe.ok;
         } catch { }
 
@@ -153,7 +153,7 @@
         // Check if user already exists on the static site
         let userExists = false;
         try {
-            const probe = await fetch(`/leetcode-notes/${username}/index.html`, { method: 'GET' });
+            const probe = await fetch(`/${username}/index.html`, { method: 'GET' });
             userExists = probe.ok;
         } catch { }
 
@@ -208,12 +208,12 @@
                 if (timerEl) timerEl.textContent = timeLeft;
                 if (timeLeft <= 0) {
                     clearInterval(timerInterval);
-                    window.location.href = username + '/';
+                    window.location.href = '/' + username + '/';
                 }
             }, 1000);
         } else {
             status.textContent = '✅ Welcome back! Redirecting...';
-            window.location.href = username + '/';
+            window.location.href = '/' + username + '/';
         }
     }
 
