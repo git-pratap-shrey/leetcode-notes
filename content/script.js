@@ -213,7 +213,7 @@
             }, 1000);
         } else {
             status.textContent = '✅ Welcome back! Redirecting...';
-            window.location.href = '/leetcode-notes/' + username + '/';
+            window.location.href = username + '/';
         }
     }
 
