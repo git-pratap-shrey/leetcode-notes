@@ -1,0 +1,729 @@
+{
+  "name": "leetcode-notes-poll",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9a0c06e3-b35a-4f69-9a51-c7c0f9fab46c",
+              "leftValue": "={{ !!$json.job_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2720,
+        1344
+      ],
+      "id": "3b678d4d-fbdc-4683-bd13-4ff1fa646cd5",
+      "name": "has_tasks"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(i => {\n  const { ques_id, ...rest } = i.json;\n  return { json: { ques_id, payload: JSON.stringify(rest) } };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3392,
+        1232
+      ],
+      "id": "ae0a7400-6d37-4950-bf17-dab89319ddef",
+      "name": "pack"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "dataTableId": {
+          "__rl": true,
+          "value": "85btJXKiyDuUxmwt",
+          "mode": "list",
+          "cachedResultName": "JOBS",
+          "cachedResultUrl": "/projects/gN39M0zk0PQQpzMS/datatables/85btJXKiyDuUxmwt"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "ques_id",
+              "keyValue": "={{ $json.ques_id }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "payload": "={{ $json.payload }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ques_id",
+              "displayName": "ques_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "payload",
+              "displayName": "payload",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        3616,
+        1232
+      ],
+      "id": "cfb5bbc4-dfd0-4b8f-b5d4-ab6ef4bcbbf6",
+      "name": "Update row(s)"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9e29f051-bfca-4e4b-9689-24ee639ee8cc",
+              "leftValue": "={{ !!($json.revision_text && $json.review_text) }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3392,
+        1456
+      ],
+      "id": "ed866f25-4506-4068-a2ee-e1180ee256db",
+      "name": "if_ready"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "git-pratap-shrey",
+          "mode": "list",
+          "cachedResultName": "git-pratap-shrey",
+          "cachedResultUrl": "https://github.com/git-pratap-shrey"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "leetcode-notes",
+          "mode": "list",
+          "cachedResultName": "leetcode-notes",
+          "cachedResultUrl": "https://github.com/git-pratap-shrey/leetcode-notes"
+        },
+        "filePath": "=content/{{ $json.username }}/{{ $json.title_slug }}.md",
+        "fileContent": "=---\ntitle: \"{{ $json.title }}\"\nslug: {{ $json.title_slug }}\ndate: \"{{ $json.solved_at }}\"\n---\n\n# My Solution\n~~~{{ $json.lang }}\n{{ $json.code }}\n~~~\n\n# Submission Review\n{{ $json.review_text }}\n\n---\n\n# Question Revision\n{{ $json.revision_text }}\n\n---",
+        "commitMessage": "auto : create .md"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        3616,
+        1456
+      ],
+      "id": "399b468f-c3f8-4297-b200-18ffc922e9d4",
+      "name": "create .mds",
+      "webhookId": "74d740b6-6222-4537-a3db-abfdd09c1432",
+      "credentials": {
+        "githubApi": {
+          "id": "OmM7NRES1ePCikzm",
+          "name": "GitHub account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// keep only rows whose .md commit actually succeeded\nconst ok = new Set($('create .mds').all().map(i => i.json.content?.path));\nreturn $('if_ready').all().filter(i => ok.has(`content/${i.json.username}/${i.json.title_slug}.md`));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3840,
+        1456
+      ],
+      "id": "952b7002-deca-41eb-8ef5-3a282d7b6264",
+      "name": "committed"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "git-pratap-shrey",
+          "mode": "list",
+          "cachedResultName": "git-pratap-shrey",
+          "cachedResultUrl": "https://github.com/git-pratap-shrey"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "leetcode-notes",
+          "mode": "list",
+          "cachedResultName": "leetcode-notes",
+          "cachedResultUrl": "https://github.com/git-pratap-shrey/leetcode-notes"
+        },
+        "filePath": "meta.json",
+        "asBinaryProperty": false,
+        "additionalParameters": {}
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        4064,
+        1456
+      ],
+      "id": "ca5045e0-3100-4e25-888e-5aac701f0854",
+      "name": "Get meta",
+      "executeOnce": true,
+      "webhookId": "4e9d8cc1-782c-4cc6-af81-8b108794eb06",
+      "credentials": {
+        "githubApi": {
+          "id": "OmM7NRES1ePCikzm",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let arr = [\n  {\n    json: JSON.parse(\n      Buffer.from(\n        ($input.first().json.content || '').replace(/\\n/g, \"\"),\n        \"base64\"\n      ).toString(\"utf-8\")\n    )\n  }\n];\n\nreturn arr[0];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4288,
+        1456
+      ],
+      "id": "deac314d-e157-45f2-a867-b6670c676315",
+      "name": "decode Base"
+    },
+    {
+      "parameters": {
+        "jsCode": "const solvedItems = $('committed').all();\nconst meta = $input.first().json || {};\n\nconst ensureNewFormat = (q) => {\n  if (typeof q === 'object') return q;\n  return { date: null, language: null };\n};\n\nfor (const item of solvedItems) {\n  const { username, title_slug: titleSlug, solved_at: solvedAt, lang: langName } = item.json;\n  if (!username) continue;\n\n  if (!meta[username]) {\n    meta[username] = { questions: {} };\n  }\n\n  if (!meta[username].questions || Array.isArray(meta[username].questions)) {\n    meta[username].questions = Array.isArray(meta[username].questions)\n      ? Object.fromEntries(meta[username].questions.map(q => [q, ensureNewFormat(q)]))\n      : (meta[username].questions || {});\n  }\n\n  let lang = 'cpp';\n  if (langName) {\n    lang = langName === 'C++' ? 'cpp' : langName.toLowerCase();\n  }\n\n  if (!meta[username].questions[titleSlug]) {\n    meta[username].questions[titleSlug] = { date: solvedAt, language: lang };\n  }\n}\n\nreturn [{ json: meta }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4512,
+        1456
+      ],
+      "id": "73def310-85f2-4b1e-9bfa-c31b7dcc3e45",
+      "name": "updated meta json"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "git-pratap-shrey",
+          "mode": "list",
+          "cachedResultName": "git-pratap-shrey",
+          "cachedResultUrl": "https://github.com/git-pratap-shrey"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "leetcode-notes",
+          "mode": "list",
+          "cachedResultName": "leetcode-notes",
+          "cachedResultUrl": "https://github.com/git-pratap-shrey/leetcode-notes"
+        },
+        "filePath": "meta.json",
+        "fileContent": "={{ JSON.stringify($json) }}",
+        "commitMessage": "auto: update leetcode meta.json"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        4736,
+        1456
+      ],
+      "id": "8137da33-060d-444c-8356-a031cc3b3d7f",
+      "name": "edit meta.json",
+      "webhookId": "304218f0-06d2-460f-b9c5-befda787b4bb",
+      "credentials": {
+        "githubApi": {
+          "id": "OmM7NRES1ePCikzm",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return $('committed').all().map(i => ({ json: { ques_id: i.json.ques_id } }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4960,
+        1456
+      ],
+      "id": "39e95ad9-3283-4526-aaee-45bca5858213",
+      "name": "rows_to_delete"
+    },
+    {
+      "parameters": {
+        "operation": "deleteRows",
+        "dataTableId": {
+          "__rl": true,
+          "value": "85btJXKiyDuUxmwt",
+          "mode": "list",
+          "cachedResultName": "JOBS",
+          "cachedResultUrl": "/projects/gN39M0zk0PQQpzMS/datatables/85btJXKiyDuUxmwt"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "ques_id",
+              "keyValue": "={{ $json.ques_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        5184,
+        1456
+      ],
+      "id": "75f5e7cb-f2ca-4a2f-9f2b-53a709f528c6",
+      "name": "Delete committed row(s)"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 3
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        1584,
+        1120
+      ],
+      "id": "3ce433ce-c1ed-4044-b033-9fa961151486",
+      "name": "Schedule Trigger1"
+    },
+    {
+      "parameters": {
+        "operation": "deleteRows",
+        "dataTableId": {
+          "__rl": true,
+          "value": "85btJXKiyDuUxmwt",
+          "mode": "list",
+          "cachedResultName": "JOBS",
+          "cachedResultUrl": "/projects/gN39M0zk0PQQpzMS/datatables/85btJXKiyDuUxmwt"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "createdAt",
+              "condition": "lt",
+              "keyValue": "={{ $now.minus({ hours: 12 }).toISO() }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1888,
+        1344
+      ],
+      "id": "3f28db80-9d84-4b41-9ede-affb04d5df89",
+      "name": "Delete row(s)1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "85btJXKiyDuUxmwt",
+          "mode": "list",
+          "cachedResultName": "JOBS",
+          "cachedResultUrl": "/projects/gN39M0zk0PQQpzMS/datatables/85btJXKiyDuUxmwt"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        2112,
+        1344
+      ],
+      "id": "2011a2a5-fefa-4d87-861a-02d43cec6917",
+      "name": "Get row(s)1",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(i => ({ json: { ques_id: i.json.ques_id, ...JSON.parse(i.json.payload) } }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2288,
+        1344
+      ],
+      "id": "34bfeef2-3608-45c2-a8b4-87bbcd7fa1ac",
+      "name": "parse_rows1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const out = [];\nfor (const { json: r } of $input.all()) {\n  if (!r.revision_text) out.push({ json: { ques_id: r.ques_id, kind: 'revision', job_id: r.revision_job } });\n  if (!r.review_text)   out.push({ json: { ques_id: r.ques_id, kind: 'analysis', job_id: r.analysis_job } });\n}\n// nothing left to poll (e.g. a commit failed last run): pass a sentinel so `apply` still runs\nreturn out.length ? out : [{ json: { noop: true } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2512,
+        1344
+      ],
+      "id": "86ed857a-e713-41fc-b229-79aac4b9ca64",
+      "name": "make_tasks1"
+    },
+    {
+      "parameters": {
+        "url": "=https://lm-gateway.git-pratap-shrey.online/{{ $json.job_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        2944,
+        1280
+      ],
+      "id": "1b9b480a-5f2d-40ce-aa90-9a29e2a26d6f",
+      "name": "HTTP Request1",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const tasks = $('make_tasks1').all();\nconst rows = $('parse_rows1').all().map(i => ({ ...i.json }));\nconst byId = Object.fromEntries(rows.map(r => [r.ques_id, r]));\n$input.all().forEach((it, i) => {\n  const t = tasks[i]?.json, r = it.json;\n  if (!t?.ques_id || !byId[t.ques_id]) return;          // sentinel / unknown row\n  if (r.status !== 'completed' || !r.response) return;  // queued / processing / failed / http error\n  byId[t.ques_id][t.kind === 'revision' ? 'revision_text' : 'review_text'] = r.response;\n});\nreturn rows.map(r => ({ json: r }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3120,
+        1424
+      ],
+      "id": "9ec3a255-6967-45da-9012-a9bd656cff97",
+      "name": "apply1"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "9878b6e4-76fb-41d6-b0d4-0b58cf94c876",
+      "typeVersion": 1.1,
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        1584,
+        1344
+      ]
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1584,
+        1600
+      ],
+      "id": "645251f6-195b-4e93-a594-8c5afb3fcdd5",
+      "name": "When clicking ‘Execute workflow’"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "has_tasks": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "apply1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pack": {
+      "main": [
+        [
+          {
+            "node": "Update row(s)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "if_ready": {
+      "main": [
+        [
+          {
+            "node": "create .mds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create .mds": {
+      "main": [
+        [
+          {
+            "node": "committed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "committed": {
+      "main": [
+        [
+          {
+            "node": "Get meta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get meta": {
+      "main": [
+        [
+          {
+            "node": "decode Base",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "decode Base": {
+      "main": [
+        [
+          {
+            "node": "updated meta json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "updated meta json": {
+      "main": [
+        [
+          {
+            "node": "edit meta.json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "edit meta.json": {
+      "main": [
+        [
+          {
+            "node": "rows_to_delete",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "rows_to_delete": {
+      "main": [
+        [
+          {
+            "node": "Delete committed row(s)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Delete row(s)1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete row(s)1": {
+      "main": [
+        [
+          {
+            "node": "Get row(s)1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)1": {
+      "main": [
+        [
+          {
+            "node": "parse_rows1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "parse_rows1": {
+      "main": [
+        [
+          {
+            "node": "make_tasks1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "make_tasks1": {
+      "main": [
+        [
+          {
+            "node": "has_tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "apply1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "apply1": {
+      "main": [
+        [
+          {
+            "node": "pack",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "if_ready",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Delete row(s)1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Delete row(s)1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "2184236c-7ae5-41e4-a4ae-4f5c25df5ce0",
+  "meta": {
+    "instanceId": "8eb03d4c88a2e3da4b3cb8848444eb1d9c1d6528547f3dbd18020c9338010c77"
+  },
+  "nodeGroups": [],
+  "id": "C1AQrlOmHsbO27Ud",
+  "tags": []
+}

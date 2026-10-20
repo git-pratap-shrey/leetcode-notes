@@ -1,0 +1,780 @@
+{
+  "name": "leetcode-notes-queue",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://leetcode.com/graphql",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"query\": \"query recentAcSubmissions($username: String!, $limit: Int!) { recentAcSubmissionList(username: $username, limit: $limit) { id title titleSlug timestamp } }\",\n  \"variables\": {\n    \"username\": \"{{ $json.username }}\",\n    \"limit\": 15\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        160,
+        4016
+      ],
+      "id": "7b8e91db-3d4c-4987-9a5d-6b85f98160b3",
+      "name": "graphql-recentAC"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -768,
+        4048
+      ],
+      "id": "401c5c1c-4a33-49fb-8fc8-f28e720d04a4",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -784,
+        3728
+      ],
+      "id": "7f364899-1402-4bb7-acf7-291ff48639fa",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "content": "## The Mission\n\nThis project is an agentic automation pipeline that transforms the daily LeetCode grind into a high-signal, permanent knowledge base.\n\nWhile LeetCode tracks that a problem was solved, it does not help retain how it was solved over time. This system bridges that gap.\n\nBy integrating n8n and Gemini Flash, the workflow automatically converts solved problems into structured technical notes, organized per user.\n\nCore Goals:\n- Move from passive solving to active mastery\n- Build a pattern-recognition mindset (critical for interviews)\n- Maintain a personal revision reference, per tracked user\n- Generate a high-quality dataset for the uniAI study assistant",
+        "height": 304,
+        "width": 992,
+        "color": "#000000"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -352,
+        2704
+      ],
+      "typeVersion": 1,
+      "id": "563948f7-a165-4722-b4fd-82a4e4ccd401",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## How It Works\n\n1. Registration (Flow 1)\nA webhook endpoint accepts a LeetCode username from the homepage.\nValidates the username format, adds it to meta.json, and creates a content/<username> directory.\n\n2. Fetch (Flow 0 - Data Source)\nA scheduled n8n trigger runs every 24 hours (or manually) and queries LeetCode's GraphQL API.\nRuns for all registered usernames stored in meta.json.\nEndpoint retrieves: recentAcSubmissionList\n\n3. Filter (The Gatekeeper)\nA JavaScript Code node:\n- Defines a 48-hour window\n- Uses a Set to remove duplicates\n- Skips questions already processed for that user (checked against meta.json)\n\n4. Inference (The Brain)\nGemini Flash generates:\n- Pattern Identification (Sliding Window, DP, etc.)\n- Complexity Analysis (O(n), O(n log n), etc.)\n- Aha Moment (core intuition)\n\n5. Persistence (WSL/Linux)\nSaved using Bash EOF to: content/<username>/<titleSlug>.md\nProcessed slugs are written back to meta.json to prevent duplicate LLM calls.\nChanges are committed and pushed to GitHub via git.\n\n## Technical Stack\n\nWorkflow Engine: n8n (WSL2)\nLanguage: JavaScript + Bash\nLLM: Gemini Flash\nAPI: LeetCode GraphQL\nState: meta.json\nOutput: Markdown (Quartz site)",
+        "height": 736,
+        "width": 624,
+        "color": "#000000"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2288,
+        2592
+      ],
+      "typeVersion": 1,
+      "id": "d83f2d43-0762-4640-8ef1-c119367c552b",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Output Example\n\n---\ntitle: \"Subarray Sum Equals K\"\nslug: subarray-sum-equals-k\n\n---\n---\n\n# My Solution\n~~~cpp\nclass Solution {\npublic:\n    int subarraySum(vector<int>& nums, int k) {\n        unordered_map<int,int> mp;\n        int len=nums.size();\n        mp[0]=1;\n        int prefix=0;\n        int count=0;\n        int sum=0;\n        for(int i=0;i<len;i++){\n            prefix=prefix+nums[i];\n            sum=prefix-k;\n            count=count+mp[sum];\n            mp[prefix]+=1;\n\n            \n        }\n\n        return count;\n\n    }\n};\n~~~\n\n# Submission Review\n## Approach\n*   **Technique:** Prefix Sum with Hash Map (Frequency Map).\n*   **Optimality:** Optimal. It achieves $O(N)$ time complexity by transforming the range sum problem into a difference lookup, effectively finding subarrays $[j, i]$ where $P[i] - P[j-1] = k$.\n\n## Complexity\n*   **Time Complexity:** $O(N)$ average, where $N$ is the length of `nums`, as `unordered_map` operations take $O(1)$ on average.\n*   **Space Complexity:** $O(N)$ in the worst case to store up to $N$ unique prefix sums in the hash map.\n\n## Efficiency Feedback\n*   **Performance:** The logic is efficient. Using `std::unordered_map` is generally fine, but in scenarios with strict time limits or malicious test cases, `std::unordered_map` can suffer from collisions ($O(N^2)$ worst case). \n*   **Optimization:** If the constraints on `nums` values are small, a `std::vector` or a custom hash table could be used. For competitive programming, `std::map` is $O(N \\log N)$ and safer against anti-hash tests.\n\n## Code Quality\n*   **Readability:** Good. The logic is concise and follows standard idiomatic C++.\n*   **Structure:** Good. The initialization `mp[0]=1` correctly handles subarrays starting from index 0.\n*   **Naming:** Moderate. `prefix` and `sum` variables are slightly redundant; `current_sum` and `target` might be more descriptive.\n*   **Concrete Improvements:**\n    *   **Redundancy:** The variable `sum` is unnecessary. You can directly perform `count += mp[prefix - k]`.\n    *   **Performance:** Reserve space for the map if the input size $N$ is large: `mp.reserve(len);` to avoid rehashing overhead.\n    *   **Refactored snippet:**\n        ```cpp\n        unordered_map<int, int> mp;\n        mp.reserve(nums.size());\n        mp[0] = 1;\n        int current_sum = 0, count = 0;\n        for (int x : nums) {\n            current_sum += x;\n            if (mp.count(current_sum - k)) count += mp[current_sum - k];\n            mp[current_sum]++;\n        }\n        ```\n\n---\n---\n\n\n# Question Revision\n### Revision Report: Subarray Sum Equals K\n\n**Pattern:** Prefix Sum + Hash Map\n\n**Brute Force:** Generate all possible subarrays using nested loops, calculate their sums, and compare each against `k`.\n*   **Time Complexity:** $O(n^2)$\n*   **Space Complexity:** $O(1)$\n\n**Optimal Approach:** Use a running prefix sum to track the current total. Store the frequency of each prefix sum encountered so far in a hash map. If `(current_sum - k)` exists in the map, it means there is a subarray ending at the current index that sums to `k`.\n*   **Time Complexity:** $O(n)$\n*   **Space Complexity:** $O(n)$\n\n**The 'Aha' Moment:** The problem asks for the *number of* subarrays that sum to a target, implying you need a way to look back at previous prefix sums to find the difference `k` instantly.\n\n**Summary:** When asked for the count of subarrays with a specific sum, map the frequency of prefix sums to instantly identify valid segments.\n\n---\n",
+        "height": 1856,
+        "width": 784,
+        "color": "#000000"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3952,
+        3024
+      ],
+      "typeVersion": 1,
+      "id": "8204aa90-725f-4c3c-9af5-2643c30ce244",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1408,
+        3952
+      ],
+      "id": "bf3b6e29-a342-424a-9e86-a4fabfb7329e",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const meta = $input.first().json;\n\nreturn Object.entries(meta).map(([username, data]) => ({\n  json: {\n    username,\n    processedQuestions: typeof data.questions === 'object' && !Array.isArray(data.questions) ? Object.keys(data.questions) : data.questions || []\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -16,
+        3952
+      ],
+      "id": "c745c5cd-5c8b-4d21-88aa-eb9c67e3645c",
+      "name": "split-per-user1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const inputItems = $input.all();           // graphql responses, one per user\nconst userItems = $('split-per-user1').all(); // user data, same order\n\nconst results = [];\n\nfor (let i = 0; i < inputItems.length; i++) {\n  const username = userItems[i].json.username;\n  const rawProcessedQuestions = userItems[i].json.processedQuestions || [];\n  const processedQuestions = Array.isArray(rawProcessedQuestions) ? rawProcessedQuestions : Object.keys(rawProcessedQuestions);\n  const allSubmissions = inputItems[i].json?.data?.recentAcSubmissionList || [];\n\n  const seenSlugs = new Set();\n\n  for (const sub of allSubmissions) {\n    if (\n      !seenSlugs.has(sub.titleSlug) &&\n      !processedQuestions.includes(sub.titleSlug)\n    ) {\n      seenSlugs.add(sub.titleSlug);\n      results.push({ json: { ...sub, username, solvedAt: new Date(sub.timestamp * 1000).toISOString().split('T')[0] } });\n    }\n  }\n}\n\nreturn results.length > 0 ? results : [{ json: { skip: true } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        544,
+        4176
+      ],
+      "id": "97624f48-ca7e-4fb6-bd1f-79dc16143607",
+      "name": "filter-by-hour1",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "ae58a47a-a39f-4c17-a78f-2146ddcfbaab",
+              "leftValue": "={{ $json.data.recentAcSubmissionList }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        368,
+        4048
+      ],
+      "id": "7769f0ac-534e-4504-bf49-bd3cb0a6bded",
+      "name": "Filter1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  return {\n    json: {\n      query: `\n        query submissionDetails($submissionId: Int!) {\n          submissionDetails(submissionId: $submissionId) {\n            code\n            lang { name }\n            timestamp\n            statusDisplay\n            runtime\n            memory\n          }\n        }\n      `,\n      variables: {\n        submissionId: item.json.id\n      }\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        3776
+      ],
+      "id": "2479ea4a-972d-4700-840f-5655775362b3",
+      "name": "add-metadata1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://leetcode.com/graphql",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Cookie",
+              "value": "LEETCODE_SESSION=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfYXV0aF91c2VyX2lkIjoiMTQ3OTIzMzkiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6ImUzOWY0NGVjNDE2MDNkOTkzNTkzZWNhZDA4YTBiMTA5ZGJjZGE0ZjZiN2M3MzBlY2JkMWEwZWY5MzEzYWNhYzkiLCJzZXNzaW9uX3V1aWQiOiI1NmIyMGJjZSIsImlkIjoxNDc5MjMzOSwiZW1haWwiOiJzaHJleXByYXRhcHNpbmdoLnRvQG91dGxvb2suY29tIiwidXNlcm5hbWUiOiJnaXQtcHJhdGFwLXNocmV5IiwidXNlcl9zbHVnIjoiZ2l0LXByYXRhcC1zaHJleSIsImF2YXRhciI6Imh0dHBzOi8vYXNzZXRzLmxlZXRjb2RlLmNvbS91c2Vycy9naXQtcHJhdGFwLXNocmV5L2F2YXRhcl8xNzQ0MjgxMjI4LnBuZyIsInJlZnJlc2hlZF9hdCI6MTc5MTIxMTc0NiwiaXAiOiIyNDAxOjQ5MDA6YmY3Nzo5YzJjOjI1ZTQ6OWE1NjpjNjc4OmU0ZmEiLCJpZGVudGl0eSI6IjNjMmE4ZTk5NTY4MDNiZWNmMTMxNzJlY2NjM2E0NjRhIiwiZGV2aWNlX3dpdGhfaXAiOlsiNjQ4NzMwODYxZjI5MjBkZWRiN2M1ZTBkMzJlOWI3OTAiLCIyNDAxOjQ5MDA6YmY3Nzo5YzJjOjI1ZTQ6OWE1NjpjNjc4OmU0ZmEiXSwiX3Nlc3Npb25fZXhwaXJ5IjoxMjA5NjAwfQ.caXGD81GOa8N9yd9cFRJsZlywb1OkXBHTuGUQfrM4z0;"
+            },
+            {
+              "name": "x-csrftoken",
+              "value": "6mI7iJhH3ctLsmdXD6QqNWsUWqyYS4Ul"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "Referer",
+              "value": "https://leetcode.com/"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$json}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1056,
+        3824
+      ],
+      "id": "5412821a-4bda-436e-9273-2a412a3d6c8b",
+      "name": "graphql-RecentCode1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().filter(item =>\n  item.json.data.submissionDetails !== null\n);"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1248,
+        3872
+      ],
+      "id": "09a39295-5ef0-4985-abe0-8168d2a26763",
+      "name": "code-cleaning1"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "git-pratap-shrey",
+          "mode": "list",
+          "cachedResultName": "git-pratap-shrey",
+          "cachedResultUrl": "https://github.com/git-pratap-shrey"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "leetcode-notes",
+          "mode": "list",
+          "cachedResultName": "leetcode-notes",
+          "cachedResultUrl": "https://github.com/git-pratap-shrey/leetcode-notes"
+        },
+        "filePath": "meta.json",
+        "asBinaryProperty": false,
+        "additionalParameters": {}
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        -352,
+        3920
+      ],
+      "id": "c76a01a1-718d-46c8-a5e0-34420f617697",
+      "name": "Get a file1",
+      "webhookId": "eb80bd47-f9a3-4dcd-90b4-b8c60826c5b2",
+      "credentials": {
+        "githubApi": {
+          "id": "OmM7NRES1ePCikzm",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let arr = [\n  {\n    json: JSON.parse(\n      Buffer.from(\n        ($input.first().json.content || '').replace(/\\n/g, \"\"),\n        \"base64\"\n      ).toString(\"utf-8\")\n    )\n  }\n];\n\nreturn arr[0];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -192,
+        3936
+      ],
+      "id": "22f76ba3-77f2-454f-8633-ee9b369fb270",
+      "name": "decode Base64"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "4e303d2a-ced9-4a09-9215-ecce14442684",
+              "leftValue": "={{ $json.skip }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        704,
+        4192
+      ],
+      "id": "628dece8-62c7-4618-b2ef-52a9d6703597",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://lm-gateway.git-pratap-shrey.online/api/async",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.revisionBody }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        2544,
+        4000
+      ],
+      "id": "5ac9f000-6f13-4d75-be08-93732683e936",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1952,
+        4016
+      ],
+      "id": "74e3c4df-c6a6-4b53-a278-6f88de449764",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://lm-gateway.git-pratap-shrey.online/api/async",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('Code in JavaScript').item.json.analysisBody }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        3136,
+        4000
+      ],
+      "id": "5e515dde-0572-422f-8775-797b39950bdd",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "amount": 0.1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2192,
+        4016
+      ],
+      "id": "c85e69bb-ef87-45d3-b01b-9469bd7e7211",
+      "name": "Wait",
+      "webhookId": "0de3eb54-31a6-4241-a595-7ceab75cffd7"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => {\n  // Extract fields safely from your nodes\n  const title = item.json.title || '';\n  const waitItem = $('Wait').item.json;\n  const subDetails = waitItem?.data?.submissionDetails || {};\n  \n  const code = subDetails.code || '';\n  const langName = subDetails.lang?.name || '';\n\n  // Payload 1: Revision Report Generation\n  const revisionPayload = {\n    provider: \"ollama\",\n    model: \"gemma4:cloud\",\n    messages: [\n      {\n        role: \"user\",\n        content: `I solved the LeetCode problem: ${title}. Generate a revision report in Markdown for my study notes:\\n- Pattern: (e.g., Two Pointers, DP)\\n- Brute Force: Brief logic.\\n- Optimal Approach: Logic + Complexity ($O(n)$ etc.)\\n- The 'Aha' Moment: What specific hint in the problem tells me to use this pattern?\\n- Summary: 1 sentence to remember this in 6 months.`\n      },\n      {\n        role: \"system\",\n        content: \"You are a senior DSA trainer mentoring a student. Create concise, high-signal Markdown summaries. Use standard Big-O notation (e.g., $O(n)$, $O(1)$) for time and space complexity. Keep the 'Aha' moment strictly to one sentence. Provide the output directly without introductory pleasantries.\"\n      }\n    ]\n  };\n\n  // Payload 2: Solution Analysis (Handles raw code escaping safely via JS template literals)\n  const analysisPayload = {\n    provider: \"ollama\",\n    model: \"gemma4:cloud\",\n    messages: [\n      {\n        role: \"user\",\n        content: `Analyze this solution based on the criteria provided in the system instructions. Problem: ${waitItem.title || title} Language: ${langName} Code: ${code}`\n      },\n      {\n        role: \"system\",\n        content: \"You are a senior software engineer reviewing competitive programming solutions. Your job is to analyze a given solution for correctness, efficiency, and code quality. Follow these rules strictly: - Be concise and structured. - Do NOT explain the problem statement. - Focus on the given code, not generic theory. - Do NOT hallucinate details not visible in the code. - If something cannot be inferred, say so explicitly. - Prefer concrete observations over vague advice. - Keep output in clean Markdown. Output format: ## Approach - Identify the technique used (e.g., DP, recursion, greedy, etc.) - State whether it is optimal or not (with brief reasoning) ## Complexity - Time Complexity: ... - Space Complexity: ... - If suboptimal, explain the bottleneck clearly ## Efficiency Feedback - Why runtime/memory might be high or low - Specific optimizations (only if meaningful) ## Code Quality - Readability: (Good / Moderate / Poor + reason) - Structure: (Good / Moderate / Poor + reason) - Naming: (Good / Moderate / Poor + reason) - Any concrete improvements Keep the response tight and non-repetitive.\"\n      }\n    ]\n  };\n\n  return {\n    json: {\n      revisionBody: revisionPayload,\n      analysisBody: analysisPayload\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2384,
+        4000
+      ],
+      "id": "d7dfe423-7c13-481c-bf21-e8a58f53fae4",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "amount": 0.1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2960,
+        4000
+      ],
+      "id": "f5429e61-2250-4d97-ab70-5803d5c46f48",
+      "name": "Wait1",
+      "webhookId": "0de3eb54-31a6-4241-a595-7ceab75cffd7"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "dataTableId": {
+          "__rl": true,
+          "value": "85btJXKiyDuUxmwt",
+          "mode": "list",
+          "cachedResultName": "JOBS",
+          "cachedResultUrl": "/projects/gN39M0zk0PQQpzMS/datatables/85btJXKiyDuUxmwt"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "ques_id",
+              "keyValue": "={{ $('Wait').item.json.username }}/{{ $('Wait').item.json.titleSlug }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ques_id": "={{ $('Wait').item.json.username }}/{{ $('Wait').item.json.titleSlug }}",
+            "payload": "={{ JSON.stringify({   username: $('Wait').item.json.username,   title_slug: $('Wait').item.json.titleSlug,   title: $('Wait').item.json.title,   solved_at: $('Wait').item.json.solvedAt,   lang: $('Wait').item.json.data.submissionDetails.lang.name,   code: $('Wait').item.json.data.submissionDetails.code,   revision_job: $('HTTP Request').item.json.job_id,   analysis_job: $json.job_id }) }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ques_id",
+              "displayName": "ques_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "payload",
+              "displayName": "payload",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        3312,
+        4048
+      ],
+      "id": "dac571f0-835b-442d-a722-7a3fa6c40a42",
+      "name": "Upsert row(s)"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "85btJXKiyDuUxmwt",
+          "mode": "list",
+          "cachedResultName": "JOBS",
+          "cachedResultUrl": "/projects/gN39M0zk0PQQpzMS/datatables/85btJXKiyDuUxmwt"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1568,
+        4016
+      ],
+      "id": "c9751d37-f64c-4a91-83f3-6db424d4dc2f",
+      "name": "Get in-flight",
+      "executeOnce": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// drop questions that already have jobs in flight (rows in JOBS)\nconst inflight = new Set($('Get in-flight').all().map(i => i.json.ques_id).filter(Boolean));\nreturn $('Merge2').all().filter(i => !inflight.has(`${i.json.username}/${i.json.titleSlug}`));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1712,
+        4080
+      ],
+      "id": "7530d050-41f2-4249-86b1-73d134f97710",
+      "name": "drop_inflight"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get a file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get a file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Get in-flight",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "split-per-user1": {
+      "main": [
+        [
+          {
+            "node": "graphql-recentAC",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "filter-by-hour1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "filter-by-hour1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "add-metadata1": {
+      "main": [
+        [
+          {
+            "node": "graphql-RecentCode1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "graphql-RecentCode1": {
+      "main": [
+        [
+          {
+            "node": "code-cleaning1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code-cleaning1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a file1": {
+      "main": [
+        [
+          {
+            "node": "decode Base64",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "decode Base64": {
+      "main": [
+        [
+          {
+            "node": "split-per-user1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "add-metadata1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "graphql-recentAC": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Upsert row(s)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upsert row(s)": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get in-flight": {
+      "main": [
+        [
+          {
+            "node": "drop_inflight",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "drop_inflight": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "a157cec3-4ab9-4fd1-ab21-a0e4961823d7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8eb03d4c88a2e3da4b3cb8848444eb1d9c1d6528547f3dbd18020c9338010c77"
+  },
+  "nodeGroups": [],
+  "id": "hCtPWFFX67JK8qnB",
+  "tags": []
+}
